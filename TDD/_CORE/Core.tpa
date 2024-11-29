@@ -1,0 +1,314 @@
+//=============================================================================
+DEFINE_ACTION_MACRO InstallSpecificContents
+BEGIN
+
+//*****************************************************************************
+// Registering GUI...
+//*****************************************************************************
+
+	ACTION_IF (GAME_IS ~bg2 tob bgt~) BEGIN
+		INCLUDE ~%MOD_FOLDER%/lib/install-guititle.tpa~
+	END
+	
+	COPY_EXISTING ~misc01.itm~ ~override/tdd.mrk~ // tell other mod that Check The Bodies is installed
+
+//*****************************************************************************
+// IDS
+//*****************************************************************************
+	APPEND ~GTIMES.IDS~ ~12 TWO_ROUNDS~        UNLESS ~TWO_ROUNDS~
+	APPEND ~GTIMES.IDS~ ~18 THREE_ROUNDS~      UNLESS ~THREE_ROUNDS~
+	APPEND ~GTIMES.IDS~ ~24 FOUR_ROUNDS~       UNLESS ~FOUR_ROUNDS~
+	APPEND ~GTIMES.IDS~ ~30 FIVE_ROUNDS~       UNLESS ~FIVE_ROUNDS~
+	APPEND ~GTIMES.IDS~ ~36 SIX_ROUNDS~        UNLESS ~SIX_ROUNDS~
+	APPEND ~GTIMES.IDS~ ~54 NINE_ROUNDS~       UNLESS ~NINE_ROUNDS~
+	
+	ACTION_IF (GAME_IS ~bg2 tob bgt~) BEGIN
+		COPY_EXISTING ~SPELL.IDS~        ~override~
+			REPLACE_TEXTUALLY ~2302 WIZARD_DISPEL_MAGIC~      ~2302 WIZARD_REMOVE_MAGIC~
+		APPEND ~SPELL.IDS~ ~2326 WIZARD_DISPEL_MAGIC~
+		UNLESS ~2326 WIZARD_DISPEL_MAGIC~
+		
+		APPEND ~shoutids.ids~ ~2 LEAVE2~ UNLESS ~LEAVE2~
+		APPEND ~shoutids.ids~ ~66 DEAD_MEAT~ UNLESS ~^66~
+		APPEND ~shoutids.ids~ ~68 SUM_ATTACK_GOOD~ UNLESS ~^68~
+		APPEND ~shoutids.ids~ ~69 SUM_ATTACK_EVIL~ UNLESS ~^69~
+		APPEND ~shoutids.ids~ ~79 HELP79~ UNLESS ~^79~
+		APPEND ~shoutids.ids~ ~80 HELPARCHER~ UNLESS ~^80~
+		APPEND ~shoutids.ids~ ~81 FLEEARCHER~ UNLESS ~^81~
+		APPEND ~shoutids.ids~ ~82 COMEARCHER~ UNLESS ~^82~
+		APPEND ~shoutids.ids~ ~83 HELP83~ UNLESS ~^83~
+		APPEND ~shoutids.ids~ ~84 IM_BLIND~ UNLESS ~^84~
+		APPEND ~shoutids.ids~ ~89 ATTACK89~ UNLESS ~^89~
+		APPEND ~shoutids.ids~ ~99 HELPME~ UNLESS ~^99~
+		APPEND ~shoutids.ids~ ~100 HELP100~ UNLESS ~^100~
+		APPEND ~shoutids.ids~ ~101 HELP101~ UNLESS ~^101~
+		APPEND ~shoutids.ids~ ~111 WARNALARM~ UNLESS ~^111~
+		APPEND ~shoutids.ids~ ~115 HELP_ALIBAKKAR~ UNLESS ~^115~
+		APPEND ~shoutids.ids~ ~116 HELP_LURRAXOL~ UNLESS ~^116~
+		APPEND ~shoutids.ids~ ~121 HELP121~ UNLESS ~^121~
+		APPEND ~shoutids.ids~ ~122 HELP122~ UNLESS ~^122~
+		APPEND ~shoutids.ids~ ~151 HELP_ME_GROUP151~ UNLESS ~^151~
+		APPEND ~shoutids.ids~ ~152 ATTACK_MAGE~ UNLESS ~^152~
+		APPEND ~shoutids.ids~ ~153 HELP_ME_GROUP153~ UNLESS ~^153~
+		APPEND ~shoutids.ids~ ~154 FLEE_FROM_MAGE~ UNLESS ~^154~
+		APPEND ~shoutids.ids~ ~155 ATTACK_MAGE~ UNLESS ~^155~
+		APPEND ~shoutids.ids~ ~156 UNDER_ATTACK~ UNLESS ~^156~
+		APPEND ~shoutids.ids~ ~199 HELPME_DRUIDS~ UNLESS ~^199~
+		APPEND ~shoutids.ids~ ~200 POISONED_200~ UNLESS ~^200~
+		
+		APPEND ~STATE.IDS~ ~0x00102029 STATE_HARMLESS~         UNLESS ~0x00102029~
+		APPEND ~STATE.IDS~ ~0x80040004 STATE_RANGED_TARGET~    UNLESS ~0x80040004~
+		APPEND ~STATE.IDS~ ~0x8014202D STATE_OUT_OF_ACTION~    UNLESS ~0x8014202D~
+		APPEND ~STATE.IDS~ ~0x00400010 STATE_NOT_VISIBLE~      UNLESS ~0x00400010~
+		APPEND ~STATE.IDS~ ~0x60400010 STATE_ILLUSIONS~        UNLESS ~0x60400010~
+		APPEND ~STATE.IDS~ ~0x63C08010 STATE_ENCHANTED~        UNLESS ~0x63C08010~
+	END
+
+//*****************************************************************************
+// spell 
+//*****************************************************************************
+	COPY ~%RES_FOLDER%/SPL/SPSHAD2.spl~ ~override~
+	
+	COPY ~%RES_FOLDER%/Spl/SPPR736.spl~ ~override/TZPR736.spl~
+		SAY NAME1 @20739
+		SAY UNIDENTIFIED_DESC @20740
+	COPY ~%RES_FOLDER%/Spl/SPPR737.SPL~ ~override~
+		SAY NAME1 @20066 
+		SAY UNIDENTIFIED_DESC @20741		
+	COPY ~%RES_FOLDER%/Spl/SPWI430.spl~ ~override/TZWI430.spl~
+		SAY NAME1 @20847
+		SAY UNIDENTIFIED_DESC @20848
+	COPY ~%RES_FOLDER%/Spl/SPPR629.spl~ ~override/TZPR629.spl~
+		SAY NAME1 @20729
+		SAY UNIDENTIFIED_DESC @20730		
+	COPY ~%RES_FOLDER%/Spl/SPWI820.spl~ ~override/TZWI820.spl~
+		SAY NAME1 @20875
+		SAY UNIDENTIFIED_DESC @20876
+	COPY ~%RES_FOLDER%/Spl/SPWI827.spl~ ~override/TZWI827.spl~
+		SAY NAME1 @20890
+		SAY UNIDENTIFIED_DESC @20891
+	COPY ~%RES_FOLDER%/Spl/SPWI427.spl~ ~override/TZWI427.spl~
+		SAY NAME1 @20841
+		SAY UNIDENTIFIED_DESC @20842
+	COPY ~%RES_FOLDER%/Spl/SPPR525.spl~ ~override/TZPR525.spl~
+		SAY NAME1 @20687
+		SAY UNIDENTIFIED_DESC @20688
+	COPY ~%RES_FOLDER%/Spl/SPPR623.spl~ ~override/TZPR623.spl~
+		SAY NAME1 @20716
+		SAY UNIDENTIFIED_DESC @20717
+	COPY ~%RES_FOLDER%/Spl/SPPR963.spl~ ~override/TZPR963.spl~
+		SAY NAME1 @20814
+	COPY ~%RES_FOLDER%/Spl/SPPR962.spl~ ~override/TZPR962.spl~
+		SAY NAME1 @20813				
+
+	
+	//ACTION_IF NOT FILE_EXISTS ~data/CTB-RULE.BIF~ THEN BEGIN //CtB compatibility
+	// we HAVE TO do import them with or without CtB so we rename spells wit TDD unique names
+		COPY ~%RES_FOLDER%/SPL/SPWI823.spl~ ~override/SPTDD01.spl~ // ADD_SPELL failed for WIZARD_IRON_BODY...
+			SAY NAME1 @20948
+			SAY UNIDENTIFIED_DESC @20949
+		COPY ~%RES_FOLDER%/SPL/SPWI824.spl~ ~override/SPTDD02.spl~ // ADD_SPELL failed for WIZARD_MIND_BLANK...
+			SAY NAME1 @20950
+			SAY UNIDENTIFIED_DESC @20951
+	//END
+		
+		
+	LAM ImportSpellScrolls_FromTDD
+
+//*****************************************************************************
+// animations
+//*****************************************************************************
+	
+	ACTION_IF GAME_IS ~bg2 tob bgt~ BEGIN		
+		ACTION_IF NOT MOD_IS_INSTALLED "RoT.tp2" (ID_OF_LABEL "RoT.tp2" "region_of_terror" ) BEGIN    // Compatibility with RoT	
+			COPY ~%MOD_FOLDER%/Compat/anim/MCYC~ ~override~          //CYCLOP
+			COPY ~%MOD_FOLDER%/Compat/anim/MTAN~ ~override~          //MARILITH graphics
+			COPY ~%MOD_FOLDER%/Compat/anim/MNO2~ ~override~          //FROST GIANT
+
+			COPY_EXISTING 	~ORC06.cre~     ~override~
+							~HLOLAF.cre~    ~override~
+							~CHAK.cre~      ~override~
+							~AR18FIG.cre~   ~override~
+				WRITE_LONG 0x28  0xE700   //IC_OROG1 instead of IC_OROG2
+			BUT_ONLY_IF_IT_CHANGES
+  
+			ACTION_IF (FILE_EXISTS_IN_GAME ~ULIGAR.CRE~) BEGIN
+				COPY_EXISTING ~ULIGAR.CRE~        ~override~    //NeJ2
+					WRITE_LONG 0x28  0xE700   //IC_OROG1 instead of IC_OROG2
+				BUT_ONLY_IF_IT_CHANGES
+			END
+		END
+			
+//		COPY ~TDD/CRE/EASTGOL1.cre~         ~TDD-CRE~ //Iron Golem
+//			 ~TDD/CRE/EASTGOL2.cre~         ~TDD-CRE~
+//			SAY NAME1 @20307
+//			SAY NAME2 @20307
+//			WRITE_LONG 0x28 0x7F04   //GOLEM_IRON
+			
+//		COPY ~TDD/CRE/IRONTOMB.cre~         ~TDD-CRE~ //Iron Golem
+//			SAY NAME1 @20329
+//			SAY NAME2 @20329
+//			WRITE_LONG 0x28 0x7F04   //GOLEM_IRON
+			
+			
+//		COPY ~TDD/CRE/DDFROST1.cre~         ~TDD-CRE~  //FROST GIANT
+//		 	 ~TDD/CRE/FROST01.cre~          ~TDD-CRE~
+//			 ~TDD/CRE/HILLFRO1.cre~         ~TDD-CRE~
+//		 	 ~TDD/CRE/HILLFRO2.cre~         ~TDD-CRE~
+//		 	 ~TDD/CRE/HILLFRO3.cre~         ~TDD-CRE~
+//			SAY NAME1 @20240
+//			SAY NAME2 @20240
+//			WRITE_LONG 0x28  0xE710   //IC_OROG2
+			
+//		COPY ~TDD/CRE/KNORD.cre~            ~TDD-CRE~
+//			SAY NAME1 @20335
+//			SAY NAME2 @20335
+//			WRITE_LONG 0x28  0xE710   //IC_OROG2
+	END	
+	
+	ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+		LAM InstallFrostGiantAnimation
+		LAM InstallIronGolemAnimation
+		LAM InstallCyclopsAnimation	
+	END
+
+//*****************************************************************************
+// Rules
+//*****************************************************************************			
+
+// Tooltip	
+	INCLUDE ~%MOD_FOLDER%/Lib/Items.tpa~ 
+		LAM UpdateTooltip
+	
+	
+// Level 50 Rules
+	ACTION_IF (GAME_IS ~bg2 tob bgt~) BEGIN
+		INCLUDE ~%MOD_FOLDER%/lib/install-level50-rules.tpa~
+	END
+
+/*
+// NPC will be continous
+	ACTION_IF GAME_IS ~bg2 tob bgt~
+	ACTION_IF NOT FILE_EXISTS ~data/BG1ARE.BIF~  THEN BEGIN    //BGT-WeiDU compatibility - all NPC will be continous if BGT installed
+		APPEND ~PDIALOG.2DA~
+			~KAGAINDD     KAGAIP             ***              ***       	     ***    	      ***    		    ***    		        ***
+			YESLICDD     YESLIP             ***               ***                ***    	      ***    		    ***    		        ***
+			XZARDD       XZARP              ***               ***	             ***    	      ***    		    ***    		        ***
+			MONTYDD      MONTAP             ***               ***                ***    	      ***    		    ***    		        ***
+			SHARTEDD     SHARTP             ***               ***         	     ***    	      ***    		    ***    		        ***
+			KIVANDD      KIVANP             ***               ***        	     ***    	      ***    		    ***    		        ***~
+	END //BGT-WeiDU compatibility
+	
+	APPEND ~PDIALOG.2DA~
+		~ADARIO       ADARIOP            ***               ***                ***    	       ***    		     ***    		        ***
+		AVAUNIS      AVAUNISP           AVAUNISJ          ***                ***    	      ***    		    ***    		        ***
+		ROBILARD     ROBILP             ***               ***                ***    	      ***    		    ***    		        ***
+		VESINE       VESINEP            VESINEJ           ***	             ***    	      ***    		    ***    		        ***~
+	UNLESS ~ADARIO~
+*/
+
+//*****************************************************************************
+// worldmap
+//*****************************************************************************	
+	INCLUDE ~%MOD_FOLDER%/Worldmap/Worldmap.tpa~
+		LAM NotifyWorldmap	
+
+
+
+//*****************************************************************************
+// check
+//*****************************************************************************	
+		
+	OUTER_TEXT_SPRINT sender ~%COMP_FOLDER%~
+	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~ LAF Accept STR_VAR sender target = ~_CORE~ END	
+END
+
+
+
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallIronGolemAnimation
+BEGIN
+	APPEND ~EXTANIM.2DA~ ~57936 0 1 1 0 0 0 0 0 0 NONE NONE NONE 8 4 MGIR NONE 0 0 NONE~ UNLESS ~57936~	
+	APPEND ~ANIMATE.IDS~ ~0xE250 IC_GOLEM_IRON~ UNLESS ~0xE250~	
+	
+	COPY ~%MOD_FOLDER%/%COMP_FOLDER%/Creatures/IronGolem/BAM~ ~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallFrostGiantAnimation
+BEGIN
+	APPEND ~EXTANIM.2DA~ ~57935 0 1 1 0 0 0 47 0 0 NONE NONE NONE 8 5 MGFR NONE 0 0 NONE~ UNLESS ~57935~
+	APPEND ~ANIMATE.IDS~ ~0xE24F IC_GIANT_FROST~ UNLESS ~0xE24F~
+	APPEND ~EXTSPEED.2DA~ ~57935	8~ UNLESS ~57935~
+		
+	COPY ~%MOD_FOLDER%/%COMP_FOLDER%/Creatures/FrostGiant/BAM~ ~override~
+	COPY ~%MOD_FOLDER%/%COMP_FOLDER%/Creatures/FrostGiant/MGFR.2DA~ ~override~
+	COPY ~%MOD_FOLDER%/%COMP_FOLDER%/Creatures/FrostGiant/OGG~ ~%MOD_FOLDER%/Audio~	
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallCyclopsAnimation
+BEGIN
+	APPEND ~ANIMATE.IDS~ ~0xE000 IC_CYCLOPS~ UNLESS ~0xE000~
+			
+	COPY ~%MOD_FOLDER%/%COMP_FOLDER%/Creatures/Cyclops/BAM~ ~override~	
+	COPY ~%MOD_FOLDER%/%COMP_FOLDER%/Creatures/Cyclops/MCYC.2DA~ ~override~
+	COPY ~%MOD_FOLDER%/%COMP_FOLDER%/Creatures/Cyclops/OGG~ ~%MOD_FOLDER%/Audio~
+END
+
+
+
+
+//=============================================================================
+DEFINE_ACTION_MACRO ImportSpellScrolls_FromTDD
+BEGIN
+	COPY ~%RES_FOLDER%/SpellScrollsContract.2da~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/SpellScrollsContract.2da~
+		COUNT_2DA_ROWS 8 count
+		WHILE (count > 1) BEGIN
+			READ_2DA_ENTRY (count -1) 0 7 resname
+			READ_2DA_ENTRY (count -1) 1 7 name1
+			READ_2DA_ENTRY (count -1) 2 7 name2
+			READ_2DA_ENTRY (count -1) 3 7 unidentifiedDesc
+			READ_2DA_ENTRY (count -1) 4 7 desc
+			READ_2DA_ENTRY (count -1) 5 7 iconS
+			READ_2DA_ENTRY (count -1) 6 7 policy //undroppable column
+			READ_2DA_ENTRY (count -1) 7 7 path_to_file
+			SET count = count -1
+			
+			TO_UPPER resname
+			TO_UPPER policy
+			SET unchanged = (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)			
+			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+			SET replace = (~%customize%~ && NOT ~%undroppable%~)
+			SPRINT newItem ~%policy%~
+			PATCH_IF (~%undroppable%~)
+				BEGIN SPRINT newItem ~SCRL75~ END
+										
+			INNER_ACTION BEGIN					
+				ACTION_IF ~%unchanged%~ BEGIN 
+					COPY ~%MOD_FOLDER%/%path_to_file%/%resname%.itm~ ~override~
+						PATCH_IF IS_AN_INT name1 BEGIN SET strref = RESOLVE_STR_REF ((AT name1)) WRITE_LONG NAME1 %strref% END
+						PATCH_IF IS_AN_INT name2 BEGIN SET strref = RESOLVE_STR_REF ((AT name2)) WRITE_LONG NAME2 %strref% END
+						PATCH_IF IS_AN_INT unidentifiedDesc BEGIN SET strref = RESOLVE_STR_REF ((AT unidentifiedDesc)) WRITE_LONG UNIDENTIFIED_DESC %strref% END
+						PATCH_IF IS_AN_INT desc BEGIN SET strref = RESOLVE_STR_REF ((AT desc)) WRITE_LONG DESC %strref% END
+						PATCH_IF NOT ~%iconS%~ STRING_EQUAL ~+~ BEGIN 
+							PATCH_IF IS_AN_INT iconS 
+								BEGIN SPRINT iconS ~%resname%~ END
+							WRITE_ASCIIE 0x3A ~%iconS%~ #8
+							
+							INNER_ACTION BEGIN
+								ACTION_IF NOT FILE_EXISTS_IN_GAME ~%iconS%.bam~ BEGIN
+									ACTION_IF FILE_EXISTS ~%RES_FOLDER%/%iconS%.bam~ BEGIN 
+										COPY ~%RES_FOLDER%/%iconS%.bam~ ~override~ 
+									END ELSE BEGIN 
+										PRINT ~Warning: missing ressource from TDD and BG2EE: %iconS%.bam, to continue, please press Enter~
+										ACTION_READLN ~pause~
+									END
+								END
+							END									
+						END				
+				END
+			END
+		END
+END

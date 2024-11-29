@@ -1,0 +1,34 @@
+//=============================================================================
+DEFINE_ACTION_MACRO NotifyWorldmap
+BEGIN
+	LOCAL_SPRINT tutu_OrEmpty ~~
+	ACTION_IF FILE_EXISTS_IN_GAME ~FW0100.are~ THEN BEGIN
+		OUTER_SPRINT tutuOrEmpty ~tutu_~
+	END
+
+	ACTION_IF FILE_EXISTS ~Worldmap/map_mods_areas.tbl~ && NOT FILE_CONTAINS ~Worldmap/map_mods_areas.tbl~ ~DD1900      DD1900~ THEN BEGIN		
+		COPY ~Worldmap/map_mods_areas.tbl~ ~Worldmap~
+			APPEND_FILE ~%MOD_FOLDER%/Worldmap/%tutu_OrEmpty%areas.tbl~		
+			
+		COPY ~Worldmap/map_mods_links.tbl~ ~Worldmap~
+			APPEND_FILE ~%MOD_FOLDER%/Worldmap/%tutu_OrEmpty%links.tbl~
+			PATCH_IF (MOD_IS_INSTALLED "SoS.tp2" (ID_OF_LABEL "SoS.tp2" "shadows_over_soubar")) BEGIN
+				APPEND_FILE ~TDD/Worldmap/sos_links.tbl~
+			END
+			PATCH_IF (MOD_IS_INSTALLED "RoT.tp2" (ID_OF_LABEL "RoT.tp2" "region_of_terror" )) BEGIN
+				APPEND_FILE ~TDD/Worldmap/rot_links.tbl~
+			END
+			PATCH_IF (MOD_IS_INSTALLED "CtB.tp2" (ID_OF_LABEL "CtB.tp2" "check_the_bodies" )) BEGIN
+				APPEND_FILE ~TDD/Worldmap/ctb_links.tbl~
+			END
+			
+		COPY ~Worldmap/map_mods_trans.tra~ ~Worldmap~
+			APPEND_FILE_EVALUATE ~%MOD_FOLDER%/Language/%LANGUAGE%/worldmap.tra~
+	END
+	ELSE BEGIN
+		MKDIR ~Worldmap~
+		COPY ~%MOD_FOLDER%/Worldmap/areas.tbl~ ~Worldmap/map_mods_areas.tbl~
+		COPY ~%MOD_FOLDER%/Worldmap/links.tbl~ ~Worldmap/map_mods_links.tbl~
+		COPY ~%MOD_FOLDER%/Language/%LANGUAGE%/worldmap.tra~ ~Worldmap/map_mods_trans.tra~
+	END
+END

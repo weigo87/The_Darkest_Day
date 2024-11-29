@@ -1,0 +1,378 @@
+OUTER_TEXT_SPRINT COMP_FOLDER ~~
+
+//=============================================================================
+DEFINE_ACTION_MACRO FetchTranslationsBeforeAnySAYandCOMPILE
+BEGIN
+	ACTION_IF DIRECTORY_EXISTS "%RES_FOLDER%/TRA/%LANGUAGE%" BEGIN
+		LAF HANDLE_CHARSETS
+        INT_VAR
+            from_utf8 = 1
+            infer_charsets = 1
+            verbose = 1 // you can disable this if you want to skip verbose output
+        STR_VAR
+            default_language = ~English~
+            tra_path = EVAL "%RES_FOLDER%/TRA"
+            out_path = EVAL "%HANDLE_CHARSETS_OUT_PATH%" // location of converted .tra files
+            iconv_path = EVAL "%MOD_FOLDER%/Tools/iconv" //available as part of the base system on OS X and GNU/Linux
+            reload_array = charsetsReloadArray
+            noconvert_array = charsetsNoConvertArray
+		END
+//		LAF HANDLE_CHARSETS // convert tra files to UTF-8 encoding if needed
+//			INT_VAR
+//				infer_charsets = 1
+//			STR_VAR
+//				tra_path = EVAL ~%RES_FOLDER%/TRA~
+//				iconv_path = EVAL ~%MOD_FOLDER%/tools/iconv/win32~
+//		END
+//		COPY ~%RES_FOLDER%/TRA/%LANGUAGE%~ ~%MOD_FOLDER%/TEMP/Translations~
+	END
+END
+
+
+//=============================================================================
+DEFINE_ACTION_FUNCTION ImportComponent STR_VAR aComp = ~~
+BEGIN
+	OUTER_TEXT_SPRINT COMP_FOLDER ~_%aComp%~
+	OUTER_TEXT_SPRINT RES_FOLDER ~%MOD_FOLDER%/%COMP_FOLDER%~
+
+//	MKDIR ~%MOD_FOLDER%/Audio~
+//	MKDIR ~%MOD_FOLDER%/tiz~
+//	MKDIR ~%MOD_FOLDER%/TEMP~
+//	MKDIR ~%MOD_FOLDER%/TEMP/Translations~
+//	MKDIR ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%~
+
+	LAM FetchTranslationsBeforeAnySAYandCOMPILE
+
+	//LAM ImportSPL_FromTDD
+	LAM ImportCRE_FromTDD
+	LAM ImportITM_FromTDD
+	LAM ImportSTO_FromTDD
+	LAM ImportARE_FromTDD
+
+	ACTION_DEFINE_ASSOCIATIVE_ARRAY dispatch BEGIN
+		BAM => override
+		BMP => override
+		ITM => override
+		STO => override
+		MOS => override
+		BAF => ~%workspace%/%COMP_FOLDER%~
+		D   => ~%workspace%/%COMP_FOLDER%~
+	END
+	ACTION_PHP_EACH dispatch AS restype => to BEGIN
+		ACTION_IF DIRECTORY_EXISTS "%RES_FOLDER%/%restype%"
+			BEGIN COPY ~%RES_FOLDER%/%restype%~ ~%to%~ END END
+
+	LAM ApplyScriptedXpCustomization
+	LAF InstallComponentSpecificContents STR_VAR comp = EVAL ~%aComp%~ END
+	LAM CompileBAFandDAfterCustomizationsApplied
+	
+	ACTION_IF FILE_EXISTS ~%MOD_FOLDER%/DebugOn.txt~ BEGIN 
+		PRINT ~!!!!!!!! DEBUG ON: HandleAudio and HandleTileset skipped !!!!!!!!~ 
+	END ELSE BEGIN 
+		LAM HandleAudio 
+		LAM HandleTileset	
+	END
+END
+
+
+//=============================================================================
+DEFINE_ACTION_FUNCTION InstallComponentSpecificContents STR_VAR comp = ~~
+BEGIN	
+	ACTION_IF FILE_EXISTS ~%RES_FOLDER%/%comp%.tpa~
+		BEGIN INCLUDE ~%RES_FOLDER%/%comp%.tpa~ LAM InstallSpecificContents END
+END
+
+
+//=============================================================================
+DEFINE_ACTION_MACRO CompileBAFandDAfterCustomizationsApplied
+BEGIN	
+	COMPILE ~%workspace%/%COMP_FOLDER%~ EVAL
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO ImportARE_FromTDD
+BEGIN
+	INCLUDE ~%MOD_FOLDER%/Lib/Areas.tpa~
+	ACTION_IF FILE_EXISTS ~%RES_FOLDER%/AreasContract.2da~ BEGIN
+		COPY ~%RES_FOLDER%/AreasContract.2da~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/AreasContract.2da~
+			COUNT_2DA_ROWS 1 count
+			WHILE (count > 1) BEGIN
+				READ_2DA_ENTRY (count -1) 0 7 resname
+				READ_2DA_ENTRY (count -1) 1 7 mos
+				READ_2DA_ENTRY (count -1) 2 7 wed
+				READ_2DA_ENTRY (count -1) 3 7 tiz
+				READ_2DA_ENTRY (count -1) 4 7 htmap
+				READ_2DA_ENTRY (count -1) 5 7 lmmap
+				READ_2DA_ENTRY (count -1) 6 7 srmap
+				INNER_ACTION BEGIN
+					OUTER_SPRINT path ~%RES_FOLDER%/ARE/%resname%.are~
+					ACTION_IF FILE_EXISTS ~%RES_FOLDER%/ARE/%resname%.are~ // we start to use TDDs .AREs
+						BEGIN OUTER_SPRINT path ~%RES_FOLDER%/ARE/%resname%.are~ END
+								
+					COPY ~%path%~ ~override~
+						LPM SetAnimationsInCombatFlag
+						
+					ACTION_IF NOT ~%mos%~ STRING_EQUAL ~+~ BEGIN ACTION_IF IS_AN_INT mos BEGIN COPY ~%RES_FOLDER%/MOS/%resname%.MOS~ ~override~ END ELSE BEGIN COPY ~TDD/MOS/%mos%.MOS~ ~override~ END END
+					ACTION_IF NOT ~%wed%~ STRING_EQUAL ~+~ BEGIN ACTION_IF IS_AN_INT wed BEGIN COPY ~%RES_FOLDER%/WED/%resname%.WED~ ~override~ END ELSE BEGIN COPY ~TDD/WED/%wed%.WED~ ~override~ END END
+					ACTION_IF NOT ~%tiz%~ STRING_EQUAL ~+~ BEGIN ACTION_IF IS_AN_INT tiz BEGIN COPY ~%RES_FOLDER%/TIZ/%resname%.TIZ~ ~%MOD_FOLDER%/TIZ/%resname%.TIZ~ END ELSE BEGIN COPY ~TDD/TIZ/%tiz%.TIZ~ ~%MOD_FOLDER%/TIZ/%tiz%.TIZ~ END END
+					ACTION_IF NOT ~%htmap%~ STRING_EQUAL ~+~ BEGIN ACTION_IF IS_AN_INT htmap BEGIN COPY ~%RES_FOLDER%/MOS/%resname%HT.BMP~ ~override~ END ELSE BEGIN COPY ~TDD/MOS/%htmap%.BMP~ ~override~ END END
+					ACTION_IF NOT ~%lmmap%~ STRING_EQUAL ~+~ BEGIN ACTION_IF IS_AN_INT lmmap BEGIN COPY ~%RES_FOLDER%/MOS/%resname%LM.BMP~ ~override~ END ELSE BEGIN COPY ~TDD/MOS/%lmmap%.BMP~ ~override~ END END
+					ACTION_IF NOT ~%srmap%~ STRING_EQUAL ~+~ BEGIN ACTION_IF IS_AN_INT srmap BEGIN COPY ~%RES_FOLDER%/MOS/%resname%SR.BMP~ ~override~ END ELSE BEGIN COPY ~TDD/MOS/%srmap%.BMP~ ~override~ END END
+				END
+				SET count = count -1
+			END		
+		BUT_ONLY
+	END
+	//EET Worldmap
+	ACTION_IF GAME_IS ~eet~ BEGIN
+		INCLUDE ~%MOD_FOLDER%/Lib/add_worldmap_tbl.tpa~
+		LAF ADD_WORLDMAP_TBL
+			INT_VAR
+			verbose = 0
+			inclSv = 0
+			STR_VAR
+			path_to_areas = EVAL ~%MOD_FOLDER%/Worldmap/eet_areas.tbl~
+			path_to_areas_bp = EVAL ~%MOD_FOLDER%/Worldmap/areas.tbl~
+			path_to_links = EVAL ~%MOD_FOLDER%/Worldmap/links.tbl~
+			path_to_trans = EVAL ~%MOD_FOLDER%/Language/%LANGUAGE%/worldmap.tra~
+		END
+	END
+END
+
+
+//=============================================================================
+DEFINE_ACTION_MACRO ApplyScriptedXpCustomization
+BEGIN
+	ACTION_IF FILE_EXISTS ~%RES_FOLDER%/XpContract.2da~ BEGIN
+		COPY ~%RES_FOLDER%/XpContract.2da~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/XpContract.2da~
+			COUNT_2DA_ROWS 4 count
+			WHILE (count > 1) BEGIN
+				READ_2DA_ENTRY (count -1) 0 4 resref
+				READ_2DA_ENTRY (count -1) 1 4 signature
+				READ_2DA_ENTRY (count -1) 2 4 tddValue
+				READ_2DA_ENTRY (count -1) 3 4 xpValue
+				SET count = count -1				
+						
+				INNER_ACTION BEGIN
+					COPY ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/%resref%~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/%resref%~
+						SET xp = %tddValue%
+						PATCH_IF IS_AN_INT xpValue BEGIN
+							SET xp = %xpValue%
+							PATCH_IF %xpValue% < 1000 
+								BEGIN SET xp = %tddValue% * %xpValue% / 100 END
+						END
+						REPLACE_TEXTUALLY ~%signature%~ ~%xp%~						
+				END
+			END		
+		BUT_ONLY
+	END
+END
+
+
+//=============================================================================
+DEFINE_ACTION_MACRO ImportITM_FromTDD
+BEGIN	
+	ACTION_IF FILE_EXISTS ~%RES_FOLDER%/ItemsContract.2da~ BEGIN
+		COPY ~%RES_FOLDER%/ItemsContract.2da~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ItemsContract.2da~
+			COUNT_2DA_ROWS 7 count
+			WHILE (count > 1) BEGIN
+				READ_2DA_ENTRY (count -1) 0 7 resname
+				READ_2DA_ENTRY (count -1) 1 7 name1
+				READ_2DA_ENTRY (count -1) 2 7 name2
+				READ_2DA_ENTRY (count -1) 3 7 unidentifiedDesc
+				READ_2DA_ENTRY (count -1) 4 7 desc
+				READ_2DA_ENTRY (count -1) 5 7 iconS
+				READ_2DA_ENTRY (count -1) 6 7 policy
+				SET count = count -1
+					
+				TO_UPPER resname
+				SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)
+				SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+				SET replace = (~%customize%~ && NOT ~%undroppable%~)
+				
+				INNER_ACTION BEGIN
+					ACTION_IF NOT ~%replace%~ BEGIN
+						OUTER_SPRINT path ~%RES_FOLDER%/ITM/%resname%.ITM~
+						ACTION_IF FILE_EXISTS ~%RES_FOLDER%/ITM/%resname%.itm~ // we start to use TDDs .ITMs
+							BEGIN OUTER_SPRINT path ~%RES_FOLDER%/ITM/%resname%.itm~ END															
+							
+						COPY ~%path%~ ~override~
+							PATCH_IF IS_AN_INT name1 BEGIN SET strref = RESOLVE_STR_REF ((AT name1)) WRITE_LONG NAME1 %strref% END
+							PATCH_IF IS_AN_INT name2 BEGIN SET strref = RESOLVE_STR_REF ((AT name2)) WRITE_LONG NAME2 %strref% END
+							PATCH_IF IS_AN_INT unidentifiedDesc BEGIN SET strref = RESOLVE_STR_REF ((AT unidentifiedDesc)) WRITE_LONG UNIDENTIFIED_DESC %strref% END
+							PATCH_IF IS_AN_INT desc BEGIN SET strref = RESOLVE_STR_REF ((AT desc)) WRITE_LONG DESC %strref% END
+							PATCH_IF NOT ~%iconS%~ STRING_EQUAL ~+~ BEGIN 
+								PATCH_IF IS_AN_INT iconS 
+									BEGIN SPRINT iconS ~%resname%~ END
+								WRITE_ASCIIE 0x3A ~%iconS%~ #8
+								INNER_ACTION BEGIN
+									ACTION_IF NOT FILE_EXISTS_IN_GAME ~%iconS%.bam~ 
+										BEGIN COPY ~%RES_FOLDER%/BAM/%iconS%.bam~ ~override~ END 
+								END									
+							END
+							PATCH_IF ~%policy%~ STRING_EQUAL ~.~ BEGIN READ_BYTE 0x18 THIS WRITE_BYTE 0x18 (%THIS% BAND 0b11111011) END // set undroppable flag
+					END
+				END
+			END		
+		BUT_ONLY
+	END
+END
+
+
+//=============================================================================
+//DEFINE_ACTION_MACRO ImportSPL_FromTDD
+//BEGIN		
+//	ACTION_IF FILE_EXISTS ~%RES_FOLDER%/SpellsContract.2da~ BEGIN
+//		COPY ~%RES_FOLDER%/SpellsContract.2da~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/SpellsContract.2da~
+//			COUNT_2DA_ROWS 5 count
+//			WHILE (count > 1) BEGIN
+//				READ_2DA_ENTRY (count -1) 0 5 resname
+//				READ_2DA_ENTRY (count -1) 1 5 name1
+//				READ_2DA_ENTRY (count -1) 2 5 name2
+//				READ_2DA_ENTRY (count -1) 3 5 unidentifiedDesc
+//				READ_2DA_ENTRY (count -1) 4 5 desc
+//				SET count = count -1
+//					
+//				INNER_ACTION BEGIN
+//					COPY ~TDD/SPL/%resname%.SPL~ ~override~
+//						PATCH_IF IS_AN_INT name1 BEGIN SET strref = RESOLVE_STR_REF ((AT name1)) WRITE_LONG NAME1 %strref% END
+//						PATCH_IF IS_AN_INT name2 BEGIN SET strref = RESOLVE_STR_REF ((AT name2)) WRITE_LONG NAME2 %strref% END
+//						PATCH_IF IS_AN_INT unidentifiedDesc BEGIN SET strref = RESOLVE_STR_REF ((AT unidentifiedDesc)) WRITE_LONG UNIDENTIFIED_DESC %strref% END
+//						PATCH_IF IS_AN_INT desc BEGIN SET strref = RESOLVE_STR_REF ((AT desc)) WRITE_LONG DESC %strref% END
+//				END
+//			END
+//		BUT_ONLY
+//	END	
+//END
+
+
+//=============================================================================
+DEFINE_ACTION_MACRO ImportSTO_FromTDD
+BEGIN		
+	ACTION_IF FILE_EXISTS ~%RES_FOLDER%/StoresContract.2da~ BEGIN
+		COPY ~%RES_FOLDER%/StoresContract.2da~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/StoresContract.2da~
+			COUNT_2DA_ROWS 3 count
+			WHILE (count > 1) BEGIN
+				READ_2DA_ENTRY (count -1) 0 3 resname
+				READ_2DA_ENTRY (count -1) 1 3 name1
+				READ_2DA_ENTRY (count -1) 2 3 name2
+				SET count = count -1
+					
+				INNER_ACTION BEGIN
+					COPY ~%RES_FOLDER%/STO/%resname%.STO~ ~override~
+						PATCH_IF IS_AN_INT name1 BEGIN SET strref = RESOLVE_STR_REF ((AT name1)) WRITE_LONG NAME1 %strref% END
+						PATCH_IF IS_AN_INT name2 BEGIN SET strref = RESOLVE_STR_REF ((AT name2)) WRITE_LONG NAME2 %strref% END
+				END
+			END		
+		BUT_ONLY
+	END	
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO ImportCRE_FromTDD
+BEGIN			
+	ACTION_IF FILE_EXISTS ~%RES_FOLDER%/CreaturesContract.2da~ BEGIN
+		COPY ~%RES_FOLDER%/CreaturesContract.2da~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/CreaturesContract.2da~
+			COUNT_2DA_ROWS 12 count
+			WHILE (count > 1) BEGIN
+				READ_2DA_ENTRY (count -1) 0 12 resname
+				READ_2DA_ENTRY (count -1) 1 12 name1
+				READ_2DA_ENTRY (count -1) 2 12 name2
+				READ_2DA_ENTRY (count -1) 3 12 deathvar
+				READ_2DA_ENTRY (count -1) 4 12 sO
+				READ_2DA_ENTRY (count -1) 5 12 sC
+				READ_2DA_ENTRY (count -1) 6 12 sR
+				READ_2DA_ENTRY (count -1) 7 12 sG
+				READ_2DA_ENTRY (count -1) 8 12 sD
+				READ_2DA_ENTRY (count -1) 9 12 dg
+				READ_2DA_ENTRY (count -1) 10 12 portraitS
+				READ_2DA_ENTRY (count -1) 11 12 xpValue
+				SET count = count -1
+					
+				INNER_ACTION BEGIN
+					COPY ~%RES_FOLDER%/CRE/%resname%.CRE~ ~override~
+						PATCH_IF IS_AN_INT name1 BEGIN SET strref = RESOLVE_STR_REF ((AT name1)) WRITE_LONG NAME1 %strref% END
+						PATCH_IF IS_AN_INT name2 BEGIN SET strref = RESOLVE_STR_REF ((AT name2)) WRITE_LONG NAME2 %strref% END
+						PATCH_IF ~%deathvar%~ STRING_EQUAL ~+~ BEGIN WRITE_ASCII DEATHVAR ~~ #32 END ELSE BEGIN PATCH_IF IS_AN_INT deathvar BEGIN WRITE_ASCIIE DEATHVAR ~%resname%~ #32 END ELSE BEGIN WRITE_ASCIIE DEATHVAR ~%deathvar%~ #32 END END
+						PATCH_IF ~%sO%~ STRING_EQUAL ~+~ BEGIN WRITE_ASCII SCRIPT_OVERRIDE ~~ #8 END ELSE BEGIN PATCH_IF IS_AN_INT sO BEGIN WRITE_ASCIIE SCRIPT_OVERRIDE ~%resname%~ #8 END ELSE BEGIN WRITE_ASCIIE SCRIPT_OVERRIDE ~%sO%~ #8 END END
+						PATCH_IF ~%sC%~ STRING_EQUAL ~+~ BEGIN WRITE_ASCII SCRIPT_CLASS ~~ #8 END ELSE BEGIN PATCH_IF IS_AN_INT sC BEGIN WRITE_ASCIIE SCRIPT_CLASS ~%resname%~ #8 END ELSE BEGIN WRITE_ASCIIE SCRIPT_CLASS ~%sC%~ #8 END END
+						PATCH_IF ~%sR%~ STRING_EQUAL ~+~ BEGIN WRITE_ASCII SCRIPT_RACE ~~ #8 END ELSE BEGIN PATCH_IF IS_AN_INT sR BEGIN WRITE_ASCIIE SCRIPT_RACE ~%resname%~ #8 END ELSE BEGIN WRITE_ASCIIE SCRIPT_RACE ~%sR%~ #8 END END
+						PATCH_IF ~%sG%~ STRING_EQUAL ~+~ BEGIN WRITE_ASCII SCRIPT_GENERAL ~~ #8 END ELSE BEGIN PATCH_IF IS_AN_INT sG BEGIN WRITE_ASCIIE SCRIPT_GENERAL ~%resname%~ #8 END ELSE BEGIN WRITE_ASCIIE SCRIPT_GENERAL ~%sG%~ #8 END END
+						PATCH_IF ~%sD%~ STRING_EQUAL ~+~ BEGIN WRITE_ASCII SCRIPT_DEFAULT ~~ #8 END ELSE BEGIN PATCH_IF IS_AN_INT sD BEGIN WRITE_ASCIIE SCRIPT_DEFAULT ~%resname%~ #8 END ELSE BEGIN WRITE_ASCIIE SCRIPT_DEFAULT ~%sD%~ #8 END END
+						PATCH_IF ~%dg%~ STRING_EQUAL ~+~ BEGIN WRITE_ASCII DIALOG ~~ #8 END ELSE BEGIN PATCH_IF IS_AN_INT dg BEGIN WRITE_ASCIIE DIALOG ~%resname%~ #8 END ELSE BEGIN WRITE_ASCIIE DIALOG ~%dg%~ #8 END END
+						PATCH_IF NOT ~%portraitS%~ STRING_EQUAL ~+~ BEGIN WRITE_ASCIIE 0x34 ~%portraitS%~ #8 END
+						PATCH_IF IS_AN_INT xpValue BEGIN
+							PATCH_IF %xpValue% < 1000 BEGIN
+								READ_LONG 0x14 THIS
+								WRITE_LONG 0x14 (THIS * %xpValue%/100)
+							END
+							ELSE BEGIN
+								WRITE_LONG 0x14 %xpValue%
+							END
+						END
+				END
+			END		
+		BUT_ONLY
+	END
+	
+END
+
+
+//=============================================================================
+DEFINE_ACTION_MACRO HandleAudio
+BEGIN
+
+	MKDIR ~%workspace%/Language/%LANGUAGE%/Ogg~
+	
+	ACTION_IF ~%COMP_FOLDER%~ STR_EQ ~_CORE~ BEGIN
+		ACTION_BASH_FOR ~%MOD_FOLDER%/Language/%LANGUAGE%/Ogg~ ~^.+\.ogg$~ BEGIN
+			COPY ~%BASH_FOR_FILESPEC%~ ~%workspace%/Language/%LANGUAGE%/Ogg~
+		END
+		ACTION_BASH_FOR ~%MOD_FOLDER%/language/english/ogg~ ~^.+\.ogg$~ BEGIN
+			ACTION_IF NOT FILE_EXISTS ~%workspace%/Language/%LANGUAGE%/Ogg/%BASH_FOR_FILE%~ BEGIN
+				COPY ~%BASH_FOR_FILESPEC%~ ~%workspace%/Language/%LANGUAGE%/Ogg~
+			END
+			ACTION_IF FILE_EXISTS_IN_GAME ~%BASH_FOR_RES%.wav~ BEGIN
+				DELETE ~%workspace%/Language/%LANGUAGE%/Ogg/%BASH_FOR_FILE%~
+			END
+		END
+	END
+	
+	MKDIR ~%workspace%/sound/%COMP_FOLDER%~
+	ACTION_BASH_FOR ~%RES_FOLDER%/sound~ ~^.+\.ogg$~ BEGIN
+		ACTION_IF NOT FILE_EXISTS_IN_GAME ~%BASH_FOR_RES%.wav~ BEGIN
+			COPY ~%BASH_FOR_FILESPEC%~ ~%workspace%/sound/%COMP_FOLDER%~
+		END
+	END
+	
+	LAF HANDLE_AUDIO  // With no configuration, HANDLE_AUDIO expects your audio, oggdec.exe and SoX to be located in mymod/audio
+	STR_VAR
+			audio_path = EVAL ~%workspace%/Language/%LANGUAGE%/Ogg~
+			oggdec_path = EVAL ~%MOD_FOLDER%/Tools/oggdec~
+			sox_path = EVAL ~%MOD_FOLDER%/Tools/sox/~
+			output_path = ~override~
+	END
+	LAF HANDLE_AUDIO  // With no configuration, HANDLE_AUDIO expects your audio, oggdec.exe and SoX to be located in mymod/audio
+	STR_VAR
+		audio_path = EVAL ~%workspace%/sound/%COMP_FOLDER%~
+		oggdec_path = EVAL ~%MOD_FOLDER%/Tools/oggdec~
+		sox_path = EVAL ~%MOD_FOLDER%/Tools/sox/~
+		output_path = ~override~
+	END
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO HandleTileset
+BEGIN	
+	LAF HANDLE_TILECONV
+				STR_VAR
+					input_path    = EVAL "%RES_FOLDER%/tbc"
+					output_path	  = "override"
+	END
+//	ACTION_FOR_EACH var IN tiz BEGIN
+//			ACTION_BASH_FOR ~%MOD_FOLDER%/tiz~ ~^.+\.%var%$~ BEGIN
+//				DELETE +  ~%BASH_FOR_FILESPEC%~
+//			END
+//	END
+//	LAF REMOVE_DIRECTORY STR_VAR dir_name = EVAL ~%MOD_FOLDER%/tiz~ END
+END

@@ -1,0 +1,55 @@
+IF
+	Global("tz_bansheetalos","GLOBAL",1)
+	!Exists("baurian")
+THEN
+	RESPONSE #100
+		SetGlobal("tz_bansheetalos","GLOBAL",2)
+		CreateCreature("baurian",[864.897],4) // Baurian Arathor
+END
+
+IF
+	Global("tz_tartaruscuta","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_tartaruscuta","GLOBAL",2)
+		StartCutSceneMode()
+		CutSceneId(Player1)
+		CreateVisualEffectObject("spsumgte",Player1)
+		CreateVisualEffectObject("spsumgte",Player2)
+		CreateVisualEffectObject("spsumgte",Player3)
+		CreateVisualEffectObject("spsumgte",Player4)
+		CreateVisualEffectObject("spsumgte",Player5)
+		CreateVisualEffectObject("spsumgte",Player6)
+		Wait(3)
+		FadeToColor([20.0],0)
+		Wait(2)
+		StartCutScene("tartfoil")
+END
+
+
+IF
+	Global("tz_baurianbuggeroff","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_baurianbuggeroff","GLOBAL",2)
+		ActionOverride("baurian2",EscapeArea())
+END
+
+IF
+	Global("tz_baurianbuggeroff","GLOBAL",2)
+	!Exists("demninv2")
+THEN
+	RESPONSE #100
+		SetGlobal("tz_baurianbuggeroff","GLOBAL",3)
+		CreateCreatureObject("demninv2",Player1,0,0,0) // Barl
+END
+
+IF
+	Global("tz_drowarty","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_drowarty","GLOBAL",2)
+		ActionOverride("demninv2",DestroySelf())
+END
+
+

@@ -1,0 +1,45 @@
+@0    = ~Witaj, podróżniku. Chcesz abym umagicznił jakiś przedmiot?~ ~Witaj, podróżniczko. Chcesz abym umagicznił jakiś przedmiot?~
+@1    = ~Tak... to jest, jeśli mam coś co możesz umagicznić.~
+@2    = ~Jak to wygląda?~
+@3    = ~Hmm... daj mi spojrzeć... hm...er...~
+@4    = ~Biorę proste amulety i nadaję im specjalne właściwości. Za odpowiednią cenę, oczywiście. Muszę jakoś zarabiać.~
+@5    = ~Interesujące, może wrócę później i zobaczę co możesz jeszcze zrobić.~
+@6    = ~Mam coś co możesz umagicznić?~
+@7    = ~Nie, nie masz żadnych amuletów, których mógłbym użyć. Jeśli jakieś znajdziesz i będziesz chciał umagicznić, wróć a ja zobaczę co da się zrobić.~ ~Nie, nie masz żadnych amuletów, których mógłbym użyć. Jeśli jakieś znajdziesz i będziesz chciała umagicznić, wróć a ja zobaczę co da się zrobić.~
+@8    = ~Tak, masz tu prosty naszyjnik. Mogę go dla ciebie umagicznić, jeśli chcesz.~
+@9    = ~W jaki sposób nadajesz magię?~
+@10   = ~Nie, zmieniłem zdanie. Nie chcę nic umagiczniać.~ ~Nie, zmieniłam zdanie. Nie chcę nic umagiczniać.~
+@11   = ~Jest wiele sposobów... Wymienię je, byś mógł wybrać.~ ~Jest wiele sposobów... Wymienię je, byś mogła wybrać.~
+@12   = ~Mogę wykonać.....
+Naszyjnik pocisków za 6000 sztuk złota.
+Amulet z zielonym kamieniem ochrony umysłu za 8000 sztuk złota.
+Amulet dający 5% odporności na magię za 7000 sztuk złota.
+Amulet dający 10% odporności na magię za 13000 sztuk złota.
+Amulet mocy z ochroną przed wyssaniem poziomów i 5% niewrażliwością na magię za 23000 sztuk złota.
+Amulet ochrony przed trucizną za 7000 sztuk złota.
+Amulet dający +3 do rzutów przeciwko broniom oddechu za 13000 sztuk złota.
+Amulet dający +5 do rzutów przeciwko polimorfii za 16000 sztuk złota.
+Amulet dający +2 do rzutów przeciwko zaklęciom za 14000 sztuk złota.~
+@13   = ~Ach, masz naszyjnik wysadzany kamieniami Zios. Mogę go użyć.~
+@14   = ~Masz naszyjnik z nefrytami. Z pewnością coś z tego będzie.~
+@15   = ~Masz naszyjnik Agni Mani... świetny jako baza wyjściowa.~
+@16   = ~Naszyjnik z tęczowym obsydianem. To wygląda obiecująco...~
+@17   = ~Naszyjnik z muszelkami świetnie się nada.~
+@18   = ~Srebrny naszyjnik, eh? Nic szczególnego, ale wystarczy.~
+@19   = ~Masz złoty naszyjnik. Idealny...~
+@20   = ~Masz perłowy naszyjnik... najpiękniejszy i najbardziej użyteczny. Niech spojrzę...~
+@21   = ~Naszyjnik Łza Laeral... Świetna robota. Będzie cudownym punktem wyjścia...~
+@22   = ~Masz amulet z krwawnikiem. Wyśmienicie.~
+@23   = ~Któryś wpadł ci w oko? Taki, na który cię stać, oczywiście. Hehehe... czarownicy zawsze mówią mi, że ceny są zbyt wysokie, ale z pewnością nie potrafią ich wykonać tak jak ja.~
+@24   = ~Nie. Może wrócę później. Zostań tutaj.~
+@25   = ~Chciałbym naszyjnik pocisków.~ ~Chciałabym naszyjnik pocisków.~
+@26   = ~Myślę, że najbardziej się przyda Amulet z Zielonym Kamieniem.~
+@27   = ~Wpadł mi w oko amulet z 5% odpornością na magię.~
+@28   = ~Wpadł mi w oko amulet z 10% odpornością na magię.~
+@29   = ~Potrzebuję amuletu mocy.~
+@30   = ~Niezły byłby amulet ochrony przed trucizną.~
+@31   = ~+3 do rzutów przeciwko zionięciom będzie użyteczne.~
+@32   = ~+5 przeciwko polimorfii to dobre rozwiązanie.~
+@33   = ~Chcę amulet +2 przeciwko zaklęciom.~
+@34   = ~Przynieś naszyjnik i pieniądze! Zostaniemy najlepszymi przyjaciółmi!~
+@35   = ~Zrobi się.~

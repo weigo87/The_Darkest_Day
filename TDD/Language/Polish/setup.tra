@@ -1,0 +1,280 @@
+@901000 = ~TDD - Core~
+@901001 = ~TDD - Trollford~
+@901002 = ~TDD - Eshpurta~ 
+@901003 = ~TDD - Purskal~ 
+@901004 = ~TDD - Riatavin~ 
+@901005 = ~TDD - Onset of the Darkest Day~
+@901010 = ~TDD - Robilard~
+@901011 = ~You must have TDD - Core installed~
+
+@999000 = ~Calishite~
+@999001 = ~Calishite thugs~
+@999002 = ~Calishite citizen~
+@999003 = ~Calishite jailer~
+
+@999992 = ~Finally we have tracked you down Robillard of the Sea Sprite.~
+@999993 = ~Who are you and what do you want with him?~
+@999994 = ~He knows why I am here.~
+@999995 = ~Yes I know what you want, hired by filthy dirty pirates to take your revenge against Robillard for doing good.~
+@999996 = ~I am being a paid great bounty for your corpse and morals pay no part. Prepare to die Robillard.~
+@999997 = ~Waterdeep Pirate~
+@999998 = ~Waterdeep War Wizard~
+
+@999999 = ~Intruders! Kill the intruders!~
+
+/////////////////////////////////////////////////////////////////////////////////////
+// Dialogues - unified Journal entries
+/////////////////////////////////////////////////////////////////////////////////////
+
+//3336TAV.DLG
+@50100 = ~RozmawiaĹem z informatorem o nazwisku Bellach. MĂłwi, Ĺźe wrĂłble na dachu ĹwiergoczÄ, iĹź Artemis Entreri z Calimportu moĹźe staÄ za zabĂłjstwem Riatavin. OsobiĹcie nie mam pewnoĹci co do tego, bo Ĺledztwo nie dostarczyĹo Ĺźadnych dowodĂłw prĂłcz samych zabĂłjstw.~ ~RozmawiaĹam z informatorem o nazwisku Bellach. MĂłwi, Ĺźe wrĂłble na dachu ĹwiergoczÄ, iĹź Artemis Entreri z Calimportu moĹźe staÄ za zabĂłjstwem Riatavin. OsobiĹcie nie mam pewnoĹci co do tego, bo Ĺledztwo nie dostarczyĹo Ĺźadnych dowodĂłw prĂłcz samych zabĂłjstw.~
+
+//BAURIAN.DLG
+@50101 = ~DotarĹem do Ĺwiata Tartarusa. Tereny sÄ jeszcze nieodkryte, ale z tego co widzÄ, to wyglÄda to na wysepki ziemi otoczone bezdennymi przepaĹciami.~ ~DotarĹam do Ĺwiata Tartarusa. Tereny sÄ jeszcze nieodkryte, ale z tego co widzÄ, to wyglÄda to na wysepki ziemi otoczone bezdennymi przepaĹciami.~
+@50102 = ~Baurian, KapĹan Talosa, umoĹźliwiĹ mi podrĂłĹź do krainy Tartarusa. MuszÄ tu pokonaÄ demona, zdobyÄ jego szpon i powrĂłciÄ.~
+
+//BANDED.DLG
+@50103 = ~OsobiĹcie uwolniĹem Banshee z jej mÄki, ale jej zĹe czyny dokonaĹy siÄ. Demon powstanie w gĹÄbi piekieĹ w nieodlegĹej przyszĹoĹci; chcÄ zabiÄ bestiÄ w jej wczesnym stadium materialnego bytu i zdobyÄ jej szpon, dziÄki ktĂłremu zyskam postaÄ Drowa, po czym muszÄ udaÄ siÄ do wnÄtrza planety. KapĹan Talosa pewnie coĹ wie na ten temat. Ich ĹwiÄtynia moĹźe byÄ dobrym miejscem do rozpoczÄcia poszukiwaĹ.~ ~OsobiĹcie uwolniĹam Banshee z jej mÄki, ale jej zĹe czyny dokonaĹy siÄ. Demon powstanie w gĹÄbi piekieĹ w nieodlegĹej przyszĹoĹci; chcÄ zabiÄ bestiÄ w jej wczesnym stadium materialnego bytu i zdobyÄ jej szpon, dziÄki ktĂłremu zyskam postaÄ Drowa, po czym muszÄ udaÄ siÄ do wnÄtrza planety. KapĹan Talosa pewnie coĹ wie na ten temat. Ich ĹwiÄtynia moĹźe byÄ dobrym miejscem do rozpoczÄcia poszukiwaĹ.~
+
+//CAVDIEAR.DLG
+@50104 = ~Morderca, Artemis Entreri, w koĹcu zostaĹ ostatecznie poddany sprawiedliwoĹci, gdy konaĹ na moich oczach. Te parÄ sĹĂłw, ktĂłre wypowiedziaĹ, ciÄgle brzmi w moich uszach. WyraĹźaĹ siÄ bardzo jasno, Ĺźe to nie bÄdzie nasze ostatnie spotkanie i Ĺźe nigdy juĹź nie bÄdÄ wolny. NiektĂłrzy mogÄ mĂłwiÄ, Ĺźe groĹşba byĹÄ pĹytka, Entreri zdawaĹ siÄ mĂłwiÄ z peĹnym przekonaniem.~ ~Morderca, Artemis Entreri, w koĹcu zostaĹ ostatecznie poddany sprawiedliwoĹci, gdy konaĹ na moich oczach. Te parÄ sĹĂłw, ktĂłre wypowiedziaĹ, ciÄgle brzmi w moich uszach. WyraĹźaĹ siÄ bardzo jasno, Ĺźe to nie bÄdzie nasze ostatnie spotkanie i Ĺźe nigdy juĹź nie bÄdÄ wolna. NiektĂłrzy mogÄ mĂłwiÄ, Ĺźe groĹşba byĹÄ pĹytka, Entreri zdawaĹ siÄ mĂłwiÄ z peĹnym przekonaniem.~
+
+//DDMARY.DLG
+@50106 = ~Najmroczniejszy DzieĹ dobiegĹ koĹca.~
+@50116 = ~Dom Mary Magus~
+
+//DRAGGLD1.DLG
+@50105 = ~W pieczarze Bregana D'aertha znalazĹem lĹniÄcego, ZĹotego Smoka. Mimo podjÄtych przez smoka prĂłb pokojowego wyjĹcia z sytuacji, nasz wyglÄd mrocznych elfĂłw sprowokowaĹ jaszczura do ataku.~ ~W pieczarze Bregana D'aertha znalazĹam lĹniÄcego, ZĹotego Smoka. Mimo podjÄtych przez smoka prĂłb pokojowego wyjĹcia z sytuacji, nasz wyglÄd mrocznych elfĂłw sprowokowaĹ jaszczura do ataku.~
+
+//KARAN01.DLG
+@50107 = ~Zdaje siÄ, Ĺźe nawet po osiÄgniÄciu ostatnich sukcesĂłw, mĂłj nieustajÄcy koszmar nie dobiegĹ koĹca. ZĹo czai siÄ w pobliĹźu i wyglÄda na to, Ĺźe wysoka rada chce ze mnÄ o nim porozmawiaÄ.~
+
+//SANDRAIN.DLG
+@50109 = ~SpotkaĹem starszego elfa imieniem Sandrain, ktĂłry staĹ siÄ podobny do hobbita za zbrodnie swoich byĹych krewnych. PowiedziaĹ mi o niebezpieczeĹstwach, jakie Banshee za sobÄ niosÄ i zaoferowaĹ mi pomoc. Jestem pewny, Ĺźe pozbycie siÄ Banshee narazi go na niebezpieczeĹstwo ataku innych stworzeĹ. Mimo to, muszÄ robiÄ co naleĹźy, by kontynuowaÄ.~ ~SpotkaĹam starszego elfa imieniem Sandrain, ktĂłry staĹ siÄ podobny do hobbita za zbrodnie swoich byĹych krewnych. PowiedziaĹ mi o niebezpieczeĹstwach, jakie Banshee za sobÄ niosÄ i zaoferowaĹ mi pomoc. Jestem pewna, Ĺźe pozbycie siÄ Banshee narazi go na niebezpieczeĹstwo ataku innych stworzeĹ. Mimo to, muszÄ robiÄ co naleĹźy, by kontynuowaÄ.~
+
+//ZCAPWARN.DLG
+@50108 = ~WyglÄda na to, Ĺźe Piraci Nelanther atakujÄ doki handlu Athkatli bez konkretnego powodu. Pomimo to nie opuszczaĹo mnie odczucie, Ĺźe sÄ zdecydowani zabiÄ kaĹźdego w zasiÄgu swego wzroku dla samej walki. Nie moĹźna byĹo oprzeÄ siÄ wraĹźeniu, Ĺźe pozostajÄ pod wpĹywem jakiejĹ potÄĹźnej mocy i Ĺźe ta moc jest bez wÄtpienia przyczynÄ tego, Ĺźe zostaĹem bezpodstawnie oskarĹźony.~ ~WyglÄda na to, Ĺźe Piraci Nelanther atakujÄ doki handlu Athkatli bez konkretnego powodu. Pomimo to nie opuszczaĹo mnie odczucie, Ĺźe sÄ zdecydowani zabiÄ kaĹźdego w zasiÄgu swego wzroku dla samej walki. Nie moĹźna byĹo oprzeÄ siÄ wraĹźeniu, Ĺźe pozostajÄ pod wpĹywem jakiejĹ potÄĹźnej mocy i Ĺźe ta moc jest bez wÄtpienia przyczynÄ tego, Ĺźe zostaĹam bezpodstawnie oskarĹźony.~
+
+/////////////
+// BGT/Compat
+/////////////
+
+//LEAVE***.D
+/*@203301 = ~Trwanie przy tobie zaprowadzi mnie przedwczeĹnie do grobu. ZabiorÄ swĂłj topĂłr na poĹudnie, i przypodobam siÄ monetom jakiegoĹ kupca.~
+@203302 = ~NiebezpieczeĹstwo to moje drugie imiÄ, ale podrĂłĹźowanie z tobÄ to pewny wyrok Ĺmierci. Pora skierowaÄ me strzaĹy w innÄ stronÄ.~
+@203303 = ~Moja ĹźÄdza walki chwilowo zostaĹa zaspokojona. Chyba skierujÄ siÄ w cieplejsze klimaty, zanim pory roku znowu siÄ zmieniÄ. MoĹźe ĹwieĹźe powietrze doda siĹ mojemu ostrzu.~
+@203304 = ~Monty i Ja zdecydowaliĹmy zostawiÄ ciÄ, szefie.  Ĺťegnaj, <CLASS> , i niech nieudolnoĹÄ sprzyja twym wrogom.~ ~Monty i Ja zdecydowaliĹmy zostawiÄ ciÄ, szefowo.  Ĺťegnaj, <CLASS> , i niech nieudolnoĹÄ sprzyja twym wrogom.~
+@203305 = ~RobiÄ siÄ za stary na to caĹe podniecenie. Znowu mĂłj wrzĂłd daje znaÄ o sobie. Czas na prosac i gorÄcÄ, ĹagodzÄcÄ kÄpiel. Wszystkiego najlepszego, <CHARNAME>.~
+*/
+/////////////////////////////////////////////////////////
+// Scripts
+/////////////////////////////////////////////////////////
+@10000 = ~WejĹcie do wieĹźy~
+@10001 = ~WyjĹcie z lokacji~
+@10002 = ~Schody na dĂłĹ~
+@10003 = ~Do laboratorium~
+@10004 = ~Do piwnicy~
+@10005 = ~Schody do gĂłry~
+@10006 = ~WyjĹcie~
+@10007 = ~PopeĹniasz bĹÄd, starcze! Wielki bĹÄd... prawdziwy winowajca wciÄĹź jest na wolnoĹci.~
+@10008 = ~DosyÄ! Wyruszysz do CzarowiÄzĂłw na statku niewolniczym. Nareszccie, mam nadziejÄ Ĺźe straĹźnicy dobrze ciÄ traktowali; czeka ciÄ nie Ĺatwa przeprawa do CzarowiÄzĂłw.~
+@10009 = ~Gdy czytasz sĹowa z tej ksiÄgi, relikt znika, pozostawiajÄc po sobie jedynie struĹźkÄ pyĹu. Niebo zaczyna siÄ rozjaĹniaÄ a ty masz przeczucie, Ĺźe chmury wkrĂłtce siÄ rozwiejÄ. Najmroczniejszy DzieĹ zakoĹczyĹ siÄ... przynajmniej na razie.~
+@10010 = ~SĹyszysz przenikliwe "BrzdÄk" w oddali. Magiczna bariera blokuje teraz oba wyjĹcia.~
+@10011 = ~Magiczna bariera otaczajÄca wyjĹcia zostaje usuniÄta po Ĺmierci istoty.~
+@10012 = ~Tak, tak. Jestem gotowy. Ruszajmy.~
+@10013 = ~WybrzeĹźe jest czyste, panie.~
+@10014 = ~Dobrze siÄ spisaĹeĹ, mĂłj drogi. Wszystko zdaje siÄ wracaÄ na swoje miejsce.~
+@10015 = ~Ale wiesz, Ĺźe ci, ktĂłrych wysĹano do Athkatli majÄ ogromnÄ moc. MĂłj kapĹan odgadĹ, iĹź ĹźyĹach jednego z nich pĹynie boska krew.~
+@10016 = ~W tym rzecz. Athkatla odczuje tÄ aurÄ ktĂłrÄ oni emanujÄ, dziÄki tobie. ZdajÄ sobie sprawÄ, Ĺźe ktoĹ tak potencjalnie potÄĹźny moĹźe wywoĹaÄ niebywaĹy chaos, i zabijÄ ich. Riatavin utraci wszelkie wiÄzi z AthkatlÄ, ktĂłra utraci szlaki handlowe z gĹĂłwnymi dostawcami towarĂłw, a Calimport na nowo ustanowi niepodzielnÄ wĹadzÄ na oceanach.~
+@10017 = ~WiÄc co teraz, panie?~
+@10018 = ~Ha ha! Tak, lubiÄ brzmienie sĹowa "panie." Ten klejnot czyni cuda, doprawdy. CaĹa moc Riatavin jest podporzÄdkowana mojej woli dziÄki temu zwykĹemu klejnotowi. Na prosty rozkaz, wzniecÄ wojnÄ z AthkatlÄ, rozumiesz? Tylko ty jeden nie ulegasz mojemu wpĹywowi, poniewaĹź potrzebowaĹem ciÄ do wypeĹnienia tych zadaĹ.~
+@10019 = ~ZawarliĹmy umowÄ, Entreri! Za ten czyn miaĹeĹ obsypaÄ nasze miasto bogactwami z najwspanialszej gildii Calimportu. JuĹź nie bÄdziesz trzymaĹ swojej Ĺapy na moich wojskach!~
+@10020 = ~Ach, aleĹź mĂłj drogi... Oni nie sÄ bynajmniej twoimi ĹźoĹnierzami, nigdy nimi nie byli. TwĂłj kapitan nigdy nie dotarĹ do Athkatli, bo mĂłj sztylet zatopiĹ siÄ w jego plecach, jak tylko wyruszyĹ w drogÄ.~
+@10021 = ~DziÄki temu, panowaĹem nad sytuacjÄ. Nigdy po drodze nawet nie posmakowaĹeĹ wĹadzy.~
+@10022 = ~A co z" Artemis Entreri dziaĹa w pojedynkÄ?"~
+@10023 = ~JeĹli chodzi o Calimport, uzyskaĹem wszelkie moĹźliwe wsparcie. CaĹkiem prywatnie mĂłwiÄc, mĂłj drogi, to dziaĹam w pojedynkÄ. To bardzo osobista chwila, kiedy odwracasz bieg wypadkĂłw. Nie czÄsto moĹźna mieÄ takÄ okazjÄ, a teraz chyba jÄ mam.~
+@10024 = ~Potworze! UmĂłwiliĹmy siÄ! Drogo zapĹacisz za tÄ podĹoĹÄ.~ [WARRIOR3]
+@10025 = ~Taa, chodĹş i posmakuj Ĺmierci. Niech Pan Ĺmierci pokaĹźe ci szybkie wyjĹcie z twej ĹźaĹosnej egzystencji.~
+@10026 = ~Trzeba skoĹczyÄ dzieĹo. Athkatla oczekuje na podrĂłĹźnych, muszÄ siÄ przygotowaÄ na wypadek pÄkniÄcia ktĂłregoĹ z ogniw. PodrĂłĹźni nie majÄ wyboru, dÄĹźa do Athkatli szukajÄc rozwiÄzania. JeĹli im siÄ nie uda, to kaĹźdy obywatel tego miasta zginie z mojej rÄki a podrĂłĹźni zostanÄ obdarci ze skĂłry.~
+@10027 = ~DopeĹniÄ swego obowiÄzku albo spotka ich bolesna ĹmierÄ. UpewniÄ siÄ, Ĺźe oddziaĹ Riatavin jest gotowy aby uderzyÄ w AthkatlÄ.~
+@10028 = ~W siedzibie Rady dĹugo dyskutowaliĹmy na temat aktualnych wydarzeĹ, i wiÄkszoĹÄ z nich zostaĹa omĂłwiona w ostatnich godzinach.~
+@10029 = ~Zatem z pewnoĹciÄ dostrzegasz niesprawiedliwoĹÄ wyroku?~
+@10030 = ~Rada wymieniaĹa poglÄdy i debatowaĹa. WystÄpiono z pewnym wnioskiem....~
+@10031 = ~Ponosisz winÄ za zamordowanie niewinnych podrĂłĹźnych i szlachty Riatavin. Ponadto, ciÄĹźy na tobie wina knucia intryg przeciw miastom Athkatla i Riatavin.~
+@10032 = ~JednakĹźe, w braku dowodu, nie zostaniesz skazany na ĹmierÄ. Za to, za karÄ resztÄ swego Ĺźycia spÄdzisz w CzarowiÄzach.~
+@10033 = ~PopeĹniasz kardynalny bĹÄd, starcze.~
+@10034 = ~Udasz siÄ do CzarowiÄzĂłw za kilka godzin. W miÄdzyczasie, dostaniesz od straĹźy to na co zasĹugujesz. Ĺťegnaj. MogĹeĹ siÄ na coĹ przydaÄ, a tak okryĹeĹ siÄ haĹbÄ.~ ~Udasz siÄ do CzarowiÄzĂłw za kilka godzin. W miÄdzyczasie, dostaniesz od straĹźy to na co zasĹugujesz. Ĺťegnaj. MogĹaĹ siÄ na coĹ przydaÄ, a tak okryĹaĹ siÄ haĹbÄ.~
+@10035 = ~Ostrzegano ciÄ abyĹ trzymaĹ siÄ z dala. Teraz zapĹacisz za swojÄ ignorancjÄ.~
+@10036 = ~Panie, ĹpieszyĹem tak szybko jak to tylko moĹźliwe. TwĂłj plan spaliĹ na panewce a magowie w Athkatli potrafiÄ wyczuÄ zĹo tu w Riatavin.~
+@10037 = ~CO!? Ty stary gĹupcze! MiaĹeĹ tylko sprawdziÄ czy uwierzono iĹź to podrĂłĹźni sÄ winni!~
+@10038 = ~ProszÄ! To ta druĹźyna podrĂłĹźnych. MuszÄ byÄ o wiele potÄĹźniejsi, niĹź sobie pierwotnie wyobraĹźaĹem.~
+@10039 = ~A wiÄc zginÄ od mojego ostrza, zapewniam ciÄ. Ale ty sromotnie przegraĹeĹ, stary gĹupcze! ZapĹacisz strasznÄ cenÄ za to, Ĺźe zawiodĹeĹ Artemisa Entreri.~
+@10040 = ~MuszÄ obmyĹliÄ plan awaryjny, bo nikt nie moĹźe wiedzieÄ, Ĺźe Calimport za tym stoi. Ten klejnot przecieĹź moĹźe okazaÄ siÄ bardzo poĹźyteczny w pozyskaniu sprzymierzeĹcĂłw! RozkaĹźÄ piratom Nelanther przypuĹciÄ szturm na doki Athkatli. SparaliĹźujÄ szlaki handlowe i wezmÄ na siebie caĹÄ winÄ. Tymczasem, muszÄ wyrĂłwnaÄ stare porachunki; i, jak zawsze, Entreri zadziaĹa w pojedynkÄ. Nie lÄkajcie siÄ podrĂłĹźni, bo kiedy siÄ spotkamy, zaĹatwimy to raz dwa.~
+@10041 = ~Obawiam siÄ Ĺźe popeĹniliĹmy bĹÄd w naszym osÄdzie, bracia.~
+@10042 = ~DalejĹźe, wyjaĹniaj.~
+@10043 = ~Wyczuwam, Ĺźe zĹo nie odeszĹo. Lecz.. wciÄĹź jest w Amn i wciÄĹź jest bardzo silne. Zdaje siÄ, Ĺźe oskarĹźenia wniesione przeciwko grupie byĹy bezpodstawne. Musimy powiadomiÄ RadÄ o tym bĹÄdzie, a takĹźe o wciÄĹź krzewiÄcych siÄ zĹych mocach. Trzeba dokĹadnie spenetrowaÄ okolice Riatavin.~
+@10044 = ~Nie! MuszÄ oznajmiÄ panu iĹź jego plan nie powiĂłdĹ siÄ, nim Athkatla rozpocznie przeszukiwania Riatavin.~
+@10045 = ~A mimo to idziesz dalej. To zadziwiajÄce, jak daleko moĹźna zajĹÄ aby w koĹcu zostaÄ poĹźartym.~
+@10046 = ~Do diabĹa z tobÄ demonie. Gadanie i prĂłba uzyskania odpowiedzi do niczego nas nie doprowadzi.~
+@10047 = ~Demonie!! Jak Ĺmiesz nazywaÄ mnie demonem! To sÄ bestie z innej sfery, a my rzÄdzimy tutaj. ZrodziliĹmy siÄ na nowo dziÄki mocy naszego powracajÄcego przywĂłdcy, i ponownie rozejdziemy siÄ po ziemiach Faerunu.~
+@10048 = ~Wielokrotnie sĹyszaĹem o PowracajÄcym. Kim on wĹaĹciwie jest? TwĂłj grobowiec zostaĹ naruszony przypadkowo, lecz nie rozumiem co to ma wspĂłlnego z pragnienieniem sterroryzowania Faerunu.~ ~Wielokrotnie sĹyszaĹam o PowracajÄcym. Kim on wĹaĹciwie jest? TwĂłj grobowiec zostaĹ naruszony przypadkowo, lecz nie rozumiem co to ma wspĂłlnego z pragnienieniem sterroryzowania Faerunu.~
+@10049 = ~On powraca z wiÄzienia dusz, i tym razem pozostanie by rzÄdziÄ tymi krainami.~
+@10050 = ~Czekaj. Czy chcesz przez to powiedzieÄ, Ĺźe twĂłj, jak go zwiesz, pan powraca z wiÄzienia dusz? Relikt gatunkĂłw? Czy ty wiesz co mĂłwisz! JeĹli wraca z wiÄzienia dusz, to ilu jeszcze innych powrĂłci wraz z nim i po co? SĹyszaĹem o tych reliktach, zazwyczaj ciÄgnÄ ze sobÄ hordy zĹych duchĂłw. MyĹlÄ Ĺźe jeĹli wiÄcej z nich siÄ wyswobodzi, twĂłj pan bÄdzie najmniejszym kĹopotem Faerunu.~ ~Czekaj. Czy chcesz przez to powiedzieÄ, Ĺźe twĂłj, jak go zwiesz, pan powraca z wiÄzienia dusz? Relikt gatunkĂłw? Czy ty wiesz co mĂłwisz! JeĹli wraca z wiÄzienia dusz, to ilu jeszcze innych powrĂłci wraz z nim i po co? SĹyszaĹam o tych reliktach, zazwyczaj ciÄgnÄ ze sobÄ hordy zĹych duchĂłw. MyĹlÄ Ĺźe jeĹli wiÄcej z nich siÄ wyswobodzi, twĂłj pan bÄdzie najmniejszym kĹopotem Faerunu.~
+@10051 = ~Jak Ĺmiesz tak nie doceniaÄ pana. PotÄĹźny Beghael nie zazna przyjemnoĹci zmiaĹźdĹźenia ciebie, bo ja to uczyniÄ z miĹÄ chÄciÄ.~
+@10052 = ~PojmaÄ wiÄĹşnia, natychmiast.~
+@10053 = ~Co u--? Czego chcesz starcze? Nie zrobiĹem nic zĹego.~ ~Co u--? Czego chcesz starcze? Nie zrobiĹam nic zĹego.~
+@10054 = ~Nic zĹego, mĂłwisz?! Wiedz, Ĺźe potrafiÄ wyczuÄ czyjÄĹ aurÄ na kilometr, i wyczuwam Ĺźe to "ty" jesteĹ przyczynÄ problemĂłw handlowych. Ĺťe to na tobie ciÄĹźy odpowiedzialnoĹÄ za Ĺmierci RiataviĹczykĂłw, i powinno siÄ ciebie powstrzymaÄ przed dalszym wyrzÄdzaniem zĹa.~
+@10055 = ~Co? Strasznie siÄ mylisz. Nie mam Ĺźadnej aury. Chwila, to ta dziewka! Ona otoczyĹa mnie aurÄ i rzekĹa, Ĺźe przez to uwidoczniÄ sie moje dobre intencje, ale-- aleĹź ona mnie oszukaĹa!~
+@10056 = ~Twe kĹamstwa nie zostanÄ wysĹuchane. Tu i teraz odnajdzie ciÄ zasĹuĹźona sprawiedliwoĹÄ, zsyĹajÄc ciÄ do wiÄzienia. STRAĹťE! PojmaÄ go.~
+@10057 = ~Masz czelnoĹÄ wdzieraÄ siÄ siĹÄ do Ĺrodka tych staroĹźytnych grobowcĂłw? Chcesz nas zniszczyÄ kiedy siÄ odradzamy, ale drogo za to zapĹacisz.~
+@10058 = ~Grozisz mi? ZabiĹeĹ wielu niewinnych, i zginiesz od mego ostrza.~
+@10059 = ~Mocno powiedziane, lecz to tylko "Ĺrodki do Ĺźycia". Wszyscy Ĺźywimy siÄ mĹodoĹciÄ by mieÄ siĹÄ; oni tylko podtrzymujÄ nas przy Ĺźyciu. JesteĹ gĹupcem, jeĹli mi grozisz.~
+@10060 = ~Grrr... JuĹź nagadaĹeĹ wystarczajÄco duĹźo gĹupstw. Zginiesz od mojego ostrza potworze. Maaasz!!~
+@10061 = ~Nie! Thorknarze! Zginiesz strasznÄ ĹmierciÄ, potworze!~
+@10062 = ~Nie! Thorknarze! Zginiesz strasznÄ ĹmierciÄ, potworze!~
+@10063 = ~Musicie nad nim panowaÄ!~
+@10064 = ~Ty zdrajco!~
+@10065 = ~A niech ciÄ licho, Thorknarze!~
+@10066 = ~To nie Thorknar. To bestia, ktĂłra sprowadziĹa tÄ plagÄ. To rĂłwnieĹź on zabiĹ Thorknara.~
+@10067 = ~Tak, coraz bardziej mi siÄ juĹź przykrzy to wstrÄtne orkowe ciaĹo. Nie potrzeba mi maski by wÄdrowaÄ przez te krainy.~
+@10068 = ~Co to u licha jest?~
+@10069 = ~To plugawy Lisz, nieumarĹa bestia, ktĂłra wywoĹaĹa tÄ plagÄ.~
+@10070 = ~Na twoim miejscu uwaĹźaĹbym wymieniajÄc imiÄ swego pana, cherlaku! MĂłgĹbym ciÄ tu i teraz zmiaĹźdĹźyÄ! Ale... Nie. SprawiÄ, Ĺźe bÄdziesz cierpiaĹ. PozwolÄ ci ĹźyÄ, ale zasilisz armiÄ moich poddanych. PomoĹźesz mi w niszczeniu krain.~ ~Na twoim miejscu uwaĹźaĹbym wymieniajÄc imiÄ swego pana, cherlaku! MĂłgĹbym ciÄ tu i teraz zmiaĹźdĹźyÄ! Ale... Nie. SprawiÄ, Ĺźe bÄdziesz cierpiaĹa. PozwolÄ ci ĹźyÄ, ale zasilisz armiÄ moich poddanych. PomoĹźesz mi w niszczeniu krain.~
+@10071 = ~PrÄdzej wyrwÄ sobie serce z piersi aniĹźeli stanÄ po twojej stronie potworze!~
+@10072 = ~AleĹź mnie nie zrozumiaĹeĹ. Nie moĹźesz mi odmĂłwiÄ. ChodĹş do mnie... ChodĹş... ChodĹş i staĹ po stronie swego mistrza.~ ~AleĹź mnie nie zrozumiaĹaĹ. Nie moĹźesz mi odmĂłwiÄ. ChodĹş do mnie... ChodĹş... ChodĹş i staĹ po stronie swego mistrza.~
+@10073 = ~Nie, Nie... Ja... ja...~
+@10074 = ~Widzisz. Nie moĹźesz odmĂłwiÄ. Teraz idĹş. Zabij swych przyjaciĂłĹ. Wiem Ĺźe twe moce sÄ potÄĹźnej natury. Wyczuwam krew boga w tobie. IdĹş, wybij swych wiejskich przyjaciĂłĹ. PokaĹź mi swoje oddanie.~
+@10075 = ~Nie, Nie... Ja... ja...~
+@10076 = ~PokaĹźÄ ci o co mi chodzi.~
+@10077 = ~Twoja kolej. WyrĹźnij tych sĹabych gĹupcĂłw! PokaĹź mi ile jesteĹ wart.~ ~Twoja kolej. WyrĹźnij tych sĹabych gĹupcĂłw! PokaĹź mi ile jesteĹ warta.~
+@10078 = ~IdĹş wiÄc i zabijaj! Twoi przyjaciele nie pomogÄ ci, zamarli przed moim obliczem. BÄdÄ obserwowali jak wĹasnorÄcznie mordujesz caĹÄ wioskÄ!~
+@10079 = ~Beghaelu, zapominasz dla jakich celĂłw ciÄ uwolniono. MiaĹeĹ wypeĹniÄ zadanie, ale zatraciĹeĹ siÄ zupeĹnie. Pan nie lubi jak ktoĹ uchyla siÄ od obowiÄzkĂłw.~
+@10080 = ~Co? Nie moĹźesz byÄ aĹź tak gĹupi. Uwolniono ciÄ, a teraz chcesz staÄ siÄ niewolnikiem? Nie jestem taki sĹaby.~
+@10081 = ~Nie masz wyboru Beghael. JesteĹ wĹasnoĹciÄ reliktu, a pan moĹźe na nowo skazaÄ ciÄ na wieczne cierpienie, kiedy tylko zechce. Dobrze zrobisz jak siÄ do tego zastosujesz.~
+@10082 = ~Potraktuj te sĹowa jako ostatnie ostrzeĹźenie Beghael! JesteĹ narzÄdziem w rÄkach pana. JeĹli odmĂłwisz, okaĹźesz siÄ bezuĹźyteczny i zostaniesz zlikwidowany.~
+@10083 = ~Wszyscy jesteĹcie sĹabi; za sĹabi jak dla mnie. PogadaĹeĹ sobie. A teraz odejdĹş, albo nakarmiÄ siÄ waszymi duszami.~
+@10084 = ~To twoja ostatnia szansa Beghael.~
+@10085 = ~Co? GiĹcie mali sĹabi gĹupcy!~
+@10086 = ~Dlaczego nie chcesz zginÄÄ!?~
+@10087 = ~MiaĹeĹ swoje piÄÄ minut. Teraz pokaĹźemy ci co to znaczy bĂłl.~
+@10088 = ~Ty zdrajco!~
+@10089 = ~Dobrze wbij sobie w pamiÄÄ to co tutaj widzisz, i nie miej zĹudzeĹ. KaĹźdy kiedyĹ odpowie przed panem. Nie uciekniesz, ani siÄ nie ukryjesz, nie wygrasz. GĹoĹ sĹowo, a ludzie juĹź wkrĂłtce ujrzÄ swojÄ przyszĹoĹÄ.~
+@10090 = ~WiiidzÄ ciÄ!!!~
+@10091 = ~Ty maĹa pluskwo! A masz!~
+@10092 = ~StĂłj w MIEJSCU! RRrr... Ja rozwaliÄ twoja gĹowa!~
+@10093 = ~Musimy ĹpieszyÄ.~
+@10094 = ~Mam oko. Musi byÄ skierowane w stronÄ ĹwiatĹa.~
+@10095 = ~OpuĹÄmy na dobre te zapomniane od boga i ludzi tunele.~
+@10096 = ~GrrRRrr...~
+@10097 = ~MooOOOOO!!!~
+@10098 = ~Zdaje siÄ Ĺźe znĂłw skoĹczyĹy nam siÄ zioĹa, skarbie. IdÄ trochÄ nazbieraÄ.~
+@10099 = ~Dobrze, ale proszÄ... uwaĹźaj. Tyle siÄ teraz rzeczy dzieje... po prostu bÄdĹş ostroĹźna.~
+@10100 = ~Och nie przejmuj siÄ tak bardzo. WrĂłcÄ za chwilÄ.~
+@10101 = ~SpĂłjrz! Tam jest jedna! Ĺap jÄ!~
+@10102 = ~Nie! OdejdĹş! Nie chcÄ Ĺźadnych kĹopotĂłw!~
+@10103 = ~Ha! To byĹo caĹkiem proste. SprawdĹşmy czy ma coĹ przy sobie.~
+@10104 = ~Larala! Larala, to juĹź dwie godziny! Gdzie jesteĹ!? Larala!~
+@10105 = ~Och nie... nie, Larala! Co siÄ staĹo?... (pociÄga nosem)~
+@10106 = ~Nie! To niesprawiedliwe! ProszÄ, oddajcie mi jÄ...niech ktoĹ mi pomoĹźe...~
+@10107 = ~ProszÄ...~
+@10108 = ~Tu jestem. MĂłdl siÄ. MogÄ jÄ wskrzesiÄ.~
+@10109 = ~Och! DziÄkujÄ! DziÄkujÄ! ZwrĂłÄ mi jÄ... proszÄ...~
+@10110 = ~Cicho!~
+@10111 = ~To ciaĹo musi chwilowo wystarczyÄ... niewiele wiÄcej mogÄ zrobiÄ.~
+@10112 = ~Moc jest zbyt potÄĹźna; nie potrafiÄ zapanowaÄ nad niÄ! Przygotujcie siÄ!~
+@10113 = ~CzujÄ ogieĹ na koniuszkach palcĂłw.~
+@10114 = ~Komu, przejaĹźdĹźki do ĹwiÄtyni Wiedzy! Komu, komu!?~
+@10115 = ~Skorzystasz ty, skorzystacie wszyscy!~
+@10116 = ~Ĺwietnie! SpisaĹeĹ siÄ, <CHARNAME>. Najemnicy polujÄ na mnie juĹź od dwudziestu lat, a ci sÄ pierwszymi, ktĂłrym miaĹem przyjemnoĹÄ stawiÄ czoĹo.~ ~Ĺwietnie! SpisaĹaĹ siÄ, <CHARNAME>. Najemnicy polujÄ na mnie juĹź od dwudziestu lat, a ci sÄ pierwszymi, ktĂłrym miaĹem przyjemnoĹÄ stawiÄ czoĹo.~
+@10117 = ~Zatem... jesteĹcie gotowi do walki, najemnicy? Czy teĹź moĹźe odejdziecie i juĹź nigdy nie wrĂłcicie wiÄcej Ĺźeby mnie zabiÄ? Zakapturzeni Czarodzieje z pewnoĹciÄ zapĹacili wam sowicie, przykro mi Ĺźe muszÄ odbieraÄ wam chleb (*ironicznie*).~
+@10118 = ~ZaĹatwimy ciÄ! Nie cofniemy siÄ przed nikim... a zwĹaszcza za sumÄ 10,000 sztuk zĹota! ~
+@10119 = ~A wiÄc chcesz walczyÄ? Ĺwietnie, dobÄdĹş miecza. To zaczyna siÄ robiÄ interesujÄce.~
+@10120 = ~Jak widzisz, nie jestem jeszcze taki ostatni w te klocki. Czy sÄ jeszcze jacyĹ ĹmiaĹkowie, ktĂłrzy stanÄ do walki ze mnÄ?~
+@10121 = ~He... taa, no chyba...~
+@10122 = ~(*Westchnienie*)... <CHARNAME>, czy byĹbyĹ tak uprzejmy zajÄÄ siÄ nimi? Ich postawa doprawdy przejmuje mnie nudÄ.~ ~(*Westchnienie*)... <CHARNAME>, czy byĹabyĹ tak uprzejma zajÄÄ siÄ nimi? Ich postawa doprawdy przejmuje mnie nudÄ.~
+@10123 = ~Cooo? <CHARNAME> jest na twoich usĹugach!? Cholera, mogĹem siÄ spodziewaÄ Ĺźe dziaĹa na dwa fronty!~
+@10124 = ~Czy jesteĹ taki gĹupi, iĹź myĹlisz Ĺźe ciÄ nie sĹyszaĹem za drzwiami? WypaplaĹeĹ im o puĹapce! Nie powinieneĹ tego robiÄ!~ ~Czy jesteĹ taka gĹupia, iĹź myĹlisz Ĺźe ciÄ nie sĹyszaĹem za drzwiami? WypaplaĹaĹ im o puĹapce! Nie powinnaĹ tego robiÄ!~
+@10125 = ~PrĂłbowaĹeĹ mnie zdradziÄ... i prĂłbowaĹeĹ mnie zabiÄ. Obaj nie unikniecie kary.~ ~PrĂłbowaĹaĹ mnie zdradziÄ... i prĂłbowaĹaĹ mnie zabiÄ. Obaj nie unikniecie kary.~
+@10126 = ~Wpierw ukarzÄ tego, ktĂłry nastawaĹ na moje Ĺźycie.~
+@10127 = ~OdtÄd, zasĹyniesz jako <CHARNAME> Krzykliwy, dla wszystkich, ktĂłrzy siÄ do ciebie zbliĹźÄ lub ciÄ znajÄ.~
+@10128 = ~A co do najemnikĂłw... TydzieĹ Ĺźycia spÄdzicie w skĂłrze susĹĂłw. MoĹźecie rozleĹşÄ siÄ po gospodzie.~
+@10129 = ~Znalezienie noclegu i Ĺźarcia to juĹź wasza sprawa. Zdaje mi siÄ, Ĺźe rĂłwnieĹź Paul Kot powinien siÄ z wami nieĹşle zabawiÄ.~
+@10130 = ~I... ach, taa... Wy! Tak wy; najemnicy! JuĹź nigdy wiÄcej nie przemĂłwicie sĹowem do Zakapturzonego Czarodzieja.~
+@10131 = ~To tyle. JeĹli ktĂłryĹ z was ma jakiĹ problem, niech stanie przede mnÄ. Nie kiwnÄ palcem, lecz z ciekawoĹciÄ wysĹucham waszych racji.~
+@10132 = ~RrraaAAGGHH!!!~
+@10133 = ~ZnĂłw nadchodzÄ, gĹupcze!~
+@10134 = ~Haha! Zabawne!~
+@10135 = ~BabababaBOOM!~
+@10136 = ~Ja tym poszukiwaczom przygĂłd zaraz pokaĹźÄ!~
+@10137 = ~Co u licha?~
+@10138 = ~Szybko! Na doki przepuszczono atak!~
+@10139 = ~Atak!? Kto?~
+@10140 = ~Piraci od Nelanther... caĹa zgraja, z tego co udaĹo nam siÄ zauwaĹźyÄ.~
+@10141 = ~To prawda. Teraz jak spadĹy wam Ĺuski z oczu widzicie, jak okrutnego bĹÄdu dopuĹciliĹcie siÄ stawiajÄc nas w stan oskarĹźenia.~
+@10142 = ~Do licha! Wybaczcie nam tÄ pomyĹkÄ, ale teraz musimy siÄ przygotowaÄ. Oni juĹź tu niemal sÄ. SpĂłjrzcie! WyĹaniajÄ siÄ zza horyzontu. Kamraci, gotujcie broĹ!~
+@10143 = ~Wyczuwam w pobliĹźu ogromnÄ moc. Czas ruszaÄ w gĹÄb jaskini.~
+@10144 = ~OkazaliĹcie dziĹ w czasie walki bezprzykĹadne mÄstwo i hart ducha, podrĂłĹźni. UchroniliĹcie doki przed nieszczÄĹciem, lecz mamy ĹwiadomoĹÄ, Ĺźe sposĂłb w jaki was potraktowano jest nie do wybaczenia.~
+@10145 = ~Wasze zarzuty okazaĹy siÄ bezpodstawne, ale...nie ma tego zĹego co by na dobre nie wyszĹo.~
+@10146 = ~A dziĹ, zaskarbiliĹcie sobie Ĺaski ZĹodziei Cienia. Pragniemy podarowaÄ wam ten artefakt, w dowĂłd naszego uznania. Nawet my, zbĂłje, poczytujemy sobie to za zaszczyt, a utrzymywanie dobrych stosunkĂłw z kimĹ tak potÄĹźnym jak ty, leĹźy w naszym interesie.~
+@10147 = ~Ano tak. Nikogo tak nie uradowaĹeĹ, jak Zakon Promiennego Serca. W darze pragniemy ci zĹoĹźyÄ przez wdziÄcznoĹÄ ten rÄcznie wykonany przedmiot. W tak krĂłtkim czasie tylko Zakon Promiennego Serca potrafiĹby dziĹ przechyliÄ szalÄ zwyciÄstwa na swojÄ stronÄ.~ ~Ano tak. Nikogo tak nie uradowaĹaĹ, jak Zakon Promiennego Serca. W darze pragniemy ci zĹoĹźyÄ przez wdziÄcznoĹÄ ten rÄcznie wykonany przedmiot. W tak krĂłtkim czasie tylko Zakon Promiennego Serca potrafiĹby dziĹ przechyliÄ szalÄ zwyciÄstwa na swojÄ stronÄ.~
+@10148 = ~Nie czujÄ siÄ oszukany, bo wiem. Ĺźe miasto ma ĹwiadomoĹÄ swego bĹÄdu. PrzyjmÄ wasze dary w nadziei, Ĺźe znĂłw bÄdziemy mogli ĹźyÄ obok siebie bez wzajemnych uprzedzeĹ.~ ~Nie czujÄ siÄ oszukana, bo wiem, Ĺźe miasto ma ĹwiadomoĹÄ swego bĹÄdu. PrzyjmÄ wasze dary w nadziei, Ĺźe znĂłw bÄdziemy mogli ĹźyÄ obok siebie bez wzajemnych uprzedzeĹ.~
+@10149 = ~BÄdziesz traktowany z naleĹźnym ci szacunkiem, juĹź nasza w tym gĹowa. A co do braku zajÄÄ, to nie przejmowaĹbym siÄ tym. Ostatnio, doszĹy mnie sĹuchy, Ĺźe wiele grup chciaĹoby ciÄ najÄÄ do roboty, do ktĂłrej siÄ nadajÄ tylko tacy herosi jak ty. Zdaje siÄ, Ĺźe czeka ciÄ wiele przygĂłd, tedy ĹźywiÄ nadziejÄ Ĺźe nasze dary bÄdÄ ci sĹuĹźyÄ pomocÄ.~ ~BÄdziesz traktowana z naleĹźnym ci szacunkiem, juĹź nasza w tym gĹowa. A co do braku zajÄÄ, to nie przejmowaĹbym siÄ tym. Ostatnio, doszĹy mnie sĹuchy, Ĺźe wiele grup chciaĹoby ciÄ najÄÄ do roboty, do ktĂłrej siÄ nadajÄ tylko tacy herosi jak ty. Zdaje siÄ, Ĺźe czeka ciÄ wiele przygĂłd, tedy ĹźywiÄ nadziejÄ Ĺźe nasze dary bÄdÄ ci sĹuĹźyÄ pomocÄ.~
+@10150 = ~Nie... Nie. Nieeeeee!~
+@10151 = ~Drzwi sÄ zamkniÄte. BÄdzie ci potrzebny pasujÄcy klucz, jeĹli chcesz siÄ dostaÄ do nastÄpnego pomieszczenia.~
+@10152 = ~Gdy wkĹadasz klucz w zamek drzwi, klucz znika w niewielkim blasku ĹwiatĹa, i drzwi otwierajÄ siÄ na oĹcieĹź.~
+@10153 = ~MiaĹes swojÄ szansÄ. PokaĹźemy ci, co to znaczy bĂłl.~
+@10154 = ~Jam jest Paul! Poczujesz mĂłj gnie... Au! to boli!~
+@10155 = ~WalczÄ aĹź do zwyciÄstwa, nÄdzne istoty! Mwahaha!~
+@10156 = ~Purr... prrr...~
+@10157 = ~OdnieĹliĹmy sukces. Duchy zostaĹy odesĹane do swojej sfery. SpeĹniĹem swojÄ misjÄ.~
+@10158 = ~DziÄki ci, dobry KapĹanie Lathandera. MieszkaĹcy wioski czujÄ siÄ wobec ciebie bardzo zobowiÄzani.~
+@10159 = ~CaĹa przyjemnoĹÄ po mojej stronie, przyjacielu. To naleĹźy do moich codziennych zajÄÄ. MuszÄ ruszaÄ w dalszÄ drogÄ. Ĺťegnajcie podrĂłĹźnicy.~ ~CaĹa przyjemnoĹÄ po mojej stronie, przyjaciĂłĹko. To naleĹźy do moich codziennych zajÄÄ. MuszÄ ruszaÄ w dalszÄ drogÄ. Ĺťegnajcie podrĂłĹźnicy.~
+@10160 = ~JesteĹcie zbyt uĹźyteczni, aby rzuciÄ was na pastwÄ szczurom.~
+@10161 = ~BÄdziecie doskonaĹym narzÄdziem w rÄkach pana.~
+@10162 = ~Wskrzeszenie to cudowna sprawa.~
+@10163 = ~OdtÄd bÄdziecie duchami pana, bÄdziecie mu sĹuĹźyÄ tak jak sobie Ĺźyczy. Czy wyraĹźam siÄ jasno?~
+@10164 = ~W peĹni.~
+@10165 = ~BÄdÄ sĹuĹźyÄ.~
+@10166 = ~ZabĂłjczy i posĹuszny; pan zachowa ciÄ w pamiÄci, gdy stanie u celu.~
+@10167 = ~PROSZÄ! NIE!! Jest mi przykro... tak mi przykro... ProszÄ nie zabijaj mnie... ProszÄ... ~
+@10168 = ~Milcz Ĺwinio! OkaĹźÄ ci wielkÄ ĹaskÄ. Powinnam obedrzeÄ ciÄ ze skĂłry i rzuciÄ na poĹźarcie insektom, lecz pozwolÄ ci umrzeÄ o wiele lĹźejszÄ ĹmierciÄ. Jestem przekonana, Ĺźe woĹ spalenizny twojego ciaĹa bÄdzie dla mnie o wiele bardziej upajajÄca. No ale dla ciebie niekoniecznie~
+@10169 = ~No dalej! PragnÄ ujrzeÄ tÄ rozkosz w twoich oczach, Viconio. ChcÄ ujrzeÄ w tobie ĹźÄdzÄ, kiedy bÄdziesz sprawiaÄ mu bĂłl, ach jak ja to lubiÄ. Spal go Ĺźywcem. UkaĹź mi swojÄ ĹźÄdzÄ zemsty! UkaĹź mi to, czego pragnÄ.~
+@10170 = ~Poczuj bĂłl, na ktĂłry zasĹugujesz, Ĺwinio! PĹoĹ!~
+@10171 = ~WrĂłĹźby wskazaĹy nam przyczynÄ chaosu i problemĂłw handlowych, niewspominajÄc o zabĂłjstwach.~
+@10172 = ~Musimy dziaĹaÄ.~
+@10173 = ~WskaĹź nam potwora a my poĹoĹźymy temu kres.~
+@10174 = ~Nie muszÄ ci go wskazywaÄ, zakoĹczymy to tu i teraz. PrzyĹÄcz siÄ do mnie, a pozbawimy tÄ maszkarÄ duszy i jednoczeĹnie pozbÄdziemy siÄ kĹopotĂłw.~
+@10175 = ~*Kaszel* Moja pierĹ... bĂłl... rozdziera mi pierĹ!~
+@10176 = ~Co-- Co siÄ dzieje? Ja umieram! Nie! Ah-- Aahhh!~
+@10177 = ~Grr...~
+@10178 = ~MilczeÄ, maĹe czarty!~
+@10179 = ~CĂłĹź, upĹynÄĹo wiele czasu, od kiedy natknÄĹem siÄ na tobie podobnych. MuszÄ przyznaÄ, iĹź caĹe wieki czekaĹem na tÄ chwilÄ.~
+@10180 = ~Czy masz pojÄcie kim ja jestem? Ja oczekujÄ dĹuĹźej od ciebie, zapewniam ciÄ. Roztropnie postÄpisz jeĹli zejdziesz mi z drogi.~
+@10181 = ~Masz czelnoĹÄ mi groziÄ? Jestem stary jak czas. WidziaĹem narodziny planety, ktĂłrÄ ty chcesz wĹadaÄ. Wiem wszystko o twojej rasie.~
+@10182 = ~Wiem, Ĺźe ty i czas jesteĹcie niezniszczalni. Ale byĹem Ĺwiadkiem twoich narodzin, i twĂłj czas musi dopiero nadejĹÄ.~
+@10183 = ~Zapewniam ciÄ, jesteĹ tylko kolejnÄ istotÄ ktĂłra mi ulegnie, maluczki demonie.~
+@10184 = ~Demonie? Demonie!? Nie jestem Ĺźadnym demonem, gĹupcze. Te maĹe stworzenia sluĹźÄ mi, nie majÄ wyboru. To moja sfera, jam jest Tartarus, ZabĂłjca DemonĂłw. Ĺmiesz porĂłwnywaÄ mnie do tych... nÄdznikĂłw?~
+@10185 = ~PrzekonaĹem ciÄ, gĹupcze?~
+@10186 = ~Ha ha ha! To przedstawienie jest ĹźaĹosne w porĂłwnaniu z tym, co ja mogÄ zademonstrowaÄ!~
+@10187 = ~SkoĹcz z tÄ komediÄ. Masz coĹ czego ja potrzebujÄ. Chodzi mi o twĂłj szpon. PosĹuĹźy mi za portal z tego krĂłlestwa, zginiesz za niego.~
+@10188 = ~Wreszcie ktoĹ sprowadziĹ duchy, ktĂłre pomogÄ mi siÄ odrodziÄ. Czas by zaĹźÄdaÄ zwrotu krĂłlestwa.~
+@10189 = ~Chyba znaleĹşliĹmy legowisko Tyrana.~
+@10190 = ~Aaa! Pomocy!~
+@10191 = ~OdejdĹş ode mnie, ohydna Ĺwinio.~
+@10192 = ~CĂłĹź my tu mamy, oto piÄkna, zadziorna Drowia elfka. NauczÄ ciÄ okazywaÄ mi szacunek, czarna suko.~
+@10193 = ~OdejdĹş Ĺwinio! Mam z tyĹu zwiÄzane rÄce. JeĹli jesteĹ mÄĹźczyznÄ, rozwiÄĹźesz mnie i wtedy udowodnisz mi, ile jestes wart.~
+@10194 = ~Nie mam ochoty do walki, Drowko. PokaĹźÄ ci, na co nabraĹem ochoty w dzisiejszÄ noc!~
+@10195 = ~Nie... Nie. NIEEE!~
+@10196 = ~Viconio, wszystko w porzÄdku? SĹyszaĹem jak krzyczysz. Torturowali ciÄ?~ ~Viconio, wszystko w porzÄdku? SĹyszaĹam jak krzyczysz. Torturowali ciÄ?~
+@10197 = ~Gdyby to byĹa tylko tortura. Ten straĹźnik... on... zniewoliĹ mnie. Ten ohydny czĹowiek zniewoliĹ mnie, gdy miaĹam zwiÄzane rÄce. Nie mogĹam nic zrobiÄ.~
+@10198 = ~Na bogĂłw! Tak mi przykro, Viconio. Znajdziemy sposĂłb, aby pomĹciÄ twojÄ krzywdÄ!~
+@10199 = ~ZostaĹam splugawiona przez czĹowieka. Nie spocznÄ, pĂłki nie zawieszÄ jego skĂłry na swojej Ĺcianie by pamiÄtaÄ, jak podĹÄ bywa naziemna rasa.~
+@10200 = ~CieszÄ siÄ, Ĺźe wspĂłlnie moĹźemy spÄdziÄ ten czas, ale chcÄ ciÄ zapewniÄ, Ĺźe chodzi tylko o wyĹadowanie siÄ. Nic wiÄcej z tego nie wyniknie.~
+@10201 = ~Cieszy mnie to, ale kto wie, co czas pokaĹźe?~
+@10202 = ~Ale wiedz, Ĺźe gramy na moich zasadach. PokaĹźÄ ci kilka rzeczy, ktĂłre uczyniĹy mnie obiektem poĹźÄdania w Menzoberranzan. SĹynÄ ze swoich umiejÄtnoĹci na caĹÄ okolicÄ.~
+@10203 = ~TwĂłj umysĹ nagle opanowuje zamÄt. PrzytĹacza ciÄ ciemnoĹÄ i wizje unoszÄ ciÄ, z twego ciaĹa...~
+@10204 = ~CzÄĹci ciaĹÄ znikajÄ w gÄstym powietrzu. Na ich miejscu pojawia siÄ ciepĹa figura.~
+@10205 = ~Czujesz ogromne zmÄczenie. Twe wizje rozpĹywajÄ siÄ i nie potrafisz jasno myĹleÄ. WyglÄda na to, Ĺźe dotknÄĹa ciÄ jakaĹ choroba.~
+@10206 = ~Nie, nie teraz.~
+@10207 = ~Tak~
+

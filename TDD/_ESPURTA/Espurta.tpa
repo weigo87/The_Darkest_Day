@@ -1,0 +1,101 @@
+DEFINE_ACTION_MACRO InstallSpecificContents
+BEGIN		
+	APPEND ~MASTAREA.2DA~
+~DD2300   value
+DD1800   value
+DD2500   value
+DD1200   value
+DX2001   value~
+	UNLESS ~DD2300~
+	
+	COPY_EXISTING ~DD0334.are~ 		~override~ WRITE_ASCII 0x94 ~DD0334~ #8
+	
+	COPY_EXISTING ~ICEGOLEM.cre~	~override~ WRITE_LONG  0x28 0xE0F0 // GOLEM_ICE/IC_ICE_GOLEM
+	COPY_EXISTING ~FROST01.cre~ 	~override~ WRITE_LONG  0x28 0xE24F // IC_GIANT_FROST
+	COPY_EXISTING ~DDFROST1.cre~ 	~override~ WRITE_LONG  0x28 0xE24F // IC_GIANT_FROST	
+	ACTION_IF GAME_IS ~tob~ BEGIN
+		COPY_EXISTING ~FROST01.cre~ 	~override~ WRITE_LONG  0x28 0xE710 // IC_OROG2
+		COPY_EXISTING ~DDFROST1.cre~ 	~override~ WRITE_LONG  0x28 0xE710 // IC_OROG2
+	END		
+		
+	LAM HandleSpellScrollsContract	
+	LAM HandleItemsContract	
+	
+	EXTEND_TOP ~AR0020.bcs~ ~%MOD_FOLDER%/%COMP_FOLDER%/Snip/tAR0020.baf~
+	
+	OUTER_TEXT_SPRINT sender ~%COMP_FOLDER%~
+	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~ LAF Accept STR_VAR sender target = ~_ESPURTA~ END
+END
+
+
+//=============================================================================
+DEFINE_ACTION_MACRO HandleItemsContract
+BEGIN
+	COPY ~%MOD_FOLDER%/%COMP_FOLDER%/ItemsContract.2da~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ItemsContract.2da~
+		COUNT_2DA_ROWS 7 count
+		WHILE (count > 1) BEGIN
+			READ_2DA_ENTRY (count -1) 0 7 resname				
+			READ_2DA_ENTRY (count -1) 6 7 policy //undroppable column
+			SET count = count -1
+			
+			TO_UPPER resname
+			TO_UPPER policy
+			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)
+			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+			SPRINT newItem ~%policy%~
+			PATCH_IF (~%undroppable%~)
+				BEGIN SPRINT newItem ~SCRL75~ END
+			
+			PATCH_IF (~%customize%~) BEGIN			
+				INNER_ACTION BEGIN
+					ACTION_MATCH ~%resname%~ 
+					WITH
+						~ARDEADX~ 	BEGIN COPY_EXISTING ~DD4003.ARE~ 	~override~ WRITE_ASCIIE 0x12F4 	~%newItem%~ #8 END
+						~DDPOTNP1~ 	BEGIN COPY_EXISTING ~DDTEMPL1.STO~ 	~override~ WRITE_ASCIIE 0x274 	~%newItem%~ #8 END
+						~DDPOTNP2~ 	BEGIN COPY_EXISTING ~DDTEMPL1.STO~ 	~override~ WRITE_ASCIIE 0x290 	~%newItem%~ #8 END
+						~DORATH~ 	BEGIN COPY_EXISTING ~BARGOOD.STO~ 	~override~ WRITE_ASCIIE 0x20C 	~%newItem%~ #8 END
+						~EREBOS~ 	BEGIN COPY_EXISTING ~BARGOOD.STO~ 	~override~ WRITE_ASCIIE 0x1F0 	~%newItem%~ #8 END						
+						~ICEPLAT~ 	BEGIN COPY ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/DD2500.BAF~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/DD2500.BAF~ REPLACE_TEXTUALLY ~%resname%~ ~%newItem%~ END
+						DEFAULT
+					END
+				END
+			END
+		END
+	BUT_ONLY	
+END
+
+
+//=============================================================================
+DEFINE_ACTION_MACRO HandleSpellScrollsContract
+BEGIN
+	COPY ~%MOD_FOLDER%/_CORE/SpellScrollsContract.2da~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/SpellScrollsContract.2da~
+		COUNT_2DA_ROWS 8 count
+		WHILE (count > 1) BEGIN
+			READ_2DA_ENTRY (count -1) 0 8 resname				
+			READ_2DA_ENTRY (count -1) 6 8 policy
+			SET count = count -1
+				
+			TO_UPPER resname	
+			TO_UPPER policy	
+			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)	
+			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+			SET replace = (~%customize%~ && NOT ~%undroppable%~)
+			SPRINT newItem ~%policy%~
+			PATCH_IF (~%undroppable%~)
+				BEGIN SPRINT newItem ~SCRL75~ END
+			
+			PATCH_IF ~%customize%~ BEGIN								
+				INNER_ACTION BEGIN
+					ACTION_MATCH ~%resname%~ 					
+					WITH
+						~SCRX10~ 	BEGIN COPY_EXISTING ~BARHEAL.sto~ 	~override~ WRITE_ASCIIE 0x1CC 	~%newItem%~ #8 END
+						~SCRX25~ 	BEGIN COPY_EXISTING ~BARHEAL.sto~ 	~override~ WRITE_ASCIIE 0x1B0 	~%newItem%~ #8 END
+						~SCRX29~ 	BEGIN COPY_EXISTING ~DD1800.are~ 	~override~ WRITE_ASCIIE 0x54C 	~%newItem%~ #8 END	
+						~SCRX51~ 	BEGIN COPY_EXISTING ~BARHEAL.sto~ 	~override~ WRITE_ASCIIE 0x1E8 	~%newItem%~ #8 END
+						DEFAULT
+					END
+				END
+			END
+		END
+	BUT_ONLY	
+END

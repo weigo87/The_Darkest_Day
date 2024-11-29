@@ -1,0 +1,80 @@
+//=============================================================================
+/* USED DURING INITIAL DEVELOPMENT - NOT USED NOW
+DEFINE_ACTION_MACRO DispatchTraFiles //copy translation files into their component folder based on English folder
+BEGIN
+	ACTION_FOR_EACH comp IN ~_Espurta~ ~_Purskal~ ~_Trollford~ ~_Riatavin~ ~_Robilard~ BEGIN
+		ACTION_BASH_FOR ~%MOD_FOLDER%/%comp%/TRA/English/~ ~.*\.tra~ BEGIN
+			ACTION_FOR_EACH language IN ~French~ ~German~ ~Italian~ ~Polish~ ~Russian~ ~Spanish~ BEGIN
+				COPY ~TDD/Language/%language%/%BASH_FOR_FILE%~ ~%MOD_FOLDER%/%comp%/TRA/%language%/%BASH_FOR_FILE%~
+			END
+		END
+	END		
+END*/
+
+//=============================================================================
+/* USED DURING INITIAL DEVELOPMENT - NOT USED NOW
+DEFINE_ACTION_MACRO UTF8Chores
+BEGIN
+	// any tra files used in LANGUAGE need to be reloaded after UTF-8 conversion
+	ACTION_DEFINE_ARRAY tra#reload BEGIN END
+
+	// No exception, everything needs to be converted
+	ACTION_DEFINE_ARRAY tra#noconvert BEGIN END
+
+	LAF HANDLE_CHARSETS
+		INT_VAR
+			infer_charsets = 1
+		STR_VAR
+			tra_path = EVAL ~%MOD_FOLDER%/TEMP/Translations~
+			iconv_path = EVAL ~%MOD_FOLDER%/tools/iconv/win32~
+			reload_array = tra#reload
+			noconvert_array = tra#noconvert
+	END
+END
+
+*/
+
+//=============================================================================
+// USED DURING INITIAL DEVELOPMENT - NOT USED NOW
+DEFINE_ACTION_MACRO DispatchTraFiles //copy translation files into their component folder based on English folder
+BEGIN
+//	ACTION_FOR_EACH comp IN ~_Espurta~ ~_Purskal~ ~_Trollford~ ~_Riatavin~ ~_Robilard~ BEGIN
+//		ACTION_BASH_FOR ~%MOD_FOLDER%/%comp%/TRA/English/~ ~.*\.tra~ BEGIN
+//			ACTION_FOR_EACH language IN ~French~ ~German~ ~Italian~ ~Polish~ ~Russian~ ~Spanish~ BEGIN
+//				COPY ~TDD/Language/%language%/%BASH_FOR_FILE%~ ~%MOD_FOLDER%/%comp%/TRA/%language%/%BASH_FOR_FILE%~
+//			END
+//		END
+//	END
+	ACTION_FOR_EACH comp IN ~_Espurta~ ~_Purskal~ ~_Trollford~ ~_Riatavin~ ~_Robilard~ BEGIN
+		ACTION_FOR_EACH language1 IN ~English~ ~French~ ~German~ ~Italian~ ~Polish~ ~Russian~ ~Spanish~ BEGIN
+			LAM UTF8Chores
+		END
+	END
+END
+
+//=============================================================================
+// USED DURING INITIAL DEVELOPMENT - NOT USED NOW
+DEFINE_ACTION_MACRO UTF8Chores
+BEGIN
+	// any tra files used in LANGUAGE need to be reloaded after UTF-8 conversion
+	ACTION_DEFINE_ARRAY tra#reload BEGIN END
+
+	// No exception, everything needs to be converted
+	ACTION_DEFINE_ARRAY tra#noconvert BEGIN END
+
+	LAF HANDLE_CHARSETS
+		INT_VAR
+			infer_charsets = 1
+		STR_VAR
+			language = EVAL ~%language1%~
+			tra_path = EVAL ~%MOD_FOLDER%/%comp%/TRA~
+			iconv_path = EVAL ~%MOD_FOLDER%/tools/iconv/win32~
+			reload_array = tra#reload
+			noconvert_array = tra#noconvert
+	END
+END
+
+
+
+
+

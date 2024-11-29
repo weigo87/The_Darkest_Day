@@ -1,0 +1,90 @@
+RESNAME		MOS WED	TIZ	HT_MAP	LM_MAP	SR_MAP	COMMENT
+AR1106CT	+	+	+	+		+		+		Replaced by ARCT11
+DD0200		0	0	0	0		0		0		Mage Ward
+DD0201		+	+	+	+		+		+
+DD0202		+	+	+	+		+		+
+DD0203		+	+	+	+		+		+
+DD0204		+	+	+	+		+		+
+DD0205		+	+	+	+		+		+
+DD0206		+	+	+	+		+		+
+DD0300CT	+	+	+	+		+		+		Replaced by DDCT03
+DD0508C1	+	+	+	+		+		+		Replaced by DDC105
+DD1005CT	+	+	+	+		+		+		Replaced by DDCT10
+DD1002C1	+	+	+	+		+		+		Replaced by DDC110
+DD1002X1	+	+	+	+		+		+		Replaced by DDX110
+DD1607C1	+	+	+	+		+		+		Replaced by DDC160
+DD3300		0	0	0	0		0		0
+DD3300C1	+	+	+	+		+		+		Replaced by DDC133
+DD3300CT	DD3300	DD3300	DD3300	DD3300HT	DD3300LM	DD3300SR		Replaced by DDCT33
+DD3301		+	+	+	+		+		+
+DD3301B		+	+	+	+		+		+
+DD3302		+	+	+	+		+		+
+DD3302B		+	+	+	+		+		+		
+DD3303		+	+	+	+		+		+
+DD3304		0	0	0	0		0		0
+DD3305		0	0	0	0		0		0
+DD3306		+	+	+	+		+		+
+DD3306B		+	+	+	+		+		+
+DD3307		+	+	+	+		+		+		Avrabar
+DD3308		+	+	+	+		+		+
+DD3309		+	+	+	+		+		+
+DD3310		+	+	+	+		+		+
+DD3311		+	+	+	+		+		+
+DD3312		+	+	+	+		+		+
+DD3313		+	+	+	+		+		+
+DD3314		0	0	0	0		0		0
+DD3315		+	+	+	+		+		+
+DD3316		+	+	+	+		+		+
+DD3317		+	+	+	+		+		+
+DD3318		+	+	+	+		+		+
+DD3319		+	+	+	+		+		+
+DD3319C1	+	+	+	+		+		+	Replaced by DDC119 //DDC133 is already used!
+DD3319CT	+	+	+	+		+		+	Replaced by DDCT19
+DD3320		+	+	+	+		+		+
+DD3321		+	+	+	+		+		+
+DD3322		+	+	+	+		+		+
+DD3323		+	+	+	+		+		+
+DD3324		+	+	+	+		+		+
+DD3325		+	+	+	+		+		+
+DD3326		+	+	+	+		+		+
+DD3327		+	+	+	+		+		+
+DD3328		+	+	+	+		+		+
+DD3329		+	+	+	+		+		+
+DD3330		+	+	+	+		+		+
+DD3331		+	+	+	+		+		+
+DD3332		+	+	+	+		+		+
+DD3333		+	+	+	+		+		+
+DD3334		0	0	0	0		0		0
+DD3335		0	0	0	0		0		0
+DD3336		0	0	0	0		0		0
+DD3337		0	0	0	0		0		0
+DD3338		0	0	0	0		0		0
+DD7000		+	+	+	+		+		+
+DD7001		+	+	+	+		+		+
+DD7002		+	+	+	+		+		+
+DD7003		+	+	+	+		+		+
+DD7004		+	+	+	+		+		+
+DD8000		0	0	0	0		0		0
+DD8000b		+	+	+	+		+		+
+DD8000c		+	+	+	+		+		+
+DD8000d		+	+	+	+		+		+
+DD8000e		+	+	+	+		+		+
+DD8001		0	0	0	0		0		0
+DD8001b		+	+	+	+		+		+
+DD8001c		+	+	+	+		+		+
+DD8001d		+	+	+	+		+		+
+DD8002		+	+	+	+		+		+
+DD8002ct	+	+	+	+		+		+		Replaced by DDCT80
+DD9X00		0	0	0	0		0		0
+DD9X01		+	+	+	+		+		+
+DD9X02		+	+	+	+		+		+
+DD9X03		+	+	+	+		+		+
+DD9X04		+	+	+	+		+		+
+DD9X05		+	+	+	+		+		+
+DD9X06		+	+	+	+		+		+
+DD9X00C1 	+	+	+	+		+		+		Replaced by DDC19X
+
+
+
+
+
