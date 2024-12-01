@@ -2,7 +2,7 @@
 BACKUP ~weidu_external/backup/TDD~
 //AUTHOR ~shadowlich~
 SUPPORT ~https://forums.beamdog.com/discussion/4841/the-darkest-day/~
-VERSION ~v2.0 beta~
+VERSION ~v2.0 alpha~
 
 ASK_EVERY_COMPONENT
 
@@ -18,8 +18,8 @@ ALWAYS
 	MKDIR "%workspace%"
 	
 	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~
-//		LAM ForceClearTempFolder
 	INCLUDE ~%MOD_FOLDER%/Lib/a7_tools.tpa~
+	INCLUDE ~%MOD_FOLDER%/Lib/a7_pvrz_tis.tpa~
 
 	ACTION_IF GAME_IS ~eet~ BEGIN
 		OUTER_SET bg2_chapter = 12
@@ -54,9 +54,11 @@ ACTION_IF NOT VARIABLE_IS_SET one_time_execution THEN BEGIN // check to make thi
             reload_array = charsetsReloadArray
             noconvert_array = charsetsNoConvertArray
     END
+	
     // for AUTO_TRA: if the game is the enhanced edition, the conversion will not happen so all .tra files should be loaded from "%MOD_FOLDER%/Language"
     ACTION_IF (GAME_IS "bgee bg2ee eet iwdee pstee") THEN BEGIN
-        OUTER_TEXT_SPRINT "TRA_LOCATION" EVAL "%MOD_FOLDER%/Language"
+		OUTER_TEXT_SPRINT "TRA_LOCATION" EVAL "%HANDLE_CHARSETS_OUT_PATH%"
+		COPY ~%MOD_FOLDER%/language/%LANGUAGE%~ ~%TRA_LOCATION%/%LANGUAGE%~
     END
 
     // for AUTO_TRA: if the game is the classic edition, all converted .tra files will be loaded from HANDLE_CHARSETS out_path
@@ -134,23 +136,13 @@ LANGUAGE 	~Spanish(Clan REO)~
 
 BEGIN @901000
 	DESIGNATED 0 LABEL ~the_darkest_day~
-	REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet~ ~~
-//	COPY ~TDD/Bam~ ~override~
+	REQUIRE_PREDICATE GAME_IS ~bg2 tob bgt bg2ee eet~ ~~
+	
         INCLUDE ~%MOD_FOLDER%/Lib/Importer.tpa~
 		LAF ImportComponent STR_VAR aComp = ~CORE~ END
-	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~
-//		LAF DeleteTempFolder STR_VAR aComp = ~CORE~ END
 
 COPY_EXISTING ~sahoty01.cre~ ~override/tzhoty01.cre~
     WRITE_ASCII 0x280 ~tzhoty01~ #8
-
-//LAF HANDLE_AUDIO
-//  STR_VAR
-//    audio_path = ~TDD/ogg~ // the audio are from TDD
-//    oggdec_path = ~TDD/tools/oggdec~ // the oggdec is from TDD
-//END
-
-//COPY ~TDD/PVRZ~ ~override~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -162,15 +154,10 @@ COPY_EXISTING ~sahoty01.cre~ ~override/tzhoty01.cre~
 
 BEGIN @901001
 	DESIGNATED 1
-	REQUIRE_PREDICATE GAME_IS ~tob bg2ee eet~ ~~
-	REQUIRE_COMPONENT "setup-TDD.tp2" "0" @901011
+	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
 	INCLUDE ~%MOD_FOLDER%/Lib/Importer.tpa~
 		LAF ImportComponent STR_VAR aComp = ~TROLLFORD~ END
-	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~
-		LAF DeleteTempFolder STR_VAR aComp = ~TROLLFORD~ END
-
-COPY ~TDD/PVRZ~ ~override~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -182,15 +169,10 @@ COPY ~TDD/PVRZ~ ~override~
 
 BEGIN @901002
 	DESIGNATED 2
-	REQUIRE_PREDICATE GAME_IS ~tob bg2ee eet~ ~~
-	REQUIRE_COMPONENT "setup-TDD.tp2" "0" @901011
+	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
 	INCLUDE ~%MOD_FOLDER%/Lib/Importer.tpa~
 		LAF ImportComponent STR_VAR aComp = ~ESPURTA~ END
-	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~
-		LAF DeleteTempFolder STR_VAR aComp = ~ESPURTA~ END
-
-COPY ~TDD/PVRZ~ ~override~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -202,13 +184,10 @@ COPY ~TDD/PVRZ~ ~override~
 
 BEGIN @901003
 	DESIGNATED 3
-	REQUIRE_PREDICATE GAME_IS ~tob bg2ee eet~ ~~
-	REQUIRE_COMPONENT "setup-TDD.tp2" "0" @901011
+	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
 	INCLUDE ~%MOD_FOLDER%/Lib/Importer.tpa~
 		LAF ImportComponent STR_VAR aComp = ~PURSKAL~ END
-	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~
-		LAF DeleteTempFolder STR_VAR aComp = ~PURSKAL~ END
 		
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -220,15 +199,11 @@ BEGIN @901003
 
 BEGIN @901004
 	DESIGNATED 4
-	REQUIRE_PREDICATE GAME_IS ~tob bg2ee eet~ ~~
-	REQUIRE_COMPONENT "setup-TDD.tp2" "0" @901011
+	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
 	INCLUDE ~%MOD_FOLDER%/Lib/Importer.tpa~
 		LAF ImportComponent STR_VAR aComp = ~RIATAVIN~ END
 	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~
-		LAF DeleteTempFolder STR_VAR aComp = ~RIATAVIN~ END
-
-COPY ~TDD/PVRZ~ ~override~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -240,15 +215,10 @@ COPY ~TDD/PVRZ~ ~override~
 
 BEGIN @901005
 	DESIGNATED 5
-	REQUIRE_PREDICATE GAME_IS ~tob bg2ee eet~ ~~
-	REQUIRE_COMPONENT "setup-TDD.tp2" "0" @901011
+	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
 	INCLUDE ~%MOD_FOLDER%/Lib/Importer.tpa~
 		LAF ImportComponent STR_VAR aComp = ~ONSETOfTheDARKESTDAY~ END
-	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~
-		LAF DeleteTempFolder STR_VAR aComp = ~ONSETOfTheDARKESTDAY~ END
-
-COPY ~TDD/PVRZ~ ~override~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -260,14 +230,10 @@ COPY ~TDD/PVRZ~ ~override~
 
 BEGIN @901010
 	DESIGNATED 6
-	REQUIRE_PREDICATE GAME_IS ~tob bg2ee eet~ ~~
-	REQUIRE_COMPONENT "setup-TDD.tp2" "0" @901011
+	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
 	INCLUDE ~%MOD_FOLDER%/Lib/Importer.tpa~
 		LAF ImportComponent STR_VAR aComp = ~ROBILARD~ END
-	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~
-		LAF DeleteTempFolder STR_VAR aComp = ~ROBILARD~ END
-
 
 /////////////////////////////
 BEGIN ~Use BGGO extended BG1 areas for TDD~

@@ -111,14 +111,14 @@ UNLESS ~DD3300~
 	EXTEND_BOTTOM ~BALDUR.bcs~ ~%MOD_FOLDER%/%COMP_FOLDER%/Snip/bBALDUR.baf~
 	
 	OUTER_TEXT_SPRINT sender ~%COMP_FOLDER%~ 
-	INCLUDE ~TDDz/Lib/Helpers.tpa~ LAF Accept STR_VAR sender target = ~_RIATAVIN~ END
+	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~ LAF Accept STR_VAR sender target = ~_RIATAVIN~ END
 END
 
 
 //=============================================================================
 DEFINE_ACTION_MACRO HandleCoreItemsContract
 BEGIN
-	COPY ~%MOD_FOLDER%/_CORE/ItemsContract.2da~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/CoreItemsContract.2da~
+	COPY ~%MOD_FOLDER%/_CORE/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/CoreItemsContract.2da~
 		COUNT_2DA_ROWS 7 count
 		WHILE (count > 1) BEGIN
 			READ_2DA_ENTRY (count -1) 0 7 resname				
@@ -158,7 +158,7 @@ END
 //=============================================================================
 DEFINE_ACTION_MACRO HandleItemsContract
 BEGIN
-	COPY ~%MOD_FOLDER%/%COMP_FOLDER%/ItemsContract.2da~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ItemsContract.2da~
+	COPY ~%MOD_FOLDER%/%COMP_FOLDER%/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/ItemsContract.2da~
 		COUNT_2DA_ROWS 7 count
 		WHILE (count > 1) BEGIN
 			READ_2DA_ENTRY (count -1) 0 7 resname
@@ -184,7 +184,7 @@ BEGIN
 						~ARQUINXX~ 	BEGIN COPY_EXISTING ~3314FRGE.sto~ 	~override~ WRITE_ASCIIE 0x428 	~%newItem%~ #8 END
 						~BLADETRM~ 	BEGIN ACTION_IF NOT ~%undroppable%~ BEGIN COPY_EXISTING ~R800001.cre~ ~override~ WRITE_ASCIIE 0x3F8 ~%newItem%~ #8 END END
 						~BONEMASK~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ 	~override~ WRITE_ASCIIE 0x2CC 	~%newItem%~ #8 END												
-						~BOTABODE~  BEGIN COPY ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/DD1002X1.baf~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%~ REPLACE_TEXTUALLY ~BOTABODE~ ~%newItem%~ END
+						~BOTABODE~  BEGIN COPY ~%workspace%/%COMP_FOLDER%/DD1002X1.baf~ ~%workspace%/%COMP_FOLDER%~ REPLACE_TEXTUALLY ~BOTABODE~ ~%newItem%~ END
 						~CELEBRA~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ WRITE_ASCIIE 0x398 	~%newItem%~ #8 END
 						~CERBSW2H~ 	BEGIN COPY_EXISTING ~DD7004.are~ 	~override~ WRITE_ASCIIE 0x84C 	~%newItem%~ #8 END
 						~CREATE~ 	BEGIN COPY_EXISTING ~SANDRAIN.sto~ 	~override~ WRITE_ASCIIE 0x620 	~%newItem%~ #8 END
@@ -192,7 +192,7 @@ BEGIN
 						~DHORNX~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ 	~override~ WRITE_ASCIIE 0x2B0 	~%newItem%~ #8 END
 						~DIVER~ 	BEGIN COPY_EXISTING ~AR1106.are~ 	~override~ WRITE_ASCIIE 0xE84 	~%newItem%~ #8 END						
 						~ELVHUNTB~ 	BEGIN COPY_EXISTING ~DD7002.are~ 	~override~ WRITE_ASCIIE 0x1764 	~%newItem%~ #8 END
-						~ELSHUKAR~  BEGIN COPY ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/DD1002X1.baf~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%~ REPLACE_TEXTUALLY ~ELSHUKAR~ ~%newItem%~ END
+						~ELSHUKAR~  BEGIN COPY ~%workspace%/%COMP_FOLDER%/DD1002X1.baf~ ~%workspace%/%COMP_FOLDER%~ REPLACE_TEXTUALLY ~ELSHUKAR~ ~%newItem%~ END
 						~ENTROBE~ 	BEGIN COPY_EXISTING ~3307WIZ.sto~ 	~override~ WRITE_ASCIIE 0x214 	~%newItem%~ #8 END
 						~FLAMPLAT~ 	BEGIN COPY_EXISTING ~3314FRGE.sto~ 	~override~ WRITE_ASCIIE 0x47C 	~%newItem%~ #8 END
 						~GHARBOOT~ 	BEGIN COPY_EXISTING ~SANDRAIN.sto~ 	~override~ WRITE_ASCIIE 0x63C 	~%newItem%~ #8 END
@@ -215,7 +215,7 @@ BEGIN
 											COPY_EXISTING ~GRAZZT02.cre~ 	~override~ WRITE_ASCIIE 0x660 ~%newItem%~ #8 
 										END	
 									END
-						~SILBLADE~  BEGIN COPY ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/DD1002X1.baf~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%~ REPLACE_TEXTUALLY ~SILBLADE~ ~%newItem%~ END
+						~SILBLADE~  BEGIN COPY ~%workspace%/%COMP_FOLDER%/DD1002X1.baf~ ~%workspace%/%COMP_FOLDER%~ REPLACE_TEXTUALLY ~SILBLADE~ ~%newItem%~ END
 						~SHOON~ 	BEGIN COPY_EXISTING ~DD7001.are~ 	~override~ WRITE_ASCIIE 0x920 	~%newItem%~ #8 END
 						~STARYM~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ WRITE_ASCIIE 0x408 	~%newItem%~ #8 END
 						~SW1HGRAZ~ 	BEGIN ACTION_IF NOT ~%undroppable%~ 
@@ -249,7 +249,7 @@ END
 //=============================================================================
 DEFINE_ACTION_MACRO HandleSpellScrollsContract
 BEGIN
-	COPY ~%MOD_FOLDER%/_CORE/SpellScrollsContract.2da~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/SpellScrollsContract.2da~
+	COPY ~%MOD_FOLDER%/_CORE/SpellScrollsContract.2da~ ~%workspace%/%COMP_FOLDER%/SpellScrollsContract.2da~
 		COUNT_2DA_ROWS 8 count
 		WHILE (count > 1) BEGIN
 			READ_2DA_ENTRY (count -1) 0 8 resname				

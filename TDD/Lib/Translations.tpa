@@ -25,7 +25,7 @@ BEGIN
 		INT_VAR
 			infer_charsets = 1
 		STR_VAR
-			tra_path = EVAL ~%MOD_FOLDER%/TEMP/Translations~
+			tra_path = EVAL ~%workspace%/Translations~
 			iconv_path = EVAL ~%MOD_FOLDER%/tools/iconv/win32~
 			reload_array = tra#reload
 			noconvert_array = tra#noconvert

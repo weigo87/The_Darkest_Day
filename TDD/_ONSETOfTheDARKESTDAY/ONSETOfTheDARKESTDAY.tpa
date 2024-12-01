@@ -52,7 +52,7 @@ END
 //=============================================================================
 DEFINE_ACTION_MACRO HandleCoreItemsContract
 BEGIN
-	COPY ~%MOD_FOLDER%/_CORE/ItemsContract.2da~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/CoreItemsContract.2da~
+	COPY ~%MOD_FOLDER%/_CORE/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/CoreItemsContract.2da~
 		COUNT_2DA_ROWS 7 count
 		WHILE (count > 1) BEGIN
 			READ_2DA_ENTRY (count -1) 0 7 resname				
@@ -85,7 +85,7 @@ END
 //=============================================================================
 DEFINE_ACTION_MACRO HandleItemsContract
 BEGIN
-	COPY ~%MOD_FOLDER%/%COMP_FOLDER%/ItemsContract.2da~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ItemsContract.2da~
+	COPY ~%MOD_FOLDER%/%COMP_FOLDER%/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/ItemsContract.2da~
 		COUNT_2DA_ROWS 7 count
 		WHILE (count > 1) BEGIN
 			READ_2DA_ENTRY (count -1) 0 7 resname
@@ -105,10 +105,10 @@ BEGIN
 					ACTION_MATCH ~%resname%~
 					WITH
 						~CLCKBS~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ 	~override~ WRITE_ASCIIE 0x6EC 	~%newItem%~ #8 END
-						~FIGSILV~ 	BEGIN COPY_EXISTING ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/DDPOTEN1.d~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/DDPOTEN1.d~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~FIGSILV~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/DDPOTEN1.d~ ~%workspace%/%COMP_FOLDER%/DDPOTEN1.d~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
 						~MALICE~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ 	~override~ WRITE_ASCIIE 0x698 	~%newItem%~ #8 END
 						~MOONLITE~ 	BEGIN COPY_EXISTING ~DD9400.are~ 	~override~ WRITE_ASCIIE 0xCC8 	~%newItem%~ #8 END
-						~POLAW4A~ 	BEGIN COPY_EXISTING ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/DDPOTEN1.d~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/DDPOTEN1.d~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~POLAW4A~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/DDPOTEN1.d~ ~%workspace%/%COMP_FOLDER%/DDPOTEN1.d~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
 						~SLINGB2~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ 	~override~ WRITE_ASCIIE 0x6D0 	~%newItem%~ #8 END
 						~SVIAN~ 	BEGIN COPY_EXISTING ~DD9400.are~ 	~override~ WRITE_ASCIIE 0xD54 	~%newItem%~ #8 END
 						~TROLLARM~ 	BEGIN COPY_EXISTING ~DD9400.are~ 	~override~ WRITE_ASCIIE 0xD2C 	~%newItem%~ #8 END
@@ -125,7 +125,7 @@ END
 //=============================================================================
 DEFINE_ACTION_MACRO HandleSpellScrollsContract
 BEGIN
-	COPY ~%MOD_FOLDER%/_CORE/SpellScrollsContract.2da~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/SpellScrollsContract.2da~
+	COPY ~%MOD_FOLDER%/_CORE/SpellScrollsContract.2da~ ~%workspace%/%COMP_FOLDER%/SpellScrollsContract.2da~
 		COUNT_2DA_ROWS 8 count
 		WHILE (count > 1) BEGIN
 			READ_2DA_ENTRY (count -1) 0 8 resname				
@@ -146,24 +146,24 @@ BEGIN
 					ACTION_MATCH ~%resname%~
 					WITH	
 						~SCRX1~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ ~override~ WRITE_ASCIIE 0x67C ~%newItem%~ #8 END
-						~SCRX3~ 	BEGIN COPY_EXISTING ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO06.baf~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO06.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
-						~SCRX4~ 	BEGIN COPY_EXISTING ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO29.baf~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO29.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
-						~SCRX6~ 	BEGIN COPY_EXISTING ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO05.baf~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO05.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
-						~SCRX12~ 	BEGIN COPY_EXISTING ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO05.baf~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO05.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
-						~SCRX14~ 	BEGIN COPY_EXISTING ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO28.baf~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
-						~SCRX18~ 	BEGIN COPY_EXISTING ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO29.baf~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO29.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
-						~SCRX23~ 	BEGIN COPY_EXISTING ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO28.baf~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX3~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO06.baf~ ~%workspace%/%COMP_FOLDER%/ARPO06.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX4~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO29.baf~ ~%workspace%/%COMP_FOLDER%/ARPO29.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX6~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO05.baf~ ~%workspace%/%COMP_FOLDER%/ARPO05.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX12~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO05.baf~ ~%workspace%/%COMP_FOLDER%/ARPO05.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX14~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX18~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO29.baf~ ~%workspace%/%COMP_FOLDER%/ARPO29.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX23~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
 						~SCRX31~ 	BEGIN COPY_EXISTING ~DD9400.are~ 	~override~ WRITE_ASCIIE 0xF48 	~%newItem%~ #8 END
-						~SCRX32~ 	BEGIN COPY_EXISTING ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO28.baf~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
-						~SCRX39~ 	BEGIN COPY_EXISTING ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO28.baf~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX32~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX39~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
 						~SCRX40~ 	BEGIN COPY_EXISTING ~DD9400.are~ 	~override~ WRITE_ASCIIE 0xF5C 	~%newItem%~ #8 END
 						~SCRX54~ 	BEGIN COPY_EXISTING ~DD9400.are~ 	~override~ WRITE_ASCIIE 0xD04 	~%newItem%~ #8 END
-						~SCRX60~ 	BEGIN COPY_EXISTING ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO28.baf~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX60~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
 						~SCRX65~ 	BEGIN 
-										COPY_EXISTING ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO05.baf~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO05.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~
-										COPY_EXISTING ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO28.baf~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ 
+										COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO05.baf~ ~%workspace%/%COMP_FOLDER%/ARPO05.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~
+										COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ 
 									END
-						~SCRX72~ 	BEGIN COPY_EXISTING ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO28.baf~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX72~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
 						DEFAULT			
 					END
 				END

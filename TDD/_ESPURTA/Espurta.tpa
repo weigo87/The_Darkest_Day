@@ -10,10 +10,12 @@ DX2001   value~
 	
 	COPY_EXISTING ~DD0334.are~ 		~override~ WRITE_ASCII 0x94 ~DD0334~ #8
 	
-	COPY_EXISTING ~ICEGOLEM.cre~	~override~ WRITE_LONG  0x28 0xE0F0 // GOLEM_ICE/IC_ICE_GOLEM
-	COPY_EXISTING ~FROST01.cre~ 	~override~ WRITE_LONG  0x28 0xE24F // IC_GIANT_FROST
-	COPY_EXISTING ~DDFROST1.cre~ 	~override~ WRITE_LONG  0x28 0xE24F // IC_GIANT_FROST	
-	ACTION_IF GAME_IS ~tob~ BEGIN
+	ACTION_IF GAME_IS ~bg2ee eet~ BEGIN	
+		COPY_EXISTING ~ICEGOLEM.cre~	~override~ WRITE_LONG  0x28 0xE0F0 // GOLEM_ICE/IC_ICE_GOLEM
+		COPY_EXISTING ~FROST01.cre~ 	~override~ WRITE_LONG  0x28 0xE24F // IC_GIANT_FROST
+		COPY_EXISTING ~DDFROST1.cre~ 	~override~ WRITE_LONG  0x28 0xE24F // IC_GIANT_FROST
+	END
+	ACTION_IF GAME_IS ~bg2 tob bgt~ BEGIN
 		COPY_EXISTING ~FROST01.cre~ 	~override~ WRITE_LONG  0x28 0xE710 // IC_OROG2
 		COPY_EXISTING ~DDFROST1.cre~ 	~override~ WRITE_LONG  0x28 0xE710 // IC_OROG2
 	END		
@@ -31,7 +33,7 @@ END
 //=============================================================================
 DEFINE_ACTION_MACRO HandleItemsContract
 BEGIN
-	COPY ~%MOD_FOLDER%/%COMP_FOLDER%/ItemsContract.2da~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/ItemsContract.2da~
+	COPY ~%MOD_FOLDER%/%COMP_FOLDER%/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/ItemsContract.2da~
 		COUNT_2DA_ROWS 7 count
 		WHILE (count > 1) BEGIN
 			READ_2DA_ENTRY (count -1) 0 7 resname				
@@ -55,7 +57,7 @@ BEGIN
 						~DDPOTNP2~ 	BEGIN COPY_EXISTING ~DDTEMPL1.STO~ 	~override~ WRITE_ASCIIE 0x290 	~%newItem%~ #8 END
 						~DORATH~ 	BEGIN COPY_EXISTING ~BARGOOD.STO~ 	~override~ WRITE_ASCIIE 0x20C 	~%newItem%~ #8 END
 						~EREBOS~ 	BEGIN COPY_EXISTING ~BARGOOD.STO~ 	~override~ WRITE_ASCIIE 0x1F0 	~%newItem%~ #8 END						
-						~ICEPLAT~ 	BEGIN COPY ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/DD2500.BAF~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/DD2500.BAF~ REPLACE_TEXTUALLY ~%resname%~ ~%newItem%~ END
+						~ICEPLAT~ 	BEGIN COPY ~%workspace%/%COMP_FOLDER%/DD2500.BAF~ ~%workspace%/%COMP_FOLDER%/DD2500.BAF~ REPLACE_TEXTUALLY ~%resname%~ ~%newItem%~ END
 						DEFAULT
 					END
 				END
@@ -68,7 +70,7 @@ END
 //=============================================================================
 DEFINE_ACTION_MACRO HandleSpellScrollsContract
 BEGIN
-	COPY ~%MOD_FOLDER%/_CORE/SpellScrollsContract.2da~ ~%MOD_FOLDER%/TEMP/%COMP_FOLDER%/SpellScrollsContract.2da~
+	COPY ~%MOD_FOLDER%/_CORE/SpellScrollsContract.2da~ ~%workspace%/%COMP_FOLDER%/SpellScrollsContract.2da~
 		COUNT_2DA_ROWS 8 count
 		WHILE (count > 1) BEGIN
 			READ_2DA_ENTRY (count -1) 0 8 resname				
