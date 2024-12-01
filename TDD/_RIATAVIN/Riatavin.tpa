@@ -350,6 +350,7 @@ BEGIN
 			fj_structure_type = entrance
 			fj_name           = EXIT8001
 		END
+END
 
  //=============================================================================
 DEFINE_ACTION_MACRO TDDPatchDD8001Area
@@ -385,14 +386,16 @@ BEGIN
 			fj_structure_type = entrance
 			fj_name           = EXIT8000
 		END
+END
 
 //=============================================================================
 DEFINE_ACTION_MACRO TDDPatchAR1106Area
 BEGIN
-COPY_EXISTING ~AR1106.ARE~  ~override~
-	LPM SetAnimationsInCombatFlag
-	WRITE_SHORT 0x48 (THIS BOR 0x0020)  //Setting Dungeon flag
-
+	COPY_EXISTING ~AR1106.ARE~  ~override~
+		LPM SetAnimationsInCombatFlag
+	READ_SHORT  0x48 "flags"
+	WRITE_SHORT 0x48 ("%flags%" BOR 0x0020)  //Setting Dungeon flag
+	
 	READ_LONG  0x70  "cont_offset"
 	READ_SHORT 0x74  "cont_num"
 	READ_SHORT 0x76  "items_num"
@@ -402,11 +405,11 @@ COPY_EXISTING ~AR1106.ARE~  ~override~
 	SET "one"=0
 	SET "two"=0
 	FOR( cnt=0; cnt<"%cont_num%"; cnt=cnt+1 ) BEGIN  //containers loop
-	READ_ASCII ("%cont_offset%"+0xc0*cnt)       "cont_name" (11)
-	PATCH_IF (("%cont_name%" STRING_COMPARE_CASE "Container 2")=0) BEGIN
-		READ_LONG ("%cont_offset%"+0xc0*cnt+0x40)  "first_item"
-		READ_LONG ("%cont_offset%"+0xc0*cnt+0x44)  "items"
-	END
+		READ_ASCII ("%cont_offset%"+0xc0*cnt)       "cont_name" (11)
+		PATCH_IF (("%cont_name%" STRING_COMPARE_CASE "Container 2")=0) BEGIN
+			READ_LONG ("%cont_offset%"+0xc0*cnt+0x40)  "first_item"
+			READ_LONG ("%cont_offset%"+0xc0*cnt+0x44)  "items"
+		END
 	END
 	PATCH_IF ("%items%">0 ) BEGIN
 	FOR( cnt=0; cnt<"%items%"; cnt=cnt+1 ) BEGIN       //items loop
@@ -417,13 +420,13 @@ COPY_EXISTING ~AR1106.ARE~  ~override~
 			SET "name"=1
 			SET "one"=1
 		END
-		PATCH_IF ( ("%name%" STRING_COMPARE_CASE "AX1H04")=0 AND "%two%"=0 ) BEGIN
+			PATCH_IF ( ("%name%" STRING_COMPARE_CASE "AX1H04")=0 AND "%two%"=0 ) BEGIN
 			WRITE_ASCII ("%items_offset%"+0x14*(cnt+"%first_item%"))     "SCRX9" #8 //replacing item
 			WRITE_SHORT ("%items_offset%"+0x14*(cnt+"%first_item%")+0xa) 0
 			SET "two"=1
 		END
 	END
-	END
-BUT_ONLY_IF_IT_CHANGES //********************************************************  ~AR1106.are~
+END
+	BUT_ONLY_IF_IT_CHANGES //********************************************************  ~AR1106.are~
 
 END

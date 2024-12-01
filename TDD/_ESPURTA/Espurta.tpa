@@ -52,11 +52,11 @@ BEGIN
 				INNER_ACTION BEGIN
 					ACTION_MATCH ~%resname%~ 
 					WITH
-						~ARDEADX~ 	BEGIN COPY_EXISTING ~DD4003.ARE~ 	~override~ WRITE_ASCIIE 0x12F4 	~%newItem%~ #8 END
-						~DDPOTNP1~ 	BEGIN COPY_EXISTING ~DDTEMPL1.STO~ 	~override~ WRITE_ASCIIE 0x274 	~%newItem%~ #8 END
-						~DDPOTNP2~ 	BEGIN COPY_EXISTING ~DDTEMPL1.STO~ 	~override~ WRITE_ASCIIE 0x290 	~%newItem%~ #8 END
-						~DORATH~ 	BEGIN COPY_EXISTING ~BARGOOD.STO~ 	~override~ WRITE_ASCIIE 0x20C 	~%newItem%~ #8 END
-						~EREBOS~ 	BEGIN COPY_EXISTING ~BARGOOD.STO~ 	~override~ WRITE_ASCIIE 0x1F0 	~%newItem%~ #8 END						
+						~ARDEADX~ 	BEGIN COPY_EXISTING ~DD4003.ARE~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = ARDEADX  new_item = EVAL "%newItem%" END END
+						~DDPOTNP1~ 	BEGIN COPY_EXISTING ~DDTEMPL1.STO~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = DDPOTNP1 new_item = EVAL "%newItem%" END END
+						~DDPOTNP2~ 	BEGIN COPY_EXISTING ~DDTEMPL1.STO~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = DDPOTNP2 new_item = EVAL "%newItem%" END END
+						~DORATH~ 	BEGIN COPY_EXISTING ~BARGOOD.STO~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = DORATH   new_item = EVAL "%newItem%" END END
+						~EREBOS~ 	BEGIN COPY_EXISTING ~BARGOOD.STO~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = EREBOS   new_item = EVAL "%newItem%" END END						
 						~ICEPLAT~ 	BEGIN COPY ~%workspace%/%COMP_FOLDER%/DD2500.BAF~ ~%workspace%/%COMP_FOLDER%/DD2500.BAF~ REPLACE_TEXTUALLY ~%resname%~ ~%newItem%~ END
 						DEFAULT
 					END
@@ -65,7 +65,6 @@ BEGIN
 		END
 	BUT_ONLY	
 END
-
 
 //=============================================================================
 DEFINE_ACTION_MACRO HandleSpellScrollsContract
@@ -90,10 +89,10 @@ BEGIN
 				INNER_ACTION BEGIN
 					ACTION_MATCH ~%resname%~ 					
 					WITH
-						~SCRX10~ 	BEGIN COPY_EXISTING ~BARHEAL.sto~ 	~override~ WRITE_ASCIIE 0x1CC 	~%newItem%~ #8 END
-						~SCRX25~ 	BEGIN COPY_EXISTING ~BARHEAL.sto~ 	~override~ WRITE_ASCIIE 0x1B0 	~%newItem%~ #8 END
-						~SCRX29~ 	BEGIN COPY_EXISTING ~DD1800.are~ 	~override~ WRITE_ASCIIE 0x54C 	~%newItem%~ #8 END	
-						~SCRX51~ 	BEGIN COPY_EXISTING ~BARHEAL.sto~ 	~override~ WRITE_ASCIIE 0x1E8 	~%newItem%~ #8 END
+						~SCRX10~ BEGIN COPY_EXISTING ~BARHEAL.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX10 new_item = EVAL "%newItem%" END END
+						~SCRX25~ BEGIN COPY_EXISTING ~BARHEAL.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX25 new_item = EVAL "%newItem%" END END
+						~SCRX29~ BEGIN COPY_EXISTING ~DD1800.are~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX29 new_item = EVAL "%newItem%" END END	
+						~SCRX51~ BEGIN COPY_EXISTING ~BARHEAL.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX51 new_item = EVAL "%newItem%" END END
 						DEFAULT
 					END
 				END

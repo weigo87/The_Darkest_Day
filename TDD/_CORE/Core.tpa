@@ -145,25 +145,6 @@ BEGIN
 //			SAY NAME2 @20307
 //			WRITE_LONG 0x28 0x7F04   //GOLEM_IRON
 			
-//		COPY ~TDD/CRE/IRONTOMB.cre~         ~TDD-CRE~ //Iron Golem
-//			SAY NAME1 @20329
-//			SAY NAME2 @20329
-//			WRITE_LONG 0x28 0x7F04   //GOLEM_IRON
-			
-			
-//		COPY ~TDD/CRE/DDFROST1.cre~         ~TDD-CRE~  //FROST GIANT
-//		 	 ~TDD/CRE/FROST01.cre~          ~TDD-CRE~
-//Trlfrd			 ~TDD/CRE/HILLFRO1.cre~         ~TDD-CRE~
-//Trlfrd		 	 ~TDD/CRE/HILLFRO2.cre~         ~TDD-CRE~
-//Trlfrd		 	 ~TDD/CRE/HILLFRO3.cre~         ~TDD-CRE~
-//			SAY NAME1 @20240
-//			SAY NAME2 @20240
-//			WRITE_LONG 0x28  0xE710   //IC_OROG2
-			
-//Trlfrd		COPY ~TDD/CRE/KNORD.cre~            ~TDD-CRE~
-//			SAY NAME1 @20335
-//			SAY NAME2 @20335
-//			WRITE_LONG 0x28  0xE710   //IC_OROG2
 	END	
 	
 	ACTION_IF GAME_IS ~bg2ee eet~ BEGIN

@@ -16,15 +16,13 @@ BEGIN
 		COPY_EXISTING ~HILLFRO3.CRE~ 	~override~ WRITE_LONG 0x28 0xE710 // IC_OROG2
 		COPY_EXISTING ~IRONTOMB.cre~ 	~override~ WRITE_LONG 0x28 0x7F04 //GOLEM_IRON
 	END
-	
-			
+
 	LAM HandleSpellScrollsContract	
 	
 	OUTER_TEXT_SPRINT sender ~%COMP_FOLDER%~ 
 	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~ LAF Accept STR_VAR sender target = ~_TROLLFORD~ END
 END
-
-
+	
 //=============================================================================
 DEFINE_ACTION_MACRO HandleItemsContract
 BEGIN
@@ -79,13 +77,13 @@ BEGIN
 				INNER_ACTION BEGIN
 					ACTION_MATCH ~%resname%~
 					WITH
-						~SCRX4~ 	BEGIN COPY_EXISTING ~DD9005.ARE~ ~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = SCRX4  new_item = EVAL "%newItem%" END END
-						~SCRX12~ 	BEGIN COPY_EXISTING ~DD9008.ARE~ ~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = SCRX12 new_item = EVAL "%newItem%" END END
-						~SCRX15~	BEGIN COPY_EXISTING ~DD9005.ARE~ ~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = SCRX15 new_item = EVAL "%newItem%" END END
-						~SCRX60~	BEGIN COPY_EXISTING ~QLOOT4.cre~ ~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = SCRX60 new_item = EVAL "%newItem%" END END
-						~SCRX64~	BEGIN COPY_EXISTING ~DD9009.ARE~ ~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = SCRX64 new_item = EVAL "%newItem%" END END
-						~SCRX68~	BEGIN COPY_EXISTING ~DD9009.ARE~ ~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = SCRX68 new_item = EVAL "%newItem%" END END						
-						~SCRX73~	BEGIN COPY_EXISTING ~DD9005.ARE~ ~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = SCRX73 new_item = EVAL "%newItem%" END END												
+						~SCRX4~ 	BEGIN COPY_EXISTING ~DD9005.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX4  new_item = EVAL "%newItem%" END END
+						~SCRX12~ 	BEGIN COPY_EXISTING ~DD9008.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX12 new_item = EVAL "%newItem%" END END
+						~SCRX15~	BEGIN COPY_EXISTING ~DD9005.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX15 new_item = EVAL "%newItem%" END END
+						~SCRX60~	BEGIN COPY_EXISTING ~QLOOT4.cre~ ~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = SCRX60 new_item = EVAL "%newItem%" END END
+						~SCRX64~	BEGIN COPY_EXISTING ~DD9009.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX64 new_item = EVAL "%newItem%" END END
+						~SCRX68~	BEGIN COPY_EXISTING ~DD9009.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX68 new_item = EVAL "%newItem%" END END						
+						~SCRX73~	BEGIN COPY_EXISTING ~DD9005.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX73 new_item = EVAL "%newItem%" END END												
 						DEFAULT
 					END
 				END

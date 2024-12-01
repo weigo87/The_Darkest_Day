@@ -35,3 +35,61 @@ BEGIN
 	
 END
 
+//=============================================================================
+//replaces item in a cre with another item. Variables ~old_item~, ~new_item~ required
+DEFINE_PATCH_MACRO ~REPLACE_CRE_ITEM~ BEGIN
+  LAUNCH_PATCH_FUNCTION ~FJ_CRE_VALIDITY~ RET valid = valid END
+  PATCH_IF (valid) BEGIN
+    READ_SHORT 0x02c0 ___#itm_num
+    READ_LONG  0x02bc ___#itm_off
+    WHILE (___#itm_num > 0) BEGIN
+      SET ___#itm_num = (___#itm_num - 1)
+      READ_ASCII (___#itm_off + (___#itm_num * 0x14)) ~item~
+      PATCH_IF (~%item%~ STRING_MATCHES_REGEXP ~%old_item%~ = 0) BEGIN
+        WRITE_EVALUATED_ASCII (___#itm_off + (___#itm_num * 0x14)) ~%new_item%~ #8
+
+        //charges:
+        WRITE_SHORT (___#itm_off + ___#itm_num * 0x14 + 0xa) charges1
+        WRITE_SHORT (___#itm_off + ___#itm_num * 0x14 + 0xc) charges2
+        WRITE_SHORT (___#itm_off + ___#itm_num * 0x14 + 0xe) charges3
+
+        //flags
+        SET ___#flags_to_set = 0
+        PATCH_IF (~%flags%~ STRING_CONTAINS_REGEXP ~identified~ = 0) BEGIN
+          SET ___#flags_to_set = (___#flags_to_set BOR 0b00000001)
+        END
+        PATCH_IF (~%flags%~ STRING_CONTAINS_REGEXP ~unstealable~ = 0) BEGIN
+          SET ___#flags_to_set = (___#flags_to_set BOR 0b00000010)
+        END
+        PATCH_IF (~%flags%~ STRING_CONTAINS_REGEXP ~stolen~ = 0) BEGIN
+          SET ___#flags_to_set = (___#flags_to_set BOR 0b00000100)
+        END
+        PATCH_IF (~%flags%~ STRING_CONTAINS_REGEXP ~undroppable~ = 0) BEGIN
+          SET ___#flags_to_set = (___#flags_to_set BOR 0b00001000)
+        END
+        WRITE_LONG (___#itm_off + ___#itm_num * 0x14 + 0x10) ___#flags_to_set
+
+      END
+    END
+  END
+  SET charges1 = 0
+  SET charges2 = 0
+  SET charges3 = 0
+  SPRINT flags ~%___#nil%~
+END
+
+DEFINE_PATCH_FUNCTION ~REPLACE_CRE_ITEM~
+  INT_VAR charges1 = 0
+          charges2 = 0
+          charges3 = 0
+  STR_VAR flags = ~~
+          old_item = ~~
+          new_item = ~~
+BEGIN
+  LAUNCH_PATCH_MACRO ~REPLACE_CRE_ITEM~
+END
+			
+
+
+
+
