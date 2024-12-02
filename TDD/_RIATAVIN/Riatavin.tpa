@@ -28,9 +28,9 @@ UNLESS ~DD3300~
 			READ_LONG 0x64 spawnersCount
 			// Disable max buggy spawners...
 			FOR(i=0; i<%spawnersCount%; ++i) BEGIN
-				WRITE_ASCII (%spawnersBaseOffset% + 200*i +24) ~~ #80
-				WRITE_SHORT (%spawnersBaseOffset% + 200*i +134) 0
-				WRITE_LONG (%spawnersBaseOffset% + 200*i +136) 0
+				WRITE_ASCII (%spawnersBaseOffset% + 0xc8*i + 0x18) ~~ #80
+				WRITE_SHORT (%spawnersBaseOffset% + 0xc8*i + 0x86) 0
+				WRITE_LONG (%spawnersBaseOffset% + 0xc8*i + 0x88) 0
 			END		
 	END		
 	
@@ -420,7 +420,7 @@ BEGIN
 			SET "name"=1
 			SET "one"=1
 		END
-			PATCH_IF ( ("%name%" STRING_COMPARE_CASE "AX1H04")=0 AND "%two%"=0 ) BEGIN
+		PATCH_IF ( ("%name%" STRING_COMPARE_CASE "AX1H04")=0 AND "%two%"=0 ) BEGIN
 			WRITE_ASCII ("%items_offset%"+0x14*(cnt+"%first_item%"))     "SCRX9" #8 //replacing item
 			WRITE_SHORT ("%items_offset%"+0x14*(cnt+"%first_item%")+0xa) 0
 			SET "two"=1
