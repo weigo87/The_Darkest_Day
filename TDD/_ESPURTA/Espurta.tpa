@@ -23,7 +23,16 @@ DX2001   value~
 	LAM HandleSpellScrollsContract	
 	LAM HandleItemsContract	
 	
-	EXTEND_TOP ~AR0020.bcs~ ~%MOD_FOLDER%/%COMP_FOLDER%/Snip/tAR0020.baf~
+	EXTEND_TOP ~AR0020.bcs~ ~%RES_FOLDER%/Snip/tAR0020.baf~
+
+// EE Version	
+	// Barheal.sto gets medium wounds heal
+	COPY_EXISTING ~Barheal.sto~ ~override~
+		LPF ADD_STORE_CURE
+			INT_VAR price = 150
+			STR_VAR spell_name = ~SPPR315~ position = ~AFTER SPPR103~
+		END
+// non EE Version
 	
 	OUTER_TEXT_SPRINT sender ~%COMP_FOLDER%~
 	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~ LAF Accept STR_VAR sender target = ~_ESPURTA~ END
@@ -33,7 +42,7 @@ END
 //=============================================================================
 DEFINE_ACTION_MACRO HandleItemsContract
 BEGIN
-	COPY ~%MOD_FOLDER%/%COMP_FOLDER%/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/ItemsContract.2da~
+	COPY ~%RES_FOLDER%/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/ItemsContract.2da~
 		COUNT_2DA_ROWS 7 count
 		WHILE (count > 1) BEGIN
 			READ_2DA_ENTRY (count -1) 0 7 resname				

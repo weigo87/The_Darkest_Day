@@ -10,7 +10,7 @@ BEGIN
 		INCLUDE ~%MOD_FOLDER%/lib/install-guititle.tpa~
 	END
 	
-	COPY_EXISTING ~misc01.itm~ ~override/tdd.mrk~ // tell other mod that Check The Bodies is installed
+	COPY_EXISTING ~misc01.itm~ ~override/tdd.mrk~ // tell other mod that TDD is installed
 
 //*****************************************************************************
 // IDS
@@ -67,51 +67,87 @@ BEGIN
 //*****************************************************************************
 // spell 
 //*****************************************************************************
-	COPY ~%RES_FOLDER%/SPL/SPSHAD2.spl~ ~override~
+	ACTION_IF GAME_IS ~eet bg2ee~ BEGIN
+		COPY ~%RES_FOLDER%/SPL/SPSHAD2.spl~ ~override~
+	END
 	
-	COPY ~%RES_FOLDER%/Spl/SPPR736.spl~ ~override/TZPR736.spl~
+	COPY ~%RES_FOLDER%/Spl/SPPR736.spl~ ~override/TZPR736.spl~ 	// Conjure Lava Elemental
 		SAY NAME1 @20739
 		SAY UNIDENTIFIED_DESC @20740
-	COPY ~%RES_FOLDER%/Spl/SPPR737.SPL~ ~override~
+	COPY ~%RES_FOLDER%/Spl/SPPR737.SPL~ ~override~				// Conjure Water Elemental
 		SAY NAME1 @20066 
 		SAY UNIDENTIFIED_DESC @20741		
-	COPY ~%RES_FOLDER%/Spl/SPWI430.spl~ ~override/TZWI430.spl~
+	COPY ~%RES_FOLDER%/Spl/SPWI430.spl~ ~override/TZWI430.spl~	// Daer'Ragh's Aura Cleansing
 		SAY NAME1 @20847
 		SAY UNIDENTIFIED_DESC @20848
-	COPY ~%RES_FOLDER%/Spl/SPPR629.spl~ ~override/TZPR629.spl~
+	COPY ~%RES_FOLDER%/Spl/SPPR629.spl~ ~override/TZPR629.spl~	// Conjure Lightning Elemental
 		SAY NAME1 @20729
 		SAY UNIDENTIFIED_DESC @20730		
-	COPY ~%RES_FOLDER%/Spl/SPWI820.spl~ ~override/TZWI820.spl~
+	COPY ~%RES_FOLDER%/Spl/SPWI820.spl~ ~override/TZWI820.spl~	// Hemophilia
 		SAY NAME1 @20875
 		SAY UNIDENTIFIED_DESC @20876
-	COPY ~%RES_FOLDER%/Spl/SPWI827.spl~ ~override/TZWI827.spl~
+	COPY ~%RES_FOLDER%/Spl/SPWI827.spl~ ~override/TZWI827.spl~	// Gravity
 		SAY NAME1 @20890
 		SAY UNIDENTIFIED_DESC @20891
-	COPY ~%RES_FOLDER%/Spl/SPWI427.spl~ ~override/TZWI427.spl~
+	COPY ~%RES_FOLDER%/Spl/SPWI427.spl~ ~override/TZWI427.spl~	// Ice Shard
 		SAY NAME1 @20841
 		SAY UNIDENTIFIED_DESC @20842
-	COPY ~%RES_FOLDER%/Spl/SPPR525.spl~ ~override/TZPR525.spl~
+	COPY ~%RES_FOLDER%/Spl/SPPR525.spl~ ~override/TZPR525.spl~	// Embalm
 		SAY NAME1 @20687
 		SAY UNIDENTIFIED_DESC @20688
-	COPY ~%RES_FOLDER%/Spl/SPPR623.spl~ ~override/TZPR623.spl~
+	COPY ~%RES_FOLDER%/Spl/SPPR623.spl~ ~override/TZPR623.spl~	// Visions of Pain
 		SAY NAME1 @20716
 		SAY UNIDENTIFIED_DESC @20717
-	COPY ~%RES_FOLDER%/Spl/SPPR963.spl~ ~override/TZPR963.spl~
+	COPY ~%RES_FOLDER%/Spl/SPPR963.spl~ ~override/TZPR963.spl~	// Frightful Moan
 		SAY NAME1 @20814
-	COPY ~%RES_FOLDER%/Spl/SPPR962.spl~ ~override/TZPR962.spl~
+	COPY ~%RES_FOLDER%/Spl/SPPR962.spl~ ~override/TZPR962.spl~	// Topaz Dragon Breath
 		SAY NAME1 @20813				
 
 	
-	//ACTION_IF NOT FILE_EXISTS ~data/CTB-RULE.BIF~ THEN BEGIN //CtB compatibility
-	// we HAVE TO do import them with or without CtB so we rename spells wit TDD unique names
-		COPY ~%RES_FOLDER%/SPL/SPWI823.spl~ ~override/SPTDD01.spl~ // ADD_SPELL failed for WIZARD_IRON_BODY...
+	//ACTION_IF NOT MOD_IS_INSTALLED "CtB.tp2" (ID_OF_LABEL "CtB.tp2" "check_the_bodies")  //CtB compatibility
+	// we HAVE TO do import them with or without CtB so we rename spells with CtB unique names
+	ACTION_IF FILE_EXISTS_IN_GAME ~%MOD_FOLDER%/Compat/CtB/CBWI227.SPL~ BEGIN
+		COPY ~%MOD_FOLDER%/Compat/CtB/CBWI227.SPL~ ~override~
+			SAY NAME1  @20942
+			SAY UNIDENTIFIED_DESC @20943
+			PATCH_IF GAME_IS ~bg2 tob bgt~ BEGIN
+				LPF ADD_SPELL_EFFECT INT_VAR opcode = 265 target = 1 parameter1 = 1 timing = 1 header = 1 STR_VAR resource = CBWISpel END
+			END
+	END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%MOD_FOLDER%/Compat/CtB/CBWI440.SPL~ BEGIN
+		COPY ~%MOD_FOLDER%/Compat/CtB/CBWI440.SPL~ ~override~
+			SAY NAME1  @20944
+			SAY UNIDENTIFIED_DESC @20945
+			PATCH_IF GAME_IS ~bg2 tob bgt~ BEGIN
+				LPF ADD_SPELL_EFFECT INT_VAR opcode = 265 target = 1 parameter1 = 1 timing = 1 header = 1 STR_VAR resource = CBWISpel END
+			END
+	END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%MOD_FOLDER%/Compat/CtB/CBWI627.SPL~ BEGIN
+		COPY ~%MOD_FOLDER%/Compat/CtB/CBWI627.SPL~ ~override~
+			SAY NAME1  @20946
+			SAY UNIDENTIFIED_DESC @20947
+			PATCH_IF GAME_IS ~bg2 tob bgt~ BEGIN
+				LPF ADD_SPELL_EFFECT INT_VAR opcode = 265 target = 1 parameter1 = 1 timing = 1 header = 1 STR_VAR resource = CBWISpel END
+			END
+	END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%MOD_FOLDER%/Compat/CtB/CBWI823.SPL~ BEGIN
+		COPY ~%MOD_FOLDER%/Compat/CtB/CBWI823.SPL~ ~override~
 			SAY NAME1 @20948
 			SAY UNIDENTIFIED_DESC @20949
-		COPY ~%RES_FOLDER%/SPL/SPWI824.spl~ ~override/SPTDD02.spl~ // ADD_SPELL failed for WIZARD_MIND_BLANK...
+			PATCH_IF GAME_IS ~bg2 tob bgt~ BEGIN
+				LPF ADD_SPELL_EFFECT INT_VAR opcode = 265 target = 1 parameter1 = 1 timing = 1 header = 1 STR_VAR resource = CBWISpel END
+			END
+	END
+	ACTION_IF FILE_EXISTS_IN_GAME ~%MOD_FOLDER%/Compat/CtB/CBWI824.SPL~ BEGIN
+		COPY ~%MOD_FOLDER%/Compat/CtB/CBWI824.SPL~ ~override~
 			SAY NAME1 @20950
 			SAY UNIDENTIFIED_DESC @20951
+			PATCH_IF GAME_IS ~bg2 tob bgt~ BEGIN
+				LPF ADD_SPELL_EFFECT INT_VAR opcode = 265 target = 1 parameter1 = 1 timing = 1 header = 1 STR_VAR resource = CBWISpel END
+			END
+	END
 	//END
-		
+	
 		
 	LAM ImportSpellScrolls_FromTDD
 
@@ -124,27 +160,7 @@ BEGIN
 			COPY ~%MOD_FOLDER%/Compat/anim/MCYC~ ~override~          //CYCLOP
 			COPY ~%MOD_FOLDER%/Compat/anim/MTAN~ ~override~          //MARILITH graphics
 			COPY ~%MOD_FOLDER%/Compat/anim/MNO2~ ~override~          //FROST GIANT
-
-//			COPY_EXISTING 	~ORC06.cre~     ~override~
-//							~HLOLAF.cre~    ~override~
-//							~CHAK.cre~      ~override~
-//							~AR18FIG.cre~   ~override~
-//				WRITE_LONG 0x28  0xE700   //IC_OROG1 instead of IC_OROG2
-//			BUT_ONLY_IF_IT_CHANGES
-//  
-//			ACTION_IF (FILE_EXISTS_IN_GAME ~ULIGAR.CRE~) BEGIN
-//				COPY_EXISTING ~ULIGAR.CRE~        ~override~    //NeJ2
-//					WRITE_LONG 0x28  0xE700   //IC_OROG1 instead of IC_OROG2
-//				BUT_ONLY_IF_IT_CHANGES
-//			END
 		END
-			
-//		COPY ~TDD/CRE/EASTGOL1.cre~         ~TDD-CRE~ //Iron Golem
-//			 ~TDD/CRE/EASTGOL2.cre~         ~TDD-CRE~
-//			SAY NAME1 @20307
-//			SAY NAME2 @20307
-//			WRITE_LONG 0x28 0x7F04   //GOLEM_IRON
-			
 	END	
 	
 	ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
@@ -285,8 +301,12 @@ BEGIN
 									ACTION_IF FILE_EXISTS ~%RES_FOLDER%/%iconS%.bam~ BEGIN 
 										COPY ~%RES_FOLDER%/%iconS%.bam~ ~override~ 
 									END ELSE BEGIN 
-										PRINT ~Warning: missing ressource from TDD and BG2EE: %iconS%.bam, to continue, please press Enter~
-										ACTION_READLN ~pause~
+										ACTION_IF FILE_EXISTS ~%MOD_FOLDER%/%path_to_file%/%iconS%.bam~ BEGIN
+											COPY ~%MOD_FOLDER%/%path_to_file%/%iconS%.bam~ ~override~
+										END ELSE BEGIN
+											PRINT ~Warning: missing ressource from TDD and BG2EE: %iconS%.bam, to continue, please press Enter~
+											ACTION_READLN ~pause~
+										END
 									END
 								END
 							END									

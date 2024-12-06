@@ -1,7 +1,7 @@
 RESNAME 	NAME1	NAME2	UNIDENTIFIED_DESC	DESC	ICON		UNDROPPABLE COMMENTS
 AICE		+		+		+					+		+			++++++++	Water Elemental Item
 ALAVA		+		+		+					+		+			++++++++	Lava Elemental Item
-BLOOD		+		20993	+					20994	IBLOOD		.			Bathed in Blood; Used many many times...
+BLOOD		+		20993	+					20994	IBLOOD		.			Bathed in Blood; Used many many times... SHould he have now?
 BOULDER		21005	21005	21006				21006	IBOULDER	++++++++
 BRAC04X		+		+		+					+		+			.			Jarlaxe's bracers
 DEATHREB	+		21102	+					21103	0			.			Death Reborn

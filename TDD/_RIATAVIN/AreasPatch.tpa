@@ -1,0 +1,347 @@
+// EE Version
+
+COPY_EXISTING ~DD8000.are~ ~override~
+	LPM SetAnimationsInCombatFlag
+	LPF fj_are_structure
+		INT_VAR
+		fj_type         		= 2    						
+		fj_box_left     		= 3871                      
+		fj_box_top      		= 3702                      
+		fj_box_right    		= 3971                      
+		fj_box_bottom   		= 3802                      
+		fj_cursor_idx           = 34							
+		fj_flags                = 0x00000004                
+		fj_loc_x				= 3921                      
+		fj_loc_y				= 3752                       
+		fj_vertex_0     		= 3871 + (3702 << 16)  
+		fj_vertex_1     		= 3971 + (3702 << 16)  
+		fj_vertex_2     		= 3971 + (3802 << 16)  
+		fj_vertex_3     		= 3871 + (3802 << 16)  
+		STR_VAR                                             
+		fj_structure_type   = region                        
+		fj_name             = Tran8001                      
+		fj_destination_area	= DD8001                        
+		fj_destination_name = EXIT8000                      
+	END
+	LPF fj_are_structure
+		INT_VAR
+		fj_loc_x       = 3921 
+		fj_loc_y       = 3752 
+		fj_orientation = 8
+		STR_VAR
+		fj_structure_type = entrance
+		fj_name           = EXIT8001
+	END
+	FOR( i = SHORT_AT 0x64 ; i ; --i )BEGIN
+		LPF fj_are_structure
+			INT_VAR fj_delete_mode = i - 1
+			STR_VAR fj_structure_type = spawn
+		END
+	END
+
+ //=============================================================================
+
+COPY_EXISTING ~DD8001.are~           ~override~
+	LPM SetAnimationsInCombatFlag
+	LPF fj_are_structure
+		INT_VAR
+		fj_type         		= 2    						
+		fj_box_left     		= 461                        
+		fj_box_top      		= 62                         
+		fj_box_right    		= 561                        
+		fj_box_bottom   		= 162                        
+		fj_cursor_idx           = 34							
+		fj_flags                = 0x00000004                
+		fj_loc_x				= 511                      
+		fj_loc_y				= 112                       
+		fj_vertex_0     		= 461 + (62  << 16)  
+		fj_vertex_1     		= 561 + (62  << 16)  
+		fj_vertex_2     		= 561 + (162 << 16)  
+		fj_vertex_3     		= 461 + (162 << 16)  
+		STR_VAR                                             
+		fj_structure_type   = region                        
+		fj_name             = Tranc020                      
+		fj_destination_area	= DD8000                        
+		fj_destination_name = EXIT8001                      
+	END
+	LPF fj_are_structure
+		INT_VAR
+		fj_loc_x       = 511 
+		fj_loc_y       = 112 
+		fj_orientation = 14
+		STR_VAR
+		fj_structure_type = entrance
+		fj_name           = EXIT8000
+	END
+	FOR( i = SHORT_AT 0x64 ; i ; --i )BEGIN
+		LPF fj_are_structure
+			INT_VAR fj_delete_mode = i - 1
+			STR_VAR fj_structure_type = spawn
+		END
+	END
+
+//=============================================================================
+
+COPY_EXISTING ~AR1106.ARE~  ~override~
+	LPM SetAnimationsInCombatFlag
+	READ_SHORT  0x48 "flags"
+	WRITE_SHORT 0x48 ("%flags%" BOR 0x0020)  //Setting Dungeon flag
+	
+	READ_LONG  0x70  "cont_offset"
+	READ_SHORT 0x74  "cont_num"
+	READ_SHORT 0x76  "items_num"
+	READ_LONG  0x78  "items_offset"
+	SET "first_item"=0
+	SET "items"=0
+	SET "one"=0
+	SET "two"=0
+	FOR( cnt=0; cnt<"%cont_num%"; cnt=cnt+1 ) BEGIN  //containers loop
+		READ_ASCII ("%cont_offset%"+0xc0*cnt)       "cont_name" (11)
+		PATCH_IF (("%cont_name%" STRING_COMPARE_CASE "Container 2")=0) BEGIN
+			READ_LONG ("%cont_offset%"+0xc0*cnt+0x40)  "first_item"
+			READ_LONG ("%cont_offset%"+0xc0*cnt+0x44)  "items"
+		END
+	END
+	PATCH_IF ("%items%">0 ) BEGIN
+		FOR( cnt=0; cnt<"%items%"; cnt=cnt+1 ) BEGIN       //items loop
+			READ_ASCII ("%items_offset%"+0x14*(cnt+"%first_item%")) "name"
+			PATCH_IF ( ("%name%" STRING_COMPARE_CASE "AX1H04")=0 AND "%one%"=0 ) BEGIN
+				WRITE_ASCII ("%items_offset%"+0x14*(cnt+"%first_item%"))     "DIVER" #8 //replacing item
+				WRITE_SHORT ("%items_offset%"+0x14*(cnt+"%first_item%")+0xa) 0
+				SET "name"=1
+				SET "one"=1
+			END
+			PATCH_IF ( ("%name%" STRING_COMPARE_CASE "AX1H04")=0 AND "%two%"=0 ) BEGIN
+				WRITE_ASCII ("%items_offset%"+0x14*(cnt+"%first_item%"))     "SCRX9" #8 //replacing item
+				WRITE_SHORT ("%items_offset%"+0x14*(cnt+"%first_item%")+0xa) 0
+				SET "two"=1
+			END
+		END
+END
+	BUT_ONLY_IF_IT_CHANGES //********************************************************  ~AR1106.are~
+
+//=============================================================================
+
+COPY_EXISTING ~DD3302b.ARE~  ~override~
+	LPF fj_are_structure
+		INT_VAR
+		fj_type         		= 2    						
+		fj_box_left     		= 497                        
+		fj_box_top      		= 643                        
+		fj_box_right    		= 645                        
+		fj_box_bottom   		= 761                        
+		fj_cursor_idx           = 28							
+		fj_flags                = 0x00000004                
+		fj_loc_x				= 788                      
+		fj_loc_y				= 660
+		fj_alt_x				= 21
+		fj_alt_y				= 12819
+		fj_vertex_0     		= 497 + (713 << 16)  
+		fj_vertex_1     		= 565 + (761 << 16)  
+		fj_vertex_2     		= 645 + (698 << 16)  
+		fj_vertex_3     		= 580 + (643 << 16)  
+		STR_VAR                                             
+		fj_structure_type   = region                        
+		fj_name             = Tran0906a                      
+		fj_destination_area	= AR0906                        
+		fj_destination_name = Exit0907a                      
+	END
+	LPF fj_are_structure
+		INT_VAR
+		fj_type         		= 2    						
+		fj_box_left     		= 699                        
+		fj_box_top      		= 452                        
+		fj_box_right    		= 942                        
+		fj_box_bottom   		= 619                        
+		fj_cursor_idx           = 28							
+		fj_flags                = 0x00000004                
+		fj_loc_x				= 788                      
+		fj_loc_y				= 660
+		fj_alt_x				= 0
+		fj_alt_y				= 0
+		fj_vertex_0     		= 699 + (554 << 16)  
+		fj_vertex_1     		= 779 + (619 << 16)  
+		fj_vertex_2     		= 942 + (502 << 16)  
+		fj_vertex_3     		= 877 + (452 << 16)
+		fj_vertex_4				= 823 + (464 << 16)
+		STR_VAR                                             
+		fj_structure_type   = region                        
+		fj_name             = Tran0906b                      
+		fj_destination_area	= AR0906                        
+		fj_destination_name = Exit0907b                      
+	END
+	GET_OFFSET_ARRAY animation_array ARE_V10_ANIMATIONS  
+	PHP_EACH animation_array AS int => animation_offset BEGIN
+		WRITE_LONG animation_offset + 0x24 (THIS | BIT12)
+	END
+
+//=============================================================================
+
+	COPY_EXISTING ~DD3302.ARE~  ~override~
+	LPF fj_are_structure
+		INT_VAR
+		fj_type         		= 2    						
+		fj_box_left     		= 531                        
+		fj_box_top      		= 593                        
+		fj_box_right    		= 845                        
+		fj_box_bottom   		= 763                        
+		fj_cursor_idx           = 28							
+		fj_flags                = 0x00000004                
+		fj_loc_x				= 916                      
+		fj_loc_y				= 532
+		fj_alt_x				= 0
+		fj_alt_y				= 0
+		fj_vertex_0     		= 845 + (670 << 16)  
+		fj_vertex_1     		= 755 + (593 << 16)  
+		fj_vertex_2     		= 638 + (633 << 16)  
+		fj_vertex_3     		= 531 + (658 << 16) 
+		fj_vertex_4     		= 554 + (695 << 16)
+		fj_vertex_5				= 654 + (721 << 16)
+		fj_vertex_6				= 713 + (763 << 16)
+		STR_VAR                                             
+		fj_structure_type   = region                        
+		fj_name             = Tran0907a                      
+		fj_destination_area	= DD3302B                        
+		fj_destination_name = Exit0504a                      
+	END
+	LPF fj_are_structure
+		INT_VAR
+		fj_type         		= 2    						
+		fj_box_left     		= 846                        
+		fj_box_top      		= 283                        
+		fj_box_right    		= 1078                        
+		fj_box_bottom   		= 606                        
+		fj_cursor_idx           = 28							
+		fj_flags                = 0x00000004                
+		fj_loc_x				= 1108                      
+		fj_loc_y				= 660
+		fj_alt_x				= 0
+		fj_alt_y				= 0
+		fj_vertex_0     		= 934  + (606 << 16)  
+		fj_vertex_1     		= 1052 + (527 << 16)  
+		fj_vertex_2     		= 1011 + (476 << 16)  
+		fj_vertex_3     		= 1078 + (329 << 16)
+		fj_vertex_4				= 994  + (283 << 16)
+		fj_vertex_5     		= 916  + (443 << 16)
+		fj_vertex_6				= 846  + (523 << 16)
+		STR_VAR                                             
+		fj_structure_type   = region                        
+		fj_name             = Tran0907b                      
+		fj_destination_area	= DD3302B                        
+		fj_destination_name = Exit0504b                      
+	END
+	LPF fj_are_structure
+		INT_VAR
+		fj_loc_x       = 907 
+		fj_loc_y       = 883 
+		fj_orientation = 14
+		STR_VAR
+		fj_structure_type = entrance
+		fj_name           = Exit0907a
+	END
+	LPF fj_are_structure
+		INT_VAR
+		fj_loc_x       = 1105 
+		fj_loc_y       = 735 
+		fj_orientation = 14
+		STR_VAR
+		fj_structure_type = entrance
+		fj_name           = Exit0907b
+	END
+
+//=============================================================================
+
+COPY_EXISTING ~DD0200.ARE~  ~override~
+	LPF fj_are_structure
+		INT_VAR
+		fj_type         		= 2    						
+		fj_box_left     		= 0                        
+		fj_box_top      		= 1660                        
+		fj_box_right    		= 190                        
+		fj_box_bottom   		= 2350                        
+		fj_cursor_idx           = 28							
+		fj_flags                = 0x00000004                
+		fj_loc_x				= 95                      
+		fj_loc_y				= 2005
+		fj_alt_x				= 95
+		fj_alt_y				= 2005
+		fj_vertex_0     		= 1   + (2350 << 16)  
+		fj_vertex_1     		= 190 + (2350 << 16)  
+		fj_vertex_2     		= 190 + (1660 << 16)  
+		fj_vertex_3     		= 0   + (1660 << 16)  
+		STR_VAR                                             
+		fj_structure_type   = region                        
+		fj_name             = to0301b                      
+		fj_destination_area	= DD3300                        
+		fj_destination_name = Exit3400                      
+	END
+
+//=============================================================================
+
+COPY_EXISTING ~DD8001c.ARE~  ~override~ // remove unused points of interest
+	FOR( i = SHORT_AT 0x5a ; i ; --i )BEGIN
+		READ_ASCII LONG_AT 0x5c + (i - 1) * 0xc4 trigger_name (32) NULL
+		PATCH_MATCH ~%trigger_name%~ 
+		WITH ~Tran1402~ ~Fountain~ ~Gem~ ~Mirror~ ~Pit~ ~Shadow1~
+			BEGIN
+				LPF fj_are_structure
+					INT_VAR fj_delete_mode = i - 1
+					STR_VAR fj_structure_type = region
+				END
+			END
+		DEFAULT
+		END
+	END
+	LPM SetAnimationsInCombatFlag
+
+//=============================================================================
+
+COPY_EXISTING ~DD3334.are~ 	~override~ // Fixed: phantom door removed
+	LPM SetAnimationsInCombatFlag	
+	FOR( i = SHORT_AT 0x5a ; i ; --i )BEGIN
+		READ_ASCII LONG_AT 0x5c + (i - 1) * 0xc4 trigger_name (32) NULL
+		PATCH_IF ~%trigger_name%~ STR_EQ ~AR9101_Door3~ BEGIN
+			LPF fj_are_structure
+				INT_VAR fj_delete_mode = i - 1
+				STR_VAR fj_structure_type = region
+			END
+		END
+	END
+// end EE Version
+	
+// Fixed/Tweaked .AREs
+				
+	COPY_EXISTING ~DD3300.are~ ~override~
+		SAY 0x1b88 @20085
+		SAY 0x1c4c @20086
+		SAY 0x1d10 @20087
+
+	COPY_EXISTING 	~DD3300C1.are~  ~override~
+					~DD3300CT.are~	~override~
+		SAY 0x180 @20085
+		SAY 0x244 @20086
+		SAY 0x308 @20087	
+		
+	COPY_EXISTING ~DD3309.are~ ~override~
+		WRITE_ASCII 0x94 ~~ #8 // clear area script
+		
+	ACTION_DEFINE_ASSOCIATIVE_ARRAY areas BEGIN
+		AR1106CT => ARCT11
+		DD0300CT => DDCT03
+		DD0508C1 => DDC105
+		DD1005CT => DDCT10
+		DD1002C1 => DDC110
+		DD1002X1 => DDX110
+		DD1607C1 => DDC160
+		DD3300C1 => DDC133
+		DD3300CT => DDCT33
+		DD3319C1 => DDC119
+		DD3319CT => DDCT19
+		DD8002ct => DDCT80
+		DD9X00C1 =>	DDC19X
+	END
+	ACTION_PHP_EACH areas AS old => newname BEGIN			
+		COPY ~override/%old%.are~ ~override/%newname%.are~		
+		DELETE ~override/%old%.are~
+	END
+	

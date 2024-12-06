@@ -3,22 +3,21 @@ BEGIN
 	// TODO : BLOOD01X.cre-Barbazu better animation
 	// TODO : BLOOD02X.cre-Amnizu wizard better animation	
 	
+//	COPY ~%RES_FOLDER%/Cre/ee~ ~%workspace%/%COMP_FOLDER%~
+	
 	APPEND ~MASTAREA.2DA~
-~ARPO05   value
-ARPO25   value
-DD1000   value
-DD1x12   value
-DD2300   value~
-UNLESS ~ARPO05~
+		~ARPO05   value
+		ARPO25   value
+		DD1000   value
+		DD1x12   value
+		DD2300   value~
+		UNLESS ~ARPO05~
 
 	
-	COPY ~override/ARPO05.are~ ~override~
-		SAY 0x308 @20084
-		SAY 0x3cc @20084
 	
 	COPY_EXISTING 	~EASTGOL1.cre~ ~override~
 					~EASTGOL2.cre~ ~override~
-		WRITE_LONG 0x28	0x7F04	// GOLEM_IRON
+		WRITE_LONG 0x28	0x7F04	// GOLEM_IRON 0xE250
 	BUT_ONLY
 	
 	COPY_EXISTING 	~MINTSKEL.cre~ ~override~
@@ -42,9 +41,12 @@ UNLESS ~ARPO05~
 	LAM HandleSpellScrollsContract
 	LAM HandleCoreItemsContract
 	LAM HandleItemsContract
+// EE Version
+	LAM PatchStores
+// end EE Version
 	
-	EXTEND_BOTTOM ~AR0300.bcs~ ~%MOD_FOLDER%/%COMP_FOLDER%/Snip/bAR0300.baf~
-	EXTEND_BOTTOM ~AR0902.bcs~ ~%MOD_FOLDER%/%COMP_FOLDER%/Snip/nAR0902.baf~
+	EXTEND_BOTTOM ~AR0300.bcs~ ~%RES_FOLDER%/Snip/bAR0300.baf~
+	EXTEND_BOTTOM ~AR0902.bcs~ ~%RES_FOLDER%/Snip/nAR0902.baf~
 		
 END
 
@@ -72,8 +74,8 @@ BEGIN
 				INNER_ACTION BEGIN
 					ACTION_MATCH ~%resname%~
 					WITH
-						~DEATHREB~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ ~override~ WRITE_ASCIIE 0x708 ~%newItem%~ #8 END
-						~MAGBOTXX~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ ~override~ WRITE_ASCIIE 0x6B4 ~%newItem%~ #8 END
+						~DEATHREB~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ ~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = DEATHREB  new_item = EVAL "%newItem%" END END
+						~MAGBOTXX~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ ~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = MAGBOTXX  new_item = EVAL "%newItem%" END END
 						DEFAULT
 					END
 				END
@@ -85,7 +87,7 @@ END
 //=============================================================================
 DEFINE_ACTION_MACRO HandleItemsContract
 BEGIN
-	COPY ~%MOD_FOLDER%/%COMP_FOLDER%/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/ItemsContract.2da~
+	COPY ~%RES_FOLDER%/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/ItemsContract.2da~
 		COUNT_2DA_ROWS 7 count
 		WHILE (count > 1) BEGIN
 			READ_2DA_ENTRY (count -1) 0 7 resname
@@ -104,15 +106,15 @@ BEGIN
 				INNER_ACTION BEGIN					
 					ACTION_MATCH ~%resname%~
 					WITH
-						~CLCKBS~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ 	~override~ WRITE_ASCIIE 0x6EC 	~%newItem%~ #8 END
+						~CLCKBS~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = CLCKBS   new_item = EVAL "%newItem%" END END
 						~FIGSILV~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/DDPOTEN1.d~ ~%workspace%/%COMP_FOLDER%/DDPOTEN1.d~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
-						~MALICE~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ 	~override~ WRITE_ASCIIE 0x698 	~%newItem%~ #8 END
-						~MOONLITE~ 	BEGIN COPY_EXISTING ~DD9400.are~ 	~override~ WRITE_ASCIIE 0xCC8 	~%newItem%~ #8 END
+						~MALICE~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = MALICE   new_item = EVAL "%newItem%" END END
+						~MOONLITE~ 	BEGIN COPY_EXISTING ~DD9400.are~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = MOONLITE new_item = EVAL "%newItem%" END END
 						~POLAW4A~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/DDPOTEN1.d~ ~%workspace%/%COMP_FOLDER%/DDPOTEN1.d~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
-						~SLINGB2~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ 	~override~ WRITE_ASCIIE 0x6D0 	~%newItem%~ #8 END
-						~SVIAN~ 	BEGIN COPY_EXISTING ~DD9400.are~ 	~override~ WRITE_ASCIIE 0xD54 	~%newItem%~ #8 END
-						~TROLLARM~ 	BEGIN COPY_EXISTING ~DD9400.are~ 	~override~ WRITE_ASCIIE 0xD2C 	~%newItem%~ #8 END
-						~VIOLAX~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ 	~override~ WRITE_ASCIIE 0x724 	~%newItem%~ #8 END
+						~SLINGB2~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SLINGB2  new_item = EVAL "%newItem%" END END
+						~SVIAN~ 	BEGIN COPY_EXISTING ~DD9400.are~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SVIAN    new_item = EVAL "%newItem%" END END
+						~TROLLARM~ 	BEGIN COPY_EXISTING ~DD9400.are~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = TROLLARM new_item = EVAL "%newItem%" END END
+						~VIOLAX~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = VIOLAX   new_item = EVAL "%newItem%" END END
 						DEFAULT
 					END
 				END
@@ -170,5 +172,17 @@ BEGIN
 			END
 		END
 	BUT_ONLY	
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO PatchStores BEGIN
+	COPY_EXISTING ~Madeel.sto~ ~override~
+		PATCH_FOR_EACH resname IN ~SCRX1~ ~SCRX2~ ~SCRX3~ ~SCRX4~ ~SCRX5~ ~SCRX6~ ~SCRX7~ ~SCRX9~ ~SCRX8~ ~SCRX10~ ~SCRX11~ ~SCRX12~ ~SCRX13~ ~SCRX14~ ~SCRX15~ ~SCRX16~ 
+								~SCRX17~ ~SCRX18~ ~SCRX19~ ~SCRX20~ ~SCRX21~ ~SCRX22~ ~SCRX23~ ~SCRX24~ ~SCRX25~ ~SCRX26~ ~SCRX27~ ~SCRX28~ ~SCRX29~ ~SCRX31~ ~SCRX32~ 
+								~SCRX33~ ~SCRX34~ ~SCRX35~ ~SCRX36~ ~SCRX37~ ~SCRX38~ ~SCRX39~ ~SCRX40~ ~SCRX41~ ~SCRX42~ ~SCRX43~ ~SCRX46~ ~SCRX47~ ~SCRX48~ ~SCRX49~ 
+								~SCRX50~ ~SCRX51~ ~SCRX52~ ~SCRX53~ ~SCRX54~ ~SCRX55~ ~SCRX56~ ~SCRX57~ ~SCRX58~ ~SCRX59~ ~SCRX60~ ~SCRX61~ ~SCRX62~ ~SCRX63~ ~SCRX64~ 
+								~SCRX65~ ~SCRX66~ ~SCRX67~ ~SCRX68~ ~SCRX69~ ~SCRX70~ ~SCRX71~ ~SCRX72~ ~SCRX73~ 
+								~SCRM104~ ~FIGMIST~ ~FIGSENT~ ~FIGSILV~ ~RINGWWW~ ~DOVES~ ~BREACHAM~ ~AEGISRNG~ ~SW2H07~ ~SW2H09~ ~SW2H10~ ~PLAT16~ ~HELM20~ ~STAF05~ BEGIN
+		REMOVE_STORE_ITEM ~%resname%~ END
 END
 
