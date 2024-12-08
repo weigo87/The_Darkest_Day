@@ -6,12 +6,12 @@ BEGIN
 //	COPY ~%RES_FOLDER%/Cre/ee~ ~%workspace%/%COMP_FOLDER%~
 	
 	APPEND ~MASTAREA.2DA~
-		~ARPO05   value
-		ARPO25   value
-		DD1000   value
-		DD1x12   value
-		DD2300   value~
-		UNLESS ~ARPO05~
+~ARPO05   value
+ARPO25   value
+DD1000   value
+DD1x12   value
+DD2300   value~
+UNLESS ~ARPO05~
 
 	
 	

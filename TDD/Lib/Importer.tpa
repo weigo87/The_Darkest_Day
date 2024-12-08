@@ -4,22 +4,13 @@ OUTER_TEXT_SPRINT COMP_FOLDER ~~
 DEFINE_ACTION_MACRO FetchTranslationsBeforeAnySAYandCOMPILE
 BEGIN
 	ACTION_IF DIRECTORY_EXISTS "%MOD_FOLDER%/Language/%LANGUAGE%/%COMP_FOLDER%" BEGIN
-		LAF HANDLE_CHARSETS
-        INT_VAR
-            from_utf8 = 1
-            infer_charsets = 1
-            verbose = 1 // you can disable this if you want to skip verbose output
-        STR_VAR
-            default_language = ~English~
-            tra_path = EVAL "%MOD_FOLDER%/Language/%LANGUAGE%/%COMP_FOLDER%"
-            out_path = EVAL ~%TRA_LOCATION%~ // location of converted .tra files
-            iconv_path = EVAL "%MOD_FOLDER%/Tools/iconv" //available as part of the base system on OS X and GNU/Linux
-            reload_array = charsetsReloadArray
-            noconvert_array = charsetsNoConvertArray
+		ACTION_IF NOT (GAME_IS "bgee bg2ee eet iwdee pstee") THEN BEGIN
+			COPY ~weidu_external/Language/%MOD_FOLDER%/%LANGUAGE%/%COMP_FOLDER%~ ~%TRA_LOCATION%/%LANGUAGE%~
 		END
 		ACTION_IF (GAME_IS "bgee bg2ee eet iwdee pstee") THEN BEGIN
 			COPY ~%MOD_FOLDER%/Language/%LANGUAGE%/%COMP_FOLDER%~ ~%TRA_LOCATION%/%LANGUAGE%~
 		END
+
 	END
 END
 
@@ -83,7 +74,7 @@ END
 DEFINE_ACTION_FUNCTION InstallComponentSpecificContents STR_VAR comp = ~~
 BEGIN	
 	ACTION_IF FILE_EXISTS ~%RES_FOLDER%/%comp%.tpa~
-		BEGIN  INCLUDE ~%RES_FOLDER%/%comp%.tpa~ LAM InstallSpecificContents END
+		BEGIN INCLUDE ~%RES_FOLDER%/%comp%.tpa~ LAM InstallSpecificContents END
 END
 
 

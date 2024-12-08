@@ -1,15 +1,15 @@
 DEFINE_ACTION_MACRO InstallSpecificContents
 BEGIN
 	APPEND ~MASTAREA.2DA~
-		~DD3300   value
-		DD0200   value
-		DDCT03   value
-		DDC133   value
-		DDCT33   value
-		DD8000   value
-		DD9x00   value
-		DDC19X   value~
-		UNLESS ~DD3300~	
+~DD3300   value
+DD0200   value
+DDCT03   value
+DDC133   value
+DDCT33   value
+DD8000   value
+DD9x00   value
+DDC19X   value~
+UNLESS ~DD3300~	
 
 		
 	COPY_EXISTING ~CYCCALI1.CRE~ 	~override~ WRITE_LONG 0x28 0xE000 // IC_CYCLOPS
