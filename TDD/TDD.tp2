@@ -124,8 +124,21 @@ LANGUAGE 	~Spanish(Clan REO)~
 // - Is GTRSK002 useless? ex: LeaveAreaLUA("dd9007","GTRSK002",[381.331],12)
 
 
-// TODO Force add empty area.bcs
-// TODO Re-check EE minimap
+// TODO 
+// Force add empty area.bcs
+// Re-check EE minimap
+
+// DDGAME03.baf SUMMON_SKELETON_WARRIORS
+// Level 50 Rules MXSPLRA.2da Level 40 TDD and RoT
+// SCRX41.itm ???
+// baf and d files changes for TDDz (ee and non-ee)
+// better graphics for tbc and pvrz
+// repair pvrz
+// spells
+// kits
+// biffing
+// bggo
+
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
