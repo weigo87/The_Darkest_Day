@@ -1,3 +1,6 @@
+OUTER_TEXT_SPRINT COMP_FOLDER ~_%aComp%~
+OUTER_TEXT_SPRINT RES_FOLDER ~%MOD_FOLDER%/%COMP_FOLDER%~
+
 // EE Version
 
 COPY_EXISTING ~DD8000.are~ ~override~
@@ -308,7 +311,23 @@ COPY_EXISTING ~DD3334.are~ 	~override~ // Fixed: phantom door removed
 		END
 	END
 // end EE Version
-	
+
+//=============================================================================
+// nightmaps and lights
+
+COPY ~%RES_FOLDER%/AreasContract.2da~ ~%workspace%/%COMP_FOLDER%/AreasContract.2da~
+	COUNT_2DA_ROWS 1 count
+	WHILE (count > 1) BEGIN
+				READ_2DA_ENTRY (count -1) 0 7 resname
+				SET count = count -1
+				INNER_ACTION BEGIN
+					COPY_EXISTING ~%resname%.are~ ~override~
+						PATCH_INCLUDE ~%MOD_FOLDER%/Lib/install-nightmaps.tpa~
+				END
+
+	END
+
+//=============================================================================	
 // Fixed/Tweaked .AREs
 				
 	COPY_EXISTING ~DD3300.are~ ~override~
@@ -344,4 +363,6 @@ COPY_EXISTING ~DD3334.are~ 	~override~ // Fixed: phantom door removed
 		COPY ~override/%old%.are~ ~override/%newname%.are~		
 		DELETE ~override/%old%.are~
 	END
+	
+
 	
