@@ -255,10 +255,7 @@ BEGIN
           FOR (i = 0; i < num_blocks; ++i) BEGIN
             SET ofs = ofs_blocks + i * block_size
 			READ_LONG ofs opage
-			PATCH_IF (LONG_AT ofs >= 0) BEGIN
-				WRITE_LONG ofs ((LONG_AT ofs) + offset)
-			END 			
-//            WRITE_LONG ofs (THIS >= 0) ? (THIS + offset) : THIS
+			WRITE_LONG ofs (THIS >= 0) ? (THIS + offset) : THIS
           END
           SET success = 1
         END ELSE BEGIN

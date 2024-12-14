@@ -41,9 +41,17 @@ UNLESS ~ARPO05~
 	LAM HandleSpellScrollsContract
 	LAM HandleCoreItemsContract
 	LAM HandleItemsContract
+	
 // EE Version
 	LAM PatchStores
+
+	LAM PatchArpo05
+	LAM PatchArpo27
 // end EE Version
+
+	COPY_EXISTING ~ARPO05.are~ ~override~
+		SAY 0x308 @20084
+		SAY 0x3cc @20084
 	
 	EXTEND_BOTTOM ~AR0300.bcs~ ~%RES_FOLDER%/Snip/bAR0300.baf~
 	EXTEND_BOTTOM ~AR0902.bcs~ ~%RES_FOLDER%/Snip/nAR0902.baf~
@@ -186,3 +194,29 @@ DEFINE_ACTION_MACRO PatchStores BEGIN
 		REMOVE_STORE_ITEM ~%resname%~ END
 END
 
+//=============================================================================
+DEFINE_ACTION_MACRO PatchArpo05	BEGIN
+	COPY_EXISTING ~Arpo05.are~ ~override~
+		READ_LONG 0x5c trigger_offset
+		FOR( i = SHORT_AT 0x5a ; i ; --i )BEGIN
+			READ_ASCII trigger_offset + (i - 1) * 0xc4 trigger_name (32) NULL
+			READ_ASCII trigger_offset + (i - 1) * 0xc4 + 0x38 dest_name (32) NULL
+			PATCH_IF ((~%trigger_name%~ STR_EQ ~ICM EXIT trigger~) AND (~%dest_name%~ STR_EQ ~ARPO08~)) BEGIN
+				LPF fj_are_structure
+				INT_VAR fj_delete_mode = i - 1 STR_VAR fj_structure_type = region END
+			END
+		END
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO PatchArpo27 BEGIN
+	COPY_EXISTING ~Arpo27.are~ ~override~ // fixes the east trigger point
+		GET_OFFSET_ARRAY trigger_array ARE_V10_REGIONS 
+		PHP_EACH trigger_array AS int => trigger_offset BEGIN
+			READ_ASCII trigger_offset trigger_name (32) NULL
+			READ_SHORT trigger_offset + 0x22 left_bounding
+			PATCH_IF ((~%trigger_name%~ STR_EQ ~ICM EXIT trigger~) AND (left_bounding = 1193)) BEGIN
+				WRITE_SHORT trigger_offset + 0x22 1103
+			END
+		END
+END

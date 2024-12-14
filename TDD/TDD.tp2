@@ -21,6 +21,7 @@ ALWAYS
 	INCLUDE ~%MOD_FOLDER%/Lib/a7_tools.tpa~
 	INCLUDE ~%MOD_FOLDER%/Lib/a7_pvrz_tis.tpa~
 	INCLUDE ~%MOD_FOLDER%/Lib/Areas.tpa~
+	INCLUDE ~%MOD_FOLDER%/Lib/Importer.tpa~
 
 	ACTION_IF GAME_IS ~eet~ BEGIN
 		OUTER_SET bg2_chapter = 12
@@ -138,6 +139,7 @@ LANGUAGE 	~Spanish(Clan REO)~
 // kits
 // biffing
 // bggo
+// are animation bams überprüfen, ob vorhanden
 
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -152,8 +154,7 @@ BEGIN @901000
 	DESIGNATED 0 LABEL ~the_darkest_day~
 	REQUIRE_PREDICATE GAME_IS ~bg2 tob bgt bg2ee eet~ ~~
 	
-        INCLUDE ~%MOD_FOLDER%/Lib/Importer.tpa~
-		LAF ImportComponent STR_VAR aComp = ~CORE~ END
+	LAF ImportComponent STR_VAR aComp = ~CORE~ END
 
 COPY_EXISTING ~sahoty01.cre~ ~override/tzhoty01.cre~
     WRITE_ASCII 0x280 ~tzhoty01~ #8
@@ -170,8 +171,7 @@ BEGIN @901001
 	DESIGNATED 1
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
-	INCLUDE ~%MOD_FOLDER%/Lib/Importer.tpa~
-		LAF ImportComponent STR_VAR aComp = ~TROLLFORD~ END
+	LAF ImportComponent STR_VAR aComp = ~TROLLFORD~ END
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -185,9 +185,7 @@ BEGIN @901002
 	DESIGNATED 2
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
-	INCLUDE ~%MOD_FOLDER%/Lib/Importer.tpa~
-		LAF ImportComponent STR_VAR aComp = ~ESPURTA~ END
-	INCLUDE ~%MOD_FOLDER%/_ESPURTA/AreasPatch.tpa~
+	LAF ImportComponent STR_VAR aComp = ~ESPURTA~ END
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -201,8 +199,7 @@ BEGIN @901003
 	DESIGNATED 3
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
-	INCLUDE ~%MOD_FOLDER%/Lib/Importer.tpa~
-		LAF ImportComponent STR_VAR aComp = ~PURSKAL~ END
+	LAF ImportComponent STR_VAR aComp = ~PURSKAL~ END
 		
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -216,9 +213,7 @@ BEGIN @901004
 	DESIGNATED 4
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
-	INCLUDE ~%MOD_FOLDER%/Lib/Importer.tpa~
-		LAF ImportComponent STR_VAR aComp = ~RIATAVIN~ END
-	INCLUDE ~%MOD_FOLDER%/_RIATAVIN/AreasPatch.tpa~
+	LAF ImportComponent STR_VAR aComp = ~RIATAVIN~ END
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -232,9 +227,7 @@ BEGIN @901005
 	DESIGNATED 5
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
-	INCLUDE ~%MOD_FOLDER%/Lib/Importer.tpa~
-		LAF ImportComponent STR_VAR aComp = ~ONSETOfTheDARKESTDAY~ END
-	INCLUDE ~%MOD_FOLDER%/_ONSETOfTheDARKESTDAY/AreasPatch.tpa~
+	LAF ImportComponent STR_VAR aComp = ~ONSETOfTheDARKESTDAY~ END
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -248,8 +241,7 @@ BEGIN @901010
 	DESIGNATED 6
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
-	INCLUDE ~%MOD_FOLDER%/Lib/Importer.tpa~
-		LAF ImportComponent STR_VAR aComp = ~ROBILARD~ END
+	LAF ImportComponent STR_VAR aComp = ~ROBILARD~ END
 
 /////////////////////////////
 BEGIN ~Use BGGO extended BG1 areas for TDD~

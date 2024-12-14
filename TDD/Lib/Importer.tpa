@@ -43,19 +43,17 @@ BEGIN
 		MOS => override
 		BAF => ~%workspace%/%COMP_FOLDER%~
 		D   => ~%workspace%/%COMP_FOLDER%~
+		graphics => override
 	END
 	ACTION_PHP_EACH dispatch AS restype => to BEGIN
 		ACTION_IF ~%restype%~ STR_EQ ~MOS~ BEGIN
+			ACTION_IF DIRECTORY_EXISTS "%RES_FOLDER%/%restype%/%ee%"
+				BEGIN COPY ~%RES_FOLDER%/%restype%/%ee%~ ~%to%~ END // ee or non-ee
+			END ELSE BEGIN
 			ACTION_IF DIRECTORY_EXISTS "%RES_FOLDER%/%restype%"
 				BEGIN COPY ~%RES_FOLDER%/%restype%~ ~%to%~ END
-			ACTION_IF DIRECTORY_EXISTS "%RES_FOLDER%/%restype%/ee"
-				BEGIN COPY ~%RES_FOLDER%/%restype%/non-ee~ ~%to%~ END // ee or non-ee
-		END ELSE BEGIN
-			ACTION_IF DIRECTORY_EXISTS "%RES_FOLDER%/%restype%"
-				BEGIN COPY ~%RES_FOLDER%/%restype%~ ~%to%~ END
-			ACTION_IF DIRECTORY_EXISTS "%RES_FOLDER%/%restype%/ee"
-				BEGIN COPY ~%RES_FOLDER%/%restype%/ee~ ~%to%~ END
-		END END
+			END 
+		END
 
 	LAM ApplyScriptedXpCustomization
 	LAF InstallComponentSpecificContents STR_VAR comp = EVAL ~%aComp%~ END
@@ -87,7 +85,6 @@ END
 //=============================================================================
 DEFINE_ACTION_MACRO ImportARE_FromTDD
 BEGIN
-	INCLUDE ~%MOD_FOLDER%/Lib/Areas.tpa~
 	ACTION_IF FILE_EXISTS ~%RES_FOLDER%/AreasContract.2da~ BEGIN
 		COPY ~%RES_FOLDER%/AreasContract.2da~ ~%workspace%/%COMP_FOLDER%/AreasContract.2da~
 			COUNT_2DA_ROWS 1 count
@@ -106,6 +103,7 @@ BEGIN
 								
 					COPY ~%path%~ ~override~
 						LPM SetAnimationsInCombatFlag
+						PATCH_INCLUDE ~%MOD_FOLDER%/Lib/install-nightmaps.tpa~
 						
 					ACTION_IF NOT ~%mos%~ STRING_EQUAL ~+~ BEGIN ACTION_IF IS_AN_INT mos BEGIN COPY ~%RES_FOLDER%/MOS/non-ee/%resname%.MOS~ ~override~ END ELSE BEGIN COPY ~%RES_FOLDER%/MOS/non-ee/%mos%.MOS~ ~override~ END END
 					ACTION_IF NOT ~%wed%~ STRING_EQUAL ~+~ BEGIN ACTION_IF IS_AN_INT wed BEGIN COPY ~%RES_FOLDER%/WED/%resname%.WED~ ~override~ END ELSE BEGIN COPY ~%RES_FOLDER%/WED/%wed%.WED~ ~override~ END END
@@ -206,7 +204,7 @@ BEGIN
 										BEGIN COPY ~%RES_FOLDER%/BAM/%iconS%.bam~ ~override~ END 
 								END									
 							END
-							PATCH_IF ~%policy%~ STRING_EQUAL ~.~ BEGIN READ_BYTE 0x18 THIS WRITE_BYTE 0x18 (%THIS% BAND 0b11111011) END // set undroppable flag
+							PATCH_IF ~%policy%~ STRING_EQUAL ~.~ BEGIN WRITE_BYTE 0x18 (THIS BAND 0b11111011) END // set undroppable flag
 					END
 				END
 			END		
@@ -301,7 +299,6 @@ BEGIN
 							PATCH_IF NOT ~%portraitS%~ STRING_EQUAL ~+~ BEGIN WRITE_ASCIIE 0x34 ~%portraitS%~ #8 END
 							PATCH_IF IS_AN_INT xpValue BEGIN
 								PATCH_IF %xpValue% < 1000 BEGIN
-									READ_LONG 0x14 THIS
 									WRITE_LONG 0x14 (THIS * %xpValue%/100)
 								END
 								ELSE BEGIN
