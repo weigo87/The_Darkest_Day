@@ -28,6 +28,14 @@ BEGIN
 	MKDIR ~%workspace%/%COMP_FOLDER%~
 
 	LAM FetchTranslationsBeforeAnySAYandCOMPILE
+	
+	ACTION_DEFINE_ASSOCIATIVE_ARRAY turn_off_at_night BEGIN // turn off sleeping animals at night
+		bird => 1
+		eagle => 1
+		vultur => 1
+		seagul => 1
+		butrfly => 1
+	END
 
 	//LAM ImportSPL_FromTDD
 	LAM ImportCRE_FromTDD
@@ -364,9 +372,18 @@ BEGIN
 		ACTION_BASH_FOR ~%RES_FOLDER%/Pvrz~ ~%prefix%.+?\.pvrz$~ BEGIN
 			COPY ~%BASH_FOR_FILESPEC%~ ~%workspace%/%COMP_FOLDER%~
 		END
+		ACTION_IF FILE_EXISTS ~%RES_FOLDER%/Pvrz/%filename%N.tis~ BEGIN
+			COPY ~%RES_FOLDER%/Pvrz/%filename%N.tis~ ~%workspace%/%COMP_FOLDER%~
+			ACTION_BASH_FOR ~%RES_FOLDER%/Pvrz~ ~%prefix%N.+?\.pvrz$~ BEGIN
+				COPY ~%BASH_FOR_FILESPEC%~ ~%workspace%/%COMP_FOLDER%~
+			END
+		END
 	END
 	ACTION_IF GAME_IS ~bg2 tob bgt~ BEGIN
 		COPY ~%RES_FOLDER%/tbc/%filename%.tbc~ ~%workspace%/%COMP_FOLDER%~
+		ACTION_IF FILE_EXISTS ~%RES_FOLDER%/tbc/%filename%N.tbc~ BEGIN
+			COPY ~%RES_FOLDER%/tbc/%filename%N.tbc~ ~%workspace%/%COMP_FOLDER%~
+		END
 	END
 END
 
