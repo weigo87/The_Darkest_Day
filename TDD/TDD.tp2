@@ -140,6 +140,7 @@ LANGUAGE 	~Spanish(Clan REO)~
 // biffing
 // bggo
 // are animation bams überprüfen, ob vorhanden
+// DD3300C1 DD3300CT DD9X00	DD9X00C1 DD1X12 nightmaps? wrong flags set
 
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -243,59 +244,6 @@ BEGIN @901010
 
 	LAF ImportComponent STR_VAR aComp = ~ROBILARD~ END
 
-/////////////////////////////
-BEGIN ~Use BGGO extended BG1 areas for TDD~
-//REQUIRE_PREDICATE (MOD_IS_INSTALLED "TDD/SETUP-TDD.TP2" "2") OR (MOD_IS_INSTALLED "TDD/SETUP-TDD.TP2" "3") OR (MOD_IS_INSTALLED "TDD/SETUP-TDD.TP2" "4") "No TDD component detected."
-//REQUIRE_COMPONENT "BGGO/SETUP-BGGO.TP2" "0" "The main component must be installed before"
-REQUIRE_PREDICATE MOD_IS_INSTALLED "bggo.tp2" (ID_OF_LABEL "bggo.tp2" "baldurs_gate_graphical_overhaul" ) "No BGGO is installed"
-REQUIRE_PREDICATE (MOD_IS_INSTALLED "TDD/SETUP-TDD.TP2" "2") OR (MOD_IS_INSTALLED "TDD/SETUP-TDD.TP2" "3") OR (MOD_IS_INSTALLED "TDD/SETUP-TDD.TP2" "4") "No TDD component detected."
-REQUIRE_PREDICATE GAME_IS ~eet bgt~ ~Only for bgt or eet~
-
-ACTION_IF GAME_IS ~eet~ BEGIN
-	ACTION_DEFINE_ASSOCIATIVE_ARRAY remapped_tis_tdd BEGIN
-		"DD1900"    => "BG1900" //%BanditCamp%"
-		"DD2300"    => "BG2300" //%FriendlyArmInn%"
-		"DD3300"    => "BG3300" //%Beregost%"
-		"DD8000"    => "BG2900" //%Larswood%"
-	END
-END
-
-ACTION_IF GAME_IS ~bgt~ BEGIN
-	ACTION_DEFINE_ASSOCIATIVE_ARRAY remapped_tis_tdd BEGIN
-		"DD1900"    => "AR8700" //%BanditCamp%"
-		"DD2300"    => "AR6800" //%FriendlyArmInn%"
-		"DD3300"    => "AR6700" //%Beregost%"
-		"DD8000"    => "AR9000" //%Larswood%"
-	END
-END
-
-ACTION_DEFINE_ASSOCIATIVE_ARRAY turn_off_at_night BEGIN // turn off sleeping animals at night
-		bird => 1
-		eagle => 1
-		vultur => 1
-		seagul => 1
-END
-
-ACTION_PHP_EACH remapped_tis_tdd AS TDDARE => BG1ARE BEGIN
-	ACTION_IF FILE_EXISTS_IN_GAME ~%TDDARE%.are~ BEGIN
-		COPY_EXISTING ~%TDDARE%.are~ ~override~
-		PATCH_IF SOURCE_SIZE > 0x11b BEGIN
-			PATCH_IF (((BYTE_AT 0x48) << 7) & BIT7) BEGIN // Toggle only outdoor areas
-				WRITE_BYTE 0x48 (THIS | BIT6 | BIT1 | BIT2) // Toggle extended night flag (BIT6) and day/night flag (BIT1) and weather flag (BIT2)
-				GET_OFFSET_ARRAY actors 0x54 4 0x58 2 0 0 0x110		// turn off creatures at night time
-				PHP_EACH actors AS i => off BEGIN
-					READ_ASCII off + 0x80 cre_resref
-					TO_LOWER cre_resref
-					PATCH_IF VARIABLE_IS_SET $turn_off_at_night("%cre_resref%") BEGIN
-						WRITE_LONG off + 0x40 0x1ffe0 // 05:30 to 17:29
-					END
-				END
-			END
-			WRITE_ASCIIE 0x8 ~%BG1ARE%~ #8
-		END
-		BUT_ONLY
-	END
-END
 
 
 //=============================================================================
