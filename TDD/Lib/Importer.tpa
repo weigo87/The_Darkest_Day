@@ -55,8 +55,8 @@ BEGIN
 	END
 	ACTION_PHP_EACH dispatch AS restype => to BEGIN
 		ACTION_IF ~%restype%~ STR_EQ ~MOS~ BEGIN
-			ACTION_IF DIRECTORY_EXISTS "%RES_FOLDER%/%restype%/%ee%"
-				BEGIN COPY ~%RES_FOLDER%/%restype%/%ee%~ ~%to%~ END // ee or non-ee
+			ACTION_IF DIRECTORY_EXISTS "%RES_FOLDER%/%restype%/%engine%"
+				BEGIN COPY ~%RES_FOLDER%/%restype%/%engine%~ ~%to%~ END // ee or non-ee
 			END ELSE BEGIN
 			ACTION_IF DIRECTORY_EXISTS "%RES_FOLDER%/%restype%"
 				BEGIN COPY ~%RES_FOLDER%/%restype%~ ~%to%~ END
@@ -97,13 +97,14 @@ BEGIN
 		COPY ~%RES_FOLDER%/AreasContract.2da~ ~%workspace%/%COMP_FOLDER%/AreasContract.2da~
 			COUNT_2DA_ROWS 1 count
 			WHILE (count > 1) BEGIN
-				READ_2DA_ENTRY (count -1) 0 7 resname
-				READ_2DA_ENTRY (count -1) 1 7 mos
-				READ_2DA_ENTRY (count -1) 2 7 wed
-				READ_2DA_ENTRY (count -1) 3 7 tiz
-				READ_2DA_ENTRY (count -1) 4 7 htmap
-				READ_2DA_ENTRY (count -1) 5 7 lmmap
-				READ_2DA_ENTRY (count -1) 6 7 srmap
+				READ_2DA_ENTRY (count -1) 0 8 resname
+				READ_2DA_ENTRY (count -1) 1 8 mos
+				READ_2DA_ENTRY (count -1) 2 8 wed
+				READ_2DA_ENTRY (count -1) 3 8 tiz
+				READ_2DA_ENTRY (count -1) 4 8 htmap
+				READ_2DA_ENTRY (count -1) 5 8 lmmap
+				READ_2DA_ENTRY (count -1) 6 8 srmap
+				READ_2DA_ENTRY (count -1) 7 8 lnmap
 				INNER_ACTION BEGIN
 					OUTER_SPRINT path ~%RES_FOLDER%/ARE/%resname%.are~
 					ACTION_IF FILE_EXISTS ~%RES_FOLDER%/ARE/%resname%.are~ // we start to use TDDs .AREs
@@ -113,13 +114,13 @@ BEGIN
 						LPM SetAnimationsInCombatFlag
 						PATCH_INCLUDE ~%MOD_FOLDER%/Lib/install-nightmaps.tpa~
 						
-					ACTION_IF NOT ~%mos%~ STRING_EQUAL ~+~ BEGIN ACTION_IF IS_AN_INT mos BEGIN COPY ~%RES_FOLDER%/MOS/non-ee/%resname%.MOS~ ~override~ END ELSE BEGIN COPY ~%RES_FOLDER%/MOS/non-ee/%mos%.MOS~ ~override~ END END
-					ACTION_IF NOT ~%wed%~ STRING_EQUAL ~+~ BEGIN ACTION_IF IS_AN_INT wed BEGIN COPY ~%RES_FOLDER%/WED/%resname%.WED~ ~override~ END ELSE BEGIN COPY ~%RES_FOLDER%/WED/%wed%.WED~ ~override~ END END
-//					ACTION_IF NOT ~%tiz%~ STRING_EQUAL ~+~ BEGIN ACTION_IF IS_AN_INT tiz BEGIN COPY ~%RES_FOLDER%/TIZ/%resname%.TIZ~ ~%MOD_FOLDER%/TIZ/%resname%.TIZ~ END ELSE BEGIN COPY ~TDD/TIZ/%tiz%.TIZ~ ~%MOD_FOLDER%/TIZ/%tiz%.TIZ~ END END
+					ACTION_IF NOT ~%mos%~ STRING_EQUAL ~+~ BEGIN ACTION_IF IS_AN_INT mos BEGIN LAF InstallMosFiles STR_VAR filename = EVAL ~%resname%~ END END ELSE BEGIN LAF InstallMosFiles STR_VAR filename = EVAL ~%mos%~ END END END
+					ACTION_IF NOT ~%wed%~ STRING_EQUAL ~+~ BEGIN ACTION_IF IS_AN_INT wed BEGIN LAF InstallWedFiles STR_VAR filename = EVAL ~%resname%~ END END ELSE BEGIN LAF InstallWedFiles STR_VAR filename = EVAL ~%wed%~ END END END
 					ACTION_IF NOT ~%tiz%~ STRING_EQUAL ~+~ BEGIN ACTION_IF IS_AN_INT tiz BEGIN LAF InstallTisFiles STR_VAR filename = EVAL ~%resname%~ END END ELSE BEGIN LAF InstallTisFiles STR_VAR filename = EVAL ~%tiz%~ END END END
 					ACTION_IF NOT ~%htmap%~ STRING_EQUAL ~+~ BEGIN ACTION_IF IS_AN_INT htmap BEGIN COPY ~%RES_FOLDER%/BMP/%resname%HT.BMP~ ~override~ END ELSE BEGIN COPY ~%RES_FOLDER%/BMP/%htmap%.BMP~ ~override~ END END
 					ACTION_IF NOT ~%lmmap%~ STRING_EQUAL ~+~ BEGIN ACTION_IF IS_AN_INT lmmap BEGIN COPY ~%RES_FOLDER%/BMP/%resname%LM.BMP~ ~override~ END ELSE BEGIN COPY ~%RES_FOLDER%/BMP/%lmmap%.BMP~ ~override~ END END
 					ACTION_IF NOT ~%srmap%~ STRING_EQUAL ~+~ BEGIN ACTION_IF IS_AN_INT srmap BEGIN COPY ~%RES_FOLDER%/BMP/%resname%SR.BMP~ ~override~ END ELSE BEGIN COPY ~%RES_FOLDER%/BMP/%srmap%.BMP~ ~override~ END END
+					ACTION_IF NOT ~%lnmap%~ STRING_EQUAL ~+~ BEGIN ACTION_IF IS_AN_INT srmap BEGIN COPY ~%RES_FOLDER%/BMP/%resname%LN.BMP~ ~override~ END ELSE BEGIN COPY ~%RES_FOLDER%/BMP/%lnmap%.BMP~ ~override~ END END
 				END
 				SET count = count -1
 			END		
@@ -368,9 +369,11 @@ DEFINE_ACTION_FUNCTION InstallTisFiles
 BEGIN
 	ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
 		LAF TIS_RES_TO_PVRZ STR_VAR tis_res = EVAL ~%filename%~ RET prefix END
-		COPY ~%RES_FOLDER%/Pvrz/%filename%.tis~ ~%workspace%/%COMP_FOLDER%~
-		ACTION_BASH_FOR ~%RES_FOLDER%/Pvrz~ ~%prefix%.+?\.pvrz$~ BEGIN
-			COPY ~%BASH_FOR_FILESPEC%~ ~%workspace%/%COMP_FOLDER%~
+		ACTION_IF FILE_EXISTS ~%RES_FOLDER%/Pvrz/%filename%.tis~ BEGIN
+			COPY ~%RES_FOLDER%/Pvrz/%filename%.tis~ ~%workspace%/%COMP_FOLDER%~
+			ACTION_BASH_FOR ~%RES_FOLDER%/Pvrz~ ~%prefix%.+?\.pvrz$~ BEGIN
+				COPY ~%BASH_FOR_FILESPEC%~ ~%workspace%/%COMP_FOLDER%~
+			END
 		END
 		ACTION_IF FILE_EXISTS ~%RES_FOLDER%/Pvrz/%filename%N.tis~ BEGIN
 			COPY ~%RES_FOLDER%/Pvrz/%filename%N.tis~ ~%workspace%/%COMP_FOLDER%~
@@ -410,5 +413,29 @@ BEGIN
 				input_path    = EVAL "%workspace%/%COMP_FOLDER%"
 				output_path	  = "override"
 		END
+	END
+END
+
+//=============================================================================
+DEFINE_ACTION_FUNCTION InstallMosFiles 
+	STR_VAR filename = ""
+BEGIN
+	ACTION_IF FILE_EXISTS ~%RES_FOLDER%/MOS/%engine%/%filename%.MOS~ BEGIN
+		COPY ~%RES_FOLDER%/MOS/%engine%/%filename%.MOS~ ~override~
+	END
+	ACTION_IF FILE_EXISTS ~%RES_FOLDER%/MOS/%engine%/%filename%N.MOS~ BEGIN
+		COPY ~%RES_FOLDER%/MOS/%engine%/%filename%N.MOS~ ~override~
+	END
+END
+
+//=============================================================================
+DEFINE_ACTION_FUNCTION InstallWedFiles 
+	STR_VAR filename = ""
+BEGIN
+	ACTION_IF FILE_EXISTS ~%RES_FOLDER%/Wed/%filename%.wed~ BEGIN
+		COPY ~%RES_FOLDER%/Wed/%filename%.wed~ ~override~
+	END
+	ACTION_IF FILE_EXISTS ~%RES_FOLDER%/Wed/%filename%N.wed~ BEGIN
+		COPY ~%RES_FOLDER%/Wed/%filename%N.wed~ ~override~
 	END
 END

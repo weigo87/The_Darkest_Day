@@ -111,7 +111,6 @@ BEGIN
 	END
 	GET_OFFSET_ARRAY animation_array ARE_V10_ANIMATIONS
 	PATCH_PHP_EACH animation_array AS animation_num => animation_offset BEGIN
-		PATCH_PRINT ~%animation_num%~
 		READ_SHORT animation_offset+0x20 animation_pos_x
 		READ_SHORT animation_offset+0x22 animation_pos_y
 		PATCH_IF ((~%animation_pos_x%~ = $x_coord("%index%")) AND (~%animation_pos_y%~ =  $y_coord("%index%"))) BEGIN
@@ -120,4 +119,11 @@ BEGIN
 	END
 END
 
-
+//=============================================================================
+ACTION_DEFINE_ASSOCIATIVE_ARRAY turn_off_at_night BEGIN // turn off sleeping animals at night
+		bird => 1
+		eagle => 1
+		vultur => 1
+		seagul => 1
+		butrfly => 1
+	END
