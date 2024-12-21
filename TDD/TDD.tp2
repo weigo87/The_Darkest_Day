@@ -244,7 +244,19 @@ BEGIN @901010
 
 	LAF ImportComponent STR_VAR aComp = ~ROBILARD~ END
 
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// The Darkest Day : Adario						   \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
+BEGIN ~Adario~
+	DESIGNATED 7
+	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
+
+	LAF ImportComponent STR_VAR aComp = ~Adario~ END
 
 //=============================================================================
 /* USED DURING INITIAL DEVELOPMENT - NOT USED NOW*/

@@ -1,0 +1,9 @@
+IF
+  Global("tz_meesee","LOCALS",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+    SetGlobal("tz_meesee","LOCALS",1)
+END
+

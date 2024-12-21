@@ -1,0 +1,47 @@
+IF
+	Global("tz_adarioquests","GLOBAL",13)
+	InParty("adario")
+	!Dead("adario")
+THEN
+	RESPONSE #100
+		SetGlobal("tz_adarioquests","GLOBAL",14)
+		CreateCreature("darioms2",[2158.2246],4) // Calimport Messenger
+END
+
+IF
+	Global("tz_adarioquests","GLOBAL",15)
+THEN
+	RESPONSE #100
+		CreateVisualEffect("spdimndr",[1841.2010])
+		CreateVisualEffect("spdimndr",[2082.2252])
+		CreateVisualEffect("spdimndr",[2151.2192])
+		CreateVisualEffect("spdimndr",[1951.2127])
+		CreateVisualEffect("spdimndr",[2011.2090])
+		Wait(1)
+		CreateCreature("dariogr1",[1841.2010],4) // Assassin Mage
+		CreateCreature("dariogr2",[2082.2252],4) // Assassin Warrior
+		CreateCreature("dariogr3",[2151.2192],4) // Assassin Warrior
+		CreateCreature("dariogr4",[1951.2127],4) // Assassin Warrior
+		CreateCreature("dariogr5",[2011.2090],4) // Assassin Warrior
+		SetGlobal("tz_adarioquests","GLOBAL",16)
+END
+
+IF
+	Global("tz_adarioquests","GLOBAL",16)
+	Dead("darioms2") // Calimport Messenger
+	Dead("dariogr1") // Assassin Mage
+	Dead("dariogr2") // Assassin Warrior
+	Dead("dariogr3") // Assassin Warrior
+	Dead("dariogr4") // Assassin Warrior
+	Dead("dariogr5") // Assassin Warrior
+	InParty("adario")
+	!Dead("adario")
+THEN
+	RESPONSE #100
+		AddXPObject("adario",bAR0404_baf_75000)
+		Wait(2)
+		SetGlobal("tz_adarioquests","GLOBAL",17)
+		ActionOverride("adario",StartDialog("adariobs",Player1))
+END
+
+
