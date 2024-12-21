@@ -1,0 +1,24 @@
+RESNAME 	NAME1	NAME2	DEATHVAR	S_OVERRIDE	S_CLASS		S_RACE		S_GENERAL	S_DEFAULT	DIALOGUE	PORTRAIT 	XP		COMMENTS
+ADADOP1A	20124	20124	+			WTASIGHT	+			+			+			WTASIGHT	0			+			20
+ADADOP1B    +		+		+			WTASIGHT	+			+			+			WTASIGHT	0			+			20
+ADARIO12    20125	20125	+			ADARIO		+			+			WTARSGT		DPLAYER		0			+			20
+DARIOGR1    20223	20223	+			+			MAGE16M		+			+			WTASIGHT	0			+			20
+DARIOGR2    20224	20224	+			+			+			+			+			WTASIGHT	0			+			20
+DARIOGR3    20224	20224	+			+			+			+			+			WTASIGHT	0			+			20
+DARIOGR4    20224	20224	+			+			+			+			+			WTASIGHT	0			+			20
+DARIOGR5    20224	20224	+			+			+			+			+			WTASIGHT	0			+			20
+DARIOMS2    20225	20225	+			MAGE12C		+			+			+			DARIOMSG	0			+			20
+DARIOMSG    20225	20225	+			MAGE12C		+			+			+			DARIOMSG	0			+			20
+KALVASSA    20331	20331	+			+			+			+			+			KALVASSA	0			+			20
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	

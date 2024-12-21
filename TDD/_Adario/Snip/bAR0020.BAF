@@ -1,0 +1,22 @@
+
+IF
+	Global("tz_adarioquests","GLOBAL",3)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_adarioquests","GLOBAL",4)
+		CreateCreature("adadop1a",[358.458],4) // Suspicious Noble
+END
+
+IF
+	Dead("adadop1b") // Doppleganger
+	Global("tz_adarioquests","GLOBAL",4)
+	InParty("adario")
+	!Dead("adario")
+THEN
+	RESPONSE #100
+		SetGlobal("tz_adarioquests","GLOBAL",5)
+		AddXPObject("adario",bAR0020_baf_20000)
+		ActionOverride("adario",StartDialog("darioQ02",Player1))
+END
+
+

@@ -1,0 +1,17 @@
+IF
+	!Global("tz_adarioquests","GLOBAL",8)
+	Global("tz_adariogridcopper","GLOBAL",0)
+THEN
+	RESPONSE #100
+		TriggerActivation("adario_assassin_den",FALSE)
+		SetGlobal("tz_adariogridcopper","GLOBAL",1)
+END
+
+IF
+	Global("tz_adarioquests","GLOBAL",8)
+	Global("tz_adariogridcopper","GLOBAL",1)
+THEN
+	RESPONSE #100
+		TriggerActivation("adario_assassin_den",TRUE)
+		SetGlobal("tz_adariogridcopper","GLOBAL",2)
+END

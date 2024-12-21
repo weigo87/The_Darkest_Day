@@ -1,0 +1,92 @@
+IF
+  Global("Been_In_Party","LOCALS",0)
+  InParty(Myself)
+THEN
+  RESPONSE #100
+    SetGlobal("Been_In_Party","LOCALS",1)
+END
+
+IF
+  !InParty(Myself)
+  Global("Leave_Party_Dialog","LOCALS",0)
+  Global("KickedOut","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Leave_Party_Dialog","LOCALS",1)
+END
+
+IF
+  !InParty(Myself)
+  Global("Been_In_Party","LOCALS",1)
+  Global("KickedOut","LOCALS",0)
+  Global("Leave_Party_Dialog","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Leave_Party_Dialog","LOCALS",1)
+    SetDialogue("ADARIOP")
+    Dialog(Player1)
+END
+
+IF
+	InParty(Myself)  // Adario Kalvaras
+	Global("tz_adarioquests","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("tz_adarioquesttalk","GLOBAL",ONE_DAY)
+		SetGlobal("tz_adarioquests","GLOBAL",1)
+END
+
+IF
+	Global("tz_adarioquests","GLOBAL",1)
+	InParty(Myself)  // Adario Kalvaras
+	!Dead("adario")  // Adario Kalvaras
+	GlobalTimerExpired("tz_adarioquesttalk","GLOBAL")
+THEN
+	RESPONSE #100
+		SetGlobal("tz_adarioquests","GLOBAL",2)
+		ActionOverride("adario",StartDialog("darioQ01",Player1))
+END
+
+IF
+	Global("tz_adarioquests","GLOBAL",6)
+	GlobalTimerExpired("tz_kalvarasquest2","GLOBAL")
+	InParty(Myself)  // Adario Kalvaras
+	!Dead("adario")  // Adario Kalvaras
+THEN
+	RESPONSE #100
+		SetGlobal("tz_adarioquests","GLOBAL",7)
+		ActionOverride("adario",StartDialog("darioQ03",Player1))
+END
+
+IF
+	InParty(Myself)  // Adario Kalvaras
+	!Dead("adario")  // Adario Kalvaras
+	Global("tz_adarioquests","GLOBAL",8)
+	GlobalTimerExpired("tz_kalvarasquest2b","GLOBAL")
+	!Dead("kalvassa")  // Kalvassa
+THEN
+	RESPONSE #100
+		SetGlobal("tz_adarioquests","GLOBAL",9)
+		ActionOverride("adario",StartDialog("darioQ04",Player1))
+END
+
+IF
+	Global("tz_adarioquests","GLOBAL",11)
+	GlobalTimerExpired("tz_kalvarasCrossed","GLOBAL")
+	InParty(Myself)  // Adario Kalvaras
+	!Dead("adario")  // Adario Kalvaras
+THEN
+	RESPONSE #100
+		SetGlobal("tz_adarioquests","GLOBAL",12)
+		CreateVisualEffectObject("spcloud2","adario")  // Adario Kalvaras
+		CreateVisualEffectObject("spcloud2",Player1)
+		CreateVisualEffectObject("spcloud1",Player2)
+		CreateVisualEffectObject("spcloud2",Player3)
+		Wait(1)
+		CreateVisualEffectObject("spcloud1","adario")  // Adario Kalvaras
+		CreateVisualEffectObject("spcloud2",Player1)
+		CreateVisualEffectObject("spcloud1",Player2)
+		CreateVisualEffectObject("spcloud2",Player3)
+		Wait(1)
+		CreateCreatureObjectOffset("dariomsg","adario",[150.0])  // Calimshafen Bote
+END

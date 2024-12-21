@@ -1,0 +1,46 @@
+IF
+  Global("tz_adarioquests","GLOBAL",8)
+  InParty("adario")
+THEN
+  RESPONSE #100
+    CreateCreature("kalvassa",[868.361],4)
+    SetGlobal("tz_adarioquests","GLOBAL",9)
+END
+
+IF
+  Global("tz_kalvassaguards","GLOBAL",1)
+THEN
+  RESPONSE #100
+    CreateVisualEffect("spdimndr",[789.361])
+    CreateVisualEffect("spdimndr",[929.397])
+    CreateVisualEffect("shwater",[570.550])
+    CreateVisualEffect("shwater",[531.658])
+    CreateVisualEffect("shwater",[701.567])
+    CreateVisualEffect("shwater",[752.460])
+    Wait(1)
+    CreateCreature("assagrd1",[789.361],4)
+    CreateCreature("assagrd2",[929.397],4)
+    CreateCreature("assagrd3",[570.550],4)
+    CreateCreature("assagrd4",[531.658],4)
+    CreateCreature("assagrd5",[701.567],4)
+    CreateCreature("assagrd6",[752.460],4)
+    SetGlobal("tz_kalvassaguards","GLOBAL",2)
+END
+
+IF
+  InParty("adario")
+  Dead("assagrd1")
+  Dead("assagrd2")
+  Dead("assagrd3")
+  Dead("assagrd4")
+  Dead("assagrd5")
+  Dead("assagrd6")
+  Dead("kalvassa")
+  Global("tz_adarioquests","GLOBAL",9)
+THEN
+  RESPONSE #100
+    Wait(2)
+    SetGlobal("tz_adarioquests","GLOBAL",10)
+    ActionOverride("adario",StartDialogue("darioQ05",Player1))
+END
+

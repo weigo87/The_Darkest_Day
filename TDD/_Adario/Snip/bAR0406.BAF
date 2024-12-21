@@ -1,0 +1,10 @@
+IF
+	Global("tz_Adario","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_Adario","GLOBAL",1)
+		CreateCreature("ADARIO12",[786.1528],0) // Adario Kalvaras
+END
+
+
+
