@@ -46,11 +46,12 @@ BEGIN
 	ACTION_DEFINE_ASSOCIATIVE_ARRAY dispatch BEGIN
 		BAM => override
 		BMP => override
-		ITM => override
-		STO => override
+//		ITM => override
+//		STO => override
 		MOS => override
 		BAF => ~%workspace%/%COMP_FOLDER%~
 		D   => ~%workspace%/%COMP_FOLDER%~
+		SNIP => ~%workspace%/%COMP_FOLDER%~
 		graphics => override
 	END
 	ACTION_PHP_EACH dispatch AS restype => to BEGIN
