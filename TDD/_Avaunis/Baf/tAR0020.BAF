@@ -1,0 +1,10 @@
+IF
+	CombatCounter(0)
+	Global("tz_HallOfKnowledge","GLOBAL",1)
+	Global("tz_hall_spawn","AR0020",0)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_hall_spawn","AR0020",1)
+		CreateCreature("DDHALL01",[689.509],9) // Krent
+		Continue()
+END

@@ -1,0 +1,52 @@
+IF
+	Global("tz_Avaunis","GLOBAL",0)
+	LevelLT(Player1,11)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_Avaunis","GLOBAL",1)
+		CreateCreature("AVAUN9",[584.967],0) // Avaunis
+		Continue()
+END
+
+IF
+	Global("tz_Avaunis","GLOBAL",0)
+	LevelGT(Player1,10)
+	LevelLT(Player1,14)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_Avaunis","GLOBAL",1)
+		CreateCreature("AVAUN11",[584.967],0) // Avaunis
+		Continue()
+END
+
+IF
+	Global("tz_Avaunis","GLOBAL",0)
+	LevelGT(Player1,13)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_Avaunis","GLOBAL",1)
+		CreateCreature("AVAUN13",[584.967],0) // Avaunis Adelez
+		Continue()
+END
+
+IF
+	Global("SetRest","AR0903",0)
+	Global("PaladinOrder","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("SetRest","AR0903",1)
+		SetAreaRestFlag(1)
+		Continue()
+END
+
+IF
+	Global("SetRest","AR0903",1)
+	!Global("PaladinOrder","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("SetRest","AR0903",0)
+		SetAreaRestFlag(0)
+		Continue()
+END
+
+

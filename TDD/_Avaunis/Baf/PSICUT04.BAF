@@ -1,0 +1,68 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    CreateVisualEffectObject("SPFLESHS",Myself)
+    Wait(2)
+    FadeToColor([30.0],0)
+    Wait(2)
+    LeaveAreaLUA("DD0012","",[1055.330],12)
+    MultiPlayerSync()
+    SetMasterArea("DD0012")
+    MultiPlayerSync()
+    Wait(2)
+    FadeFromColor([30.0],0)
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)
+    CreateVisualEffectObject("SPFLESHS",Myself)
+    Wait(4)
+    LeaveAreaLUA("DD0012","",[1077.259],12)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)
+    CreateVisualEffectObject("SPFLESHS",Myself)
+    Wait(4)
+    LeaveAreaLUA("DD0012","",[1122.295],12)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)
+    CreateVisualEffectObject("SPFLESHS",Myself)
+    Wait(4)
+    LeaveAreaLUA("DD0012","",[1196.332],12)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)
+    CreateVisualEffectObject("SPFLESHS",Myself)
+    Wait(4)
+    LeaveAreaLUA("DD0012","",[254.410],12)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)
+    CreateVisualEffectObject("SPFLESHS",Myself)
+    Wait(4)
+    LeaveAreaLUA("DD0012","",[1126.417],12)
+END
+

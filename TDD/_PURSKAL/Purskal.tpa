@@ -17,14 +17,14 @@ BEGIN
 	LAM HandleSpellScrollsContract
 	LAM HandleItemsContract		
 	
-	EXTEND_BOTTOM ~AR0300.bcs~ ~%RES_FOLDER%/Snip/bAR0300.baf~
-	EXTEND_BOTTOM ~AR0902.bcs~ ~%RES_FOLDER%/Snip/nAR0902.baf~
+	EXTEND_BOTTOM ~AR0300.bcs~ ~%workspace%/%COMP_FOLDER%/bAR0300.baf~
+	EXTEND_BOTTOM ~AR0902.bcs~ ~%workspace%/%COMP_FOLDER%/nAR0902.baf~
 	
 	ACTION_IF FILE_EXISTS_IN_GAME ~AR0509.bcs~ BEGIN
-		EXTEND_TOP ~AR0509.bcs~ ~%RES_FOLDER%/Snip/xAR0509.baf~ // From: AR0509.BAF
+		EXTEND_TOP ~AR0509.bcs~ ~%workspace%/%COMP_FOLDER%/xAR0509.baf~ // From: AR0509.BAF
 	END
 	ELSE BEGIN
-		COPY ~%RES_FOLDER%/Snip/xAR0509.baf~ ~%workspace%/%COMP_FOLDER%/AR0509.baf~		
+		COPY ~%workspace%/%COMP_FOLDER%/xAR0509.baf~ ~%workspace%/%COMP_FOLDER%/AR0509.baf~		
 		COPY_EXISTING ~AR0509.ARE~ ~override~ 
 			WRITE_ASCII 0x94 ~AR0509~ #8			
 	END

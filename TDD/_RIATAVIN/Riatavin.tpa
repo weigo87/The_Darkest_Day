@@ -49,16 +49,16 @@ UNLESS ~DD3300~
 	LAM HandleItemsContract
 	LAM HandleCoreItemsContract
 		
-	EXTEND_TOP ~AR0020.bcs~ ~%RES_FOLDER%/Snip/tAR0020.baf~
-	EXTEND_BOTTOM ~AR0406.bcs~ ~%RES_FOLDER%/Snip/bAR0406.baf~	
-	EXTEND_BOTTOM ~AR0904.bcs~ ~%RES_FOLDER%/Snip/bAR0904.baf~	
-	EXTEND_BOTTOM ~AR1000.bcs~ ~%RES_FOLDER%/Snip/bAR1000.baf~			
-	EXTEND_TOP ~AR1002.bcs~ ~%RES_FOLDER%/Snip/tAR1002.baf~	
-	EXTEND_BOTTOM ~AR1005.bcs~ ~%RES_FOLDER%/Snip/bAR1005.baf~
-	EXTEND_BOTTOM ~AR1100.bcs~ ~%RES_FOLDER%/Snip/bAR1100.baf~
-	EXTEND_BOTTOM ~AR1106.bcs~ ~%RES_FOLDER%/Snip/bAR1106.baf~
-	EXTEND_BOTTOM ~AR2500.bcs~ ~%RES_FOLDER%/Snip/bAR2500.baf~
-	EXTEND_BOTTOM ~BALDUR.bcs~ ~%RES_FOLDER%/Snip/bBALDUR.baf~
+	EXTEND_TOP ~AR0020.bcs~ ~%workspace%/%COMP_FOLDER%/tAR0020.baf~
+	EXTEND_BOTTOM ~AR0406.bcs~ ~%workspace%/%COMP_FOLDER%/bAR0406.baf~	
+	EXTEND_BOTTOM ~AR0904.bcs~ ~%workspace%/%COMP_FOLDER%/bAR0904.baf~	
+	EXTEND_BOTTOM ~AR1000.bcs~ ~%workspace%/%COMP_FOLDER%/bAR1000.baf~			
+	EXTEND_TOP ~AR1002.bcs~ ~%workspace%/%COMP_FOLDER%/tAR1002.baf~	
+	EXTEND_BOTTOM ~AR1005.bcs~ ~%workspace%/%COMP_FOLDER%/bAR1005.baf~
+	EXTEND_BOTTOM ~AR1100.bcs~ ~%workspace%/%COMP_FOLDER%/bAR1100.baf~
+	EXTEND_BOTTOM ~AR1106.bcs~ ~%workspace%/%COMP_FOLDER%/bAR1106.baf~
+	EXTEND_BOTTOM ~AR2500.bcs~ ~%workspace%/%COMP_FOLDER%/bAR2500.baf~
+	EXTEND_BOTTOM ~BALDUR.bcs~ ~%workspace%/%COMP_FOLDER%/bBALDUR.baf~
 	
 // EE Version
 	LAM PatchDD8000

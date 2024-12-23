@@ -1,0 +1,10 @@
+IF
+  Global("tz_cutscene_start","LOCALS",0)
+  Range([PC],12)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_cutscene_start","LOCALS",1)
+    StartCutSceneMode()
+    StartCutScene("psicut02")
+END
+

@@ -1,0 +1,35 @@
+IF
+  Global("tz_psicave1","DD1401",0)
+THEN
+  RESPONSE #100
+    CreateCreature("psiwar1",[2564.233],4)
+    CreateCreature("psiwar1",[2620.289],4)
+    CreateCreature("psiwar2",[2738.320],4)
+    CreateCreature("psicere",[2247.288],4)
+    CreateCreature("psicere",[2894.647],4)
+    CreateCreature("psiwar2",[1608.336],4)
+    CreateCreature("psiwar1",[1658.336],4)
+    CreateCreature("psion1",[1532.289],4)
+    CreateCreature("Psiwar2",[1709.267],4)
+    CreateCreature("psicere",[1540.716],4)
+    CreateCreature("psicere",[1685.758],4)
+    CreateCreature("psicere",[1065.720],4)
+    CreateCreature("psiwar1",[442.469],4)
+    CreateCreature("psion1",[450.407],4)
+    CreateCreature("psion1",[331.418],4)
+    SetGlobal("tz_psicave1","DD1401",1)
+END
+
+IF
+  Global("tz_arival","DD1401",0)
+THEN
+  RESPONSE #100
+    CreateVisualEffect("spcloud1",[2728.139])
+    CreateVisualEffect("spcloud1",[2763.191])
+    CreateVisualEffect("spcloud1",[2862.170])
+    CreateVisualEffect("spcloud1",[2910.142])
+    CreateVisualEffect("spcloud1",[2954.188])
+    CreateVisualEffect("spcloud1",[2798.235])
+    SetGlobal("tz_arival","DD1401",1)
+END
+

@@ -1,0 +1,38 @@
+BEGIN ~AVAUNISJ~
+
+IF ~AreaCheck("DD5000")
+Global("tz_TDDAv1","DD5000",1)~ THEN BEGIN 0
+  SAY @0
+  IF ~~ THEN REPLY @1 GOTO 1
+  IF ~~ THEN REPLY @2 DO ~SetGlobal("tz_TDDAv1","DD5000",2)~ EXIT
+END
+
+IF ~~ THEN BEGIN 1
+  SAY @3
+  IF ~~ THEN REPLY @4 GOTO 2
+END
+
+IF ~~ THEN BEGIN 2
+  SAY @5
+  IF ~~ THEN REPLY @2 DO ~SetGlobal("tz_TDDAv1","DD5000",2)~ EXIT
+END
+
+IF ~AreaCheck("DD5000")
+Dead("PSION4")
+Global("tz_DDAvStay","LOCALS",0)~ THEN BEGIN 3
+  SAY @6
+  IF ~~ THEN REPLY @7 DO ~SetGlobal("tz_DDAvStay","LOCALS",1)~ GOTO 4
+END
+
+IF ~~ THEN BEGIN 4
+  SAY @8
+  IF ~~ THEN REPLY @9 EXIT
+  IF ~~ THEN REPLY @10 GOTO 5
+END
+
+IF ~~ THEN BEGIN 5
+  SAY @11
+  IF ~~ THEN DO ~SetDialog("AVAUNISP")
+GivePartyAllEquipment()
+EscapeAreaMove("AR0903",820,118,1)~ EXIT
+END

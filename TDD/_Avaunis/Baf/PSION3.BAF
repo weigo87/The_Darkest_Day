@@ -1,0 +1,20 @@
+IF
+  Global("tz_psion_destroy","DD0012",1)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+
+IF
+  NumberOfTimesTalkedTo(0)
+  Global("tz_talk","LOCALS",0)
+  Name("psion3",Myself)
+  OR(2)
+    See([PC])
+    Range([PC],15)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_talk","LOCALS",1)
+    StartDialogue("PSION3",[PC])
+END
+
