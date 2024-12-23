@@ -1,0 +1,62 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    Wait(2)
+    FadeToColor([20.0],0)
+    LeaveAreaLUA("DD1401","",[2728.139],12)
+    MultiPlayerSync()
+    SetMasterArea("DD1401")
+    MultiPlayerSync()
+    Wait(2)
+    FadeFromColor([20.0],0)
+    Wait(1)
+    EndCutSceneMode()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player2)
+    Wait(2)
+    LeaveAreaLUA("DD1401","",[2763.191],12)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player3)
+    Wait(2)
+    LeaveAreaLUA("DD1401","",[2798.235],12)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player4)
+    Wait(2)
+    LeaveAreaLUA("DD1401","",[2862.170],12)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player5)
+    Wait(2)
+    LeaveAreaLUA("DD1401","",[2910.142],12)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player6)
+    Wait(2)
+    LeaveAreaLUA("DD1401","",[2954.188],12)
+END
+

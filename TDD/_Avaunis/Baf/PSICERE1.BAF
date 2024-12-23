@@ -1,0 +1,18 @@
+IF
+  See("DDHALL01")
+  Global("tz_yell_at_guide","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_yell_at_guide","LOCALS",1)
+    ActionOverride("DDHALL01",SetDialogue("DDHALL02"))
+    StartDialogue("DDHALL03","DDHALL01")
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    Attack(NearestEnemyOf(Myself))
+END
+

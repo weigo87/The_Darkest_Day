@@ -1,0 +1,10 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("PSIdark1")
+    AttackOneRound("psion4")
+    Kill("psion4")
+    EndCutSceneMode()
+END
+

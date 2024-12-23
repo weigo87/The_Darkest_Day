@@ -1,0 +1,25 @@
+IF
+  Global("tz_breach","DD3602",0)
+THEN
+  RESPONSE #100
+    CreateCreature("psiwar1",[589.1293],4)
+    CreateCreature("psiwar1",[670.1341],4)
+    CreateCreature("psiwar2",[665.1391],4)
+    CreateCreature("psion1",[822.1257],4)
+    CreateCreature("psion1",[866.1372],4)
+    CreateCreature("psiwar1",[2494.749],4)
+    CreateCreature("psiwar2",[2523.807],4)
+    CreateCreature("psiwar1",[2533.853],4)
+    CreateCreature("psiwar2",[2534.892],4)
+    CreateCreature("psiwar1",[2609.720],4)
+    CreateCreature("psiwar1",[2654.844],4)
+    CreateCreature("psion1",[1616.717],4)
+    CreateCreature("psion1",[3262.588],4)
+    CreateCreature("psion1",[3320.727],4)
+    CreateCreature("psicere",[1879.1534],4)
+    CreateCreature("psicere",[2998.708],4)
+    CreateCreature("psicere",[3603.218],4)
+    CreateCreature("psicere",[3661.291],4)
+    SetGlobal("tz_breach","DD3602",1)
+END
+

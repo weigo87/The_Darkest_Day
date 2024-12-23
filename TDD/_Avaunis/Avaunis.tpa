@@ -1,0 +1,645 @@
+DEFINE_ACTION_MACRO InstallSpecificContents
+BEGIN
+
+	COPY_EXISTING ~CEREHAND.itm~ ~override~    
+		SAY 0xde @21032
+		
+	// Kits Psicere.cre Harch
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		 = 0
+			kit_class   = 12  // Archer
+			mixed     = RESOLVE_STR_REF(@21517)
+			lower     = RESOLVE_STR_REF(@215170)
+			help     = RESOLVE_STR_REF(@21518)
+			// EE-specific arguments    
+			briefdesc   = RESOLVE_STR_REF(@21518)
+		STR_VAR
+			kit_name   = ~TDD_Harch~
+			unusable   = ~0X40000000~
+			clasweap   = ~1 1 1 1 1 0 0 0~
+			weapprof  	 = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2~
+			abclasrq	 = ~0 9 0 12 0 15~
+			abclsmod	 = ~0 0 0 0 -2 2~
+			abdcdsrq	 = ~0 17 0 17 0 17~
+			abdcscrq	 = ~0 15 0 15 0 15~
+			alignmnt	 = ~0 1 1 1 1 1 1 1 1~
+			dualclas	 = ~1 0 1 1 0 0~
+			luabbr    = ~Ra0~
+			stweap    = ~LEAT14 * HELM07 BAG20 RING06 RING31 CLCK02 BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 BOW18 XBOW09 STAF08~
+			clab_path   = EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI22.2DA~
+			kittable   = ~K_R_HL~
+			// EE-specific arguments
+			clsrcreq   = ~0 0 0 0 1 0 0~
+			clswpbon   = ~1 0 2~
+			hpclass    = ~HPWAR~
+			numwslot   = ~3~
+			clascolr   = ~30 37 86 1 110~
+			bdstweap   = ~LEAT05 * HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 * BOW06 XBOW05 STAF02~
+		RET
+			kit_id
+	END
+	
+	COPY_EXISTING ~PSICERE.cre~ ~overide~
+		WRITE_LONG 0x244 (kit_id | 0x4000) * 0x10000
+	
+	// Kits Avaunis Celebrial
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		 = 0
+			kit_class   = 6  // Paladin
+			mixed     = RESOLVE_STR_REF(@21603)
+			lower     = RESOLVE_STR_REF(@216030)
+			help     = RESOLVE_STR_REF(@21604)
+			// EE-specific arguments    
+			briefdesc   = RESOLVE_STR_REF(@21604)
+		STR_VAR
+			kit_name   = ~TDD_Cerebral~
+			unusable   = ~0x00000008~
+			clasweap   = ~1 1 0 1 1 0 0 0~
+			weapprof  	 = ~2 2 0 0 0 0 0 2 2 2 2 0 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2~
+			abclasrq	 = ~13 0 13 12 15 10~
+			abclsmod	 = ~0 0 0 0 0 0~
+			abdcdsrq	 = ~17 0 0 0 0 17~
+			abdcscrq	 = ~15 0 0 0 0 15~
+			alignmnt	 = ~1 0 0 0 0 0 0 0 0~
+			dualclas	 = ~0 0 0 0 0 0~
+			luabbr    = ~Pa0~
+			stweap    = ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path   = EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI22.2DA~
+			kittable   = ~K_P_H~
+			// EE-specific arguments
+			clsrcreq   = ~1 0 0 0 0 0 0~
+			clswpbon   = ~1 0 2~
+			hpclass    = ~HPWAR~
+			numwslot   = ~3~
+			clascolr   = ~25 28 57 2 24~
+			bdstweap   = ~PLAT01 * HELM01 * RING06 * * * * * BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN03,1 * * SW2H02~
+		RET
+			kit_id
+	END
+	
+	COPY ~%MOD_FOLDER%/_KITS/SPL/SPCERB1.spl~ ~override~
+		~%MOD_FOLDER%/_KITS/SPL/SPCERB2.spl~ ~override~
+		~%MOD_FOLDER%/_KITS/SPL/SPCERB3.spl~ ~override~
+
+	COPY ~%MOD_FOLDER%/_KITS/SPL/SPCERB4.spl~ ~override~
+		SAY NAME1 @21605
+ 
+	COPY_EXISTING ~AVAUN9.cre~ ~overide~
+				~AVAUN11.cre~ ~overide~
+				~AVAUN13.cre~ ~overide~
+		SAY 0xa8 @20137 
+		SAY 0xbc @20138  
+		SAY 0xc0 @20139 
+		SAY 0xc4 @20140 
+		SAY 0xc8 @20141 
+		SAY 0xcc @20142 
+		SAY 0xd0 @20143  
+		SAY 0xd4 @20144  
+		SAY 0xd8 @20145  
+		SAY 0xec ~~ [HMTW036]
+		SAY 0xf0 ~~ [HMTW038]
+		SAY 0xf4 @20148  
+		SAY 0x10c @20149 
+		SAY 0x110 @20150 
+		SAY 0x114 @20151 
+		SAY 0x118 @20152  
+		SAY 0x11c @20153  
+		SAY 0x120 @20154 
+		SAY 0x124 @20155  
+		SAY 0x128 @20156 
+		SAY 0x12c @20157 
+		SAY 0x130 @20158 
+		SAY 0x134 @20159  
+		SAY 0x138 @20160 
+		SAY 0x13c @20161 
+		SAY 0x1a0 @20162 
+		SAY 0x1a4 @20163 
+		SAY 0x1ac ~~ [HMTW034]
+		SAY 0x1cc @20165
+		WRITE_LONG 0x244 (kit_id | 0x4000) * 0x10000
+		
+//	LAM HandleSpellScrollsContract
+//	LAM HandleItemsContract
+//	LAM HandleCoreItemsContract
+		
+
+
+//=============================================================================	
+	
+	OUTER_TEXT_SPRINT sender ~%COMP_FOLDER%~ 
+	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~ LAF Accept STR_VAR sender target = ~_AVAUNIS~ END
+END
+
+
+//=============================================================================
+DEFINE_ACTION_MACRO HandleCoreItemsContract
+BEGIN
+	COPY ~%MOD_FOLDER%/_CORE/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/CoreItemsContract.2da~
+		COUNT_2DA_ROWS 7 count
+		WHILE (count > 1) BEGIN
+			READ_2DA_ENTRY (count -1) 0 7 resname				
+			READ_2DA_ENTRY (count -1) 6 7 policy //undroppable column
+			SET count = count -1
+			
+			TO_UPPER resname
+			TO_UPPER policy
+			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)
+			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+			SET replace = (~%customize%~ && NOT ~%undroppable%~)
+			SPRINT newItem ~%policy%~
+			PATCH_IF (~%undroppable%~)
+				BEGIN SPRINT newItem ~SCRL75~ END
+			
+			PATCH_IF (~%customize%~) BEGIN
+				INNER_ACTION BEGIN
+					ACTION_MATCH ~%resname%~
+					WITH
+						~BLOOD~ 	
+							BEGIN 
+								ACTION_IF (~%replace%~) BEGIN COPY_EXISTING ~BGCTBOSS.cre~ ~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = BLOOD new_item = EVAL "%newItem%" END END
+								COPY_EXISTING ~DD8001D.are~ ~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = BLOOD new_item = EVAL "%newItem%" END
+							END
+						~DEATHREB~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ ~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = DEATHREB new_item = EVAL "%newItem%" END END
+						~LOHVAR~ 	BEGIN COPY_EXISTING ~DD8001D.are~ ~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = LOHVAR  new_item = EVAL "%newItem%" END END
+						~MAGBOTXX~ 	BEGIN ACTION_IF (~%replace%~)BEGIN COPY_EXISTING ~WARDWIZS.sto~ ~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = MAGBOTXX new_item = EVAL "%newItem%" END END END
+						~TROLSIND~ 	BEGIN ACTION_IF (~%replace%~)BEGIN COPY_EXISTING ~SANDRAIN.sto~ ~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = TROLSIND new_item = EVAL "%newItem%" END END END
+						DEFAULT
+					END
+				END
+			END
+		END
+	BUT_ONLY
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO HandleItemsContract
+BEGIN
+	COPY ~%RES_FOLDER%/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/ItemsContract.2da~
+		COUNT_2DA_ROWS 7 count
+		WHILE (count > 1) BEGIN
+			READ_2DA_ENTRY (count -1) 0 7 resname
+			READ_2DA_ENTRY (count -1) 6 7 policy //undroppable column
+			SET count = count -1
+			
+			TO_UPPER resname
+			TO_UPPER policy
+			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)
+			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+			SPRINT newItem ~%policy%~
+			PATCH_IF (~%undroppable%~)
+				BEGIN SPRINT newItem ~SCRL75~ END
+						
+			PATCH_IF (~%customize%~) BEGIN
+				INNER_ACTION BEGIN					
+					ACTION_MATCH ~%resname%~
+					WITH			
+						~AEGISRNG~ 	BEGIN COPY_EXISTING ~CALITEMP.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = AEGISRNG new_item = EVAL "%newItem%" END END
+						~AMAUNMAC~ 	BEGIN COPY_EXISTING ~CALITEMP.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = AMAUNMAC new_item = EVAL "%newItem%" END END
+						~AMAROS~ 	BEGIN COPY_EXISTING ~DD7002.are~ 	~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = AMAROS  new_item = EVAL "%newItem%" END END
+						~ARAMIS~ 	BEGIN COPY_EXISTING ~3307WIZ.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = ARAMIS  new_item = EVAL "%newItem%" END END
+						~ARQUINXX~ 	BEGIN COPY_EXISTING ~3314FRGE.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = ARQUINXX new_item = EVAL "%newItem%" END END
+						~BLADETRM~ 	BEGIN ACTION_IF NOT ~%undroppable%~ BEGIN COPY_EXISTING ~R800001.cre~ ~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = BLADETRM new_item = EVAL "%newItem%" END END END
+						~BONEMASK~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = BONEMASK new_item = EVAL "%newItem%" END END										
+						~BOTABODE~ BEGIN COPY ~%workspace%/%COMP_FOLDER%/DD1002X1.baf~ ~%workspace%/%COMP_FOLDER%~ REPLACE_TEXTUALLY ~BOTABODE~ ~%newItem%~ END
+						~CELEBRA~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = CELEBRA new_item = EVAL "%newItem%" END END
+						~CERBSW2H~ 	BEGIN COPY_EXISTING ~DD7004.are~ 	~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = CERBSW2H new_item = EVAL "%newItem%" END END
+						~CREATE~ 	BEGIN COPY_EXISTING ~SANDRAIN.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = "CREATE" new_item = EVAL "%newItem%" END END
+						~DAGGASP~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = DAGGASP new_item = EVAL "%newItem%" END END
+						~DHORNX~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = DHORNX  new_item = EVAL "%newItem%" END END
+						~DIVER~ 	BEGIN COPY_EXISTING ~AR1106.are~ 	~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = DIVER 	 new_item = EVAL "%newItem%" END END						
+						~ELVHUNTB~ 	BEGIN COPY_EXISTING ~DD7002.are~ 	~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = ELVHUNTB new_item = EVAL "%newItem%" END END
+						~ELSHUKAR~ BEGIN COPY ~%workspace%/%COMP_FOLDER%/DD1002X1.baf~ ~%workspace%/%COMP_FOLDER%~ REPLACE_TEXTUALLY ~ELSHUKAR~ ~%newItem%~ END
+						~ENTROBE~ 	BEGIN COPY_EXISTING ~3307WIZ.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = ENTROBE new_item = EVAL "%newItem%" END END
+						~FLAMPLAT~ 	BEGIN COPY_EXISTING ~3314FRGE.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = FLAMPLAT new_item = EVAL "%newItem%" END END
+						~GHARBOOT~ 	BEGIN COPY_EXISTING ~SANDRAIN.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = GHARBOOT new_item = EVAL "%newItem%" END END
+						~GHARSW~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = GHARSW  new_item = EVAL "%newItem%" END END
+						~GLORY~ 	BEGIN ACTION_IF NOT ~%undroppable%~ BEGIN COPY_EXISTING ~R800001.cre~ ~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = GLORY new_item = EVAL "%newItem%" END END END
+						~HAMFORCE~ 	BEGIN COPY_EXISTING ~3314FRGE.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = HAMFORCE new_item = EVAL "%newItem%" END END
+						~IOUNX3~ 	BEGIN COPY_EXISTING ~DD7001.are~ 	~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = IOUNX3  new_item = EVAL "%newItem%" END END
+						~IOUNX7~ 	BEGIN COPY_EXISTING ~CALITEMP.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = IOUNX7  new_item = EVAL "%newItem%" END END
+						~IOUNX8~ 	BEGIN COPY_EXISTING ~CALITEMP.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = IOUNX8  new_item = EVAL "%newItem%" END END
+						~MALICE~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = MALICE  new_item = EVAL "%newItem%" END END
+						~MARKBOWX~ 	BEGIN COPY_EXISTING ~CALIMART.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = MARKBOWX new_item = EVAL "%newItem%" END END
+						~MIELIKKI~ 	BEGIN COPY_EXISTING ~3314FRGE.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = MIELIKKI new_item = EVAL "%newItem%" END END
+						~MONGOVE~ 	BEGIN COPY_EXISTING ~3314FRGE.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = MONGOVE new_item = EVAL "%newItem%" END END
+						~MOORSX~ 	BEGIN COPY_EXISTING ~SANDRAIN.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = MOORSX  new_item = EVAL "%newItem%" END END
+						~ORRSHLD~ 	BEGIN COPY_EXISTING ~CALITEMP.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = ORRSHLD new_item = EVAL "%newItem%" END END
+						~ROBE2~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = ROBE2 	 new_item = EVAL "%newItem%" END END
+						~SHLDGRAZ~ 	BEGIN ACTION_IF NOT ~%undroppable%~ 
+										BEGIN 
+											COPY_EXISTING ~GRAZZT01.cre~ 	~override~ 
+														 ~GRAZZT02.cre~ 	~override~ 
+												LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = GLORY new_item = EVAL "%newItem%" END
+										END	
+									END
+						~SILBLADE~ BEGIN COPY ~%workspace%/%COMP_FOLDER%/DD1002X1.baf~ ~%workspace%/%COMP_FOLDER%~ REPLACE_TEXTUALLY ~SILBLADE~ ~%newItem%~ END
+						~SHOON~ 	BEGIN COPY_EXISTING ~DD7001.are~ 	~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = SHOON new_item = EVAL "%newItem%" END END
+						~STARYM~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = STARYM new_item = EVAL "%newItem%" END END
+						~SW1HGRAZ~ 	BEGIN ACTION_IF NOT ~%undroppable%~ 
+										BEGIN 
+											COPY_EXISTING ~GRAZZT01.cre~ 	~override~ 
+														 ~GRAZZT02.cre~ 	~override~ 
+												LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = SW1HGRAZ new_item = EVAL "%newItem%" END
+										END	
+									END
+						~SWZZZ1~ 	BEGIN COPY_EXISTING ~CALIMART.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SWZZZ1  new_item = EVAL "%newItem%" END END
+						~SWZZZ2~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SWZZZ2  new_item = EVAL "%newItem%" END END
+						~USHLD3B~ 	BEGIN COPY_EXISTING ~DD7004.are~ 	~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = USHLD3B new_item = EVAL "%newItem%" END END
+						~UMSTR5A~ 	BEGIN COPY_EXISTING ~CALIMART.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = UMSTR5A new_item = EVAL "%newItem%" END END					
+						~WYVCROWN~ 	BEGIN COPY_EXISTING ~DRAGGREN.cre~ 	~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = WYVCROWN new_item = EVAL "%newItem%" END END					
+						DEFAULT
+					END
+				END
+			END
+		END
+	BUT_ONLY	
+END
+
+
+//=============================================================================
+DEFINE_ACTION_MACRO HandleSpellScrollsContract
+BEGIN
+	COPY ~%MOD_FOLDER%/_CORE/SpellScrollsContract.2da~ ~%workspace%/%COMP_FOLDER%/SpellScrollsContract.2da~
+		COUNT_2DA_ROWS 8 count
+		WHILE (count > 1) BEGIN
+			READ_2DA_ENTRY (count -1) 0 8 resname				
+			READ_2DA_ENTRY (count -1) 6 8 policy
+			SET count = count -1
+				
+			TO_UPPER resname	
+			TO_UPPER policy	
+			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)	
+			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+			SET replace = (~%customize%~ && NOT ~%undroppable%~)
+			SPRINT newItem ~%policy%~
+			PATCH_IF (~%undroppable%~)
+				BEGIN SPRINT newItem ~SCRL75~ END
+			
+			PATCH_IF ~%customize%~ BEGIN
+				INNER_ACTION BEGIN
+					ACTION_MATCH ~%resname%~
+					WITH
+						~SCRM104~	BEGIN 
+										COPY_EXISTING ~RAZAK01.sto~ 	~override~ 
+													 ~3307WIZ.sto~ 	~override~
+													 ~WARDWIZS.sto~ 	~override~
+											LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRM104 new_item = EVAL "%newItem%" END
+									END
+						~SCRX9~		BEGIN COPY_EXISTING ~AR1106.are~ 	~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = SCRX9 new_item = EVAL "%newItem%" END END
+						~SCRX15~	BEGIN COPY_EXISTING ~3307WIZ.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX15 new_item = EVAL "%newItem%" END END
+						~SCRX17~ 	BEGIN COPY_EXISTING ~3307WIZ.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX17 new_item = EVAL "%newItem%" END END
+						~SCRX19~ 	BEGIN COPY_EXISTING ~WARDWIZS.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX19 new_item = EVAL "%newItem%" END END
+						~SCRX20~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX20 new_item = EVAL "%newItem%" END END
+						~SCRX21~ 	BEGIN COPY_EXISTING ~DD8001D.are~ 	~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = SCRX21 new_item = EVAL "%newItem%" END END			
+						~SCRX24~ 	BEGIN COPY_EXISTING ~DD8001D.are~ 	~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = SCRX24 new_item = EVAL "%newItem%" END END
+						~SCRX26~ 	BEGIN COPY_EXISTING ~3307WIZ.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX26 new_item = EVAL "%newItem%" END END
+						~SCRX27~ 	BEGIN COPY_EXISTING ~WARDWIZS.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX27 new_item = EVAL "%newItem%" END END
+						~SCRX28~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX28 new_item = EVAL "%newItem%" END END
+						~SCRX33~ 	BEGIN COPY_EXISTING ~WARDWIZS.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX33 new_item = EVAL "%newItem%" END END
+						~SCRX34~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX34 new_item = EVAL "%newItem%" END END
+						~SCRX35~ 	BEGIN COPY_EXISTING ~DD7001.are~ 	~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = SCRX35 new_item = EVAL "%newItem%" END END
+						~SCRX36~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX36 new_item = EVAL "%newItem%" END END
+						~SCRX37~ 	BEGIN COPY_EXISTING ~DDRAGBRW.cre~ 	~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = SCRX37 new_item = EVAL "%newItem%" END END	
+						~SCRX39~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX39 new_item = EVAL "%newItem%" END END
+						~SCRX42~ 	BEGIN COPY_EXISTING ~DRAGGOLD.cre~ 	~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = SCRX42 new_item = EVAL "%newItem%" END END	
+						~SCRX43~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX43 new_item = EVAL "%newItem%" END END
+						~SCRX46~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX46 new_item = EVAL "%newItem%" END END
+						~SCRX48~ 	BEGIN COPY_EXISTING ~DD8001D.are~ 	~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = SCRX48 new_item = EVAL "%newItem%" END END
+						~SCRX49~ 	BEGIN COPY_EXISTING ~DDRAGBRW.cre~ 	~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = SCRX49 new_item = EVAL "%newItem%" END END	
+						~SCRX53~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX53 new_item = EVAL "%newItem%" END END
+						~SCRX55~ 	BEGIN COPY_EXISTING ~DRAGGREN.cre~ 	~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = SCRX55 new_item = EVAL "%newItem%" END END	
+						~SCRX56~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX56 new_item = EVAL "%newItem%" END END
+						~SCRX57~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX57 new_item = EVAL "%newItem%" END END
+						~SCRX58~ 	BEGIN COPY_EXISTING ~DRAGGOLD.cre~ 	~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = SCRX58 new_item = EVAL "%newItem%" END END	
+						~SCRX65~ 	BEGIN COPY_EXISTING ~DD7002.are~ 	~override~ LPF REPLACE_AREA_ITEM STR_VAR old_item = SCRX65 new_item = EVAL "%newItem%" END END
+						~SCRX67~ 	BEGIN COPY_EXISTING ~DRAGGREN.cre~ 	~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = SCRX67 new_item = EVAL "%newItem%" END END	
+						~SCRX72~ 	BEGIN COPY_EXISTING ~WARDWIZS.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX72 new_item = EVAL "%newItem%" END END
+						~SCRX74~ 	BEGIN COPY_EXISTING ~WARDWIZS.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX74 new_item = EVAL "%newItem%" END END
+						~SCRX76~ 	BEGIN COPY_EXISTING ~CALIMART.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX76 new_item = EVAL "%newItem%" END END
+						~SCRX77~ 	BEGIN COPY_EXISTING ~CALIMART.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX77 new_item = EVAL "%newItem%" END END
+						~SCRX81~ 	BEGIN COPY_EXISTING ~CALIMART.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX81 new_item = EVAL "%newItem%" END END
+						DEFAULT			
+					END
+				END
+			END
+		END
+	BUT_ONLY	
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO PatchDD8000 BEGIN
+	COPY_EXISTING ~DD8000.are~ ~override~
+		LPM SetAnimationsInCombatFlag
+		LPF fj_are_structure
+			INT_VAR
+			fj_type     		= 2  						
+			fj_box_left   		= 3871           
+			fj_box_top   		= 3702           
+			fj_box_right  		= 3971           
+			fj_box_bottom  		= 3802           
+			fj_cursor_idx      = 34							
+			fj_flags        = 0x00000004        
+			fj_loc_x				= 3921           
+			fj_loc_y				= 3752            
+			fj_vertex_0   		= 3871 + (3702 << 16) 
+			fj_vertex_1   		= 3971 + (3702 << 16) 
+			fj_vertex_2   		= 3971 + (3802 << 16) 
+			fj_vertex_3   		= 3871 + (3802 << 16) 
+			STR_VAR                       
+			fj_structure_type  = region            
+			fj_name       = Tran8001           
+			fj_destination_area	= DD8001            
+			fj_destination_name = EXIT8000           
+		END
+		LPF fj_are_structure
+			INT_VAR
+			fj_loc_x    = 3921 
+			fj_loc_y    = 3752 
+			fj_orientation = 8
+			STR_VAR
+			fj_structure_type = entrance
+			fj_name      = EXIT8001
+		END
+		FOR( i = SHORT_AT 0x64 ; i ; --i )BEGIN
+			LPF fj_are_structure
+				INT_VAR fj_delete_mode = i - 1
+				STR_VAR fj_structure_type = spawn
+			END
+		END
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO PatchDD8001 BEGIN
+	COPY_EXISTING ~DD8001.are~      ~override~
+		LPM SetAnimationsInCombatFlag
+		LPF fj_are_structure
+			INT_VAR
+			fj_type     		= 2  						
+			fj_box_left   		= 461            
+			fj_box_top   		= 62             
+			fj_box_right  		= 561            
+			fj_box_bottom  		= 162            
+			fj_cursor_idx      = 34							
+			fj_flags        = 0x00000004        
+			fj_loc_x				= 511           
+			fj_loc_y				= 112            
+			fj_vertex_0   		= 461 + (62 << 16) 
+			fj_vertex_1   		= 561 + (62 << 16) 
+			fj_vertex_2   		= 561 + (162 << 16) 
+			fj_vertex_3   		= 461 + (162 << 16) 
+			STR_VAR                       
+			fj_structure_type  = region            
+			fj_name       = Tranc020           
+			fj_destination_area	= DD8000            
+			fj_destination_name = EXIT8001           
+		END
+		LPF fj_are_structure
+			INT_VAR
+			fj_loc_x    = 511 
+			fj_loc_y    = 112 
+			fj_orientation = 14
+			STR_VAR
+			fj_structure_type = entrance
+			fj_name      = EXIT8000
+		END
+		FOR( i = SHORT_AT 0x64 ; i ; --i )BEGIN
+			LPF fj_are_structure
+				INT_VAR fj_delete_mode = i - 1
+				STR_VAR fj_structure_type = spawn
+			END
+		END
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO PatchAR1106 BEGIN
+	COPY_EXISTING ~AR1106.ARE~ ~override~
+		LPM SetAnimationsInCombatFlag
+		READ_SHORT 0x48 "flags"
+		WRITE_SHORT 0x48 ("%flags%" BOR 0x0020) //Setting Dungeon flag
+		
+		READ_LONG 0x70 "cont_offset"
+		READ_SHORT 0x74 "cont_num"
+		READ_SHORT 0x76 "items_num"
+		READ_LONG 0x78 "items_offset"
+		SET "first_item"=0
+		SET "items"=0
+		SET "one"=0
+		SET "two"=0
+		FOR( cnt=0; cnt<"%cont_num%"; cnt=cnt+1 ) BEGIN //containers loop
+			READ_ASCII ("%cont_offset%"+0xc0*cnt)    "cont_name" (11)
+			PATCH_IF (("%cont_name%" STRING_COMPARE_CASE "Container 2")=0) BEGIN
+				READ_LONG ("%cont_offset%"+0xc0*cnt+0x40) "first_item"
+				READ_LONG ("%cont_offset%"+0xc0*cnt+0x44) "items"
+			END
+		END
+		PATCH_IF ("%items%">0 ) BEGIN
+			FOR( cnt=0; cnt<"%items%"; cnt=cnt+1 ) BEGIN    //items loop
+				READ_ASCII ("%items_offset%"+0x14*(cnt+"%first_item%")) "name"
+				PATCH_IF ( ("%name%" STRING_COMPARE_CASE "AX1H04")=0 AND "%one%"=0 ) BEGIN
+					WRITE_ASCII ("%items_offset%"+0x14*(cnt+"%first_item%"))   "DIVER" #8 //replacing item
+					WRITE_SHORT ("%items_offset%"+0x14*(cnt+"%first_item%")+0xa) 0
+					SET "name"=1
+					SET "one"=1
+				END
+				PATCH_IF ( ("%name%" STRING_COMPARE_CASE "AX1H04")=0 AND "%two%"=0 ) BEGIN
+					WRITE_ASCII ("%items_offset%"+0x14*(cnt+"%first_item%"))   "SCRX9" #8 //replacing item
+					WRITE_SHORT ("%items_offset%"+0x14*(cnt+"%first_item%")+0xa) 0
+					SET "two"=1
+				END
+			END
+	END
+		BUT_ONLY_IF_IT_CHANGES //******************************************************** ~AR1106.are~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO PatchDD3302b BEGIN
+	COPY_EXISTING ~DD3302b.ARE~ ~override~
+		LPF fj_are_structure
+			INT_VAR
+			fj_type     		= 2  						
+			fj_box_left   		= 497            
+			fj_box_top   		= 643            
+			fj_box_right  		= 645            
+			fj_box_bottom  		= 761            
+			fj_cursor_idx      = 28							
+			fj_flags        = 0x00000004        
+			fj_loc_x				= 788           
+			fj_loc_y				= 660
+			fj_alt_x				= 21
+			fj_alt_y				= 12819
+			fj_vertex_0   		= 497 + (713 << 16) 
+			fj_vertex_1   		= 565 + (761 << 16) 
+			fj_vertex_2   		= 645 + (698 << 16) 
+			fj_vertex_3   		= 580 + (643 << 16) 
+			STR_VAR                       
+			fj_structure_type  = region            
+			fj_name       = Tran0906a           
+			fj_destination_area	= AR0906            
+			fj_destination_name = Exit0907a           
+		END
+		LPF fj_are_structure
+			INT_VAR
+			fj_type     		= 2  						
+			fj_box_left   		= 699            
+			fj_box_top   		= 452            
+			fj_box_right  		= 942            
+			fj_box_bottom  		= 619            
+			fj_cursor_idx      = 28							
+			fj_flags        = 0x00000004        
+			fj_loc_x				= 788           
+			fj_loc_y				= 660
+			fj_alt_x				= 0
+			fj_alt_y				= 0
+			fj_vertex_0   		= 699 + (554 << 16) 
+			fj_vertex_1   		= 779 + (619 << 16) 
+			fj_vertex_2   		= 942 + (502 << 16) 
+			fj_vertex_3   		= 877 + (452 << 16)
+			fj_vertex_4				= 823 + (464 << 16)
+			STR_VAR                       
+			fj_structure_type  = region            
+			fj_name       = Tran0906b           
+			fj_destination_area	= AR0906            
+			fj_destination_name = Exit0907b           
+		END
+		GET_OFFSET_ARRAY animation_array ARE_V10_ANIMATIONS 
+		PHP_EACH animation_array AS int => animation_offset BEGIN
+			WRITE_LONG animation_offset + 0x24 (THIS | BIT12)
+		END
+END
+	
+//=============================================================================
+DEFINE_ACTION_MACRO PatchDD3302	BEGIN
+	COPY_EXISTING ~DD3302.ARE~ ~override~
+		LPF fj_are_structure
+			INT_VAR
+			fj_type     		= 2  						
+			fj_box_left   		= 531            
+			fj_box_top   		= 593            
+			fj_box_right  		= 845            
+			fj_box_bottom  		= 763            
+			fj_cursor_idx      = 28							
+			fj_flags        = 0x00000004        
+			fj_loc_x				= 916           
+			fj_loc_y				= 532
+			fj_alt_x				= 0
+			fj_alt_y				= 0
+			fj_vertex_0   		= 845 + (670 << 16) 
+			fj_vertex_1   		= 755 + (593 << 16) 
+			fj_vertex_2   		= 638 + (633 << 16) 
+			fj_vertex_3   		= 531 + (658 << 16) 
+			fj_vertex_4   		= 554 + (695 << 16)
+			fj_vertex_5				= 654 + (721 << 16)
+			fj_vertex_6				= 713 + (763 << 16)
+			STR_VAR                       
+			fj_structure_type  = region            
+			fj_name       = Tran0907a           
+			fj_destination_area	= DD3302B            
+			fj_destination_name = Exit0504a           
+		END
+		LPF fj_are_structure
+			INT_VAR
+			fj_type     		= 2  						
+			fj_box_left   		= 846            
+			fj_box_top   		= 283            
+			fj_box_right  		= 1078            
+			fj_box_bottom  		= 606            
+			fj_cursor_idx      = 28							
+			fj_flags        = 0x00000004        
+			fj_loc_x				= 1108           
+			fj_loc_y				= 660
+			fj_alt_x				= 0
+			fj_alt_y				= 0
+			fj_vertex_0   		= 934 + (606 << 16) 
+			fj_vertex_1   		= 1052 + (527 << 16) 
+			fj_vertex_2   		= 1011 + (476 << 16) 
+			fj_vertex_3   		= 1078 + (329 << 16)
+			fj_vertex_4				= 994 + (283 << 16)
+			fj_vertex_5   		= 916 + (443 << 16)
+			fj_vertex_6				= 846 + (523 << 16)
+			STR_VAR                       
+			fj_structure_type  = region            
+			fj_name       = Tran0907b           
+			fj_destination_area	= DD3302B            
+			fj_destination_name = Exit0504b           
+		END
+		LPF fj_are_structure
+			INT_VAR
+			fj_loc_x    = 907 
+			fj_loc_y    = 883 
+			fj_orientation = 14
+			STR_VAR
+			fj_structure_type = entrance
+			fj_name      = Exit0907a
+		END
+		LPF fj_are_structure
+			INT_VAR
+			fj_loc_x    = 1105 
+			fj_loc_y    = 735 
+			fj_orientation = 14
+			STR_VAR
+			fj_structure_type = entrance
+			fj_name      = Exit0907b
+		END
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO PatchDD0200 BEGIN	
+	COPY_EXISTING ~DD0200.ARE~ ~override~
+		LPF fj_are_structure
+			INT_VAR
+			fj_type     		= 2  						
+			fj_box_left   		= 0            
+			fj_box_top   		= 1660            
+			fj_box_right  		= 190            
+			fj_box_bottom  		= 2350            
+			fj_cursor_idx      = 28							
+			fj_flags        = 0x00000004        
+			fj_loc_x				= 95           
+			fj_loc_y				= 2005
+			fj_alt_x				= 95
+			fj_alt_y				= 2005
+			fj_vertex_0   		= 1  + (2350 << 16) 
+			fj_vertex_1   		= 190 + (2350 << 16) 
+			fj_vertex_2   		= 190 + (1660 << 16) 
+			fj_vertex_3   		= 0  + (1660 << 16) 
+			STR_VAR                       
+			fj_structure_type  = region            
+			fj_name       = to0301b           
+			fj_destination_area	= DD3300            
+			fj_destination_name = Exit3400           
+		END
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO PatchDD8001c BEGIN	
+	COPY_EXISTING ~DD8001c.ARE~ ~override~ // remove unused points of interest
+		FOR( i = SHORT_AT 0x5a ; i ; --i )BEGIN
+			READ_ASCII LONG_AT 0x5c + (i - 1) * 0xc4 trigger_name (32) NULL
+			PATCH_MATCH ~%trigger_name%~ 
+			WITH ~Tran1402~ ~Fountain~ ~Gem~ ~Mirror~ ~Pit~ ~Shadow1~
+				BEGIN
+					LPF fj_are_structure
+						INT_VAR fj_delete_mode = i - 1
+						STR_VAR fj_structure_type = region
+					END
+				END
+			DEFAULT
+			END
+		END
+END	
+	
+//=============================================================================
+DEFINE_ACTION_MACRO PatchDD3334	 BEGIN
+	COPY_EXISTING ~DD3334.are~ 	~override~ // Fixed: phantom door removed
+		FOR( i = SHORT_AT 0x5a ; i ; --i )BEGIN
+			READ_ASCII LONG_AT 0x5c + (i - 1) * 0xc4 trigger_name (32) NULL
+			PATCH_IF ~%trigger_name%~ STR_EQ ~AR9101_Door3~ BEGIN
+				LPF fj_are_structure
+					INT_VAR fj_delete_mode = i - 1
+					STR_VAR fj_structure_type = region
+				END
+			END
+		END
+END

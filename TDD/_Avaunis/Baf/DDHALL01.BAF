@@ -1,0 +1,12 @@
+IF
+  AreaCheck("AR0020")
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,3483)
+    Wait(3)
+    DisplayStringHead(Myself,@10114)
+    Wait(3)
+    DisplayStringHead(Myself,@10115)
+    Wait(7)
+END
+

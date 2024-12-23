@@ -1,0 +1,20 @@
+IF
+  Global("tz_library","DD0012",0)
+THEN
+  RESPONSE #100
+    CreateCreature("psiwar1",[1597.1295],4)
+    CreateCreature("psiwar2",[1662.1255],4)
+    CreateCreature("psiwar1",[1728.1190],4)
+    CreateCreature("Psion1",[1547.1148],4)
+    CreateCreature("Psicere",[1209.1113],4)
+    CreateCreature("psicere",[1531.960],4)
+    CreateCreature("Psiwar1",[1221.720],4)
+    CreateCreature("Psiwar2",[1112.764],4)
+    CreateCreature("Psiwar1",[967.872],4)
+    CreateCreature("psicere",[999.707],4)
+    CreateCreature("Psion3",[1114.318],4)
+    CreateCreature("Psion2",[997.289],4)
+    CreateCreature("Psion2",[1187.375],4)
+    SetGlobal("tz_library","DD0012",1)
+END
+

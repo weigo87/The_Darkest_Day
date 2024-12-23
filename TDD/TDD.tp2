@@ -22,6 +22,7 @@ ALWAYS
 	INCLUDE ~%MOD_FOLDER%/Lib/a7_pvrz_tis.tpa~
 	INCLUDE ~%MOD_FOLDER%/Lib/Areas.tpa~
 	INCLUDE ~%MOD_FOLDER%/Lib/Importer.tpa~
+	INCLUDE ~%MOD_FOLDER%/Lib/a7#add_kit_ex.tpa~
 
 	ACTION_IF GAME_IS ~eet~ BEGIN
 		OUTER_SET bg2_chapter = 12
@@ -257,6 +258,20 @@ BEGIN ~Adario~
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
 	LAF ImportComponent STR_VAR aComp = ~Adario~ END
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// The Darkest Day : Avaunis						   \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN ~Avaunis~
+	DESIGNATED 8
+	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
+
+	LAF ImportComponent STR_VAR aComp = ~Avaunis~ END
 
 //=============================================================================
 /* USED DURING INITIAL DEVELOPMENT - NOT USED NOW*/

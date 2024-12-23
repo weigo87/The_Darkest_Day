@@ -1,0 +1,26 @@
+IF
+  Global("tz_showdown","DD3603",0)
+THEN
+  RESPONSE #100
+    CreateCreature("psidark1",[624.363],4)
+    CreateCreature("psidark2",[864.435],4)
+    CreateCreature("psidark2",[980.653],4)
+    CreateCreature("psidark3",[327.463],4)
+    CreateCreature("psidark3",[332.701],4)
+    CreateCreature("psion4",[616.741],12)
+    SetGlobal("tz_showdown","DD3603",1)
+END
+
+IF
+  Global("tz_HF_FuckinBugFix_01","GLOBAL",0)
+  Dead("psidark1")
+  NumDead("psidark2",2)
+  NumDead("psidark3",2)
+  PartyHasItem("DEADBKX")
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    SetGlobal("tz_HF_FuckinBugFix_01","GLOBAL",1)
+    StartCutScene("PSIcut04")
+END
+
