@@ -1,6 +1,9 @@
 DEFINE_ACTION_MACRO InstallSpecificContents
 BEGIN
 
+	EXTEND_TOP ~AR0020.bcs~ ~%workspace%/%COMP_FOLDER%/tAR0020.baf~
+	EXTEND_TOP ~AR0903.bcs~ ~%workspace%/%COMP_FOLDER%/tAR0903.baf~
+	
 	COPY_EXISTING ~CEREHAND.itm~ ~override~    
 		SAY 0xde @21032
 		

@@ -1,0 +1,13 @@
+IF
+  Global("PsiEntry","DD5000",0)
+THEN
+  RESPONSE #100
+    CreateCreature("psiwar1",[737.638],0)
+    CreateCreature("psiwar1",[849.702],3)
+    CreateCreature("psiwar2",[962.657],4)
+    CreateCreature("psiwar2",[1031.585],5)
+    CreateCreature("psiwar2",[761.585],14)
+    CreateCreature("psiwar3",[831.562],1)
+    SetGlobal("PsiEntry","DD5000",1)
+END
+
