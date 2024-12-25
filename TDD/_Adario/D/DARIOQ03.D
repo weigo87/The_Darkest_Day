@@ -42,7 +42,7 @@ IF ~~ THEN BEGIN 7 // from: 6.0
   SAY @13
   IF ~~ THEN DO ~SetGlobalTimer("tz_kalvarasquest2b","GLOBAL",THREE_DAYS)
 SetGlobal("tz_adarioquests","GLOBAL",8)
-SetGlobal("adariogridcopper","GLOBAL",1)~ EXIT
+SetGlobal("tz_adariogridcopper","GLOBAL",1)~ EXIT
 END
 
 IF ~~ THEN BEGIN 8 // from: 6.1

@@ -13,4 +13,54 @@ BEGIN
 	EXTEND_BOTTOM ~AR0400.BCS~ ~%workspace%/%COMP_FOLDER%/bAR0400.BAF~
 	EXTEND_BOTTOM ~AR0404.BCS~ ~%workspace%/%COMP_FOLDER%/bAR0404.BAF~
 	EXTEND_BOTTOM ~AR0406.BCS~ ~%workspace%/%COMP_FOLDER%/bAR0406.BAF~
+	
+	LAM PatchAR0400
+	LAM PatchDD0401X
+	
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO PatchAR0400 BEGIN
+	COPY_EXISTING ~AR0400.are~ ~override~
+		LPM SetAnimationsInCombatFlag
+		LPF fj_are_structure
+			INT_VAR
+			fj_type         		= 2    						
+			fj_box_left     		= 2933                      
+			fj_box_top      		= 1542                      
+			fj_box_right    		= 3136                      
+			fj_box_bottom   		= 1647                      
+			fj_cursor_idx           = 30							
+			fj_flags                = 0x00000004                
+			fj_loc_x				= 2997                      
+			fj_loc_y				= 1539                       
+			fj_vertex_0     		= 2993 + (1577 << 16)  
+			fj_vertex_1     		= 3067 + (1647 << 16)  
+			fj_vertex_2     		= 3136 + (1612 << 16)  
+			fj_vertex_3     		= 3057 + (1542 << 16)  
+			STR_VAR                                             
+			fj_structure_type   = region                        
+			fj_name             = Adario_assassin_den                      
+			fj_destination_area	= DD0401X                        
+			fj_destination_name = EXIT0302                      
+		END
+		LPF fj_are_structure
+			INT_VAR
+			fj_loc_x       = 2997 
+			fj_loc_y       = 1539 
+			fj_orientation = 8
+			STR_VAR
+			fj_structure_type = entrance
+			fj_name           = EXITDD0401
+		END
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO PatchDD0401X BEGIN
+	COPY_EXISTING ~DD0401X.are~ ~override~
+		LPF ALTER_AREA_REGION 
+			INT_VAR activate_x = 0 
+					activate_y = 0 
+			STR_VAR region_name = "Tran0301" 
+					entrance_name = "EXITDD0401" END
 END
