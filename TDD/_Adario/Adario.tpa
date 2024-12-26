@@ -1,5 +1,6 @@
 DEFINE_ACTION_MACRO InstallSpecificContents
 BEGIN
+	APPEND ~PDIALOG.2da~ ~ADARIO ADARIOP *** *** *** *** *** ***~
 	COPY_EXISTING ~ADARIO12.cre~ ~override~
 		SAY 0x1cc @20126
 	

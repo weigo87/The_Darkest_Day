@@ -19,11 +19,11 @@ THEN
     Wait(1)
     ReallyForceSpellRES("TZWI430",Myself)
     Wait(1)
-    ForceSpellRES("SPTDD02",Myself)
+    ForceSpellRES("CBWI823",Myself)
     Wait(1)
     ForceSpell(Myself,WIZARD_SHADOW_DOOR)
     Wait(1)
-    ForceSpellRES("SPTDD01",Myself)
+    ForceSpellRES("CBWI824",Myself)
     SetGlobal("tz_prep2","LOCALS",1)
 END
 
