@@ -1,0 +1,559 @@
+BEGIN ~VESINE~
+
+IF ~NumTimesTalkedTo(0)~ THEN BEGIN 0
+  SAY @0
+  IF ~~ THEN REPLY @1 GOTO 1
+  IF ~~ THEN REPLY @2 GOTO 1
+  IF ~~ THEN REPLY @3 GOTO 22
+END
+
+IF ~~ THEN BEGIN 1
+  SAY @4
+  IF ~~ THEN REPLY @5 GOTO 2
+  IF ~~ THEN REPLY @6 GOTO 21
+END
+
+IF ~~ THEN BEGIN 2 // from: 1.0
+  SAY @7
+  IF ~~ THEN REPLY @8 GOTO 3
+  IF ~CheckStat(LastTalkedToBy(),30,LORE)~ THEN REPLY @9 GOTO 11
+  IF ~~ THEN REPLY @10 GOTO 20
+END
+
+IF ~~ THEN BEGIN 3 // from: 21.0 2.0
+  SAY @11
+  IF ~~ THEN REPLY @12 GOTO 4
+  IF ~~ THEN REPLY @13 GOTO 9
+  IF ~~ THEN REPLY @14 GOTO 10
+END
+
+IF ~~ THEN BEGIN 4 // from: 3.0
+  SAY @15
+  IF ~~ THEN GOTO 5
+END
+
+IF ~~ THEN BEGIN 5 // from: 9.0 4.0
+  SAY @16
+  IF ~~ THEN REPLY @17 GOTO 6
+  IF ~~ THEN REPLY @18 GOTO 7
+  IF ~~ THEN REPLY @19 GOTO 8
+END
+
+IF ~~ THEN BEGIN 6 // from: 5.0
+  SAY @20
+  IF ~~ THEN EXIT
+END
+
+IF ~~ THEN BEGIN 7 // from: 19.1 18.0 10.0 5.1
+  SAY @21
+  IF ~~ THEN DO ~JoinParty()~ EXIT
+END
+
+IF ~~ THEN BEGIN 8 // from: 19.2 10.1 5.2
+  SAY @22
+  IF ~~ THEN EXIT
+END
+
+IF ~~ THEN BEGIN 9 // from: 18.1 3.1
+  SAY @23
+  IF ~~ THEN GOTO 5
+END
+
+IF ~~ THEN BEGIN 10 // from: 19.0 3.2
+  SAY @24
+  IF ~~ THEN REPLY @25 GOTO 7
+  IF ~~ THEN REPLY @26 GOTO 8
+END
+
+IF ~~ THEN BEGIN 11 // from: 21.1 20.0 2.1
+  SAY @27
+  IF ~~ THEN GOTO 12
+END
+
+IF ~~ THEN BEGIN 12 // from: 11.0
+  SAY @28
+  IF ~~ THEN GOTO 13
+END
+
+IF ~~ THEN BEGIN 13 // from: 12.0
+  SAY @29
+  IF ~~ THEN GOTO 14
+END
+
+IF ~~ THEN BEGIN 14 // from: 13.0
+  SAY @30
+  IF ~~ THEN GOTO 15
+END
+
+IF ~~ THEN BEGIN 15 // from: 14.0
+  SAY @31
+  IF ~~ THEN GOTO 16
+END
+
+IF ~~ THEN BEGIN 16 // from: 15.0
+  SAY @32
+  IF ~~ THEN GOTO 17
+END
+
+IF ~~ THEN BEGIN 17 // from: 16.0
+  SAY @33
+  IF ~~ THEN GOTO 18
+END
+
+IF ~~ THEN BEGIN 18 // from: 17.0
+  SAY @34
+  IF ~~ THEN REPLY @35 GOTO 7
+  IF ~~ THEN REPLY @36 GOTO 9
+  IF ~~ THEN REPLY @37 GOTO 19
+END
+
+IF ~~ THEN BEGIN 19 // from: 18.2
+  SAY @38
+  IF ~~ THEN REPLY @39 GOTO 10
+  IF ~~ THEN REPLY @40 GOTO 7
+  IF ~~ THEN REPLY @41 GOTO 8
+END
+
+IF ~~ THEN BEGIN 20 // from: 21.2 2.2
+  SAY @42
+  IF ~~ THEN GOTO 11
+END
+
+IF ~~ THEN BEGIN 21 // from: 1.1
+  SAY @43
+  IF ~~ THEN REPLY @8 GOTO 3
+  IF ~~ THEN REPLY @9 GOTO 11
+  IF ~~ THEN REPLY @10 GOTO 20
+END
+
+IF ~~ THEN BEGIN 22 // from: 0.2 VESINEJ:0.2
+  SAY @44
+  IF ~~ THEN GOTO 1
+END
+
+IF ~!InParty(Myself)~ THEN BEGIN 23
+  SAY @45
+  IF ~~ THEN REPLY @46 GOTO 24
+  IF ~~ THEN REPLY @47 GOTO 25
+  IF ~~ THEN REPLY @48 GOTO 25
+END
+
+IF ~~ THEN BEGIN 24 // from: 23.0 VESINEJ:23.0
+  SAY @49
+  IF ~~ THEN DO ~JoinParty()~ EXIT
+END
+
+IF ~~ THEN BEGIN 25 // from: 23.2 23.1 VESINEJ:23.2 VESINEJ:23.1
+  SAY @50
+  IF ~~ THEN EXIT
+END
+
+IF ~Global("tz_random_talk_disabled","GLOBAL",0)~ THEN BEGIN 26
+  SAY @51 /* #79342 */
+  IF ~HPPercentLT(Myself,50)~ THEN REPLY @52 GOTO 27
+  IF ~HPPercentGT(Myself,49)
+HPPercentLT(Myself,95)~ THEN REPLY @52 GOTO 30
+  IF ~HPPercentGT(Myself,94)~ THEN REPLY @52 GOTO 34
+  IF ~~ THEN REPLY @53 /* #79436 */ EXIT
+  IF ~Global("tz_AR0300","LOCALS",0)
+AreaCheck("AR0300")~ THEN REPLY @54 GOTO 38
+  IF ~Global("tz_AR0700","LOCALS",0)
+AreaCheck("AR0700")~ THEN REPLY @54 GOTO 45
+  IF ~Global("tz_AR1100","LOCALS",0)
+AreaCheck("AR1100")~ THEN REPLY @54 GOTO 59
+  IF ~Global("tz_AR2000","LOCALS",0)
+AreaCheck("AR2000")~ THEN REPLY @54 GOTO 62
+  IF ~Global("tz_AR1900","LOCALS",0)
+AreaCheck("AR1900")~ THEN REPLY @54 GOTO 67
+  IF ~Global("tz_AR2100","LOCALS",0)
+AreaCheck("AR2100")~ THEN REPLY @54 GOTO 74
+  IF ~Global("tz_AR2200","LOCALS",0)
+AreaCheck("AR2200")~ THEN REPLY @54 GOTO 74
+  IF ~Global("tz_AR2300","LOCALS",0)
+AreaCheck("AR2300")~ THEN REPLY @54 GOTO 76
+  IF ~Global("tz_AR2400","LOCALS",0)
+AreaCheck("AR2400")~ THEN REPLY @54 GOTO 81
+  IF ~Global("tz_AR2800","LOCALS",0)
+AreaCheck("AR2800")~ THEN REPLY @54 GOTO 85
+  IF ~Global("tz_AR2900","LOCALS",0)
+AreaCheck("AR2900")~ THEN REPLY @54 GOTO 90
+END
+
+IF ~~ THEN BEGIN 27 // from: 26.0 VESINEJ:26.0
+  SAY @55
+  IF ~~ THEN REPLY @56 EXIT
+  IF ~~ THEN REPLY @57 GOTO 28
+  IF ~~ THEN REPLY @58 GOTO 29
+END
+
+IF ~~ THEN BEGIN 28 // from: 27.1
+  SAY @59
+  IF ~~ THEN EXIT
+END
+
+IF ~~ THEN BEGIN 29 // from: 27.2
+  SAY @60
+  IF ~~ THEN EXIT
+END
+
+IF ~~ THEN BEGIN 30 // from: 26.1 VESINEJ:26.1
+  SAY @61
+  IF ~~ THEN REPLY @62 GOTO 31
+  IF ~~ THEN REPLY @63 GOTO 32
+  IF ~~ THEN REPLY @64 GOTO 33
+END
+
+IF ~~ THEN BEGIN 31 // from: 30.0
+  SAY @65
+  IF ~~ THEN EXIT
+END
+
+IF ~~ THEN BEGIN 32 // from: 30.1
+  SAY @66
+  IF ~~ THEN EXIT
+END
+
+IF ~~ THEN BEGIN 33 // from: 30.2
+  SAY @67
+  IF ~~ THEN EXIT
+END
+
+IF ~~ THEN BEGIN 34 // from: 26.2 VESINEJ:26.2
+  SAY @68
+  IF ~~ THEN REPLY @69 EXIT
+  IF ~HPPercentGT(Player1,89)~ THEN REPLY @70 GOTO 35
+  IF ~HPPercentLT(Player1,90)~ THEN REPLY @70 GOTO 37
+END
+
+IF ~~ THEN BEGIN 35 // from: 34.1
+  SAY @71
+  IF ~~ THEN REPLY @72 EXIT
+  IF ~~ THEN REPLY @73 GOTO 36
+END
+
+IF ~~ THEN BEGIN 36 // from: 35.1
+  SAY @74
+  IF ~~ THEN EXIT
+END
+
+IF ~~ THEN BEGIN 37 // from: 34.2
+  SAY @75
+  IF ~~ THEN EXIT
+END
+
+IF ~~ THEN BEGIN 38 // from: 26.4 VESINEJ:26.4
+  SAY @76
+  IF ~~ THEN REPLY @77 GOTO 39
+  IF ~~ THEN REPLY @78 GOTO 40
+  IF ~~ THEN REPLY @79 GOTO 44
+END
+
+IF ~~ THEN BEGIN 39 // from: 38.0
+  SAY @80
+  IF ~~ THEN DO ~SetGlobal("tz_AR0300","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 40 // from: 38.1
+  SAY @81
+  IF ~~ THEN REPLY @82 GOTO 41
+  IF ~~ THEN REPLY @83 GOTO 42
+  IF ~~ THEN REPLY @84 GOTO 43
+END
+
+IF ~~ THEN BEGIN 41 // from: 40.0
+  SAY @85
+  IF ~~ THEN DO ~SetGlobal("tz_AR0300","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 42 // from: 40.1
+  SAY @86
+  IF ~~ THEN DO ~SetGlobal("tz_AR0300","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 43 // from: 40.2
+  SAY @87
+  IF ~~ THEN DO ~SetGlobal("tz_AR0300","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 44 // from: 38.2
+  SAY @88
+  IF ~~ THEN DO ~SetGlobal("tz_AR0300","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 45 // from: 26.5 VESINEJ:26.5
+  SAY @89
+  IF ~~ THEN REPLY @90 GOTO 46
+  IF ~~ THEN REPLY @91 GOTO 47
+  IF ~~ THEN REPLY @92 GOTO 54
+END
+
+IF ~~ THEN BEGIN 46 // from: 45.0
+  SAY @93
+  IF ~~ THEN EXIT
+END
+
+IF ~~ THEN BEGIN 47 // from: 45.1
+  SAY @94
+  IF ~Race(Player1,ELF)~ THEN REPLY @95 GOTO 48
+  IF ~!Race(Player1,ELF)~ THEN REPLY @96 GOTO 49
+  IF ~~ THEN REPLY @97 GOTO 53
+END
+
+IF ~~ THEN BEGIN 48 // from: 47.0
+  SAY @98
+  IF ~~ THEN EXIT
+END
+
+IF ~~ THEN BEGIN 49 // from: 47.1
+  SAY @99
+  IF ~~ THEN REPLY @100 GOTO 50
+  IF ~~ THEN REPLY @101 DO ~SetGlobal("tz_AR0700","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 50 // from: 49.0
+  SAY @102
+  IF ~~ THEN REPLY @103 GOTO 51
+  IF ~~ THEN REPLY @104 GOTO 52
+END
+
+IF ~~ THEN BEGIN 51 // from: 50.0
+  SAY @105
+  IF ~~ THEN DO ~SetGlobal("tz_AR0700","LOCALS",1)
+SetGlobal("tz_KickedOut","LOCALS",1)
+LeaveParty()
+MoveGlobal("tz_DD0119","Vesine",[396.139])~ EXIT
+END
+
+IF ~~ THEN BEGIN 52 // from: 50.1
+  SAY @106
+  IF ~~ THEN DO ~SetGlobal("tz_AR0700","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 53 // from: 47.2
+  SAY @107
+  IF ~~ THEN DO ~SetGlobal("tz_AR0700","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 54 // from: 45.2
+  SAY @108
+  IF ~~ THEN REPLY @109 GOTO 55
+  IF ~~ THEN REPLY @110 GOTO 57
+  IF ~~ THEN REPLY @111 GOTO 58
+END
+
+IF ~~ THEN BEGIN 55 // from: 54.0
+  SAY @112
+  IF ~~ THEN GOTO 56
+END
+
+IF ~~ THEN BEGIN 56 // from: 57.0 55.0
+  SAY @113
+  IF ~~ THEN DO ~SetGlobal("tz_AR0700","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 57 // from: 54.1
+  SAY @114
+  IF ~~ THEN GOTO 56
+END
+
+IF ~~ THEN BEGIN 58 // from: 54.2
+  SAY @115
+  IF ~~ THEN DO ~SetGlobal("tz_AR0700","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 59 // from: 26.6
+  SAY @116
+  IF ~~ THEN GOTO 60
+END
+
+IF ~~ THEN BEGIN 60 // from: 59.0
+  SAY @117
+  IF ~~ THEN REPLY @118 GOTO 61
+  IF ~~ THEN REPLY @119 DO ~SetGlobal("tz_AR1100","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 61 // from: 60.0
+  SAY @120
+  IF ~~ THEN DO ~SetGlobal("tz_AR1100","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 62 // from: 26.7
+  SAY @121
+  IF ~~ THEN REPLY @122 GOTO 63
+  IF ~~ THEN REPLY @123 GOTO 64
+END
+
+IF ~~ THEN BEGIN 63 // from: 62.0
+  SAY @124
+  IF ~~ THEN DO ~SetGlobal("tz_AR2000","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 64 // from: 62.1
+  SAY @125
+  IF ~~ THEN REPLY @126 GOTO 65
+  IF ~~ THEN REPLY @127 GOTO 66
+END
+
+IF ~~ THEN BEGIN 65 // from: 64.0
+  SAY @128
+  IF ~~ THEN DO ~SetGlobal("tz_AR2000","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 66 // from: 64.1
+  SAY @129
+  IF ~~ THEN DO ~SetGlobal("tz_AR2000","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 67 // from: 26.8
+  SAY @130
+  IF ~~ THEN REPLY @131 GOTO 68
+  IF ~~ THEN REPLY @132 GOTO 73
+  IF ~~ THEN REPLY @133 GOTO 72
+END
+
+IF ~~ THEN BEGIN 68 // from: 67.0
+  SAY @134
+  IF ~~ THEN REPLY @135 GOTO 69
+  IF ~~ THEN REPLY @136 GOTO 70
+  IF ~~ THEN REPLY @137 EXIT
+END
+
+IF ~~ THEN BEGIN 69 // from: 68.0
+  SAY @138
+  IF ~~ THEN DO ~SetGlobal("tz_AR1900","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 70 // from: 68.1
+  SAY @139
+  IF ~~ THEN REPLY @140 GOTO 71
+  IF ~~ THEN REPLY @141 GOTO 72
+  IF ~~ THEN REPLY @142 DO ~SetGlobal("tz_AR1900","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 71 // from: 70.0
+  SAY @143
+  IF ~~ THEN DO ~SetGlobal("tz_AR1900","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 72 // from: 70.1 67.2
+  SAY @144
+  IF ~~ THEN DO ~SetGlobal("tz_AR1900","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 73 // from: 67.1
+  SAY @145
+  IF ~~ THEN DO ~SetGlobal("tz_AR1900","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 74 // from: 26.10 26.9
+  SAY @146
+  IF ~~ THEN REPLY @147 GOTO 75
+  IF ~~ THEN REPLY @148 GOTO 75
+END
+
+IF ~~ THEN BEGIN 75 // from: 74.1 74.0
+  SAY @149
+  IF ~~ THEN DO ~SetGlobal("tz_AR2100","LOCALS",1)
+SetGlobal("tz_AR2200","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 76 // from: 26.11
+  SAY @150
+  IF ~~ THEN REPLY @151 GOTO 77
+  IF ~~ THEN REPLY @152 GOTO 80
+  IF ~~ THEN REPLY @153 GOTO 79
+END
+
+IF ~~ THEN BEGIN 77 // from: 76.0
+  SAY @154
+  IF ~~ THEN REPLY @155 GOTO 78
+  IF ~~ THEN REPLY @156 GOTO 79
+  IF ~~ THEN REPLY @157 GOTO 79
+END
+
+IF ~~ THEN BEGIN 78 // from: 77.0
+  SAY @158
+  IF ~~ THEN EXIT
+END
+
+IF ~~ THEN BEGIN 79 // from: 77.2 77.1 76.2
+  SAY @159
+  IF ~~ THEN DO ~SetGlobal("tz_AR2300","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 80 // from: 76.1
+  SAY @160
+  IF ~~ THEN DO ~SetGlobal("tz_AR2300","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 81 // from: 26.12
+  SAY @161
+  IF ~~ THEN REPLY @162 GOTO 82
+  IF ~~ THEN REPLY @163 GOTO 83
+  IF ~~ THEN REPLY @164 GOTO 84
+END
+
+IF ~~ THEN BEGIN 82 // from: 81.0
+  SAY @165
+  IF ~~ THEN DO ~SetGlobal("tz_AR2400","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 83 // from: 81.1
+  SAY @166
+  IF ~~ THEN DO ~SetGlobal("tz_AR2400","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 84 // from: 81.2
+  SAY @167
+  IF ~~ THEN DO ~SetGlobal("tz_AR2400","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 85 // from: 26.13
+  SAY @168
+  IF ~~ THEN REPLY @169 GOTO 86
+  IF ~~ THEN REPLY @170 GOTO 87
+  IF ~~ THEN REPLY @171 GOTO 88
+END
+
+IF ~~ THEN BEGIN 86 // from: 87.0 85.0
+  SAY @172
+  IF ~~ THEN DO ~SetGlobal("tz_AR2800","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 87 // from: 85.1
+  SAY @173
+  IF ~~ THEN GOTO 86
+END
+
+IF ~~ THEN BEGIN 88 // from: 85.2
+  SAY @174
+  IF ~~ THEN REPLY @175 GOTO 89
+  IF ~~ THEN REPLY @176 DO ~SetGlobal("tz_AR2800","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 89 // from: 88.0
+  SAY @177
+  IF ~~ THEN DO ~SetGlobal("tz_AR2800","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 90 // from: 26.14
+  SAY @178
+  IF ~~ THEN REPLY @179 GOTO 91
+  IF ~~ THEN REPLY @180 GOTO 92
+  IF ~~ THEN REPLY @181 GOTO 93
+END
+
+IF ~~ THEN BEGIN 91 // from: 90.0
+  SAY @182
+  IF ~~ THEN DO ~SetGlobal("tz_AR2900","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 92 // from: 90.1
+  SAY @183
+  IF ~~ THEN DO ~SetGlobal("tz_AR2900","LOCALS",1)~ EXIT
+END
+
+IF ~~ THEN BEGIN 93 // from: 90.2
+  SAY @184
+  IF ~~ THEN DO ~SetGlobal("tz_AR2900","LOCALS",1)~ EXIT
+END

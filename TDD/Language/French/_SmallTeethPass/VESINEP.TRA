@@ -1,0 +1,13 @@
+@0     = ~Tu veux qu'on continue, pas vrai, <CHARNAME> ?~
+@1     = ~Non, il est temps que nous nous séparions.~
+@2     = ~Oui, bien sûr. Assure-toi de garder l'allure !~
+@3     = ~Je crois que je vais accepter l'offre que Potencius m'a faite d'habiter dans son auberge.~
+@4     = ~Retourne à l'auberge de Sunlake, alors. Si nous avons besoin de toi, nous viendrons te chercher.~
+@5     = ~Attends plutôt ici, Vesine.~
+@6     = ~Réflexion faite, reste avec moi.~
+@7     = ~Oh, bien... oui, en avant pour de nouvelles aventures !~
+@8     = ~D'accord... N'oublie pas, je serai toujours là si tu veux de nouveau partir à l'aventure !~
+@9     = ~Souhaites-tu que je rejoigne à nouveau le groupe, <CHARNAME> ? Je n'ai toujours pas assez vu la surface de Féérune.~
+@10    = ~Non, pas tout de suite.~
+@11    = ~Bien sûr, allons-y.~
+@12    = ~Formidable ! En avant !~

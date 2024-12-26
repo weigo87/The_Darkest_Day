@@ -1,0 +1,173 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    DestroyAllDestructableEquipment()
+    GiveItemCreate("PLAT01",Myself,0,0,0)
+    GiveItemCreate("HELM01",Myself,0,0,0)
+    GiveItemCreate("SHLD04",Myself,0,0,0)
+    GiveItemCreate("POTN52",Myself,2,0,0)
+    GiveItemCreate("BLUN05",Myself,0,0,0)
+    FillSlot(SLOT_ARMOR)
+    FillSlot(SLOT_WEAPON0)
+    FillSlot(SLOT_SHIELD)
+    FillSlot(SLOT_HELMET)
+    DestroyItem("POTN07")
+    DestroyItem("POTN42")
+END
+
+IF
+  HPPercentLT(Myself,20)
+  HasItem("POTN52",Myself)
+THEN
+  RESPONSE #100
+    UseItem("POTN52",Myself)
+END
+
+IF
+  See([0.0.0.0.230])
+  !Specifics(Myself,230)
+  Range([0.0.0.0.230],20)
+  HasItem("POTN52",Myself)
+THEN
+  RESPONSE #100
+    GiveItem("POTN52",[0.0.0.0.230])
+    ChangeSpecifics([0.0.0.0.230],0)
+END
+
+IF
+  !HasItem("POTN52",Myself)
+  HPPercentLT(Myself,20)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,230)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_DEATH_WARD)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_DEATH_WARD)
+END
+
+IF
+  HaveSpell(CLERIC_MISCAST_MAGIC)
+  OR(2)
+    See(NearestEnemyOfType([0.0.0.MAGE_ALL]))
+    See(NearestEnemyOfType([0.0.0.CLERIC_ALL]))
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_MISCAST_MAGIC)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_BLADE_BARRIER)
+  Global("tz_blade","LOCALS",0)
+THEN
+  RESPONSE #100
+    Spell(Myself,NPC_BLADE_BARRIER)
+    SetGlobal("tz_blade","LOCALS",1)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(COM_PRIEST_EMBALM)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),COM_PRIEST_EMBALM)
+  RESPONSE #100
+    Spell(SecondNearestEnemyOf(Myself),COM_PRIEST_EMBALM)
+END
+
+IF
+  Allegiance(Myself,ENEMY)
+  OR(6)
+    See([GOODCUTOFF.0.0.MAGE])
+    See([GOODCUTOFF.0.0.FIGHTER_MAGE])
+    See([GOODCUTOFF.0.0.CLERIC_MAGE])
+    See([GOODCUTOFF.0.0.MAGE_THIEF])
+    See([GOODCUTOFF.0.0.FIGHTER_MAGE_THIEF])
+    See([GOODCUTOFF.0.0.FIGHTER_MAGE_CLERIC])
+  HaveSpell(COM_PRIEST_MOON_BEAM)
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),COM_PRIEST_MOON_BEAM)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(COM_PRIEST_VISIONS_OF_PAIN)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),COM_PRIEST_VISIONS_OF_PAIN)
+  RESPONSE #100
+    Spell(SecondNearestEnemyOf(Myself),COM_PRIEST_VISIONS_OF_PAIN)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CAUSE_SERIOUS_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_CAUSE_SERIOUS_WOUNDS)
+    AttackOneRound(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_CAUSE_CRITICAL_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_CAUSE_CRITICAL_WOUNDS)
+    AttackOneRound(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HPPercentLT(Myself,50)
+  HaveSpell(CLERIC_CURE_MEDIUM_WOUNDS)
+THEN
+  RESPONSE #100
+    Spell(Myself,CLERIC_CURE_MEDIUM_WOUNDS)
+END
+
+IF
+  HaveSpell(CLERIC_SILENCE_15_FOOT)
+  OR(2)
+    See(NearestEnemyOfType([0.0.0.MAGE_ALL]))
+    See(NearestEnemyOfType([0.0.0.CLERIC_ALL]))
+THEN
+  RESPONSE #100
+    Spell(LastSeenBy(Myself),CLERIC_SILENCE_15_FOOT)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  HaveSpell(CLERIC_MENTAL_DOMINATION)
+THEN
+  RESPONSE #100
+    Spell(NearestEnemyOf(Myself),CLERIC_MENTAL_DOMINATION)
+  RESPONSE #100
+    Spell(SecondNearestEnemyOf(Myself),CLERIC_MENTAL_DOMINATION)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),7)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),7)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

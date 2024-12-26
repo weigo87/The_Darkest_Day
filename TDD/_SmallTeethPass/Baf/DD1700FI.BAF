@@ -1,0 +1,134 @@
+IF
+  HPPercentLT(Myself,20)
+  HasItem("POTN52",Myself)
+THEN
+  RESPONSE #100
+    UseItem("POTN52",Myself)
+END
+
+IF
+  See([0.0.0.0.230])
+  !Specifics(Myself,230)
+  Range([0.0.0.0.230],20)
+  HasItem("POTN52",Myself)
+THEN
+  RESPONSE #100
+    GiveItem("POTN52",[0.0.0.0.230])
+    ChangeSpecifics([0.0.0.0.230],0)
+END
+
+IF
+  !HasItem("POTN52",Myself)
+  HPPercentLT(Myself,20)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,230)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Global("tz_prep","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_prep","LOCALS",1)
+    UseItem("POTN07",Myself)
+    UseItem("POTN42",Myself)
+END
+
+IF
+  Summoned(NearestEnemyOf(Myself))
+  !OutOfAmmo()
+  !Range(NearestEnemyOf(Myself),6)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    SelectWeaponAbility(SLOT_AMMO0,0)
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  !Summoned(NearestEnemyOf(Myself))
+  !OutOfAmmo()
+  !Range(NearestEnemyOf(Myself),6)
+THEN
+  RESPONSE #100
+    SelectWeaponAbility(SLOT_AMMO1,0)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),7)
+  HPPercentLT(NearestEnemyOf(Myself),30)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),6)
+  HPPercentLT(NearestEnemyOf(Myself),30)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  OR(2)
+    Range(NearestEnemyOf(Myself),7)
+    OutOfAmmo()
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(Player1,15)
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(Player2,15)
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(Player3,15)
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(Player4,15)
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(Player5,15)
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(Player6,15)
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  !Range(NearestEnemyOf(Myself),6)
+  !OutOfAmmo()
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(Player1,15)
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(Player2,15)
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(Player3,15)
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(Player4,15)
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(Player5,15)
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(Player6,15)
+END
+

@@ -1,0 +1,52 @@
+IF
+  Global("tz_DD_yurul_talk","AR1700",0)
+  Detect([PC])
+THEN
+  RESPONSE #100
+    SetGlobal("tz_DD_yurul_talk","AR1700",1)
+    StartDialogue("DD1700RA","DD1700CL")
+END
+
+IF
+  HPPercentLT(Myself,50)
+  HasItem("POTN52",Myself)
+THEN
+  RESPONSE #100
+    UseItem("POTN52",Myself)
+END
+
+IF
+  See([0.0.0.0.230])
+  !Specifics(Myself,230)
+  Range([0.0.0.0.230],20)
+  HasItem("POTN52",Myself)
+THEN
+  RESPONSE #100
+    GiveItem("POTN52",[0.0.0.0.230])
+    ChangeSpecifics([0.0.0.0.230],0)
+END
+
+IF
+  !HasItem("POTN52",Myself)
+  HPPercentLT(Myself,50)
+THEN
+  RESPONSE #100
+    ChangeSpecifics(Myself,230)
+END
+
+IF
+  Range(NearestEnemyOf(Myself),7)
+THEN
+  RESPONSE #100
+    EquipRanged()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+
+IF
+  !Range(NearestEnemyOf(Myself),6)
+THEN
+  RESPONSE #100
+    EquipMostDamagingMelee()
+    AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

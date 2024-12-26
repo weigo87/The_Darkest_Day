@@ -1,0 +1,15 @@
+IF
+  Detect([PC])
+  Range([0.0.0.HUNTER_CREATURE],4)
+THEN
+  RESPONSE #100
+    RunAwayFrom([0.0.0.HUNTER_CREATURE],30)
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

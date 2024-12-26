@@ -1,0 +1,11 @@
+IF
+  Global("tz_POcre001_is_bird","AR1700",0)
+  Global("tz_talked","LOCALS",0)
+  CombatCounter(0)
+  Range([PC],7)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_talked","LOCALS",1)
+    StartDialogue("POcre001",[PC])
+END
+

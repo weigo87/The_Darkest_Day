@@ -1,0 +1,9 @@
+IF
+	Global("tz_1700_Revealed","AR0020",0)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_1700_Revealed","AR0020",1)
+		Explore()
+		RevealAreaOnMap("AR1700")
+		Continue()
+END

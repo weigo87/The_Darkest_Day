@@ -1,0 +1,65 @@
+@0    = ~Wieviel, haben die Magier gesagt, werden sie uns dafür bezahlen?~
+@1    = ~Bah! Das ist nicht genug, um hinter diesem Magier herzujagen. Niemand hat ihn seit 20 Jahren auch nur gesehen.~
+@2    = ~Vielleicht sollten wir das Angebot dieses anderen Typen annehmen... diesem Weslun Tane.~
+
+@3    = ~Hey, wer ist da!? Giron, nehmt Euer Schwert, ich glaube, ich habe etwas gehört. Das Letzte, das wir jetzt brauchen, sind mehr Schwierigkeiten, als nach diesem Magier zu suchen.~
+
+@4    = ~Ich bin es, Potencius. Ihr wagt es, mich zur Strecke bringen zu wollen? Ich werde Euch mit nur einem Wort töten!~
+
+@5    = ~Ich bin <CHARNAME>, in den Diensten von Potencius. Ihr werdet jetzt mit Eurer Suche nach ihm aufhören, oder Ihr werdet mit mir kämpfen müssen.~
+@6    = ~Es ist nur eine Katze!~
+@7    = ~Ihr braucht meinen Namen nicht zu wissen, da Ihr sowieso in den nächsten Sekunden sterben werdet. Zieht blank!~
+@8    = ~Verdammt! Berun, passen diese Abenteurer auf die Beschreibung?~
+@9    = ~Na gut... Hey, Ihr! Warum musstet Ihr uns solch einen Schrecken einjagen? Habt Ihr vielleicht irgendwelche Magier hier in der Nähe gesehen? Uns wurde berichtet, dass sich einer in diesem Gebiet aufhalten soll.~
+@10   = ~Nein. Ich bin nur auf einige Ankhegs und Fasane gestossen.~
+@11   = ~Klar, ich habe einen gesehen... Er führt ein verstecktes Gasthaus unter dem See. Aber er hat den Eingang mit Bannzaubern belegt, um Söldner fernzuhalten.~
+@12   = ~Schön, schön... das dachte ich mir schon. Zieht weiter, aber bleibt nicht zu lange hier in der Nähe.~
+
+@13   = ~Wirklich? Hmm... dann wollt Ihr also mitmachen?~
+@14   = ~Ihr sagtet, dass Ihr diesen Magier getroffen habt... das bedeutet, dass ihr an diesen Ort gelangen könnt. Nun, hier... hier ist ein Brief, der von den verhüllten Magiern ausgestellt wurde. Der Magier wird glauben, wir sind tot, wenn Ihr diesen Brief habt.~
+
+@15   = ~Bringt ihn dazu, die Bannzauber aufzuheben. Dann werden wir das Gasthaus stürmen. Verstanden? Macht Ihr mit?~
+
+@16   = ~Sicher, das klingt grossartig. Ich werde gleich mit ihm sprechen.~
+
+@17   = ~Eigentlich bin ich schon in den Diensten von Potencius. Eure Beseitgung steht auf unserer Tagesordnung und wir lassen nichts unerledigt.~
+@18   = ~Es sieht aus, dass dies leichter sein wird, als wir dachten, eh? Wir werden draussen vor dem Gasthaus warten. Ihr könnt uns dann sagen, wenn wir hereinkommen können.~
+@19   = ~Hahaha... Hört Ihr das? Die kleinen Abenteurer wollen kämpfen! Geben wir ihnen, was sie wollen!~
+
+@20   = ~Umm... uhh...~
+@21   = ~Oh, kommt schon, Jungs! So stark sieht er doch gar nicht aus! Zeigen wir ihnen, aus welchem Holz wir geschnitzt sind!~
+
+@22   = ~Ich bin, ähh... verzeiht. Wir wollen Euch wirklich nicht... ähh... töten. Ja, wir werden jetzt wohl besser gehen... zurück nach Athkatla.~
+
+@23   = ~Wartet, wo glaubt Ihr, werdet Ihr hingehen? Ich toleriere keine Söldner, Ihr seid da keine Ausnahme.~
+
+@24   = ~Werft Eure Waffen weg und rennt! Verschwindet von hier und kommt nie wieder zurück!~
+
+@25   = ~Sieht so aus, als müssten wir gegen sie kämpfen!~
+@26   = ~J-ja... Ja SIR! Ko-kommt schon, Jungs. Verschwinden wir von hier.~
+@27   = ~Hat der Magier die Bannzauber entfernt? Kann man jetzt sicher hineingehen?~
+
+@28   = ~Ja, die Bannzauber sind beseitigt. Gehen wir.~
+
+@29   = ~Ich sagte ihm, dass ich Euch eine Falle gestellt habe, seid also vorbereitet. Er wird Euch angreifen, sobald Ihr das Gasthaus betretet.~
+
+@30   = ~Nein, die Bannzauber sind noch nicht entfernt. Habt noch etwas Geduld. Er wird sie bald entfernen.~
+
+@31   = ~Also gut, Jungs und äh... Mädchen... dann legen wir mal los!~
+
+@32   = ~Katzen sprechen nicht!~
+@33   = ~Doch, das tun sie!~
+
+@34   = ~Ihr habt mich erwischt. Ich bin keine Katze... Ich bin <CHARNAME>!~
+
+@35   = ~Hey, Giron! Da drüben... da ist ein Verrückter.~
+
+@36   = ~Ich bin nicht verrückt. Ich denke nur anders!~
+
+@37   = ~Manche Leute haben einfach KEINEN Sinn für Humor.~
+
+@38   = ~Ihr habt verdammt Recht. Ich bin verrückt! Weehee! Woo! Bleduda!~
+@39   = ~Das merke ich. Habt Ihr vielleicht irgendwelche Magier hier in der Nähe gesehen? Uns wurde berichtet, dass sich einer in diesem Gebiet aufhalten soll.~
+@40   = ~In Ordnung, Jungs. Nehmt Eure Waffen. Es sieht so aus, als müssten wir jemanden aus seiner Misere befreien.~
+
+@41   = ~Und einige Leute haben keine Ahnung, wann sie besser ihren Mund halten sollten! Auf sie, Giron!~

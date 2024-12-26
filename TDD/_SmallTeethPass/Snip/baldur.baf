@@ -1,0 +1,65 @@
+IF
+	HasItemEquiped("DDves01",Player1)  // Klinge der Sanduhr
+	!Name("vesine",Player1)  // Vesine
+THEN
+	RESPONSE #100
+		ActionOverride(Player1,DropItem("DDves01",[-1.-1]))  // Klinge der Sanduhr
+		ActionOverride(Player1,PickUpItem("DDves01"))  // Klinge der Sanduhr
+		ApplyDamage(Player1,15,ELECTRICITY)
+		ApplyDamage(Player1,5,COLD)
+END
+
+IF
+	HasItemEquiped("DDves01",Player2)  // Klinge der Sanduhr
+	!Name("vesine",Player2)  // Vesine
+THEN
+	RESPONSE #100
+		ActionOverride(Player2,DropItem("DDves01",[-1.-1]))  // Klinge der Sanduhr
+		ActionOverride(Player2,PickUpItem("DDves01"))  // Klinge der Sanduhr
+		ApplyDamage(Player2,15,ELECTRICITY)
+		ApplyDamage(Player2,5,COLD)
+END
+
+IF
+	HasItemEquiped("DDves01",Player3)  // Klinge der Sanduhr
+	!Name("vesine",Player3)  // Vesine
+THEN
+	RESPONSE #100
+		ActionOverride(Player3,DropItem("DDves01",[-1.-1]))  // Klinge der Sanduhr
+		ActionOverride(Player3,PickUpItem("DDves01"))  // Klinge der Sanduhr
+		ApplyDamage(Player3,15,ELECTRICITY)
+		ApplyDamage(Player3,5,COLD)
+END
+
+IF
+	HasItemEquiped("DDves01",Player4)  // Klinge der Sanduhr
+	!Name("vesine",Player4)  // Vesine
+THEN
+	RESPONSE #100
+		ActionOverride(Player4,DropItem("DDves01",[-1.-1]))  // Klinge der Sanduhr
+		ActionOverride(Player4,PickUpItem("DDves01"))  // Klinge der Sanduhr
+		ApplyDamage(Player4,15,ELECTRICITY)
+		ApplyDamage(Player4,5,COLD)
+END
+
+IF
+	HasItemEquiped("DDves01",Player5)  // Klinge der Sanduhr
+	!Name("vesine",Player5)  // Vesine
+THEN
+	RESPONSE #100
+		ActionOverride(Player5,DropItem("DDves01",[-1.-1]))  // Klinge der Sanduhr
+		ActionOverride(Player5,PickUpItem("DDves01"))  // Klinge der Sanduhr
+		ApplyDamage(Player5,15,ELECTRICITY)
+		ApplyDamage(Player5,5,COLD)
+END
+
+IF
+	HasItemEquiped("DDves01",Player6)  // Klinge der Sanduhr
+	!Name("vesine",Player6)  // Vesine
+THEN
+	RESPONSE #100
+		ActionOverride(Player6,DropItem("DDves01",[-1.-1]))  // Klinge der Sanduhr
+		ActionOverride(Player6,PickUpItem("DDves01"))  // Klinge der Sanduhr
+		ApplyDamage(Player6,15,ELECTRICITY)
+		ApplyDamage(Player6,5,COLD)
+END

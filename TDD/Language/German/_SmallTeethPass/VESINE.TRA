@@ -1,0 +1,284 @@
+@0    = ~Äh-ähm... Hallo.~
+@1    = ~Wer seid Ihr?~
+
+@2    = ~Wie ist Euer Name, Mädchen? Sprecht!~
+
+@3    = ~Ihr seht sehr nervös aus. Ist alles in Ordnung?~
+@4    = ~Ich... Ich bin Vesine. Potencius hat mir hier ein Heim angeboten.~
+
+@5    = ~Ihr habt kein eigenes Zuhause?~
+@6    = ~Ist das nicht schön? Das habt Ihr doch nur getan, damit Ihr an etwas zu essen und seine magischen Sachen herankommt.~
+@7    = ~Ja... nun, nein. Ich hatte mal ein Zuhause... aber diese Zeiten sind vorbei. Mein geliebtes Wasser... verschwunden.~
+
+@8    = ~Wartet eine Minute... Eure Hautfarbe ist ja blau!~
+@9    = ~Hmm... blaue Haut, Wasser... Ihr müsst eine aquatische Elfin sein! Eure Rasse ist sehr selten und kaum auf dem Land zu finden. Wie seid Ihr hierher gekommen?~
+
+@10   = ~Wasser... das erklärt wohl auch, warum Ihr Euch diesen Ort als Heim ausgesucht habt.~
+@11   = ~J-ja... so ist es. Ich bin ein See-Elfin. Ich... Ich will nicht für immer hier bleiben. Ich suche nach einer Aufgabe. Vielleicht ins Abenteuer ziehen? Wie Ihr?~
+@12   = ~Whoa, jetzt aber... Das Abenteurerleben ist nur etwas für diejenigen, die auch damit zurecht kommen. Ihr seht nicht danach aus, als ob Ihr dem gewachsen wäret.~
+
+@13   = ~Ihr würdet innerhalb von zehn Minuten tot sein, wenn Ihr mit mir kommen würdet! Kommt gar nicht in Frage! Hofft bloss nicht darauf, das ich Euch mitnehme. Daraus wird nichts.~
+
+@14   = ~Na schön. Sagt mir, was Ihr könnt.~
+@15   = ~Ja, das bin ich! Ihr habt keine Ahnung, was ich durchgemacht habe! Wie könntet Ihr auch!? Ich bin eine aquatische Druidin und habe mehr auf dem Kasten, als Ihr Euch vorstellen könnt!~
+@16   = ~Ähm... Es... Es tut mir Leid. Ich habe wohl meine Beherrschung verloren... vergebt mir. Ich möchte einfach nur ins Abenteuer ziehen... am liebsten mit einem Helden wie Euch. Was sagt Ihr dazu?~ ~Ähm... Es... Es tut mir Leid. Ich habe wohl meine Beherrschung verloren... vergebt mir. Ich möchte einfach nur ins Abenteuer ziehen... am liebsten mit einer Heldin wie Euch. Was sagt Ihr dazu?~
+@17   = ~Ich möchte niemanden mit einer geteilten Persönlichkeit in meiner Gruppe haben. Lebt wohl.~
+
+@18   = ~Dann kommt. Ihr seid willkommen und könnt Euch anschliessen.~
+@19   = ~Verzeiht, aber ich habe momentan keinen Platz für Euch. Ich werde mal nachdenken, was ich später für Euch tun kann.~
+
+@20   = ~Ich... Ich habe keine geteilte Persönlichkeit! Aber es ist Eure Entscheidung... Ich werde hier sein, wenn Ihr Eure Meinung ändern solltet... Ich... Vergesst es.~
+
+@21   = ~W-Wirklich? Danke! Ich kann Euch gar nicht genug danken! Gehen wir... Ich werde Euch zeigen, was ich alles kann!~
+
+@22   = ~(*Seufz*)... Na gut. Das ist akzeptabel... aber vergewissert Euch, dass Ihr auch zurückkommt!~
+
+@23   = ~Wie könnt Ihr es wagen, so etwas zu sagen! Ihr habt keine Ahnung, was ich alles durchgemacht habe! Wie könntet Ihr auch!? Ich bin eine aquatische Druidin und bin zu wesentlich mehr in der Lage, als Ihr Euch vorstellen könnt!~
+
+@24   = ~Ich bin eine Druidin. Eine aquatische Druidin. Nur wenige können das Wasser so wie ich beherrschen, doch die Druiden der Wälder würden mich bei sich nicht akzeptieren.~
+
+@25   = ~Ihr scheint mir sehr nützlich zu sein. Ihr könnt Euch meiner Gruppe anschliessen, wenn Ihr wollt.~
+
+@26   = ~Eine Druidin? Äh... Nein, ich brauche keine Druiden in meiner Gruppe. Lebt wohl.~
+@27   = ~Ich... Ich war verlassen. Meine Gefährten und ich waren auf einer Expedition zur Oberfläche, um Handel zu betreiben.~
+
+@28   = ~Wir folgten einer Spur durch den Wald, die entlang eines Baches verlief. Anscheinend hatten uns einige Banditen entdeckt. Ich weiss nicht, wie es den anderen erging, aber ich hatte das Gefühl, dass uns jemand folgte.~
+
+@29   = ~Wie aus dem Nichts wurden wir plötzlich überfallen. Meine Gefährten wichen den Banditen aus und rannten in Deckung. Aber... Ich war die erste, die am Boden lag. Ein Bandit traf mich mit etwas hartem am Hinterkopf.~
+
+@30   = ~Es hatte mich kalt erwischt. Meine Gruppe war davongerannt, in dem Glauben, dass ich noch bei ihnen war.~
+
+@31   = ~Als ich zu mir kam, trug mich einer meiner Entführer auf seiner Schulter. Ich konnte nur wenig ausrichten.~
+@32   = ~Den Göttern sei Dank kam an diesem Tag ein guter Magier die Strasse entlang... Er kaufte mich mit falschem Gold von den Banditen und liess mich frei.~
+
+@33   = ~Er hat auch diesen Ring für mich verzaubert. Er ermöglicht es mir, dauerhaft an Land zu bleiben, ohne dass ich sterben muss... obwohl ich immer gerne in der Nähe des Wassers bin.~
+
+@34   = ~Eine Zeit lang wanderte ich umher. Dann kam ich zu diesem Gasthaus und Potencius bot mir ein Heim an... zumindest vorübergehend.~
+@35   = ~Interessante Geschichte. Ich sage Euch etwas... Schliesst Euch meiner Gruppe an, dann werden wir sehen, ob Ihr Schritt halten könnt.~
+
+@36   = ~Ihr seid offensichtlich die Schwächste Eurer Gefährten gewesen. Deswegen gibt es auch keinen Grund, warum ich Euch mitnehmen sollte.~
+@37   = ~Es sieht so aus. als hättet Ihr viel durchgemacht. Ich möchte Euch nicht unnötig in Gefahr bringen.~
+@38   = ~Ihr versteht nicht. Ich kann schon ganz gut auf mich selbst aufpassen.~
+
+@39   = ~Sagt mir, was Ihr alles könnnt.~
+@40   = ~Ist ja schon gut. Ihr könnt Euch anschliessen. Aber hängt nicht hinterher.~
+@41   = ~Ich riskiere niemanden für meine eigenen Kämpfe. Es tut mir Leid, aber ich kann Euch nicht mitnehmen.~
+
+@42   = ~Ja... Das Wasser spendet Trost, aber... Ich brauche es nicht mehr. Diese Zeiten sind vorbei.~
+@43   = ~Nein! Nein, wirklich... Potencius hat mir hier ein Heim angeboten. Ich möchte aber gerne ein eigenes Zuhause haben... mit Wasser so wie hier. Aber die Zeiten sind vorbei.~
+@44   = ~Es geht mir gut ... Ich schätze, dass ich mich erst einmal vorstellen sollte.~
+
+@45   = ~Ihr seid zurück! Bite nehmt mich mit. Hier gibt es so wenig zu tun...~
+@46   = ~Dann kommt. Gehen wir.~
+@47   = ~Verzeiht, ich kam nur zufällig vorbei.~
+@48   = ~Ich habe im Moment keinen Platz. Vielleicht ein anderes Mal.~
+
+@49   = ~Ich danke Euch! Möge der Regen in Strömen fallen, während wir reisen!~
+
+@50   = ~Ich... Ich sehe es. Bitte, wenn Ihr es Euch anders überlegen solltet... nehmt mich mit!~
+@51   = ~Ja, <CHARNAME>?~
+@52   = ~Ist alles in Ordnung?~
+@53   = ~Oh, nichts.~
+@54   = ~Beschäftigt Euch etwas?~
+
+@55   = ~Ich bin schwer verwundet... könntet Ihr mich vielleicht heilen? Ich weiss nicht, wie weit ich mit diesen Schnitten und Schrammen noch komme.~
+
+@56   = ~Natürlich. Ich werde Euch sogleich heilen.~
+
+@57   = ~Geht weiter. Wir werden nicht mehr lange unterwegs sein.~
+
+@58   = ~Oohh... Die arme Vesine hat ein paar Schnitte und Schrammen? Hätte die kleine Vesine vielleicht gerne einen Verband?~
+@59   = ~Okay... Ich glaube, ich werde es schaffen. Haltet mich einfach nur im Hintergrund, verstanden?~
+
+@60   = ~Wollt Ihr endlich ruhig sein!? Ich bin durch Eure sarkastischen Bemerkungen schon genug verletzt.~
+
+@61   = ~Ich habe nur ein paar Kratzer. Kein Grund, sich Sorgen zu machen.~
+
+@62   = ~Gut. Verletzt Euch jetzt bloss nicht selbst.~
+@63   = ~Dann lasst mich Euch mal heilen. Es reist sich besser, wenn wir alle geheilt sind.~
+
+@64   = ~Glaubt mir, ich mache mir um Euch überhaupt keine Sorgen.~
+@65   = ~Werde ich nicht. Danke für Eure Sorge.~
+
+@66   = ~Sehr gut. Heilung wäre schön...~
+
+@67   = ~Ist das nicht schön zu hören? Hmph... Aber ich denke, so seid ihr Abenteurer nun mal. Wir sollten auf jeden Fall weitermachen. Mir geht es schon gut.~
+
+@68   = ~Ich bin fit wie ein Turnschuh! Machen wir uns wieder auf den Weg. Ich könnte noch stundenlang weiterziehen...~
+
+@69   = ~Ausgezeichnet. Dann lasst uns wieder weitermarschieren.~
+
+@70   = ~Ist das nicht grossartig? Ihr wollt schneller machen, während der Rest von uns total fertig ist.~
+
+@71   = ~Aber... Euch scheint es gut zu gehen. Wenn Ihr nicht Schritt halten könnt, sagt es einfach und ich werde das Tempo verlangsamen.~
+
+@72   = ~Äh... hmm. Ja. Ziehen wir einfach weiter.~
+@73   = ~Macht ein bisschen langsamer. Ich komme nicht mehr mit.~
+@74   = ~Schön, aber versucht nicht, zu langsam zu gehen. Ich hasse es, wenn ich mich langweile...~
+@75   = ~Verzeiht, ich vergaß, Eure Gesundheit mit in Betracht zu ziehen. Ich werde ein wenig langsamer machen.~
+
+@76   = ~Dieser Hafen... ist einfach wundervoll, oder nicht? Seht Euch all das Wasser an... Es ist so blau und wunderschön. Ich könnte für immer hier bleiben.~
+
+@77   = ~Ja, das Wasser ist sehr schön.~
+
+@78   = ~Ihr könnt nicht für immer hier bleiben. Habt Ihr vergessen, dass Ihr mit mir kommen wolltet?~
+@79   = ~Ihr würdet hier nicht leben wollen. Diebe und Mörder treiben sich die ganze Zeit hier herum.~
+
+@80   = ~Hier fühle ich mich meiner Heimat so nahe...~
+@81   = ~Ja... Ja natürlich, <CHARNAME>! Das Meer - meine Heimat - ist verführerisch, aber ich möchte ein Abenteurerleben mit Euch führen! Das ist es doch, was das Leben ausmacht, oder?~
+
+@82   = ~Kann schon sein. Ich wollte noch nie mit dem Abenteurerleben aufhören.~
+
+@83   = ~Nein, ich möchte mich eines Tages niederlassen.~
+@84   = ~Ich weiss es wirklich nicht.~
+@85   = ~Obwohl ich am liebsten anhalten würde, um mein Zuhause wieder zu sehen... im Wasser. Vielleicht werde ich dort eines Tages Abenteuer erleben.~
+@86   = ~Ihr wollt Euch niederlassen? Das hätte ich mir bei Eurem Lebensstil nie träumen lassen. Ich möchte noch nicht aufhören... aber vielleicht werde ich meine Heimat eines Tages wieder besuchen. Wenn ich sie wiederfinde...~
+
+@87   = ~Oh, kommt schon! Ihr wollt doch mit mir weiterziehen! Hey, vielleicht kann ich Euch mein Zuhause zeigen, bevor wir hier fertig sind.~
+@88   = ~I-Ich weiss... aber das Wasser schimmert so schön... Ich glaube nicht, dass ich mich für die schlechten Dinge interessieren würde, die hier überall sind.~
+
+@89   = ~Ist dieser Ort nicht riesig? Selbst die Städte der Elfen sind nichts, im Vergleich zur Grösse dieses Ortes!~
+
+@90   = ~Dies ist nicht einmal einer der größten Orte im Land. Ihr solltet Euch einmal Tiefwasser ansehen.~
+
+@91   = ~Aber die Elfenstädte haben so viel Grazie und Charakter. Dieser Ort ist ein Schandfleck.~
+@92   = ~Er ist gross. Dagegen sieht Kerzenburg richtig klein aus.~
+@93   = ~Oh, ich möchte so gerne! Aber... aber ich möchte noch jemanden wie mich auf unserem Weg treffen... einen anderen See-Elfen...~
+
+@94   = ~Nun. es ist gar nicht so schlecht... Aber Ihr könnt die Städte der Menschen nicht mit Elfenstädten vergleichen. Das ist nicht fair...~
+@95   = ~Elfenstädte sind in der Tat fern ab jeden Vergleichs. Es macht mich stolz, dass meine Ahnen sie erbaut haben.~
+
+@96   = ~Wollt Ihr damit sagen, dass alles elfische besser als alles menschliche ist? Sprecht!~
+@97   = ~Ich schätze, Ihr habt Recht. Wir sollten uns besser beeilen. Viele an diesem großen Ort wollen mich am liebsten tot sehen.~
+
+@98   = ~Ich wuchs in einer Elfenstadt auf... eine, die in der Nähe des Meeres lag. Aber jetzt ist sie so weit weg. Ich kann nie wieder zurückkehren... wir müssen mit dieser Unterhaltung aufhören. Hehe... I-Ich deprimiere mich sonst nur noch selbst...~
+
+@99   = ~Eigentlich schon... Denn Elfen gibt es ja schon länger und sie sind viel begnadeter... die Menschen haben nicht viel Hoffnung.~
+@100  = ~Ich will niemanden in meiner Gruppe haben, der eine starke Abneigung gegen Rassen hat, die nicht elfisch sind. Geht.~
+@101  = ~Ich schätze, Ihr habt Recht. Kommt, machen wir uns wieder auf den Weg.~
+
+@102  = ~W-was? Nein, nein... So habe ich das nicht gemeint! Bitte, lasst mich bleiben!~
+@103  = ~Ich sagte, Ihr sollt gehen. Geht jetzt.~
+
+@104  = ~Bleibt. Aber keine dummen Kommentare mehr von Euch. Habt Ihr das verstanden?~
+
+@105  = ~Oh, nein... nein... Ich gehe zurück zum Gasthaus zum Sonnensee... wenn Ihr Eure Meinung ändern solltet, dann f-findet Ihr mich dort.~
+@106  = ~D-Danke, <CHARNAME>. Das wird nicht wieder passieren. Es tut mir Leid...~
+
+@107  = ~Ja, gehen wir... Ich möchte nicht die Ursache für jeden Schaden sein, der Euch widerfährt...~
+
+@108  = ~Kerzenburg? Seid Ihr dort aufgewachsen? Wann seid Ihr von dort gegangen?~
+
+@109  = ~Ich ging, als mein Mentor, Gorion starb.~
+
+@110  = ~Sobald ich alt genug dazu war, ging ich, um ein Leben als Abenteurer zu führen.~
+ ~Sobald ich alt genug dazu war, ging ich, um ein Leben als Abenteurerin zu führen.~
+
+@111  = ~Ich wurde dazu gezwungen, zu gehen.~
+
+@112  = ~Das ist ziemlich traurig... Aber wir scheinen etwas gemeinsam zu haben. Ich habe mein Zuhause auch verlassen, nachdem mein Mentor gestorben war.~
+
+@113  = ~Er wurde bei einem Überfall der Sahuagin-Bestien getötet... Wie ich diese Kreaturen hasse...~
+
+@114  = ~Das ist offensichtlich. Haha... Ich weiss nicht, warum ich gefragt habe. Ihr seid immer zum Kampf bereit, oder brennt darauf, ein Geheimnis zu lüften. Ich war nicht so, bevor mein Mentor, mein Vater, starb...~
+@115  = ~Da Ihr hier seid, nehme ich an dass Ihr nicht zurückkehren könnt. Dann haben wir etwas gemeinsam... Ich kann auch nicht wieder zurückkehren. Es ist zu weit weg und ich war auch zu lange weg...~
+
+@116  = ~Dieser Wald... Ich erinnere mich an diesen Ort!~
+@117  = ~Hier sind meine Gefährten und ich während der Expedition durchgekommen... Hier in der Nähe müssen wir überfallen worden sein.~
+@118  = ~Könnt Ihr das Reisen auch ohne zusammenzubrechen bewerkstelligen?~
+@119  = ~Wie amüsant. Lasst uns fortfahren. Euer Geschwätz langweilt mich.~
+
+@120  = ~I-Ich denke schon... Können wir vielleicht in der Nähe von Bächen bleiben? Ich möchte hier nicht in Schwierigkeiten geraten, und-und am Wasser fühle ich mich sicherer.~
+
+@121  = ~Das ist also Handelstreff, wie? Das war eines der Ziele unserer Expedition an der Oberfläche. Wir sind hier nie angekommen.~
+
+@122  = ~Das ist schade. Handelstreff ist ein sehr interessanter Ort, um einen Besuch zu machen.~
+@123  = ~Jaaa, weil man Euch auf den Kopf geschlagen hat! HA!~
+@124  = ~Zumindest bekomme ich eine Chance, es zu veruchen...~
+
+@125  = ~Ihr müsst eine soziale Störung oder etwas ähnliches haben. Habt Ihr schon einemal über psychiatrische Hilfe nachgedacht? Oder braucht Ihr einen Platz in der Zauberfeste?~
+
+@126  = ~Ja, das habe ich. DAS hat mir anscheinend nicht sehr gut getan! Trallala, Hoppsassa! Uaaahhhh!~
+@127  = ~Ich bin kerngesund. Ich hielt es nur für ziemlich lustig, mich über Eure lebensverändernden Erfahrungen lustig zu machen.~
+
+@128  = ~Bei den Göttern! Ihr braucht geistige Hilfe! Beruhigt Euch!~
+
+@129  = ~Ihr solltet Euch vielleicht vorher überlegen, was Ihr zu mir sagt. Ich möchte nicht, dass man sich über mich lustig macht.~
+@130  = ~Hier sind also all die anderen Druiden... sie werden es mir nicht erlauben, mich ihnen anzuschliessen.~
+@131  = ~Wirklich? Warum nicht?~
+
+@132  = ~Ihr seid Mitleid erregend. Marschiert, damit ich Euch nicht sinnlos schlagen muss!~
+
+@133  = ~Das ist ziemlich übel. Kommt, lasst uns sehen, ob wir das ändern können.~
+
+@134  = ~Sie behaupten, ich könne die Balance nicht wie die anderen bewahren. Ich sei zu instabil.~
+
+@135  = ~Ihr scheint mir sehr stabil zu sein.~
+
+@136  = ~Ich glaube, ich verstehe, warum sie das behaupten.~
+@137  = ~Schön. Könnten wir diese Unterhaltung vielleicht ein anderes Mal fortsetzen?~
+
+@138  = ~Danke, aber anscheinend denken die Druiden das nicht. Seht zu, ob Ihr irgendetwas für mich tun könnt, wenn Ihr sie seht. In Ordnung?~
+@139  = ~Ich habe Euch nicht nach Eurer Meinung gefragt! Ich gehe davon aus, dass Ihr keine Hilfe sein werdet, damit mich die Druiden akzeptieren.~
+@140  = ~Ich brauche nicht Eure Erlaubnis, um meine Meinung zu äussern.~
+
+@141  = ~Es tut mir Leid, ich hatte nicht vor, Euch zu kränken. Wenn ich eine Gelegenheit sehe, versuche ich, Euch einzubringen.~
+
+@142  = ~Was auch immer.~
+@143  = ~Nun, dann seid wenigstens etwas rücksichtsvoller, ja?~
+
+@144  = ~Danke. Ich hoffe inständigst, dass Ihr mir helfen könnt, aufgenommen zu werden.~
+
+@145  = ~Wollt Ihr wohl aufhören, derlei Drohungen zu machen? Ich neige schon fast dazu, die Gruppe augenblicklich zu verlassen.~
+@146  = ~Mir gefällt es hier ganz und gar nicht, <CHARNAME>.~
+
+@147  = ~Hier ist es doch ziemlich gemütlich. In einer dunklen, gefährlichen Art und Weise.~
+
+@148  = ~Das tue ich auch nicht. Ich will hier nur unsere Aufgaben erledigen und dann verschwinden.~
+@149  = ~Die Dunkelefen leben hier unten, oder nicht?... Ich habe so viele Geschichten über sie gehört. Wenn wir welche treffen sollten, achtet darauf, dass sie meine Hautfarbe nicht erkennen. Sie mögen keine Elfen der Oberfläche! Mir wurde gesagt, dass sie meine Rasse sogar noch mehr hassen.~
+@150  = ~Wir müssen von hier verschwinden, <CHARNAME>! Sobald sie herausgefunden haben, dass ich eine See-Elfin bin, bin ich so gut wie tot!~
+@151  = ~Beruhigt Euch doch. Warum sollten sie Euch töten wollen?~
+@152  = ~Ich weiss, ich weiss... Ich laufe ja schon so schnell wie ich kann.~
+@153  = ~Ganz ruhig. Wenn jemand versuchen sollte, Euren Kopf abzubeißen, dann schreit nach mir.~
+@154  = ~Ich bin eine See-Elfin! Diese Haibestien fangen und essen meine Leute! Sie haben für uns nichts übrig... besonders wenn wir uns wehren. Wenn sie mich frei herumlaufen sehen, dann werden sie denken, dass ich entweder eine Spionin oder eine Auftragskillerin bin! Ihr müsst mich von hier fort bringen!~
+@155  = ~Was interssiert es mich, wenn sie Euch fressen sollten? Nur ein weiterer nerviger Elf weniger, mit dem ich mich abgeben muss.~
+
+@156  = ~Ich suche in diesem Augenblick einen Ausweg. Bleibt dicht bei mir und lasst Eure Kapuze auf.~
+
+@157  = ~Ihr müsst einfach versuchen ruhig zu sein. Wenn Ihr ihre Aufmerksamkeit nicht erregt, bekommen sie vielleicht nicht mit, dass Ihr eine See-Elfin seid.~
+@158  = ~Das stimmt! Was geht Euch das schon an? Euch ist es egal, aber ich möchte lange genug am Leben bleiben, um von hier zu verschwinden. Zieht einfach keine Aufmerksamkeit auf mich, dann werden sie meine Hautfarbe vielleicht nicht erkennen.~
+
+@159  = ~Okay, ich werde es versuchen. Erwähnt mich nicht einmal vor ihnen. Vielleicht werden sie mich ignorieren.~
+
+@160  = ~Das ist mir aber nicht schnell genug! Lasst und GEHEN!~
+
+@161  = ~<CHARNAME>, ich habe nie geglaubt, dass dies jemals geschehen würde, aber... Ich fürchte mich... diese Dinger zermartern mein Gehirn! Bitte lasst es nicht zu!~
+
+@162  = ~Ihr seid nicht allein. Ich fürchte mich auch.~
+
+@163  = ~Das würde ich niemals zulassen.~
+@164  = ~Unser furchtsames, kleines Baby. Soll ich Euch die Flasche geben?~
+@165  = ~D-Das ist gut zu wissen. Zumindest geht es nicht nur mir so.~
+@166  = ~G-gut... haltet sie auf Abstand... Ich glaube nicht, dass ich es mit ihnen aufnehmen könnte!~
+@167  = ~Was soll das mit Euch und diesem Baby-Geschwätz? Ihr seid manchmal so derart herablassend...~
+@168  = ~Wir... wir sind in ein einer Elfenstadt! Suldanessalar! Ich habe so viel über diesen Ort gehört.~
+
+@169  = ~Interessant. Erzählt mir mehr.~
+@170  = ~Könnten wir bitte etwas mehr über Strategie sprechen, als uns über Prachtbauten zu unterhalten?~
+@171  = ~Ja, das sind wir. Wunderschön, oder nicht?~
+@172  = ~Als Kind habe ich immer davon geträumt, hierher zu kommen... Ich wuchs in der Nähe der Mondschein-Inseln auf, und die Ältesten in unserem Dorf sprachen immer von Suldanessalar, als ob es ein Märchen wäre. Aber... jetzt bin ich wirklich hier!~
+
+@173  = ~Es tut mir Leid, aber dieser Ort ist so... legendär!~
+
+@174  = ~Noch schöner, als ich es mir je vorgestellt hatte! Denkt doch nur... wäre ich nicht überfallen worden, dann hätte ich diesen Ort niemals zu Gesicht bekommen. Der Magier hätte mir nie diesen Ring gegeben, und ich wäre nicht in der Lage, lange ohne Wasser zu sein.~
+@175  = ~Das Gute entwickelt sich manchmal aus dem Bösen.~
+
+@176  = ~Also, wenn DAS nicht wundervoll ist. Kommt, hört auf, herumzuglotzen. Wir haben hier etwas zu erledigen.~
+@177  = ~Also tun sie es! Ich würde mir nur wünschen, dass ich meine Heimat besuchen könnte... das bedauere ich am meisten.~
+@178  = ~Sind wir... Sind wir tot? Was ist das für ein Ort?~
+@179  = ~Das scheint die Hölle zu sein.~
+@180  = ~Das ist offensichtlich das sagenumwobene Wunderland. Wart Ihr noch nie dort?~
+@181  = ~Ich weiss nicht, wo wir sind.~
+@182  = ~Das ist keine gute Sache... bringt uns hier raus... bald.~
+@183  = ~Das ist nicht lustig, <CHARNAME>! Ich habe mich in meinem Leben an einem Ort noch nie so gefürchtet... meine Haut fühlt sich an, als würde sie brennen, aber es ist nicht heiss. Mein Magen dreht sich, doch ich bin nicht krank... hier stimmt definitiv etwas nicht.~
+@184  = ~Oh, nein... Ich hoffe, wir können von hier lebend entkommen. Ich glaube nicht, dass ich mich jemals so gefürchtet habe...~

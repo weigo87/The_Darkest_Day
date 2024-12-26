@@ -1,0 +1,66 @@
+IF
+  Global("tz_items_equip","LOCALS",0)
+THEN
+  RESPONSE #100
+    GiveItemCreate("DDvesRN1",Myself,0,0,0)
+    UseItem("DDvesRN1",Myself)
+    GiveItemCreate("DDves01",Myself,0,0,0)
+    FillSlot(SLOT_WEAPON0)
+    SetGlobal("tz_items_equip","LOCALS",1)
+END
+
+IF
+  Global("tz_player1_high_level","LOCALS",0)
+  CheckStatGT(Player1,12,LEVEL)
+THEN
+  RESPONSE #100
+    GiveItemCreate("DDvesRN1",Myself,0,0,0)
+    UseItem("DDvesRN1",Myself)
+    SetGlobal("tz_player1_high_level","LOCALS",1)
+END
+
+IF
+  Global("tz_Been_In_Party","LOCALS",0)
+  InParty(Myself)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_Been_In_Party","LOCALS",1)
+END
+
+IF
+  !InParty(Myself)
+  Global("tz_Leave_Party_Dialog","LOCALS",0)
+  Global("tz_KickedOut","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_Leave_Party_Dialog","LOCALS",1)
+END
+
+IF
+  !InParty(Myself)
+  Global("tz_Been_In_Party","LOCALS",1)
+  Global("tz_KickedOut","LOCALS",0)
+  Global("tz_Leave_Party_Dialog","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_Leave_Party_Dialog","LOCALS",1)
+    SetDialogue("VESINEP")
+    Dialog(Player1)
+END
+
+IF
+  Global("tz_random_talk_disabled","GLOBAL",0)
+  Detect([ENEMY])
+THEN
+  RESPONSE #100
+    SetGlobal("tz_random_talk_disabled","GLOBAL",1)
+END
+
+IF
+  Global("tz_random_talk_disabled","GLOBAL",1)
+  !Detect([ENEMY])
+THEN
+  RESPONSE #100
+    SetGlobal("tz_random_talk_disabled","GLOBAL",0)
+END
+

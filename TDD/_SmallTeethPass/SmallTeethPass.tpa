@@ -1,0 +1,102 @@
+DEFINE_ACTION_MACRO InstallSpecificContents
+BEGIN
+	APPEND ~PDIALOG.2da~ ~VESINE VESINEP VESINEJ *** *** *** *** ***~
+	
+	EXTEND_TOP ~AR0020.bcs~ ~%workspace%/%COMP_FOLDER%/tAR0020.baf~
+	EXTEND_TOP ~AR1700.bcs~ ~%workspace%/%COMP_FOLDER%/tAR1700.baf~
+	EXTEND_BOTTOM ~Baldur.bcs~ ~%workspace%/%COMP_FOLDER%/baldur.baf~
+	
+	// Kits Psicere.cre Harch
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible	   = 0
+			kit_class  = 11  // Druid
+			mixed      = RESOLVE_STR_REF(@21578)
+			lower      = RESOLVE_STR_REF(@215780)
+			help       = RESOLVE_STR_REF(@21579)
+			// EE-specific arguments    
+			briefdesc  = RESOLVE_STR_REF(@21579)
+		STR_VAR
+			kit_name   = ~TDD_Aquatic~
+			unusable   = ~0X10000000~
+			clasweap   = ~1 0 1 0 0 1 0 1~
+			weapprof   = ~0 0 0 0 1 1 0 0 0 0 0 0 0 0 1 1 0 1 1 0 0 0 1 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq   = ~0 0 0 0 12 15~
+			abclsmod   = ~0 0 0 0 0 0~
+			abdcdsrq   = ~0 0 0 0 17 17~
+			abdcscrq   = ~0 0 0 0 15 15~
+			alignmnt   = ~0 0 0 0 1 0 0 0 0 ~
+			dualclas   = ~1 0 0 0 0 0 ~
+			luabbr     = ~Dr0~
+			stweap     = ~LEAT20 * HELM19 BAG27 RING06 RING31 CLCK02 BOOT01 AMUL19 BRAC14 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path  = EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI22.2DA~
+			kittable   = ~K_D_HE K_D_H~
+			// EE-specific arguments
+			clsrcreq   = ~1 0 1 0 0 0 0~
+			clswpbon   = ~0 0 3~
+			hpclass    = ~HPPRS~
+			numwslot   = ~2~
+			clascolr   = ~30 86 37 1 110~
+			bdstweap   = ~LEAT05 * * * RING06 * * * * BRAC02 BELT02 * BULL02,40 * POTN08,5 POTN17,3 * SLNG02 BLUN36 STAF02~
+		RET
+			kit_id
+	END
+	
+	COPY_EXISTING ~VESINE8.cre~  ~override~   //override - to catch immediate Kit Pack installation
+				~VESINE11.cre~ ~override~
+				~VESINE13.cre~ ~override~
+		SAY 0x1cc @20465         //yet incomplete biography!!!!!!!!!!!!!
+		WRITE_LONG 0x244 ((kit_id + 0x4000) << 16)
+	
+	COPY ~%MOD_FOLDER%/_KITS/SPL/SPAQUA2.spl~          ~TDD-SPL~
+		SAY NAME1 @21580
+
+	COPY ~%MOD_FOLDER%/_KITS/SPL/SPAQUQ3.spl~          ~TDD-SPL~
+
+	COPY ~%MOD_FOLDER%/_KITS/ITM/SEAHAND.itm~          ~TDD-ITM~
+
+	
+	COPY_EXISTING ~DDNAMCH1.itm~ ~override~   //This is for male title change for some languages
+		SAY 0xae @21782
+
+	COPY_EXISTING ~DDNAMCH2.itm~ ~override~   //This is for female title change for some languages-POCT1B
+		SAY 0xae @21783
+  
+	LAM PatchAR1700
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO PatchAR1700 BEGIN
+	COPY_EXISTING ~AR1700.are~ ~override~
+		LPM SetAnimationsInCombatFlag
+		LPF fj_are_structure
+			INT_VAR
+			fj_type         		= 2    						
+			fj_box_left     		= 357                       
+			fj_box_top      		= 956                       
+			fj_box_right    		= 436                       
+			fj_box_bottom   		= 1079                      
+			fj_cursor_idx           = 30							
+			fj_flags                = 0x00000004                
+			fj_loc_x				= 3921                      
+			fj_loc_y				= 3752                       
+			fj_vertex_0     		= 357 + (1031 << 16)  
+			fj_vertex_1     		= 381 + (1079 << 16)  
+			fj_vertex_2     		= 436 + (1033 << 16)  
+			fj_vertex_3     		= 364 + (956  << 16)  
+			STR_VAR                                             
+			fj_structure_type   = region                        
+			fj_name             = Trans_DD0119                      
+			fj_destination_area	= DD0119                        
+			fj_destination_name = Exit0200                      
+		END
+		LPF fj_are_structure
+			INT_VAR
+			fj_loc_x       = 435 
+			fj_loc_y       = 1040 
+			fj_orientation = 8
+			STR_VAR
+			fj_structure_type = entrance
+			fj_name           = Exit0119
+		END
+END

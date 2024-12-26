@@ -1,0 +1,72 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player1)
+		Wait(1)
+		FadeToColor([30.0],0)
+		Wait(2)
+		JumpToPoint([650.1340])
+END
+
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player2)
+		Wait(3)
+		JumpToPoint([696.1328])
+END
+
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player3)
+		Wait(3)
+		JumpToPoint([670.1385])
+END
+
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player4)
+		Wait(3)
+		JumpToPoint([712.1376])
+END
+
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player5)
+		Wait(3)
+		JumpToPoint([675.1423])
+END
+
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId(Player6)
+		Wait(3)
+		JumpToPoint([728.1413])
+END
+
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("POcre001")
+		SetHomeLocation([639.1290])
+		Wait(3)
+		JumpToPoint([639.1290])
+		MoveViewPoint([639.1292],INSTANT)
+		Wait(2)
+		FadeFromColor([30.0],0)
+		Wait(2)
+		EndCutSceneMode()
+END
+
+

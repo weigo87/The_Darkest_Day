@@ -273,6 +273,20 @@ BEGIN ~Avaunis~
 
 	LAF ImportComponent STR_VAR aComp = ~Avaunis~ END
 
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// The Darkest Day : Small Teeth Pass			   \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN ~Small Teeth Pass~
+	DESIGNATED 9
+	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
+
+	LAF ImportComponent STR_VAR aComp = ~SmallTeethPass~ END
+
 //=============================================================================
 /* USED DURING INITIAL DEVELOPMENT - NOT USED NOW*/
 //BEGIN ~DEBUG~

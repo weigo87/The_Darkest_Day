@@ -1,0 +1,32 @@
+IF
+  HitBy([ANYONE],CRUSHING)
+THEN
+  RESPONSE #100
+    DisplayStringHead(Myself,@10154)
+    Wait(2)
+  RESPONSE #100
+    DisplayStringHead(Myself,@10155)
+    Wait(2)
+  RESPONSE #100
+    DisplayStringHead(Myself,@10156)
+    Wait(2)
+END
+
+IF
+  Detect([PC])
+  Range([0.0.0.FOOD_CREATURE],6)
+  See([0.0.0.FOOD_CREATURE])
+THEN
+  RESPONSE #100
+    AttackOneRound([0.0.0.FOOD_CREATURE])
+  RESPONSE #100
+    RandomWalk()
+END
+
+IF
+  True()
+THEN
+  RESPONSE #100
+    RandomWalk()
+END
+

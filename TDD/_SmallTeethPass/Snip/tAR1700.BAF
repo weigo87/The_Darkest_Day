@@ -1,0 +1,55 @@
+IF
+        Global("tz_EnteredWyvern","GLOBAL",0)
+THEN
+        RESPONSE #100
+                 SetGlobal("tz_EnteredWyvern","GLOBAL",1)
+                 Continue()
+END
+
+IF
+	Global("tz_POcre001_spawn","AR1700",0)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_POcre001_spawn","AR1700",1)
+		CreateCreature("POcre001",[482.2480],0) // Sending
+                Continue()
+END
+
+IF
+	Global("tz_DD_PO_quest","GLOBAL",1)
+	Global("tz_spawn_party","AR1700",0)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_spawn_party","AR1700",1)
+		CreateCreature("DD1700RA",[2994.1111],14) // Yulur
+		CreateCreature("DD1700CL",[3038.1061],0) // Berun
+		CreateCreature("DD1700FI",[3053.1116],2) // Giron
+		CreateCreature("DD1700WI",[3196.1075],1) // Slurice
+                Continue()
+END
+
+IF
+	Global("tz_DD_1700party_move","GLOBAL",2)
+THEN
+	RESPONSE #100
+		CreateCreature("DD1700RA",[340.1166],12) // Yulur
+		CreateCreature("DD1700CL",[379.1182],11) // Berun
+		CreateCreature("DD1700WI",[289.1160],10) // Slurice
+		CreateCreature("DD1700FI",[288.1194],13) // Giron
+		SetGlobal("tz_DD_1700party_move","GLOBAL",3)
+                Continue()
+END
+
+IF
+	Global("tz_DD_PO_quest","GLOBAL",1)
+	Dead("DD1700RA") // Yulur
+	Dead("DD1700CL") // Berun
+	Dead("DD1700WI") // Slurice
+	Dead("DD1700FI") // Giron
+THEN
+	RESPONSE #100
+		SetGlobal("tz_DD_PO_quest","GLOBAL",2)
+                Continue()
+END
+
+
