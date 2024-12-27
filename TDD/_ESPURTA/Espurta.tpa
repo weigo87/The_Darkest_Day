@@ -23,7 +23,7 @@ DX2001   value~
 	LAM HandleSpellScrollsContract	
 	LAM HandleItemsContract	
 	
-	EXTEND_TOP ~AR0020.bcs~ ~%workspace%/%COMP_FOLDER%/tAR0020.baf~
+	EXTEND_TOP ~AR0020.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/tAR0020.baf~
 
 // EE Version	
 	// Barheal.sto gets medium wounds heal

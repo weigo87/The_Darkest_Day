@@ -1,8 +1,8 @@
 DEFINE_ACTION_MACRO InstallSpecificContents
 BEGIN		
 	
-	EXTEND_BOTTOM ~AR0300.bcs~ ~%workspace%/%COMP_FOLDER%/bAR0300.baf~
-	EXTEND_BOTTOM ~ar1600.bcs~ ~%workspace%/%COMP_FOLDER%/bar1600.baf~
+	EXTEND_BOTTOM ~AR0300.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/bAR0300.baf~
+	EXTEND_BOTTOM ~ar1600.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/bar1600.baf~
 	APPEND ~PDIALOG.2DA~ ~ROBILARD     ROBILP             ***               ***                ***    	      ***    		    ***    		        ***~ UNLESS ~ROBILARD~
 	
 	COPY_EXISTING ~ROBILARD.cre~ ~override~

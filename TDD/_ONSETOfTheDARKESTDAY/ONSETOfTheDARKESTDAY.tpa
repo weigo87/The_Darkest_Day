@@ -53,8 +53,8 @@ UNLESS ~ARPO05~
 		SAY 0x308 @20084
 		SAY 0x3cc @20084
 	
-	EXTEND_BOTTOM ~AR0300.bcs~ ~%workspace%/%COMP_FOLDER%/bAR0300.baf~
-	EXTEND_BOTTOM ~AR0902.bcs~ ~%workspace%/%COMP_FOLDER%/nAR0902.baf~
+	EXTEND_BOTTOM ~AR0300.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/bAR0300.baf~
+	EXTEND_BOTTOM ~AR0902.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/nAR0902.baf~
 		
 END
 

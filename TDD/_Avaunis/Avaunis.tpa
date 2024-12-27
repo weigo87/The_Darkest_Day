@@ -1,8 +1,15 @@
 DEFINE_ACTION_MACRO InstallSpecificContents
 BEGIN
 
-	EXTEND_TOP ~AR0020.bcs~ ~%workspace%/%COMP_FOLDER%/tAR0020.baf~
-	EXTEND_TOP ~AR0903.bcs~ ~%workspace%/%COMP_FOLDER%/tAR0903.baf~
+	APPEND ~MASTAREA.2DA~
+~DD5000   value~
+UNLESS ~DD5000~
+
+	APPEND ~PDIALOG.2DA~ ~AVAUNIS AVAUNISP AVAUNISJ *** *** *** *** ***~ 
+	UNLESS ~AVAUNIS~
+
+	EXTEND_TOP ~AR0020.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/tAR0020.baf~
+	EXTEND_TOP ~AR0903.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/tAR0903.baf~
 	
 	COPY_EXISTING ~CEREHAND.itm~ ~override~    
 		SAY 0xde @21032
@@ -10,27 +17,27 @@ BEGIN
 	// Kits Psicere.cre Harch
 	LAF ADD_KIT_EX
 		INT_VAR
-			visible		 = 0
-			kit_class   = 12  // Archer
-			mixed     = RESOLVE_STR_REF(@21517)
-			lower     = RESOLVE_STR_REF(@215170)
-			help     = RESOLVE_STR_REF(@21518)
+			visible	   = 0
+			kit_class  = 12  // Archer
+			mixed      = RESOLVE_STR_REF(@21517)
+			lower      = RESOLVE_STR_REF(@215170)
+			help       = RESOLVE_STR_REF(@21518)
 			// EE-specific arguments    
-			briefdesc   = RESOLVE_STR_REF(@21518)
+			briefdesc  = RESOLVE_STR_REF(@21518)
 		STR_VAR
 			kit_name   = ~TDD_Harch~
 			unusable   = ~0X40000000~
 			clasweap   = ~1 1 1 1 1 0 0 0~
-			weapprof  	 = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2~
-			abclasrq	 = ~0 9 0 12 0 15~
-			abclsmod	 = ~0 0 0 0 -2 2~
-			abdcdsrq	 = ~0 17 0 17 0 17~
-			abdcscrq	 = ~0 15 0 15 0 15~
-			alignmnt	 = ~0 1 1 1 1 1 1 1 1~
-			dualclas	 = ~1 0 1 1 0 0~
-			luabbr    = ~Ra0~
-			stweap    = ~LEAT14 * HELM07 BAG20 RING06 RING31 CLCK02 BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 BOW18 XBOW09 STAF08~
-			clab_path   = EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI22.2DA~
+			weapprof   = ~1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2~
+			abclasrq   = ~0 9 0 12 0 15~
+			abclsmod   = ~0 0 0 0 -2 2~
+			abdcdsrq   = ~0 17 0 17 0 17~
+			abdcscrq   = ~0 15 0 15 0 15~
+			alignmnt   = ~0 1 1 1 1 1 1 1 1~
+			dualclas   = ~1 0 1 1 0 0~
+			luabbr     = ~Ra0~
+			stweap     = ~LEAT14 * HELM07 BAG20 RING06 RING31 CLCK02 BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 BOW18 XBOW09 STAF08~
+			clab_path  = EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI22.2DA~
 			kittable   = ~K_R_HL~
 			// EE-specific arguments
 			clsrcreq   = ~0 0 0 0 1 0 0~
@@ -42,34 +49,34 @@ BEGIN
 		RET
 			kit_id
 	END
-	
-	COPY_EXISTING ~PSICERE.cre~ ~overide~
-		WRITE_LONG 0x244 (kit_id | 0x4000) * 0x10000
+
+	COPY_EXISTING ~PSICERE.cre~ ~override~
+		WRITE_LONG 0x244 ((kit_id + 0x4000) << 16)
 	
 	// Kits Avaunis Celebrial
 	LAF ADD_KIT_EX
 		INT_VAR
-			visible		 = 0
-			kit_class   = 6  // Paladin
-			mixed     = RESOLVE_STR_REF(@21603)
-			lower     = RESOLVE_STR_REF(@216030)
-			help     = RESOLVE_STR_REF(@21604)
+			visible	   = 0
+			kit_class  = 6  // Paladin
+			mixed      = RESOLVE_STR_REF(@21603)
+			lower      = RESOLVE_STR_REF(@216030)
+			help       = RESOLVE_STR_REF(@21604)
 			// EE-specific arguments    
-			briefdesc   = RESOLVE_STR_REF(@21604)
+			briefdesc  = RESOLVE_STR_REF(@21604)
 		STR_VAR
 			kit_name   = ~TDD_Cerebral~
 			unusable   = ~0x00000008~
 			clasweap   = ~1 1 0 1 1 0 0 0~
-			weapprof  	 = ~2 2 0 0 0 0 0 2 2 2 2 0 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2~
-			abclasrq	 = ~13 0 13 12 15 10~
-			abclsmod	 = ~0 0 0 0 0 0~
-			abdcdsrq	 = ~17 0 0 0 0 17~
-			abdcscrq	 = ~15 0 0 0 0 15~
-			alignmnt	 = ~1 0 0 0 0 0 0 0 0~
-			dualclas	 = ~0 0 0 0 0 0~
-			luabbr    = ~Pa0~
-			stweap    = ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
-			clab_path   = EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI22.2DA~
+			weapprof   = ~2 2 0 0 0 0 0 2 2 2 2 0 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2~
+			abclasrq   = ~13 0 13 12 15 10~
+			abclsmod   = ~0 0 0 0 0 0~
+			abdcdsrq   = ~17 0 0 0 0 17~
+			abdcscrq   = ~15 0 0 0 0 15~
+			alignmnt   = ~1 0 0 0 0 0 0 0 0~
+			dualclas   = ~0 0 0 0 0 0~
+			luabbr     = ~Pa0~
+			stweap     = ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path  = EVAL ~%MOD_FOLDER%/_KITS/2da/Clabpa07.2DA~
 			kittable   = ~K_P_H~
 			// EE-specific arguments
 			clsrcreq   = ~1 0 0 0 0 0 0~
@@ -81,7 +88,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	
+
 	COPY ~%MOD_FOLDER%/_KITS/SPL/SPCERB1.spl~ ~override~
 		~%MOD_FOLDER%/_KITS/SPL/SPCERB2.spl~ ~override~
 		~%MOD_FOLDER%/_KITS/SPL/SPCERB3.spl~ ~override~
@@ -89,9 +96,9 @@ BEGIN
 	COPY ~%MOD_FOLDER%/_KITS/SPL/SPCERB4.spl~ ~override~
 		SAY NAME1 @21605
  
-	COPY_EXISTING ~AVAUN9.cre~ ~overide~
-				~AVAUN11.cre~ ~overide~
-				~AVAUN13.cre~ ~overide~
+	COPY_EXISTING ~AVAUN9.cre~ ~override~
+				~AVAUN11.cre~ ~override~
+				~AVAUN13.cre~ ~override~
 		SAY 0xa8 @20137 
 		SAY 0xbc @20138  
 		SAY 0xc0 @20139 
@@ -121,7 +128,7 @@ BEGIN
 		SAY 0x1a4 @20163 
 		SAY 0x1ac ~~ [HMTW034]
 		SAY 0x1cc @20165
-		WRITE_LONG 0x244 (kit_id | 0x4000) * 0x10000
+		WRITE_LONG 0x244 ((kit_id + 0x4000) << 16)
 		
 //	LAM HandleSpellScrollsContract
 //	LAM HandleItemsContract

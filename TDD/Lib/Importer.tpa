@@ -26,6 +26,7 @@ BEGIN
 //	MKDIR ~%workspace%~
 //	MKDIR ~%workspace%/Translations~
 	MKDIR ~%workspace%/%COMP_FOLDER%~
+	MKDIR ~%workspace%/%COMP_FOLDER%/Snip~
 
 	LAM FetchTranslationsBeforeAnySAYandCOMPILE
 	
@@ -51,7 +52,7 @@ BEGIN
 		MOS => override
 		BAF => ~%workspace%/%COMP_FOLDER%~
 		D   => ~%workspace%/%COMP_FOLDER%~
-		SNIP => ~%workspace%/%COMP_FOLDER%~
+		SNIP => ~%workspace%/%COMP_FOLDER%/Snip~
 		graphics => override
 	END
 	ACTION_PHP_EACH dispatch AS restype => to BEGIN

@@ -2,9 +2,9 @@ DEFINE_ACTION_MACRO InstallSpecificContents
 BEGIN
 	APPEND ~PDIALOG.2da~ ~VESINE VESINEP VESINEJ *** *** *** *** ***~
 	
-	EXTEND_TOP ~AR0020.bcs~ ~%workspace%/%COMP_FOLDER%/tAR0020.baf~
-	EXTEND_TOP ~AR1700.bcs~ ~%workspace%/%COMP_FOLDER%/tAR1700.baf~
-	EXTEND_BOTTOM ~Baldur.bcs~ ~%workspace%/%COMP_FOLDER%/baldur.baf~
+	EXTEND_TOP ~AR0020.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/tAR0020.baf~
+	EXTEND_TOP ~AR1700.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/tAR1700.baf~
+	EXTEND_BOTTOM ~Baldur.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/bBaldur.baf~
 	
 	// Kits Psicere.cre Harch
 	LAF ADD_KIT_EX
