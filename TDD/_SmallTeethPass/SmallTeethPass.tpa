@@ -1,6 +1,7 @@
 DEFINE_ACTION_MACRO InstallSpecificContents
 BEGIN
-	APPEND ~PDIALOG.2da~ ~VESINE VESINEP VESINEJ *** *** *** *** ***~
+	APPEND ~PDIALOG.2da~ ~VESINE VESINEP VESINEJ *** *** *** *** ***~ UNLESS ~VESINE~
+	COPY_EXISTING ~PDIALOG.2DA~ ~override~ PRETTY_PRINT_2DA
 	
 	EXTEND_TOP ~AR0020.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/tAR0020.baf~
 	EXTEND_TOP ~AR1700.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/tAR1700.baf~

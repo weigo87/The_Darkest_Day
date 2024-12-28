@@ -1,0 +1,8 @@
+IF
+    !Global("SharteelPartyBG1","GLOBAL",1)
+	Global("SharTeel","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("SharTeel","GLOBAL",1)
+		CreateCreature("SHARTE12",[1131.335],0) // Shar-Teel
+END

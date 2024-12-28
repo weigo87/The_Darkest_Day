@@ -1,0 +1,95 @@
+//=============================================================================
+DEFINE_ACTION_MACRO InstallSpecificContents
+BEGIN
+
+	APPEND ~PDIALOG.2DA~ ~SHARTEDD SHARTP *** *** *** *** *** ***~ UNLESS ~SHARTEDD~
+	COPY_EXISTING ~PDIALOG.2DA~ ~override~ PRETTY_PRINT_2DA
+
+	
+	EXTEND_BOTTOM ~AR0400.BCS~ ~%workspace%/%COMP_FOLDER%/Snip/bAR0400.BAF~
+	EXTEND_BOTTOM ~AR1000.BCS~ ~%workspace%/%COMP_FOLDER%/Snip/bAR1000.BAF~
+	EXTEND_BOTTOM ~AR1005.BCS~ ~%workspace%/%COMP_FOLDER%/Snip/bAR1005.BAF~
+
+	// BGT-WeiDU compatibility
+	ACTION_IF FILE_EXISTS ~data/BG1ARE.BIF~ BEGIN    //BGT-WeiDU compatibility
+		EXTEND_TOP ~AR1005.BCS~ ~TDD/Compat/BGT/Replace/xAR1005.BAF~
+		COPY_EXISTING ~AR0400.BCS~ ~override~	//TDD scripts
+					~SHARFIT1.BCS~ ~override~
+			DECOMPILE_AND_PATCH BEGIN
+				REPLACE_TEXTUALLY ~"shartedd"~ ~"Sharteel"~   //change DeathVar check
+			END
+		COPY_EXISTING ~ARAM00.BCS~ ~override~
+			DECOMPILE_AND_PATCH BEGIN
+				REPLACE_TEXTUALLY
+~ActionOverride("Sharteel",LeaveParty())
+ActionOverride("Sharteel",ChangeAIScript("",DEFAULT))
+ActionOverride("Sharteel",ClearAllActions())
+ActionOverride("Sharteel",DestroySelf())~
+~ActionOverride("Sharteel",LeaveParty()
+ActionOverride("Sharteel",ChangeAIScript("",DEFAULT))
+ActionOverride("Sharteel",ClearAllActions())
+SetGlobal("SharteelPartyBG1","GLOBAL",1)
+ActionOverride("Sharteel",ChangeAIScript("SBTSHR",CLASS))
+ActionOverride("Sharteel",MoveBetweenAreas("AR1005",[1131.335],8))~
+			END
+	
+		COPY + ~%MOD_FOLDER%/Compat/BGT/aSHARTP.D~ ~%workspace%/%COMP_FOLDER%~
+		COPY_EXISTING ~SHARWINS.DLG~   ~override~  //TDD dialogue
+			DECOMPILE_AND_PATCH BEGIN
+				REPLACE_TEXTUALLY ~"shartedd"~ ~"Sharteel"~   //change DeathVar check
+			END
+	END ELSE BEGIN
+		COPY +	~%MOD_FOLDER%/Compat/TDD/SHARTP.D~ ~%workspace%/%COMP_FOLDER%~
+	END
+
+	// Kits Shart12.cre Blademaster
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible	   = 0
+			kit_class  = 2  // Fighter
+			mixed      = RESOLVE_STR_REF(@21521)
+			lower      = RESOLVE_STR_REF(@215210)
+			help       = RESOLVE_STR_REF(@21522)
+			// EE-specific arguments    
+			briefdesc  = RESOLVE_STR_REF(@21522)
+		STR_VAR
+			kit_name   = ~TDD_Blademaster~
+			unusable   = ~0X00010000~
+			clasweap   = ~1 1 1 1 1 1 1 1~
+			weapprof   = ~5 0 5 5 5 5 0 5 5 5 0 0 5 0 0 5 0 0 5 0 0 0 5 0 5 0 0 0 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 ~
+			abclasrq   = ~ 12 15 0 9 0 0~
+			abclsmod   = ~-1 1 0 0 0 0~
+			abdcdsrq   = ~ 17 0 0 0 0 0~
+			abdcscrq   = ~ 15 0 0 0 0 0~
+			alignmnt   = ~ 1 1 1 1 1 1 1 1 1~
+			dualclas   = ~ 0 1 1 1 1 0~
+			luabbr     = ~Fi0~
+			stweap     = ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path  = EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI24.2DA~
+			kittable   = ~K_F_HL  K_F_HE  K_F_H~
+			// EE-specific arguments
+			clsrcreq   = ~1 1 1 1 1 1 1~
+			clswpbon   = ~1 0 2~
+			hpclass    = ~HPWAR~
+			numwslot   = ~4~
+			clascolr   = ~30 91 93 23 93~
+			bdstweap   = ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN36,1 * BOW06 STAF02~
+		RET
+			kit_id
+	END
+		
+	COPY_EXISTING ~SHARTE12.cre~ ~override~ //override - to catch immediate Kit Pack installation
+		SAY 0x1cc @20096
+		WRITE_LONG 0x244 ((kit_id + 0x4000) << 16)
+	ACTION_IF FILE_EXISTS ~data/BG1ARE.BIF~ BEGIN    //BGT-WeiDU compatibility
+		COPY_EXISTING ~SHARTD.cre~ ~override~ //override - to catch immediate Kit Pack installation
+					~SHARTE.cre~ ~override~
+					~SHARTE4.cre~ ~override~
+					~SHARTE6.cre~ ~override~
+			WRITE_LONG 0x244 ((kit_id + 0x4000) << 16)
+	END
+
+	
+	OUTER_TEXT_SPRINT sender ~%COMP_FOLDER%~
+	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~ LAF Accept STR_VAR sender target = ~_Sharteel~ END
+END

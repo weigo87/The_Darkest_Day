@@ -1,0 +1,29 @@
+IF
+	Global("sharplot","GLOBAL",2)
+	InParty("shartedd")
+	!Dead("shartedd")
+THEN
+	RESPONSE #100
+		CreateCreature("sharfit1",[1599.503],4) // Half Quallian Warrior
+		CreateCreature("sharfit2",[1683.456],4) // Tribal Warrior
+		CreateCreature("sharfit3",[1767.445],4) // Half Quallian Warrior
+		CreateCreature("sharfit4",[1889.452],4) // Tribal Shaman
+		SetGlobal("sharplot","GLOBAL",3)
+END
+
+IF
+	Global("sharplot","GLOBAL",4)
+	InParty("shartedd")
+	!Dead("shartedd")
+	Dead("sharfit1") // Half Quallian Warrior
+	Dead("sharfit2") // Tribal Warrior
+	Dead("sharfit3") // Half Quallian Warrior
+	Dead("sharfit4") // Tribal Shaman
+THEN
+	RESPONSE #100
+		SetGlobal("sharplot","GLOBAL",6)
+		Wait(2)
+		ActionOverride("shartedd",StartDialog("sharwins",Player1))
+END
+
+
