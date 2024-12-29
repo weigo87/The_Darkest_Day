@@ -1,0 +1,108 @@
+//=============================================================================
+DEFINE_ACTION_MACRO InstallSpecificContents
+BEGIN
+
+	APPEND ~PDIALOG.2DA~ ~KIVANDD KIVANP *** *** *** *** *** ***~ UNLESS ~KIVANDD~
+	COPY_EXISTING ~PDIALOG.2DA~ ~override~ PRETTY_PRINT_2DA
+
+	
+	EXTEND_BOTTOM ~AR1100.BCS~ ~%workspace%/%COMP_FOLDER%/Snip/bAR1100.BAF~
+
+	// BGT-WeiDU compatibility
+	ACTION_IF FILE_EXISTS ~data/BG1ARE.BIF~ BEGIN    //BGT-WeiDU compatibility
+		EXTEND_TOP ~AR1100.BCS~ ~TDD/Compat/BGT/Replace/xAR1100.BAF~
+		COPY_EXISTING ~DDKIV1.BCS~ ~override~	//TDD scripts
+			DECOMPILE_AND_PATCH BEGIN
+				REPLACE_TEXTUALLY ~"kivandd"~ ~"Kivan"~   //change DeathVar check
+			END
+		COPY_EXISTING ~ARAM00.BCS~ ~override~
+			DECOMPILE_AND_PATCH BEGIN
+				REPLACE_TEXTUALLY
+~ActionOverride("Kivan",LeaveParty())
+ActionOverride("Kivan",ChangeAIScript("",DEFAULT))
+ActionOverride("Kivan",ClearAllActions())
+ActionOverride("Kivan",DestroySelf())~
+~ActionOverride("Kivan",LeaveParty())
+ActionOverride("Kivan",ChangeAIScript("",DEFAULT))
+ActionOverride("Kivan",ClearAllActions())
+SetGlobal("KivanPartyBG1","GLOBAL",1)
+ActionOverride("Kivan",ChangeAIScript("SBTKIV",CLASS))
+ActionOverride("Kivan",MoveBetweenAreas("AR1100",[4172.1239],4))~
+			END
+	
+		COPY + ~%MOD_FOLDER%/Compat/BGT/aKIVANP.D~ ~%workspace%/%COMP_FOLDER%~
+	END ELSE BEGIN
+		COPY +	~%MOD_FOLDER%/Compat/TDD/KIVANP.D~ ~%workspace%/%COMP_FOLDER%~
+	END
+	
+	LAF GET_KIT_EX
+		STR_VAR kit_name = "FERALAN"
+		RET kit_id
+	END
+	
+	COPY_EXISTING ~KIVAN10.cre~ ~override~
+				~KIVAN12.cre~ ~override~
+				~KIVAN13.cre~ ~override~
+		SAY 0x1cc @20092
+		WRITE_LONG 0x244 ((kit_id + 0x4000) << 16)
+	ACTION_IF FILE_EXISTS ~data/BG1ARE.BIF~ BEGIN    //BGT-WeiDU compatibility
+		COPY_EXISTING ~KIVAN.cre~ ~override~ //override - to catch immediate Kit Pack installation
+					~KIVAN4.cre~ ~override~
+					~KIVAN6.cre~ ~override~
+			WRITE_LONG 0x244 ((kit_id + 0x4000) << 16)
+	END
+
+
+	LAM PatchAR1100
+	LAM PatchDDKIV1
+	
+	OUTER_TEXT_SPRINT sender ~%COMP_FOLDER%~
+	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~ LAF Accept STR_VAR sender target = ~_Kivan~ END
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO PatchAR1100 BEGIN
+	COPY_EXISTING ~AR1100.are~ ~override~
+		LPM SetAnimationsInCombatFlag
+		LPF fj_are_structure
+			INT_VAR
+			fj_type         		= 2    						
+			fj_box_left     		= 89                        
+			fj_box_top      		= 1257                      
+			fj_box_right    		= 220                       
+			fj_box_bottom   		= 1396                      
+			fj_cursor_idx           = 30							
+			fj_flags                = 0x00000004                
+			fj_loc_x				= 3921                      
+			fj_loc_y				= 3752                       
+			fj_vertex_0     		= 89  + (1396 << 16)  
+			fj_vertex_1     		= 91  + (1324 << 16)  
+			fj_vertex_2     		= 101 + (1266 << 16)  
+			fj_vertex_3     		= 150 + (1257 << 16)
+			fj_vertex_4     		= 207 + (1279 << 16)
+			fj_vertex_5     		= 220 + (1300 << 16)
+			STR_VAR                                             
+			fj_structure_type   = region                        
+			fj_name             = kivan_orc_cave                      
+			fj_destination_area	= DDKIV1                        
+			fj_destination_name = FR1200                      
+		END
+		LPF fj_are_structure
+			INT_VAR
+			fj_loc_x       = 201 
+			fj_loc_y       = 1380 
+			fj_orientation = 6
+			STR_VAR
+			fj_structure_type = entrance
+			fj_name           = DDKIV1
+		END
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO PatchDDKIV1 BEGIN
+	COPY_EXISTING ~DDKIV1.are~ ~override~
+		LPF ALTER_AREA_REGION 
+			STR_VAR region_name = ~To1200~
+					entrance_name = ~DDKIV1~
+		END
+END

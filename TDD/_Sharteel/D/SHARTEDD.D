@@ -41,7 +41,7 @@ END
 IF ~~ THEN BEGIN 7 // from: 6.0
   SAY @15
   IF ~~ THEN REPLY @16 DO ~SetGlobal("KickedOut","LOCALS",1)
-SetGlobal("sharplot","GLOBAL",2)
+SetGlobal("tz_sharplot","GLOBAL",2)
 JoinParty()~ EXIT
 END
 

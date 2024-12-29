@@ -1,0 +1,30 @@
+IF
+    !Global("KivanPartyBG1","GLOBAL",1)
+	Global("tz_#HTDDKivan","GLOBAL",0)
+	LevelLT(Player1,11)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_#HTDDKivan","GLOBAL",1)
+		CreateCreature("KIVAN10",[4172.1239],0) // Kivan
+END
+
+IF
+    !Global("KivanPartyBG1","GLOBAL",1)
+	Global("tz_#HTDDKivan","GLOBAL",0)
+	LevelGT(Player1,10)
+	LevelLT(Player1,14)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_#HTDDKivan","GLOBAL",1)
+		CreateCreature("KIVAN12",[4172.1239],0) // Kivan
+END
+
+IF
+    !Global("KivanPartyBG1","GLOBAL",1)
+	Global("tz_#HTDDKivan","GLOBAL",0)
+	LevelGT(Player1,13)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_#HTDDKivan","GLOBAL",1)
+		CreateCreature("KIVAN13",[4172.1239],0) // Kivan
+END

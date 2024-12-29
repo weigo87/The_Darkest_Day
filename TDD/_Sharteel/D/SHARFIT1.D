@@ -23,5 +23,5 @@ IF ~~ THEN BEGIN 3 // from: 2.1 2.0
 ActionOverride("sharfit2",Enemy())
 ActionOverride("sharfit3",Enemy())
 ActionOverride("sharfit4",Enemy())
-SetGlobal("sharplot","GLOBAL",4)~ EXIT
+SetGlobal("tz_sharplot","GLOBAL",4)~ EXIT
 END

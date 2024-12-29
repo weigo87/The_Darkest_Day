@@ -1,0 +1,17 @@
+IF
+  True()
+  Global("tz_harpass2","LOCALS",0)
+THEN
+  RESPONSE #100
+    FaceObject("xzardd")
+    ActionOverride(Player1,FaceObject("Harpass2"))
+    ActionOverride(Player2,FaceObject("Harpass2"))
+    ActionOverride(Player3,FaceObject("Harpass2"))
+    ActionOverride(Player4,FaceObject("Harpass2"))
+    ActionOverride(Player5,FaceObject("Harpass2"))
+    ActionOverride(Player6,FaceObject("Harpass2"))
+    Wait(1)
+    SetGlobal("tz_harpass2","LOCALS",1)
+    StartDialogNoSet(Player1)
+END
+

@@ -1,0 +1,42 @@
+@0    = ~Extranjero, ¿puedo ayudaros?~
+~Extranjera, ¿puedo ayudaros?~
+@1    = ~Vaya, vaya. Ha pasado bastante tiempo desde que la última vez que mis ojos os vieron.~
+@2    = ~¿Quién sois, amigo?, estoy aquí para examinar esta cabaña.~
+@3    = ~¿Podrías ser el hijo de Bhaal con el que compartí la aventura de casi toda una vida?~
+~¿Podrías ser la hija de Bhaal con el que compartí la aventura de casi toda una vida?~
+@4    = ~Así es, Kivan, así es.~
+@5    = ~Eso suena como si pensárais que estaba muerto o algo así.~
+~Eso suena como si pensárais que estaba muerta o algo así.~
+@6    = ~Escuché de unos extraños acontecimiento tras la proclamación de vuestro título, Héroe de Puerta de Baldur. Hubo rumores sobre que desaparecisteis como por arte de magia.~
+~Escuché de unos extraños acontecimiento tras la proclamación de vuestro título, Heroina de Puerta de Baldur. Hubo rumores sobre que desaparecisteis como por arte de magia.~
+@7    = ~Desaparecido no, más bien secuestrado.~
+~Desaparecida no, más bien secuestrada.~
+@8    = ~¿Quién haría tal cosa? ¿Seguro que Sarevok no sobrevivió?~
+@9    = ~Él murió, pero hay otro que me busca y ya tiene a Imoen.~
+@10   = ~¿Qué creéis? No, parece ser que tengo a un nuevo perseguidor que me quiere, y ha capturado a Imoen.~
+@11   = ~¡No!, siempre tuve debilidad por ella. Semejante acto de malicia no puede tolerarse.~
+@12   = ~Bueno, tal vez podríais ayudar a detener a ese maníaco. Vuestra destreza con el arco aún no ha sido superada por nadie, y vuestra lealtad siempre fue sincera.~
+@13   = ~Es bueno saberlo, aunque ahora tengo cosas por resolver. Regresaré y veré si necesito vuestra ayuda, buen amigo.~
+@14   = ~Me sentiría muy honrada de volver a reformar nuestra tanto tiempo interrumpida hermandad, pero yo también tengo una misión que realizar.~
+@15   = ~Excelente, nos ayudaremos el uno al otro. Decidme lo que necesitáis e veremos qué hacer con ello.~
+@16   = ~Bueno, en estos últimos meses he estado ocupado como guardián de carruajes que iban y venían por la Costa de la Espada.~
+@17   = ~El sueldo era bueno, los kobolds, xvarts y bandidos eran fáciles de ahuyentar, aunque los orcos no se amedrentaban tan fácilmente.~
+@18   = ~Hace solo unas semanas, nuestro carruaje fue emboscado por al menos cuarenta orcos. Tenían un buen número chamanes, así que, y a pesar de todos nuestros esfuerzos, dominaron al cochero, logrando escapar con la dama y con el oro.~
+@19   = ~Soy Kivan, arquero protector.~
+@20   = ~Entonces habéis sido mi amigo algún tiempo. Soy yo, el hijo de Bhaal y compañero vuestro durante muchos meses en la Costa de la Espada.~
+~Entonces habéis sido mi amigo algún tiempo. Soy yo, la hija de Bhaal y compañera vuestra durante muchos meses en la Costa de la Espada.~
+@21   = ~Sólo los dioses saben que destino habrá sufrido en sus manos, pero me vengaré de ellos. Los he seguido hasta estas montañas donde los vi entrar en una cueva. Estoy planeando devolverles el golpe en cuanto me sea posible...~
+@22   = ~¿Donde está esa cueva?~
+@23   = ~Por el oeste de este área.~
+@24   = ~Entonces deberíamos apresurarnos.~
+@25   = ~Otra vez de vuelta amigo, ¿necesitáis una mano?~
+~Otra vez de vuelta amiga, ¿necesitáis una mano?~
+@26   = ~Quizás más tarde, Kivan. Adiós.~
+@27   = ~No lo creo, abraza-árboles. Hasta la vista.~
+@28   = ~Os estaría gratamente agradecido. Imoen necesita toda la ayuda posible.~
+~Os estaría gratamente agradecida. Imoen necesita toda la ayuda posible.~
+@29   = ~Entonces uniremos nuestras fuerzas y venceremos a nuestro enemigo.~
+@30   = ~Habéis vuelto, amigo. Me alegra veros una vez más.~
+@31   = ~Y yo a vos. Vamos, una vez más os necesito.~
+@32   = ~Ya, yo también pero debo irme, ya nos veremos, Kivan.~
+@33   = ~Excelente. Nos ayudaremos el uno al otro, <CHARNAME>.~

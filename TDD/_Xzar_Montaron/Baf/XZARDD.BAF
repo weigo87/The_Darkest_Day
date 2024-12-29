@@ -1,0 +1,111 @@
+IF
+  InParty(Myself)
+  ReputationGT(Player1,17)
+THEN
+  RESPONSE #100
+    SetGlobal("KickedOut","LOCALS",2)
+    LeaveParty()
+END
+
+IF
+  Global("tz_harperxzarfued","GLOBAL",0)
+  Global("ENDOFBG1","GLOBAL",2)
+  InParty(Myself)  // xzardd
+  InParty("montydd")  // montaron
+THEN
+  RESPONSE #100
+    SetGlobalTimer("tz_fuedxzar","GLOBAL",FIVE_DAYS)
+    SetGlobal("tz_harperxzarfued","GLOBAL",1)
+END
+
+IF
+  Global("tz_harperxzarfued","GLOBAL",1)
+  GlobalTimerExpired("tz_fuedxzar","GLOBAL")
+  InParty(Myself)  // xzardd
+  InParty("montydd")  // montaron
+  !Dead("xzardd")  // xzardd
+  !Dead("montydd")  // montaron
+  AreaType(OUTDOOR)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_harperxzarfued","GLOBAL",2)
+    CreateCreatureObjectDoor("harpass2",Player1,0,0,0)  // ~Lucette~
+END
+
+IF
+  Global("tz_harperxzarfued","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_harperxzarfued","GLOBAL",4)
+    CreateCreatureObjectDoor("harpatt1",Player1,0,0,0)  // ~Harper~
+    CreateCreatureObjectDoor("harpatt2",Player1,0,0,0)  // ~Harper~
+    CreateCreatureObjectDoor("harpatt3",Player1,0,0,0)  // ~Harper~
+END
+
+IF
+  Global("tz_harperxzarfued","GLOBAL",4)
+  Dead("harpatt1")  // ~Harper~
+  Dead("harpatt2")  // ~Harper~
+  Dead("harpatt3")  // ~Harper~
+  Dead("harpass2")  // ~Lucette~
+THEN
+  RESPONSE #100
+    AddXPObject("xzardd",XZARDD_BAF_150000)
+    AddXPObject("montydd",MONTYDD_BAF_150000)
+    SetGlobal("tz_harperxzarfued","GLOBAL",5)
+    ActionOverride("xzardd",StartDialogue("fuedendx",Player1))
+END
+
+IF
+  InParty("xzardd")  // xzardd
+  !Dead("xzardd")  // xzardd
+  PartyHasItem("MISC5U")  // ~Montaron's Body~
+  Global("tz_montyxzar","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Wait(2)
+    SetGlobal("tz_montyxzar","GLOBAL",2)
+    ActionOverride("xzardd",StartDialogue("himonty1",Player1))
+END
+
+IF
+  Global("tz_montyxzar","GLOBAL",3)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_montyxzar","GLOBAL",4)
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("montyras")
+END
+
+IF
+  Global("tz_montyxzar","GLOBAL",5)
+THEN
+  RESPONSE #100
+    ActionOverride("xzardd",StartDialogue("montback",Player1))
+    SetGlobal("tz_montyxzar","GLOBAL",6)
+END
+
+IF
+  Global("tz_montyxzar","GLOBAL",6)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_montyxzar","GLOBAL",7)
+    ActionOverride("montydd",StartDialogNoSet([PC]))
+END
+
+IF
+  Global("tz_montbootwithxzar","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_montbootwithxzar","GLOBAL",2)
+    ActionOverride("xzardd",StartDialogue("xzarthxa",Player1))
+END
+
+IF
+  Global("tz_montjoinwithxzar","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_montjoinwithxzar","GLOBAL",2)
+    ActionOverride("xzardd",StartDialogue("xzarthxb",Player1))
+END

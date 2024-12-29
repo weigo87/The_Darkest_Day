@@ -1,9 +1,9 @@
 IF
-	Global("sharplot","GLOBAL",0)
+	Global("tz_sharplot","GLOBAL",0)
 THEN
 	RESPONSE #100
 		CreateCreature("sharthug",[2529.304],4) // Tyrian
-		SetGlobal("sharplot","GLOBAL",1)
+		SetGlobal("tz_sharplot","GLOBAL",1)
 END
 
 

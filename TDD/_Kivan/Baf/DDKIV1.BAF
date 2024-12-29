@@ -1,0 +1,68 @@
+IF
+  Global("tz_creature","ddkiv1",0)
+THEN
+  RESPONSE #100
+    CreateCreature("orc01",[2611.1440],4)
+    CreateCreature("orc01",[2521.1503],4)
+    CreateCreature("orc01",[2655.1531],4)
+    CreateCreature("orc01",[2747.1489],4)
+    CreateCreature("orc02",[2763.1380],4)
+    CreateCreature("orc02",[2626.1344],4)
+    CreateCreature("orc02",[2537.925],4)
+    CreateCreature("orc02",[2297.910],4)
+    CreateCreature("orc01",[2393.1000],4)
+    CreateCreature("orc02",[2491.698],4)
+    CreateCreature("orc01",[2320.565],4)
+    CreateCreature("orc02",[1870.1432],4)
+    CreateCreature("orc02",[1706.1350],4)
+    CreateCreature("orc02",[1647.1239],4)
+    CreateCreature("orc02",[1681.1154],4)
+    CreateCreature("orc02",[1727.1041],4)
+    CreateCreature("orckiv01",[1825.1218],4)
+    CreateCreature("orc02",[1818.1711],4)
+    CreateCreature("orc02",[1913.1685],4)
+    CreateCreature("orc01",[2011.1651],4)
+    CreateCreature("orc02",[2120.1591],4)
+    CreateCreature("orc01",[1515.1450],4)
+    CreateCreature("ddogre01",[1290.853],4)
+    CreateCreature("ddogre01",[1351.998],4)
+    CreateCreature("ddogre01",[1470.975],4)
+    CreateCreature("orc03",[1626.553],4)
+    CreateCreature("orc04",[1769.430],4)
+    CreateCreature("orc04",[1889.634],4)
+    CreateCreature("orc03",[776.981],4)
+    CreateCreature("orc02",[853.923],4)
+    CreateCreature("orc02",[952.1078],4)
+    CreateCreature("orc03",[1016.1202],4)
+    CreateCreature("ddogre01",[304.731],4)
+    CreateCreature("ddogre01",[580.679],4)
+    CreateCreature("orc03",[652.1478],4)
+    CreateCreature("orc03",[654.1373],4)
+    CreateCreature("orc03",[774.1230],4)
+    CreateCreature("orc03",[831.1471],4)
+    CreateCreature("kivogre",[1276.1896],4)
+    SetGlobal("tz_creature","ddkiv1",1)
+END
+
+IF
+  Global("tz_ogresnuff","GLOBAL",0)
+  Dead("kivogre")
+  InParty("kivandd")
+  !Dead("kivandd")
+THEN
+  RESPONSE #100
+    SetGlobal("tz_ogresnuff","GLOBAL",1)
+    AddXPObject("kivandd",DDKIV1_BAF_45000)
+END
+
+IF
+  Dead("kivogre")
+  InParty("kivandd")
+  Global("tz_ogresnuff","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_ogresnuff","GLOBAL",2)
+    Wait(3)
+    ActionOverride("kivandd",StartDialogue("kivogrex",Player1))
+END
+

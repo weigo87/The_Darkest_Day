@@ -1,10 +1,10 @@
 IF
-  Global("meseeshar-teel","LOCALS",0)
+  Global("tz_meseeshar-teel","LOCALS",0)
   See("shartedd")
 THEN
   RESPONSE #100
     StartDialogNoSet([PC])
-    SetGlobal("meseeshar-teel","LOCALS",1)
+    SetGlobal("tz_meseeshar-teel","LOCALS",1)
 END
 
 IF

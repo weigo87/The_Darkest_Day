@@ -21,8 +21,8 @@ END
 IF ~~ THEN BEGIN 3 // from: 4.1 1.1
   SAY @7
   IF ~~ THEN DO ~JoinParty()
-AddXPObject(Myself,75000)
-SetGlobal("sharplot","GLOBAL",7)~ EXIT
+AddXPObject(Myself,SHARWINS_D_75000)
+SetGlobal("tz_sharplot","GLOBAL",7)~ EXIT
 END
 
 IF ~~ THEN BEGIN 4 // from: 0.1

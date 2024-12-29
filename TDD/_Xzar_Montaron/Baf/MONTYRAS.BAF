@@ -1,0 +1,18 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId("xzardd")
+    MoveViewObject("xzardd",INSTANT)
+    Wait(1)
+    ForceSpell(Myself,CLERIC_RESURRECTION)
+    Wait(6)
+    CreateVisualEffectObject("spresuri","xzardd")
+    TakePartyItem("misc5u")
+    DestroyItem("misc5u")
+    Wait(1)
+    CreateCreatureObject("montar13","xzardd",0,0,0)
+    SetGlobal("tz_montyxzar","GLOBAL",5)
+    EndCutSceneMode()
+END
+

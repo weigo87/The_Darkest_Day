@@ -1,0 +1,40 @@
+IF
+  Global("meseexzar","LOCALS",0)
+  See([PC])
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+    SetGlobal("meseexzar","LOCALS",1)
+END
+
+IF
+  Heard([ANYONE],111)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    Attack(LastAttackerOf(Myself))
+END
+
+IF
+  Global("tz_LearnSpell","LOCALS",0)
+THEN
+  RESPONSE #100
+    GiveItemCreate("POSC229a",Myself,1,0,0)
+    UseItem("POSC229a",Myself)
+    SetGlobal("tz_LearnSpell","LOCALS",1)
+END
+
