@@ -1,0 +1,20 @@
+IF
+  InParty(Myself)
+  ReputationGT(Player1,18)
+THEN
+  RESPONSE #100
+    SetGlobal("KickedOut","LOCALS",2)
+    LeaveParty()
+END
+
+IF
+  Global("ENDOFBG1","GLOBAL",2)
+  InParty("kagaindd")  // kagaindd
+  InParty("yeslicdd")  // yeslicdd
+  !Dead("kagaindd")  // kagaindd
+  !Dead("yeslicdd")  // yeslicdd
+THEN
+  RESPONSE #100
+    ActionOverride("yeslicdd",Attack("kagaindd"))
+    ActionOverride("kagaindd",Attack("yeslicdd"))
+END

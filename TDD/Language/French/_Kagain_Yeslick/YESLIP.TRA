@@ -1,0 +1,15 @@
+// Yeslick vouvoie dans BG
+// Départ mécontent (mauvaise réputation)
+@0     = ~Je ne peux pas accepter vos derniers agissements, <GABBER>, pas davantage que mon dieu. A cause de vos infâmes manières, je suis obligé de vous montrer le droit chemin.~
+// Exclure du groupe
+@1     = ~Vous me demandez de partir ?~
+@2     = ~Oui, parce que je n'ai pas de place en ce moment, Yeslick.~
+@3     = ~Non, vous êtes un membre précieux, alors restez.~
+@4     = ~Je suppose que je vais retourner au District du Temple, dans ce cas.~
+@5     = ~D'accord, je vous retrouverai là-bas si nécessaire.~
+@6     = ~Il vaut mieux pour tout le monde que vous restiez ici, Yeslick.~
+// Ré-embauche
+@7     = ~Vous souhaitez qu'on s'allie à nouveau, pas vrai ?~
+@8     = ~Oui, alors commencez à mémoriser vos sorts.~
+@9     = ~Pas encore, vieux nain, mais tenez-vous prêt.~
+@10    = ~Parfait.~

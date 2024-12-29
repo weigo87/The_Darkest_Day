@@ -1,0 +1,9 @@
+IF
+    !Global("KagainPartyBG1","GLOBAL",1)
+	Global("tz_#HTDDKagain","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_#HTDDKagain","GLOBAL",1)
+		CreateCreature("KAGAIN11",[547.494],12) // Kagain
+		Continue()
+END

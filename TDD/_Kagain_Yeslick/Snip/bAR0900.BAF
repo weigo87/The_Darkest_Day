@@ -1,0 +1,9 @@
+IF
+	Global("tz_Yeslick","GLOBAL",0)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_Yeslick","GLOBAL",1)
+		CreateCreature("YESLIC9",[3445.1896],4) // Yeslick
+END
+
+

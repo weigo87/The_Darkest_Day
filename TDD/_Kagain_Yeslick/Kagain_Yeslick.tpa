@@ -1,0 +1,119 @@
+DEFINE_ACTION_MACRO InstallSpecificContents
+BEGIN
+
+	APPEND ~PDIALOG.2DA~ ~KAGAINDD KAGAIP *** *** *** *** *** ***~ UNLESS ~KAGAINDD~
+	APPEND ~PDIALOG.2DA~ ~YESLICDD YESLIP *** *** *** *** *** ***~ UNLESS ~YESLICDD~
+	COPY_EXISTING ~PDIALOG.2DA~ ~override~ PRETTY_PRINT_2DA
+
+	EXTEND_TOP ~AR0020.BCS~ ~%workspace%/%COMP_FOLDER%/Snip/tAR0020.BAF~ //BAF modified
+	EXTEND_BOTTOM ~AR0900.BCS~ ~%workspace%/%COMP_FOLDER%/Snip/bAR0900.BAF~ //BAF modified	
+
+	// BGT-WeiDU compatibility
+	ACTION_IF FILE_EXISTS ~data/BG1ARE.BIF~ BEGIN    //BGT-WeiDU compatibility
+		EXTEND_TOP ~AR0020.BCS~ ~%MOD_FOLDER%/Compat/BGT/Replace/xAR0200.BAF~ //BAF modified
+		EXTEND_TOP ~AR0900.BCS~ ~%MOD_FOLDER%/Compat/BGT/Replace/xAR0900.BAF~
+		COPY_EXISTING ~BALDUR.BCS~ ~override~
+			DECOMPILE_AND_PATCH BEGIN
+				REPLACE_TEXTUALLY ~"kagaindd"~  ~"Kagain"~  //change DeathVar check
+				REPLACE_TEXTUALLY ~"yeslicdd"~   ~"Yeslick"~      //change DeathVar check
+			END
+		COPY_EXISTING ~AR0300.BCS~ ~override~
+			REPLACE_BCS_BLOCK ~%MOD_FOLDER%/Compat/BGT/Replace/rAR0300.BAF~ ~%MOD_FOLDER%/Compat/BGT/Replace/xAR0300.BAF~
+		COPY_EXISTING ~MONTYRAS.BCS~   ~override~    //TDD scripts
+					~DPLAYER2.BCS~   ~override~    //TDD scripts
+					~HARPASS2.BCS~   ~override~    //TDD scripts
+					~MONTAP.DLG~   ~override~  //TDD dialogue
+					~XZARDD.DLG~   ~override~
+					~XZARTHXB.DLG~   ~override~
+ 			DECOMPILE_AND_PATCH BEGIN
+					REPLACE_TEXTUALLY ~"xzardd"~  ~"Xzar"~        //change DeathVar check
+			END
+		COPY_EXISTING ~ARAM00.BCS~ ~override~
+			DECOMPILE_AND_PATCH BEGIN
+				REPLACE_TEXTUALLY
+~ActionOverride("Kagain",LeaveParty())
+ActionOverride("Kagain",ChangeAIScript("",DEFAULT))
+ActionOverride("Kagain",ClearAllActions())
+ActionOverride("Kagain",DestroySelf())~
+~ActionOverride("Kagain",LeaveParty())
+ActionOverride("Kagain",ChangeAIScript("",DEFAULT))
+ActionOverride("Kagain",ClearAllActions())
+SetGlobal("KagainPartyBG1","GLOBAL",1)
+ActionOverride("Kagain",ChangeAIScript("SBTKAG",CLASS))
+ActionOverride("Kagain",MoveBetweenAreas("AR0020",[547.494],12))~
+				REPLACE_TEXTUALLY
+~ActionOverride("Yeslick",LeaveParty())
+ActionOverride("Yeslick",ChangeAIScript("",DEFAULT))
+ActionOverride("Yeslick",ClearAllActions())
+ActionOverride("Yeslick",DestroySelf())~
+~ActionOverride("Yeslick",LeaveParty())
+ActionOverride("Yeslick",ChangeAIScript("",DEFAULT))
+ActionOverride("Yeslick",ClearAllActions())
+SetGlobal("YeslickPartyBG1","GLOBAL",1)
+ActionOverride("Yeslick",ChangeAIScript("SBTYES",RACE))
+ActionOverride("Yeslick",MoveBetweenAreas("AR0900",[3445.1896],4))~
+			END
+	
+		COPY + ~%MOD_FOLDER%/Compat/BGT/aKAGAIP.D~ ~%workspace%/%COMP_FOLDER%~
+			~%MOD_FOLDER%/Compat/BGT/aYESLIP.D~ ~%workspace%/%COMP_FOLDER%~
+	END ELSE BEGIN
+		COPY +	~%MOD_FOLDER%/Compat/TDD/KIVANP.D~ ~%workspace%/%COMP_FOLDER%~
+				~%MOD_FOLDER%/Compat/TDD/YESLIP.D~ ~%workspace%/%COMP_FOLDER%~
+	END
+
+	// Kits Shart12.cre Trollslayer
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible	   = 0
+			kit_class  = 2  // Fighter
+			mixed      = RESOLVE_STR_REF(@21509)
+			lower      = RESOLVE_STR_REF(@215090)
+			help       = RESOLVE_STR_REF(@21510)
+			// EE-specific arguments    
+			briefdesc  = RESOLVE_STR_REF(@21510)
+		STR_VAR
+			kit_name   = ~TDD_Trollslayer~
+			unusable   = ~0X00004000~
+			clasweap   = ~0 0 1 0 0 1 1 1~
+			weapprof   = ~0 0 0 5 5 5 5 0 0 0 0 5 0 0 0 0 5 5 5 5 5 5 5 0 0 0 0 0 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 ~
+			abclasrq   = ~9 0 0 0 0 0~
+			abclsmod   = ~0 0 0 0 0 0~
+			abdcdsrq   = ~17 0 0 0 0 0~
+			abdcscrq   = ~15 0 0 0 0 0~
+			alignmnt   = ~0 0 0 0 0 0 1 1 1 ~
+			dualclas   = ~0 0 0 0 0 0 ~
+			luabbr     = ~Fi0~
+			stweap     = ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path  = EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI19.2DA~
+			kittable   = ~K_F_D~
+			// EE-specific arguments
+			clsrcreq   = ~1 1 1 1 1 1 1~
+			clswpbon   = ~1 0 2~
+			hpclass    = ~HPWAR~
+			numwslot   = ~4~
+			clascolr   = ~30 91 93 23 93~
+			bdstweap   = ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN36,1 * BOW06 STAF02~
+		RET
+			kit_id
+		END
+		
+		COPY ~%RES_FOLDER%/Spl/TROLLSL1.spl~         ~TDD-SPL~
+		
+	COPY_EXISTING ~KAGAIN11.cre~ ~override~   //override - to catch immediate Kit Pack installation
+		SAY 0x1cc @20090
+		WRITE_LONG 0x244 ((kit_id + 0x4000) << 16)
+	ACTION_IF GAME_IS ~eet bgt~ BEGIN    //BGT-WeiDU compatibility
+		COPY_EXISTING ~KAGAIN2.cre~ ~override~ //override - to catch immediate Kit Pack installation
+					~KAGAIN4.cre~ ~override~
+					~KAGAIN6.cre~ ~override~
+			WRITE_LONG 0x244 ((kit_id + 0x4000) << 16)
+	END
+	
+	COPY_EXISTING ~YESLIC9.cre~ ~override~
+		SAY 0x1cc @20098
+
+
+	OUTER_TEXT_SPRINT sender ~%COMP_FOLDER%~
+	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~ LAF Accept STR_VAR sender target = ~_Kagain_Yeslick~ END
+	
+END
