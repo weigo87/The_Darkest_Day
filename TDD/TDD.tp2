@@ -152,7 +152,7 @@ LANGUAGE 	~Spanish(Clan REO)~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN @901000
+BEGIN @901000 // main component
 	DESIGNATED 0 LABEL ~the_darkest_day~
 	REQUIRE_PREDICATE GAME_IS ~bg2 tob bgt bg2ee eet~ ~~
 	
@@ -169,7 +169,7 @@ COPY_EXISTING ~sahoty01.cre~ ~override/tzhoty01.cre~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN @901001
+BEGIN @901001 // Trollford
 	DESIGNATED 1
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
@@ -183,7 +183,7 @@ BEGIN @901001
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN @901002
+BEGIN @901002 // Espurta
 	DESIGNATED 2
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
@@ -197,7 +197,7 @@ BEGIN @901002
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN @901003
+BEGIN @901003 // Purskal
 	DESIGNATED 3
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
@@ -211,7 +211,7 @@ BEGIN @901003
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN @901004
+BEGIN @901004 // Riatavin
 	DESIGNATED 4
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
@@ -225,7 +225,7 @@ BEGIN @901004
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN @901005
+BEGIN @901005 //  Onset of the Darkest Day
 	DESIGNATED 5
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
@@ -239,7 +239,7 @@ BEGIN @901005
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN @901010
+BEGIN @901010 // Robilard
 	DESIGNATED 6
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
@@ -253,7 +253,7 @@ BEGIN @901010
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN ~Adario~
+BEGIN @901012 // Adario
 	DESIGNATED 7
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
@@ -267,7 +267,7 @@ BEGIN ~Adario~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN ~Avaunis~
+BEGIN @901013 // Avaunis
 	DESIGNATED 8
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
@@ -281,7 +281,7 @@ BEGIN ~Avaunis~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN ~Small Teeth Pass~
+BEGIN @901014 // Small Teeth Pass
 	DESIGNATED 9
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
@@ -295,7 +295,7 @@ BEGIN ~Small Teeth Pass~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN ~Shar-Teel~
+BEGIN @901015 // Shar-Teel
 	DESIGNATED 10
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
@@ -309,7 +309,7 @@ BEGIN ~Shar-Teel~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN ~Kivan~
+BEGIN @901016 // Kivan
 	DESIGNATED 11
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
@@ -323,7 +323,7 @@ BEGIN ~Kivan~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN ~Xzar + Montaron~
+BEGIN @901017 // Xzar + Montaron
 	DESIGNATED 12
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
@@ -337,7 +337,7 @@ BEGIN ~Xzar + Montaron~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
-BEGIN ~Kagain + Yeslick~
+BEGIN @901018 // Kagain + Yeslick
 	DESIGNATED 13
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 

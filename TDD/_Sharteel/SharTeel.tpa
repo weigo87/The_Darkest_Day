@@ -1,17 +1,17 @@
 //=============================================================================
 DEFINE_ACTION_MACRO InstallSpecificContents
 BEGIN
-
-	APPEND ~PDIALOG.2DA~ ~SHARTEDD SHARTP *** *** *** *** *** ***~ UNLESS ~SHARTEDD~
-	COPY_EXISTING ~PDIALOG.2DA~ ~override~ PRETTY_PRINT_2DA
-
+	ACTION_IF !GAME_IS ~bgt~ BEGIN
+		APPEND ~PDIALOG.2DA~ ~SHARTEDD SHARTP *** *** *** *** *** ***~ UNLESS ~SHARTEDD~
+		COPY_EXISTING ~PDIALOG.2DA~ ~override~ PRETTY_PRINT_2DA
+	END
 	
 	EXTEND_BOTTOM ~AR0400.BCS~ ~%workspace%/%COMP_FOLDER%/Snip/bAR0400.BAF~
 	EXTEND_BOTTOM ~AR1000.BCS~ ~%workspace%/%COMP_FOLDER%/Snip/bAR1000.BAF~
 	EXTEND_BOTTOM ~AR1005.BCS~ ~%workspace%/%COMP_FOLDER%/Snip/bAR1005.BAF~
 
 	// BGT-WeiDU compatibility
-	ACTION_IF FILE_EXISTS ~data/BG1ARE.BIF~ BEGIN    //BGT-WeiDU compatibility
+	ACTION_IF GAME_IS ~bgt~ BEGIN    //BGT-WeiDU compatibility
 		EXTEND_TOP ~AR1005.BCS~ ~TDD/Compat/BGT/Replace/xAR1005.BAF~
 		COPY_EXISTING ~AR0400.BCS~ ~override~	//TDD scripts
 					~SHARFIT1.BCS~ ~override~
@@ -81,7 +81,7 @@ ActionOverride("Sharteel",MoveBetweenAreas("AR1005",[1131.335],8))~
 	COPY_EXISTING ~SHARTE12.cre~ ~override~ //override - to catch immediate Kit Pack installation
 		SAY 0x1cc @20096
 		WRITE_LONG 0x244 ((kit_id + 0x4000) << 16)
-	ACTION_IF FILE_EXISTS ~data/BG1ARE.BIF~ BEGIN    //BGT-WeiDU compatibility
+	ACTION_IF GAME_IS ~eet bgt~ BEGIN    //BGT-WeiDU compatibility
 		COPY_EXISTING ~SHARTD.cre~ ~override~ //override - to catch immediate Kit Pack installation
 					~SHARTE.cre~ ~override~
 					~SHARTE4.cre~ ~override~

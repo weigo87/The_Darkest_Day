@@ -319,7 +319,7 @@ END
 IF ~~ THEN BEGIN 51 // from: 50.0
   SAY @105
   IF ~~ THEN DO ~SetGlobal("tz_AR0700","LOCALS",1)
-SetGlobal("tz_KickedOut","LOCALS",1)
+SetGlobal("KickedOut","LOCALS",1)
 LeaveParty()
 MoveGlobal("tz_DD0119","Vesine",[396.139])~ EXIT
 END

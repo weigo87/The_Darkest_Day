@@ -1,0 +1,7 @@
+IF
+	Global("tz_gandarsouth","GLOBAL",4)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_gandarsouth","GLOBAL",5)
+		TextScreen("ddtxt01")
+END

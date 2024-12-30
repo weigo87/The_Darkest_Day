@@ -93,27 +93,27 @@ IF ~~ THEN BEGIN 15 // from: 14.0
   SAY @39
   IF ~~ THEN DO ~JoinParty()
 SetGlobal("tz_KnowRobillard","GLOBAL",1)
-SetGlobal("tz_KickedOut","LOCALS",0)~ EXIT
+SetGlobal("KickedOut","LOCALS",0)~ EXIT
 END
 
 IF ~~ THEN BEGIN 16 // from: 14.1
   SAY @40
   IF ~~ THEN DO ~JoinParty()
 SetGlobal("tz_KnowRobillard","GLOBAL",1)
-SetGlobal("tz_KickedOut","LOCALS",0)~ EXIT
+SetGlobal("KickedOut","LOCALS",0)~ EXIT
 END
 
 IF ~~ THEN BEGIN 17 // from: 13.1
   SAY @41
   IF ~~ THEN DO ~JoinParty()
 SetGlobal("tz_KnowRobillard","GLOBAL",1)
-SetGlobal("tz_KickedOut","LOCALS",0)~ EXIT
+SetGlobal("KickedOut","LOCALS",0)~ EXIT
 END
 
 IF ~~ THEN BEGIN 18 // from: 13.2
   SAY @42
   IF ~~ THEN DO ~SetGlobal("tz_KnowRobillard","GLOBAL",1)
-SetGlobal("tz_KickedOut","LOCALS",0)~ EXIT
+SetGlobal("KickedOut","LOCALS",0)~ EXIT
 END
 
 IF ~Global("tz_KnowRobillard","GLOBAL",0)

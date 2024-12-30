@@ -1,15 +1,17 @@
 DEFINE_ACTION_MACRO InstallSpecificContents
 BEGIN
 
-	APPEND ~PDIALOG.2DA~ ~KAGAINDD KAGAIP *** *** *** *** *** ***~ UNLESS ~KAGAINDD~
-	APPEND ~PDIALOG.2DA~ ~YESLICDD YESLIP *** *** *** *** *** ***~ UNLESS ~YESLICDD~
-	COPY_EXISTING ~PDIALOG.2DA~ ~override~ PRETTY_PRINT_2DA
+	ACTION_IF !GAME_IS ~bgt~ BEGIN
+		APPEND ~PDIALOG.2DA~ ~KAGAINDD KAGAIP *** *** *** *** *** ***~ UNLESS ~KAGAINDD~
+		APPEND ~PDIALOG.2DA~ ~YESLICDD YESLIP *** *** *** *** *** ***~ UNLESS ~YESLICDD~
+		COPY_EXISTING ~PDIALOG.2DA~ ~override~ PRETTY_PRINT_2DA
+	END
 
 	EXTEND_TOP ~AR0020.BCS~ ~%workspace%/%COMP_FOLDER%/Snip/tAR0020.BAF~ //BAF modified
 	EXTEND_BOTTOM ~AR0900.BCS~ ~%workspace%/%COMP_FOLDER%/Snip/bAR0900.BAF~ //BAF modified	
 
 	// BGT-WeiDU compatibility
-	ACTION_IF FILE_EXISTS ~data/BG1ARE.BIF~ BEGIN    //BGT-WeiDU compatibility
+	ACTION_IF GAME_IS ~bgt~ BEGIN    //BGT-WeiDU compatibility
 		EXTEND_TOP ~AR0020.BCS~ ~%MOD_FOLDER%/Compat/BGT/Replace/xAR0200.BAF~ //BAF modified
 		EXTEND_TOP ~AR0900.BCS~ ~%MOD_FOLDER%/Compat/BGT/Replace/xAR0900.BAF~
 		COPY_EXISTING ~BALDUR.BCS~ ~override~
@@ -27,6 +29,13 @@ BEGIN
 					~XZARTHXB.DLG~   ~override~
  			DECOMPILE_AND_PATCH BEGIN
 					REPLACE_TEXTUALLY ~"xzardd"~  ~"Xzar"~        //change DeathVar check
+			END
+		COPY_EXISTING ~KAGAINDD.BCS~ ~override~
+			DECOMPILE_AND_PATCH BEGIN
+				REPLACE_TEXTUALLY
+~InParty("kagaindd")~
+~Global("ENDOFBG1","GLOBAL",2)
+InParty("kagaindd")~				
 			END
 		COPY_EXISTING ~ARAM00.BCS~ ~override~
 			DECOMPILE_AND_PATCH BEGIN
@@ -97,7 +106,10 @@ ActionOverride("Yeslick",MoveBetweenAreas("AR0900",[3445.1896],4))~
 			kit_id
 		END
 		
-		COPY ~%RES_FOLDER%/Spl/TROLLSL1.spl~         ~TDD-SPL~
+		COPY ~%MOD_FOLDER%/_Kits/Spl/TROLLSL1.spl~         ~TDD-SPL~
+		COPY ~%MOD_FOLDER%/_Kits/ITM/TROLLSL.itm~          ~TDD-ITM~
+			SAY NAME2 @21509
+			SAY DESC @21511
 		
 	COPY_EXISTING ~KAGAIN11.cre~ ~override~   //override - to catch immediate Kit Pack installation
 		SAY 0x1cc @20090

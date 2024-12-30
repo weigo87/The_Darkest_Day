@@ -1,9 +1,0 @@
-IF
-	Global("tz_pkmessrun","GLOBAL",2)
-THEN
-	RESPONSE #100
-		CreateCreature("pkloth1",[1123.1279],4) // Erolas
-		SetGlobal("tz_pkmessrun","GLOBAL",3)
-END
-
-

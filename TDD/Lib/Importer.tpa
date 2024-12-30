@@ -45,6 +45,7 @@ BEGIN
 	LAM ImportARE_FromTDD
 
 	ACTION_DEFINE_ASSOCIATIVE_ARRAY dispatch BEGIN
+		2DA => override
 		BAM => override
 		BMP => override
 //		ITM => override

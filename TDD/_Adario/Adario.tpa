@@ -20,6 +20,8 @@ BEGIN
 	LAM PatchAR0400
 	LAM PatchDD0401X
 	
+	OUTER_TEXT_SPRINT sender ~%COMP_FOLDER%~
+	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~ LAF Accept STR_VAR sender target = ~_Adario~ END
 END
 
 //=============================================================================

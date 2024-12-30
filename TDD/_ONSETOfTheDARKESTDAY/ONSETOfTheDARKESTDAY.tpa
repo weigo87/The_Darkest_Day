@@ -3,8 +3,6 @@ BEGIN
 	// TODO : BLOOD01X.cre-Barbazu better animation
 	// TODO : BLOOD02X.cre-Amnizu wizard better animation	
 	
-//	COPY ~%RES_FOLDER%/Cre/ee~ ~%workspace%/%COMP_FOLDER%~
-	
 	APPEND ~MASTAREA.2DA~
 ~ARPO05   value
 ARPO25   value
@@ -54,8 +52,15 @@ UNLESS ~ARPO05~
 		SAY 0x3cc @20084
 	
 	EXTEND_BOTTOM ~AR0300.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/bAR0300.baf~
-	EXTEND_BOTTOM ~AR0902.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/nAR0902.baf~
-		
+	EXTEND_BOTTOM ~AR0902.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/bAR0902.baf~
+	EXTEND_BOTTOM ~AR0020.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/bAR0020.baf~
+	
+	COPY_EXISTING ~DDTXT01.2DA~ ~override~
+		REPLACE ~85747~ @20026
+		REPLACE ~85748~ @20027
+	
+	OUTER_TEXT_SPRINT sender ~%COMP_FOLDER%~
+	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~ LAF Accept STR_VAR sender target = ~_ONSETOfTheDarkestDay~ END	
 END
 
 

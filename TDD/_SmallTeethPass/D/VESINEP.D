@@ -1,6 +1,6 @@
 BEGIN ~VESINEP~
 
-IF ~Global("tz_KickedOut","LOCALS",0)~ THEN BEGIN 0
+IF ~Global("KickedOut","LOCALS",0)~ THEN BEGIN 0
   SAY @0
   IF ~~ THEN REPLY @1 GOTO 1
   IF ~~ THEN REPLY @2 GOTO 2
@@ -113,7 +113,7 @@ IF ~~ THEN BEGIN 1 // from: 0.0
 !AreaCheck("AR2904")
 !AreaCheck("AR2905")
 !AreaCheck("AR2906")~ THEN REPLY @4 GOTO 3
-  IF ~~ THEN REPLY @5 DO ~SetGlobal("tz_KickedOut","LOCALS",1)~ EXIT
+  IF ~~ THEN REPLY @5 DO ~SetGlobal("KickedOut","LOCALS",1)~ EXIT
   IF ~~ THEN REPLY @6 GOTO 2
 END
 
@@ -126,12 +126,12 @@ END
 
 IF ~~ THEN BEGIN 3 // from: 1.0
   SAY @8
-  IF ~~ THEN DO ~SetGlobal("tz_KickedOut","LOCALS",1)
+  IF ~~ THEN DO ~SetGlobal("KickedOut","LOCALS",1)
 SetGlobal("tz_Leave_Party_Dialog","LOCALS",0)
 MoveGlobal("tz_DD0119","Vesine",[396.139])~ EXIT
 END
 
-IF ~Global("tz_KickedOut","LOCALS",1)~ THEN BEGIN 4
+IF ~Global("KickedOut","LOCALS",1)~ THEN BEGIN 4
   SAY @9
   IF ~~ THEN REPLY @10 DO ~SetDialog("VESINEP")~ EXIT
   IF ~~ THEN REPLY @11 GOTO 5
@@ -139,7 +139,7 @@ END
 
 IF ~~ THEN BEGIN 5 // from: 4.1
   SAY @12
-  IF ~~ THEN DO ~SetGlobal("tz_KickedOut","LOCALS",0)
+  IF ~~ THEN DO ~SetGlobal("KickedOut","LOCALS",0)
 SetGlobal("tz_Leave_Party_Dialog","LOCALS",0)
 SetDialog("VESINE")
 JoinParty()~ EXIT

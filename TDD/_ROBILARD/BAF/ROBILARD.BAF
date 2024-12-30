@@ -9,7 +9,7 @@ END
 IF
   !InParty(Myself)
   Global("tz_BeenInParty","LOCALS",1)
-  Global("tz_KickedOut","LOCALS",0)
+  Global("KickedOut","LOCALS",0)
 THEN
   RESPONSE #100
     SetDialogue("ROBILP")

@@ -9,7 +9,6 @@ END
 
 IF
   Global("tz_harperxzarfued","GLOBAL",0)
-  Global("ENDOFBG1","GLOBAL",2)
   InParty(Myself)  // xzardd
   InParty("montydd")  // montaron
 THEN

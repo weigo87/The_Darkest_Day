@@ -18,7 +18,7 @@ BEGIN
 	LAM HandleItemsContract		
 	
 	EXTEND_BOTTOM ~AR0300.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/bAR0300.baf~
-	EXTEND_BOTTOM ~AR0902.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/nAR0902.baf~
+	EXTEND_BOTTOM ~AR0902.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/bAR0902.baf~
 	
 	ACTION_IF FILE_EXISTS_IN_GAME ~AR0509.bcs~ BEGIN
 		EXTEND_TOP ~AR0509.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/xAR0509.baf~ // From: AR0509.BAF

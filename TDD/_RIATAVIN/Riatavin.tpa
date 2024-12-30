@@ -60,6 +60,14 @@ UNLESS ~DD3300~
 	EXTEND_BOTTOM ~AR2500.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/bAR2500.baf~
 	EXTEND_BOTTOM ~BALDUR.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/bBALDUR.baf~
 	
+	COPY_EXISTING ~AR0904.BCS~ ~override~
+		DECOMPILE_AND_PATCH BEGIN
+			REPLACE_TEXTUALLY ~^  Dead("talmiss")~
+							~  Dead("talmiss")  Exists("talmiss2")  !Dead("talmiss2")~
+			REPLACE_TEXTUALLY ~^  Dead("talmiss2")~
+							~  Dead("talmiss2")  Exists("talmiss")  !Dead("talmiss")~
+		END UNLESS ~16465 0 1 0 0 "talmiss[2]?" "" OB~
+	
 // EE Version
 	LAM PatchDD8000
 	LAM PatchDD8001

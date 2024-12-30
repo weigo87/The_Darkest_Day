@@ -1,15 +1,16 @@
 //=============================================================================
 DEFINE_ACTION_MACRO InstallSpecificContents
 BEGIN
-
-	APPEND ~PDIALOG.2DA~ ~KIVANDD KIVANP *** *** *** *** *** ***~ UNLESS ~KIVANDD~
-	COPY_EXISTING ~PDIALOG.2DA~ ~override~ PRETTY_PRINT_2DA
+	ACTION_IF !GAME_IS ~bgt~ BEGIN
+		APPEND ~PDIALOG.2DA~ ~KIVANDD KIVANP *** *** *** *** *** ***~ UNLESS ~KIVANDD~
+		COPY_EXISTING ~PDIALOG.2DA~ ~override~ PRETTY_PRINT_2DA
+	END
 
 	
 	EXTEND_BOTTOM ~AR1100.BCS~ ~%workspace%/%COMP_FOLDER%/Snip/bAR1100.BAF~
 
 	// BGT-WeiDU compatibility
-	ACTION_IF FILE_EXISTS ~data/BG1ARE.BIF~ BEGIN    //BGT-WeiDU compatibility
+	ACTION_IF GAME_IS ~bgt~ BEGIN    //BGT-WeiDU compatibility
 		EXTEND_TOP ~AR1100.BCS~ ~TDD/Compat/BGT/Replace/xAR1100.BAF~
 		COPY_EXISTING ~DDKIV1.BCS~ ~override~	//TDD scripts
 			DECOMPILE_AND_PATCH BEGIN
@@ -45,7 +46,7 @@ ActionOverride("Kivan",MoveBetweenAreas("AR1100",[4172.1239],4))~
 				~KIVAN13.cre~ ~override~
 		SAY 0x1cc @20092
 		WRITE_LONG 0x244 ((kit_id + 0x4000) << 16)
-	ACTION_IF FILE_EXISTS ~data/BG1ARE.BIF~ BEGIN    //BGT-WeiDU compatibility
+	ACTION_IF GAME_IS ~eet bgt~ BEGIN    //BGT-WeiDU compatibility
 		COPY_EXISTING ~KIVAN.cre~ ~override~ //override - to catch immediate Kit Pack installation
 					~KIVAN4.cre~ ~override~
 					~KIVAN6.cre~ ~override~

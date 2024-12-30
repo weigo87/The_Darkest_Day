@@ -185,27 +185,12 @@ BEGIN
 		END
 	END
 
-/*
-// NPC will be continous
-	ACTION_IF GAME_IS ~bg2 tob bgt~
-	ACTION_IF NOT FILE_EXISTS ~data/BG1ARE.BIF~  THEN BEGIN    //BGT-WeiDU compatibility - all NPC will be continous if BGT installed
-		APPEND ~PDIALOG.2DA~
-			~KAGAINDD     KAGAIP             ***              ***       	     ***    	      ***    		    ***    		        ***
-			YESLICDD     YESLIP             ***               ***                ***    	      ***    		    ***    		        ***
-			XZARDD       XZARP              ***               ***	             ***    	      ***    		    ***    		        ***
-			MONTYDD      MONTAP             ***               ***                ***    	      ***    		    ***    		        ***
-			SHARTEDD     SHARTP             ***               ***         	     ***    	      ***    		    ***    		        ***
-			KIVANDD      KIVANP             ***               ***        	     ***    	      ***    		    ***    		        ***~
-	END //BGT-WeiDU compatibility
-	
-	APPEND ~PDIALOG.2DA~
-		~ADARIO       ADARIOP            ***               ***                ***    	       ***    		     ***    		        ***
-		AVAUNIS      AVAUNISP           AVAUNISJ          ***                ***    	      ***    		    ***    		        ***
-		ROBILARD     ROBILP             ***               ***                ***    	      ***    		    ***    		        ***
-		VESINE       VESINEP            VESINEJ           ***	             ***    	      ***    		    ***    		        ***~
-	UNLESS ~ADARIO~
-*/
+// Item Rules
+	LAM ItemRules
 
+// Load Hint
+	LAM LoadHint
+	
 //*****************************************************************************
 // worldmap
 //*****************************************************************************	
@@ -315,3 +300,68 @@ BEGIN
 			END
 		END
 END
+
+//=============================================================================
+DEFINE_ACTION_MACRO ItemRules
+BEGIN
+
+	APPEND ~ITEMEXCL.2DA~
+~ARDEADX 1
+ICEPLAT 1
+RINGBIND 1
+ROBE1   1
+ROBE2   1
+ZGORGET 1
+WAUKEEN 1
+Guarp   1
+DDhrtles 1
+elvarmx 1
+Chan12zz 1
+Blood   1
+SWANARM 1
+shar20  1
+platblue 1
+mintanx 1
+healclck 1
+celebros 1
+bsingchn 1
+Minbalpl 1
+flamplat 1
+ROBEARM 1
+runeplat 1
+jerA    1
+samarmx1 1
+Chan6XX 1
+Glory   1
+minplatx 1
+trollarm 1
+Plat05xx 1~
+	UNLESS ~Plat05xx~
+
+	APPEND ~LOADH25.2DA~ ~79          72254~
+	UNLESS ~79~
+
+	APPEND ~LOADHINT.2DA~ ~75          85749~
+	APPEND ~LOADHINT.2DA~ ~76          85750~
+	APPEND ~LOADHINT.2DA~ ~77          85841~
+	COPY_EXISTING ~LOADHINT.2DA~ ~override~
+	REPLACE ~85749~ @20028
+	REPLACE ~85750~ @20029
+	REPLACE ~85841~ @20030
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO LoadHint
+BEGIN
+	APPEND ~LOADH25.2DA~ ~79          72254~
+	UNLESS ~79~
+
+	APPEND ~LOADHINT.2DA~ ~75          85749~
+	APPEND ~LOADHINT.2DA~ ~76          85750~
+	APPEND ~LOADHINT.2DA~ ~77          85841~
+	COPY_EXISTING ~LOADHINT.2DA~ ~override~
+		REPLACE ~85749~ @20028
+		REPLACE ~85750~ @20029
+		REPLACE ~85841~ @20030
+END
+

@@ -8,7 +8,6 @@ THEN
 END
 
 IF
-  Global("ENDOFBG1","GLOBAL",2)
   InParty("kagaindd")  // kagaindd
   InParty("yeslicdd")  // yeslicdd
   !Dead("kagaindd")  // kagaindd
