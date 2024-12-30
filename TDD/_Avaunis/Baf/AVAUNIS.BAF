@@ -1,0 +1,21 @@
+IF
+  AreaCheck("DD5000")
+  CombatCounter(0)
+  Global("tz_TDDAv1","DD5000",0)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_TDDAv1","DD5000",1)
+    StartDialogue("AVAUNISJ",[PC])
+END
+
+IF
+  AreaCheck("DD5000")
+  CombatCounter(0)
+  Dead("PSION4")
+  Global("tz_DDAvStay","LOCALS",0)
+THEN
+  RESPONSE #100
+    StartDialogue("AVAUNISJ",[PC])
+END
+
+
