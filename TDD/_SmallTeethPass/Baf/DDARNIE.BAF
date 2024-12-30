@@ -1,0 +1,48 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    FaceObject("DDyolkum")
+END
+
+IF
+  GlobalLT("tackle","DD0118",3)
+  Range("DDyolkum",5)
+THEN
+  RESPONSE #100
+    PlayDead(25)
+    Wait(1)
+    DisplayStringHead(Myself,@10096)
+    MoveToPoint([408.250])
+    FaceObject("DDyolkum")
+END
+
+IF
+  Global("tz_tackle","DD0118",3)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_tackle","DD0118",4)
+    CreateVisualEffectObject("SPPOLYMP",Myself)
+    Polymorph(COW)
+    Wait(2)
+    DisplayStringHead(Myself,@10097)
+    Wait(1)
+END
+
+IF
+  !Dead("DDyolkum")
+  Global("tz_tackle","DD0118",4)
+THEN
+  RESPONSE #100
+    Attack("DDyolkum")
+END
+
+IF
+  Dead("DDyolkum")
+  Global("tz_tackle","DD0118",4)
+THEN
+  RESPONSE #100
+    Polymorph(PEASANT_MAN)
+    SetGlobal("tz_tackle","DD0118",5)
+END
+

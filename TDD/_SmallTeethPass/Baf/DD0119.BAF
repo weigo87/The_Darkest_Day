@@ -1,0 +1,73 @@
+IF
+  Global("tz_Vesine","GLOBAL",0)
+  LevelLT(Player1,11)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_Vesine","GLOBAL",1)
+    CreateCreature("VESINE8",[396.139],0)
+END
+
+IF
+  Global("tz_Vesine","GLOBAL",0)
+  LevelGT(Player1,10)
+  LevelLT(Player1,13)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_Vesine","GLOBAL",1)
+    CreateCreature("VESINE11",[396.139],0)
+END
+
+IF
+  Global("tz_Vesine","GLOBAL",0)
+  LevelGT(Player1,12)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_Vesine","GLOBAL",1)
+    CreateCreature("VESINE13",[396.139],0)
+END
+
+IF
+  Global("tz_spawn","DD0119",0)
+THEN
+  RESPONSE #100
+    CreateCreature("DDPOTEN1",[295.291],12)
+    CreateCreature("PAULCAT",[569.428],1)
+    CreateCreature("DDvagabo",[459.361],1)
+    SetGlobal("tz_spawn","DD0119",1)
+END
+
+IF
+  Global("tz_DD_1700party_move","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_DD_1700party_move","GLOBAL",2)
+END
+
+IF
+  Global("tz_DD_1700party_move","GLOBAL",4)
+THEN
+  RESPONSE #100
+    CreateCreature("DD1700CL",[374.427],4)
+    CreateCreature("DD1700FI",[402.378],5)
+    CreateCreature("DD1700WI",[404.432],4)
+    CreateCreature("DD1700RA",[429.415],6)
+    SetGlobal("tz_DD_1700party_move","GLOBAL",6)
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("DDPOct1a")
+END
+
+IF
+  Global("tz_DD_1700party_move","GLOBAL",5)
+THEN
+  RESPONSE #100
+    CreateCreature("DD1700CL",[374.427],4)
+    CreateCreature("DD1700FI",[402.378],5)
+    CreateCreature("DD1700WI",[404.432],4)
+    CreateCreature("DD1700RA",[429.415],6)
+    SetGlobal("tz_DD_1700party_move","GLOBAL",6)
+    ClearAllActions()
+    StartCutSceneMode()
+    StartCutScene("DDPOct1b")
+END
+

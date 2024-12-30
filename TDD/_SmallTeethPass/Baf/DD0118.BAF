@@ -1,0 +1,9 @@
+IF
+  Global("tz_spawn","DD0118",0)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_spawn","DD0118",1)
+    CreateCreature("DDyolkum",[324.403],9)
+    CreateCreature("DDarnie",[408.250],0)
+END
+
