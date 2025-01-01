@@ -11,7 +11,9 @@ DD1x12   value
 DD2300   value~
 UNLESS ~ARPO05~
 
-	
+//	ACTION_IF GAME_IS ~eet bg2ee~ BEGIN
+		COPY ~%RES_FOLDER%/SPL/SPSHAD2.spl~ ~override~
+//	END
 	
 	COPY_EXISTING 	~EASTGOL1.cre~ ~override~
 					~EASTGOL2.cre~ ~override~

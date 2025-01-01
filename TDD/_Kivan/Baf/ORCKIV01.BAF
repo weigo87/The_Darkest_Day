@@ -1,0 +1,8 @@
+IF
+  Global("orckiv01see","LOCALS",0)
+  Range([PC],28)
+THEN
+  RESPONSE #100
+    SetGlobal("orckiv01see","LOCALS",1)
+    StartDialogNoSet([PC])
+END

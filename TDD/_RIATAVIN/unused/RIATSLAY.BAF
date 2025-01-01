@@ -1,0 +1,14 @@
+IF
+  True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    Wait(3)
+    DisplayStringHead(Player1,@10175)
+    Wait(5)
+    DisplayStringHead(Player1,@10176)
+    Wait(6)
+    ApplySpell(Player1,WIZARD_FINGER_OF_DEATH_IGNORE_RESISTANCE)
+    EndCutSceneMode()
+END
+

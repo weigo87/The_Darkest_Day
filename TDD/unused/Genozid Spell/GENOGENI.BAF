@@ -1,0 +1,20 @@
+IF
+  Global("genogeni","GLOBAL",0)
+  See([PC])
+  Range([PC],15)
+THEN
+  RESPONSE #100
+    StartDialogNoSet([PC])
+    SetGlobal("genogeni","GLOBAL",1)
+END
+
+IF
+  Global("genogeni","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("genogeni","GLOBAL",0)
+    AddexperienceParty(6000)
+    CreateVisualEffectObject("spportal",Myself)
+    DestroySelf()
+END
+
