@@ -1,9 +1,10 @@
 IF
-  Global("tz_pkdead1help","GLOBAL",5)
+  Global("dungettnmeet","GLOBAL",0)
+  Range([PC],15)
 THEN
   RESPONSE #100
-    DestroySelf()
-    SetGlobal("tz_pkdead1help","GLOBAL",6)
+    StartDialogNoSet([PC])
+    SetGlobal("dungettnmeet","GLOBAL",1)
 END
 
 IF
@@ -13,13 +14,6 @@ THEN
   RESPONSE #100
     EquipMostDamagingMelee()
     Attack(NearestEnemyOf(Myself))
-END
-
-IF
-  See("pkdead1")
-THEN
-  RESPONSE #100
-    FaceObject("pkdead1")
 END
 
 IF
@@ -59,7 +53,7 @@ THEN
 END
 
 IF
-  Global("tz_pkHOhom123","GLOBAL",1)
+  Global("pkHOhom123","GLOBAL",1)
 THEN
   RESPONSE #100
     Enemy()
