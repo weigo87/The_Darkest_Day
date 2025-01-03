@@ -44,32 +44,32 @@ IF
   Global("tz_TOPAZDEATH","LOCALS",0)
 THEN
   RESPONSE #100
-    Changeclass(Myself,MAGE)
-    ReallyforcespellRES("TZPR962",Lastseenby(Myself))
-    Forcespell(Myself,WIZARD_STONE_SKIN)
-    Applyspell(Myself,BEHOLDER_SPELL_TURNING)
-    Forcespell(Myself,CLERIC_CURE_CRITICAL_WOUNDS)
-    Reallyforcespell(Myself,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
-    Forcespell(Nearestenemyof(Myself),DRAGON_WING_BUFFET)
-    Setglobal("tz_TOPAZDEATH","LOCALS",1)
+    ChangeClass(Myself,MAGE)
+    ReallyForceSpellRES("TZPR962",LastSeenBy(Myself))
+    ForceSpell(Myself,WIZARD_STONE_SKIN)
+    ApplySpell(Myself,BEHOLDER_SPELL_TURNING)
+    ForceSpell(Myself,CLERIC_CURE_CRITICAL_WOUNDS)
+    ReallyForceSpell(Myself,WIZARD_PROTECTION_FROM_MAGIC_ENERGY)
+    ForceSpell(Nearestenemyof(Myself),DRAGON_WING_BUFFET)
+    SetGlobal("tz_TOPAZDEATH","LOCALS",1)
 END
 
 IF
-  Hplt(Myself,100)
+  HPLT(Myself,100)
   Global("tz_TOPAZDEATHX","LOCALS",0)
 THEN
   RESPONSE #100
-    Changeclass(Myself,MAGE)
-    Reallyforcespell(Myself,WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)
-    Forcespell(Myself,CLERIC_HEAL)
-    Forcespell(Myself,WIZARD_STONE_SKIN)
-    Setglobal("tz_TOPAZDEATHX","LOCALS",1)
+    ChangeClass(Myself,MAGE)
+    ReallyForceSpell(Myself,WIZARD_PROTECTION_FROM_MAGIC_WEAPONS)
+    ForceSpell(Myself,CLERIC_HEAL)
+    ForceSpell(Myself,WIZARD_STONE_SKIN)
+    SetGlobal("tz_TOPAZDEATHX","LOCALS",1)
 END
 
 IF
   Allegiance(Myself,ENEMY)
-  !Checkstatgt(Myself,0,STONESKINS)
-  !Globaltimernotexpired("tz_Prot1","LOCALS")
+  !CheckStatGT(Myself,0,STONESKINS)
+  !GlobalTimerNotExpired("tz_Prot1","LOCALS")
 THEN
   RESPONSE #100
     Setglobaltimer("tz_Prot1","LOCALS",SIX_ROUNDS)

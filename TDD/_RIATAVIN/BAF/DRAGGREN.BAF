@@ -82,7 +82,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("tz_WingBuffet","LOCALS",0)
-    ReallyForcespellRES("TZWI427",Lastseenby(Myself))
+    ReallyForceSpellRES("TZWI427",LastSeenBy(Myself))
     SetGlobalTimer("tz_DLDRAGONBREATH","GLOBAL",18)
 END
 

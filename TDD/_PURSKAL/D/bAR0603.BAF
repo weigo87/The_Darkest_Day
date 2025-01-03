@@ -1,0 +1,26 @@
+IF
+  Global("container_spawn","AR0603",0)
+THEN
+    RESPONSE #100
+             ActionOverride("container12",CreateItem("DDPOTNP3",2,0,0))
+             SetGlobal("container_spawn","AR0603",1)
+END
+
+IF
+  Global("extra603","GLOBAL",0)
+THEN
+    RESPONSE #100
+             CreateCreature("wraith01",[647.1347],4)
+             CreateCreature("dungettn",[2958.2101],4)
+             SetGlobal("extra603","GLOBAL",1)
+END
+
+IF
+  Global("dungettinhelp","GLOBAL",1)
+THEN
+    RESPONSE #100
+             CreateCreature("ddogre01",[2532.2331],4)
+             CreateCreature("ddogre01",[2401.2515],4)
+             SetGlobal("dungettinhelp","GLOBAL",2)
+END
+

@@ -1,0 +1,33 @@
+IF
+  OnCreation()
+  AreaType(OUTDOOR)
+THEN
+  RESPONSE #100
+    Weather(RAIN)
+    CreateVisualEffectObject("CALLLIGH",NearestEnemyOf([PC]))
+    ApplyDamage(NearestEnemyOf([PC]),9,ELECTRICITY)
+    CreateVisualEffectObject("SPPOWRRD",LastSummonerOf(Myself))
+    SmallWait(20)
+    CreateVisualEffectObject("CALLLIGH",SecondNearestEnemyOf([PC]))
+    ApplyDamage(SecondNearestEnemyOf([PC]),9,ELECTRICITY)
+    SmallWait(20)
+    CreateVisualEffectObject("CALLLIGH",ThirdNearestEnemyOf([PC]))
+    ApplyDamage(ThirdNearestEnemyOf([PC]),9,ELECTRICITY)
+    CreateVisualEffectObject("SPPOWRRD",LastSummonerOf(Myself))
+    Wait(1)
+    CreateCreatureObjectOffset("POrain02",LastSummonerOf(Myself),[100.100])
+    CreateCreatureObjectOffset("POrain02",LastSummonerOf(Myself),[-100.-100])
+    Wait(1)
+    CreateCreatureObjectOffset("POrain02",LastSummonerOf(Myself),[100.-100])
+    CreateCreatureObjectOffset("POrain02",LastSummonerOf(Myself),[-100.100])
+    DestroySelf()
+END
+
+IF
+  OnCreation()
+  !AreaType(OUTDOOR)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

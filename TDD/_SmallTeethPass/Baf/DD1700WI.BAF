@@ -30,8 +30,8 @@ IF
   Global("tz_Prep","LOCALS",0)
 THEN
   RESPONSE #100
-    ApplySpell(Myself,COM_DAERRAGHS_AURA_OF_CLEANSING)
-    ApplySpell(Myself,COM_AURA_OF_FOCUS)
+    ApplySpellRES("TZWI430",Myself)
+    ApplySpellRES("TZWI327",Myself)
     ApplySpell(Myself,WIZARD_STONE_SKIN)
     ReallyForceSpell(Myself,WIZARD_HASTE)
     ApplySpell(Myself,WIZARD_ABSOLUTE_IMMUNITY)

@@ -1,0 +1,27 @@
+IF
+  HasItemEquipedReal("flamplat",Myself)
+  Range(NearestEnemyOf(Myself),5)
+  HitBy([ENEMY],SLASHING)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES("TZPR961",LastAttackerOf(Myself))
+END
+
+IF
+  HasItemEquipedReal("flamplat",Myself)
+  Range(NearestEnemyOf(Myself),5)
+  HitBy([ENEMY],CRUSHING)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES("TZPR961",LastAttackerOf(Myself))
+END
+
+IF
+  HasItemEquipedReal("flamplat",Myself)
+  Range(NearestEnemyOf(Myself),5)
+  HitBy([ENEMY],PIERCING)
+THEN
+  RESPONSE #100
+    ReallyForceSpellRES("TZPR961",LastAttackerOf(Myself))
+END
+

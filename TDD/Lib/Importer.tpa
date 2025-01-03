@@ -57,7 +57,7 @@ BEGIN
 		graphics => override
 	END
 	ACTION_PHP_EACH dispatch AS restype => to BEGIN
-		ACTION_IF ~%restype%~ STR_EQ ~MOS~ BEGIN
+		ACTION_IF ~%restype%~ STR_EQ ~MOS~ OR ~%restype%~ STR_EQ ~BAF~ BEGIN
 			ACTION_IF DIRECTORY_EXISTS "%RES_FOLDER%/%restype%/%engine%"
 				BEGIN COPY ~%RES_FOLDER%/%restype%/%engine%~ ~%to%~ END // ee or non-ee
 			END ELSE BEGIN

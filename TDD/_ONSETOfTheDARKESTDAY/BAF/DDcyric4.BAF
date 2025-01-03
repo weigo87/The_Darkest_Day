@@ -50,7 +50,7 @@ IF
   GlobalLT("tz_SymbolOfBanishment","LOCALS",2)
 THEN
   RESPONSE #100
-    ForceSpell(LastSeenBy(Myself),CLERIC_SYMBOL_STUN)
+    ForceSpellRES("TZPR718",LastSeenBy(Myself))
     IncrementGlobal("tz_SymbolOfBanishment","LOCALS",1)
     Wait(1)
     Continue()
