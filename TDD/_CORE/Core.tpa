@@ -72,49 +72,68 @@ BEGIN
 	LAM WizardSpells
 
 	
-	//ACTION_IF NOT MOD_IS_INSTALLED "CtB.tp2" (ID_OF_LABEL "CtB.tp2" "check_the_bodies")  //CtB compatibility
-	// we HAVE TO do import them with or without CtB so we rename spells with CtB unique names
-	ACTION_IF FILE_EXISTS_IN_GAME ~%MOD_FOLDER%/Compat/CtB/CBWI227.SPL~ BEGIN	// Cat's Grace
-		COPY ~%MOD_FOLDER%/Compat/CtB/CBWI227.SPL~ ~override~
-			SAY NAME1  @20942
-			SAY UNIDENTIFIED_DESC @20943
-			PATCH_IF GAME_IS ~bg2 tob bgt~ BEGIN
-				LPF ADD_SPELL_EFFECT INT_VAR opcode = 265 target = 1 parameter1 = 1 timing = 1 header = 1 STR_VAR resource = CBWISpel END
-			END
+	ACTION_IF NOT MOD_IS_INSTALLED "CtB.tp2" (ID_OF_LABEL "CtB.tp2" "check_the_bodies") BEGIN //CtB compatibility
+		ACTION_IF !FILE_EXISTS_IN_GAME ~CBWI227.SPL~ BEGIN	// Cat's Grace
+			COPY ~%MOD_FOLDER%/Compat/CtB/CBWI227.SPL~ ~override~
+				SAY NAME1  @20942
+				SAY UNIDENTIFIED_DESC @20943
+				PATCH_IF GAME_IS ~bg2 tob bgt~ BEGIN
+					LPF ADD_SPELL_EFFECT INT_VAR opcode = 265 target = 1 parameter1 = 1 timing = 1 header = 1 STR_VAR resource = CBWISpel END
+				END
+		END
+		ACTION_IF !FILE_EXISTS_IN_GAME ~CBWI440.SPL~ BEGIN	// Mordenkainen's Force Missiles
+			COPY ~%MOD_FOLDER%/Compat/CtB/CBWI440.SPL~ ~override~
+				SAY NAME1  @20944
+				SAY UNIDENTIFIED_DESC @20945
+				PATCH_IF GAME_IS ~bg2 tob bgt~ BEGIN
+					LPF ADD_SPELL_EFFECT INT_VAR opcode = 265 target = 1 parameter1 = 1 timing = 1 header = 1 STR_VAR resource = CBWISpel END
+				END
+		END
+		ACTION_IF !FILE_EXISTS_IN_GAME ~CBWI627.SPL~ BEGIN	// Anti-Magic Shell
+			COPY ~%MOD_FOLDER%/Compat/CtB/CBWI627.SPL~ ~override~
+				SAY NAME1  @20946
+				SAY UNIDENTIFIED_DESC @20947
+				PATCH_IF GAME_IS ~bg2 tob bgt~ BEGIN
+					LPF ADD_SPELL_EFFECT INT_VAR opcode = 265 target = 1 parameter1 = 1 timing = 1 header = 1 STR_VAR resource = CBWISpel END
+				END
+		END
+		ACTION_IF !FILE_EXISTS_IN_GAME ~CBWI823.SPL~ BEGIN	// Iron Body
+			COPY ~%MOD_FOLDER%/Compat/CtB/CBWI823.SPL~ ~override~
+				SAY NAME1 @20948
+				SAY UNIDENTIFIED_DESC @20949
+				PATCH_IF GAME_IS ~bg2 tob bgt~ BEGIN
+					LPF ADD_SPELL_EFFECT INT_VAR opcode = 265 target = 1 parameter1 = 1 timing = 1 header = 1 STR_VAR resource = CBWISpel END
+				END
+		END
+		ACTION_IF !FILE_EXISTS_IN_GAME ~CBWI824.SPL~ BEGIN	// Mind Blank
+			COPY ~%MOD_FOLDER%/Compat/CtB/CBWI824.SPL~ ~override~
+				SAY NAME1 @20950
+				SAY UNIDENTIFIED_DESC @20951
+				PATCH_IF GAME_IS ~bg2 tob bgt~  BEGIN
+					LPF ADD_SPELL_EFFECT INT_VAR opcode = 265 target = 1 parameter1 = 1 timing = 1 header = 1 STR_VAR resource = CBWISpel END
+				END
+		END
+		
+		COPY ~%MOD_FOLDER%/Compat/CtB/BAM~ ~override~
 	END
-	ACTION_IF FILE_EXISTS_IN_GAME ~%MOD_FOLDER%/Compat/CtB/CBWI440.SPL~ BEGIN	// Mordenkainen's Force Missiles
-		COPY ~%MOD_FOLDER%/Compat/CtB/CBWI440.SPL~ ~override~
-			SAY NAME1  @20944
-			SAY UNIDENTIFIED_DESC @20945
-			PATCH_IF GAME_IS ~bg2 tob bgt~ BEGIN
-				LPF ADD_SPELL_EFFECT INT_VAR opcode = 265 target = 1 parameter1 = 1 timing = 1 header = 1 STR_VAR resource = CBWISpel END
-			END
+	
+	ACTION_IF NOT MOD_IS_INSTALLED "RoT.tp2" (ID_OF_LABEL "RoT.tp2" "region_of_terror" ) BEGIN    // Compatibility with RoT	
+		ACTION_IF !FILE_EXISTS_IN_GAME ~%MOD_FOLDER%/Compat/RoT/RTWI733.spl~  BEGIN 
+			COPY ~%MOD_FOLDER%/Compat/RoT/RTWI733.spl~ ~override~
+				SAY NAME1 @20871
+				SAY UNIDENTIFIED_DESC @20872
+		END
+		ACTION_IF !FILE_EXISTS_IN_GAME ~%MOD_FOLDER%/Compat/RoT/RTWI828.spl~  BEGIN	
+			COPY ~%MOD_FOLDER%/Compat/RoT/RTWI828.spl~ ~override~
+				SAY NAME1 @20892
+				SAY UNIDENTIFIED_DESC @20893
+		END
+		ACTION_IF !FILE_EXISTS_IN_GAME ~%MOD_FOLDER%/Compat/RoT/RTWI968.spl~  BEGIN		
+			COPY ~%MOD_FOLDER%/Compat/RoT/RTWI968.spl~ ~override~
+				SAY NAME1 @20898
+				SAY UNIDENTIFIED_DESC @20899
+		END
 	END
-	ACTION_IF FILE_EXISTS_IN_GAME ~%MOD_FOLDER%/Compat/CtB/CBWI627.SPL~ BEGIN	// Anti-Magic Shell
-		COPY ~%MOD_FOLDER%/Compat/CtB/CBWI627.SPL~ ~override~
-			SAY NAME1  @20946
-			SAY UNIDENTIFIED_DESC @20947
-			PATCH_IF GAME_IS ~bg2 tob bgt~ BEGIN
-				LPF ADD_SPELL_EFFECT INT_VAR opcode = 265 target = 1 parameter1 = 1 timing = 1 header = 1 STR_VAR resource = CBWISpel END
-			END
-	END
-	ACTION_IF FILE_EXISTS_IN_GAME ~%MOD_FOLDER%/Compat/CtB/CBWI823.SPL~ BEGIN	// Iron Body
-		COPY ~%MOD_FOLDER%/Compat/CtB/CBWI823.SPL~ ~override~
-			SAY NAME1 @20948
-			SAY UNIDENTIFIED_DESC @20949
-			PATCH_IF GAME_IS ~bg2 tob bgt~ BEGIN
-				LPF ADD_SPELL_EFFECT INT_VAR opcode = 265 target = 1 parameter1 = 1 timing = 1 header = 1 STR_VAR resource = CBWISpel END
-			END
-	END
-	ACTION_IF FILE_EXISTS_IN_GAME ~%MOD_FOLDER%/Compat/CtB/CBWI824.SPL~ BEGIN	// Mind Blank
-		COPY ~%MOD_FOLDER%/Compat/CtB/CBWI824.SPL~ ~override~
-			SAY NAME1 @20950
-			SAY UNIDENTIFIED_DESC @20951
-			PATCH_IF GAME_IS ~bg2 tob bgt~ BEGIN
-				LPF ADD_SPELL_EFFECT INT_VAR opcode = 265 target = 1 parameter1 = 1 timing = 1 header = 1 STR_VAR resource = CBWISpel END
-			END
-	END
-	//END
 	
 		
 	LAM ImportSpellScrolls_FromTDD
@@ -216,16 +235,17 @@ END
 DEFINE_ACTION_MACRO ImportSpellScrolls_FromTDD
 BEGIN
 	COPY ~%RES_FOLDER%/SpellScrollsContract.2da~ ~%workspace%/%COMP_FOLDER%/SpellScrollsContract.2da~
-		COUNT_2DA_ROWS 8 count
+		COUNT_2DA_ROWS 9 count
 		WHILE (count > 1) BEGIN
-			READ_2DA_ENTRY (count -1) 0 7 resname
-			READ_2DA_ENTRY (count -1) 1 7 name1
-			READ_2DA_ENTRY (count -1) 2 7 name2
-			READ_2DA_ENTRY (count -1) 3 7 unidentifiedDesc
-			READ_2DA_ENTRY (count -1) 4 7 desc
-			READ_2DA_ENTRY (count -1) 5 7 iconS
-			READ_2DA_ENTRY (count -1) 6 7 policy //undroppable column
-			READ_2DA_ENTRY (count -1) 7 7 path_to_file
+			READ_2DA_ENTRY (count -1) 0 8 resname
+			READ_2DA_ENTRY (count -1) 1 8 name1
+			READ_2DA_ENTRY (count -1) 2 8 name2
+			READ_2DA_ENTRY (count -1) 3 8 unidentifiedDesc
+			READ_2DA_ENTRY (count -1) 4 8 desc
+			READ_2DA_ENTRY (count -1) 5 8 iconS
+			READ_2DA_ENTRY (count -1) 6 8 policy //undroppable column
+			READ_2DA_ENTRY (count -1) 7 8 path_to_file
+			READ_2DA_ENTRY (count -1) 8 8 learnable
 			SET count = count -1
 			
 			TO_UPPER resname
@@ -233,13 +253,14 @@ BEGIN
 			SET unchanged = (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)			
 			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
 			SET replace = (~%customize%~ && NOT ~%undroppable%~)
-			SPRINT newItem ~%policy%~
-			PATCH_IF (~%undroppable%~)
-				BEGIN SPRINT newItem ~SCRL75~ END
 										
-			INNER_ACTION BEGIN					
-				ACTION_IF ~%unchanged%~ BEGIN 
-					COPY ~%MOD_FOLDER%/%path_to_file%/%resname%.itm~ ~override~
+			INNER_ACTION BEGIN
+				OUTER_SPRINT path ~%RES_FOLDER%/itm/%resname%.itm~
+				ACTION_IF NOT ~%path_to_file%~ STR_EQ ~+~ BEGIN
+					OUTER_SPRINT path ~%MOD_FOLDER%/%path_to_file%/%resname%.itm~
+				END
+				ACTION_IF NOT ~%replace%~ BEGIN
+					COPY ~%path%~ ~override~
 						PATCH_IF IS_AN_INT name1 BEGIN SET strref = RESOLVE_STR_REF ((AT name1)) WRITE_LONG NAME1 %strref% END
 						PATCH_IF IS_AN_INT name2 BEGIN SET strref = RESOLVE_STR_REF ((AT name2)) WRITE_LONG NAME2 %strref% END
 						PATCH_IF IS_AN_INT unidentifiedDesc BEGIN SET strref = RESOLVE_STR_REF ((AT unidentifiedDesc)) WRITE_LONG UNIDENTIFIED_DESC %strref% END
@@ -248,14 +269,13 @@ BEGIN
 							PATCH_IF IS_AN_INT iconS 
 								BEGIN SPRINT iconS ~%resname%~ END
 							WRITE_ASCIIE 0x3A ~%iconS%~ #8
-							
 							INNER_ACTION BEGIN
 								ACTION_IF NOT FILE_EXISTS_IN_GAME ~%iconS%.bam~ BEGIN
-									ACTION_IF FILE_EXISTS ~%RES_FOLDER%/%iconS%.bam~ BEGIN 
-										COPY ~%RES_FOLDER%/%iconS%.bam~ ~override~ 
+									ACTION_IF FILE_EXISTS ~%RES_FOLDER%/Bam/%iconS%.bam~ BEGIN 
+										COPY ~%RES_FOLDER%/Bam/%iconS%.bam~ ~override~ 
 									END ELSE BEGIN 
-										ACTION_IF FILE_EXISTS ~%MOD_FOLDER%/%path_to_file%/%iconS%.bam~ BEGIN
-											COPY ~%MOD_FOLDER%/%path_to_file%/%iconS%.bam~ ~override~
+										ACTION_IF FILE_EXISTS ~%MOD_FOLDER%/%path_to_file%/Bam/%iconS%.bam~ BEGIN
+											COPY ~%MOD_FOLDER%/%path_to_file%/Bam/%iconS%.bam~ ~override~
 										END ELSE BEGIN
 											PRINT ~Warning: missing ressource from TDD and BG2EE: %iconS%.bam, to continue, please press Enter~
 											ACTION_READLN ~pause~
@@ -263,7 +283,19 @@ BEGIN
 									END
 								END
 							END									
-						END				
+						END
+						PATCH_IF (~%learnable%~ STR_EQ ~.~) BEGIN
+							GET_OFFSET_ARRAY ab_array 0x64 4 0x68 2 0 0 0x38
+							PHP_EACH ab_array AS int => ab_off BEGIN
+								GET_OFFSET_ARRAY2 fx_array ab_off ITM_V10_HEAD_EFFECTS
+								PHP_EACH fx_array AS int1 => fx_off BEGIN
+									READ_SHORT fx_off fx_type
+									PATCH_IF fx_type = 147 BEGIN
+										LPF ~DELETE_ITMSPL_HEADER_NUM~	INT_VAR header_type = "-1" delete_abil_num = EVAL int END
+									END
+								END
+							END
+						END
 				END
 			END
 		END

@@ -38,9 +38,9 @@ UNLESS ~ARPO05~
 		WRITE_ASCII DIALOG ~DDSUELLE~ #8
 	BUT_ONLY	
 	
-	LAM HandleSpellScrollsContract
-	LAM HandleCoreItemsContract
-	LAM HandleItemsContract
+//	LAM HandleSpellScrollsContract
+//	LAM HandleCoreItemsContract
+//	LAM HandleItemsContract
 	
 // EE Version
 	LAM PatchStores

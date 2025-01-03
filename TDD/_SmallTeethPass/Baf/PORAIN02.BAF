@@ -1,0 +1,11 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    ReallyForceSpell(Myself,CLERIC_CALL_LIGHTNING)
+    Wait(2)
+    ReallyForceSpell(Myself,CLERIC_CALL_LIGHTNING)
+    Wait(2)
+    DestroySelf()
+END
+

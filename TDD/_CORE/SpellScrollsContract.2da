@@ -1,60 +1,83 @@
-RESNAME NAME1	NAME2	UNIDENTIFIED_DESC	DESC	ICON		UNDROPPABLE PATH_TO_FILE	NAME					COMMENTS
-SCRM104	+		20502	+					20503	SPMI104A	+			_CORE/Itm		Wall of Force			.R/RAZAK01.sto@424;TODO MADEEL.sto
-SCRX1	+		20821	+					20822	CHANNELA	+			_CORE/Itm		Azragans_Channeling		.R/WARDWIZS.sto@188;R/3307WIZ.sto@188;TODO MADDEL.sto
-SCRX3	+		20825	+					20826	TSTRA		+			_CORE/Itm		True_Strike				.P/DD3501.are@A98;ARP006.BAF;TODO MADEEL.STO,
-SCRX4	+		20827	+					20828	TORMA		+			_CORE/Itm		Torment					.T/DD9005.are@1FB0;ARP029.BAF;TODO MADEEL.STO
-SCRX6	+		20942	+					20943	CATA		+			_CORE/Itm		Cats-Grace				.ARPo05.baf;TODO DD4002.are@0x45C;TODO MADEEL.STO
-SCRX7	+		20831	+					20832	FOCUSA		+			_CORE/Itm		Endurance				.P/DD3503.are@0xAD4;TODO MADEEL.STO
-SCRX8	+		20835	+					20836	ENDA		+			_CORE/Itm		Aura_of_Focus			.P/DD3501.are@0xB24;TODO MADEEL.STO
-SCRX9	+		20837	+					20838	LANCEA		+			_CORE/Itm		Ice_Lance				.R/AR1100.are@E98;TODO MADEEL.STO
-SCRX10	+		20839	+					20840	ADRENA		+			_CORE/Itm		Adrenaline_Rush			.E/BARHEAL.sto@1CC;TODO MADEEL.sto
-SCRX12	+		20841	+					20842	SHARDA		+			_CORE/Itm		Ice_ShardD				.T/D9008.are@0x4C0;TODO MADEEL.STO,ARPo05.baf 
-SCRX13	+		20843	+					20844	WEAKXA		+			_CORE/Itm		Weaken					.P/DD3501.are@0xC14;TODO MADEEL.STO
-SCRX14	+		20053	+					20849	SPFOGXA		+			_CORE/Itm		Heavy_Fog				.==> TODO ARPO28.baf;TODO MADDEL.sto
-SCRX15	+		20850	+					20851	MASSA		+			_CORE/Itm		Mass_Teleport			.R/3307WIZ.sto@1A4;T/DD9005.are@2280;TODO MADEEL.sto@260
-SCRX17	+		20871	+					20872	SPWI61XA	+			Compat/RoT		Monster_Summoning_IV	.R/3307WIZ.sto@1C0;TODO MADDEL.sto
-SCRX18	+		20767	+					20768	ASSIMA		+			_CORE/Itm		Assimilation			.==> ARPO29.baf;TODO MADDEL.sto
-SCRX19	+		20069	+					20860	SPWW715B	+			_CORE/Itm		Black_Death				.R/WARDWIZS.sto@1A4;TODO MADDEL.sto
-SCRX20	+		20861	+					20862	SPBULLXB	+			_CORE/Itm		Raging_Bull				.R/RAZAK01.sto@4B0;TODO MADEEL.sto
-SCRX21	+		20863	+					20864	FROSTA		+			_CORE/Itm		Frost_Bite				.R/DD8001D.are@404; TODO MADDEL.sto
-SCRX22	+		20865	+					20866	MELTA		+			_CORE/Itm		Armor_Melt				.P/DD3501.ARE@0xA5C;TODO MADEEL.STO
-SCRX23	+		20869	+					20870	EXECA		+			_CORE/Itm		Execution				.==> TODO ARPO28.baf;TODO MADDEL.sto
-SCRX24	+		20892	+					20893	SPWI81XA	+			Compat/RoT		Monster_Summoning_V		.==> TODO DD8001D.are MADDEL.sto
-SCRX25	+		20873	+					20874	SPORCXA		+			_CORE/Itm		Orcish_Horde			.E/BARHEAL.sto@1B0;TODO MADEEL.sto
-SCRX26	+		20875	+					20876	HEMOA		+			_CORE/Itm		Hemophilia	 			.R/3307WIZ.sto@1DC;TODO MADDEL.sto
-SCRX27	+		20877	+					20878	DEXA		+			_CORE/Itm		Soul_of_Kalan-Zhar		.R/WARDWIZS.sto@214;TODO MADDEL.sto
-SCRX28	+		20879	+					20880	RANEGA		+			_CORE/Itm		Rarys_Mnemonic_Negator	.R/DUEGSAL3.sto@304; TODO MADDEL.sto
-SCRX29	+		20879	+					20880	IRONA		+			_CORE/Itm		Iron_Body				.E/DD1800.are@54C;TODO MADEEL.sto
-SCRX31	+		20886	+					20887	BURSTA		+			_CORE/Itm		Sun_Burst				.C/DD9400.are@F48;TODO MADEEL.sto
-SCRX32	+		20888	+					20889	SUFFA		+			_CORE/Itm		Suffocation				.P/DD3503.are@0xC00;ARPO28.baf;TODO MADEEL.sto
-SCRX33	+		20890	+					20891	GRAVA		+			_CORE/Itm		Gravity					.R/WARDWIZS.sto@1F8;TODO MADDEL.sto
-SCRX34	+		20898	+					20899	SPWI91XA	+			Compat/RoT		Monster_Summoning_VI	.R/DUEGSAL3.sto@320;TODO MADDEL.sto
-SCRX35	+		20900	+					20901	ARMYA		+			_CORE/Itm		Army_of_Darkness		.R/DD7001.are@934;TODO MADEEL.sto
-SCRX36	+		20902	+					20903	TATTOOA		+			_CORE/Itm		Tattoo					.R/DUEGSAL3.sto@33C;TODO MADDEL.sto
-SCRX37	+		20907	+					20908	WARPA		+			_CORE/Itm		Life_Warping			.R/DDRAGBRW.cre@66C; TODO MADEEL.sto
-SCRX39	+		20921	+					20922	SACA		+			_CORE/Itm		Sacrificial_Transfer	.R/RAZAK01.sto@478;ARPO28.baf;TODO MADEEL.sto
-SCRX40	+		20923	+					20924	RUNEBA		+			_CORE/Itm		Sun_Burst				.C/DD9400.are@F5C;TODO MADEEL.sto
-SCRX41	+		20935	+					20936	RARENA		++++++++	_CORE/Itm		Rarys_Mnemonic_Enhancer	(Used in script) E/DD4003.are@0x1380;E/DD4003.baf;MADEEL.sto
-SCRX42	+		20894	+					20895	WEIRDA		+			_CORE/Itm		Weird					.R/DRAGGOLD.cre@564; TODO MADEEL.sto
-SCRX43	+		20896	+					20897	COROSEA		+			_CORE/Itm		Anti-Magic_Cloud		.R/RAZAK01.sto@494;TODO MADEEL.sto
-SCRX46	+		20817	+					20818	MSO-B		+			_CORE/Itm		Malygnus_Shattering_Obelisk		.R/RAZAK01.sto@440;TODO MADEEL.sto
-SCRX48	+		20491	+					20492	SPMI101A	+			_CORE/Itm		Mind_Rot				.R/DD8001D.are@440; TODO MADDEL.sto
-SCRX49	+		20494	+					20495	SPMI102A	+			_CORE/Itm		Molecular_Disjointment	.R/DDRAGBRW.cre@658; TODO MADEEL.sto
-SCRX51	+		20804	+					20804	SPMINTIA	+			_CORE/Itm		Eyes_of_Wrath			.E/BARHEAL.sto@1E8;TODO MADEEL.sto
-SCRX53	+		20504	+					20505	SPMI106A	+			_CORE/Itm		Prismatic_Sphere		.R/DUEGSAL3.sto@358;TODO MADDEL.sto
-SCRX54	+		20506	+					20507	SPMI107A	+			_CORE/Itm		Mass_Charm				.C/DD9400.are@D04;TODO MADEEL.sto;AR2204@6C8
-SCRX55	+		20509	+					20510	SPMI108A	+			_CORE/Itm		Mystic_Barrier			.R/DRAGGREN.cre@578;TODO MADDEL.sto
-SCRX56	+		20512	+					20513	SPWI106A	+			_CORE/Itm		Globe_Of_Darkness		.R/DUEGSAL3.sto@2E8;TODO MADDEL.sto
-SCRX57	+		20515	+					20516	SPMI110A	+			_CORE/Itm		Instant_Army			.R/RAZAK01.sto@45C;TODO MADEEL.sto
-SCRX58	+		20517	+					20518	SPMI111A	+			_CORE/Itm		Create_Minion			.R/DRAGGOLD.cre@550;TODO MADEEL.sto
-SCRX60	+		20522	+					20523	SPMI113A	+			_CORE/Itm		Mordenkainens_Phantom_Shield_Maidens	.T/QLOOT4.cre@680;ARP028.BAF;TODO MADEEL.STO
-SCRX64	+		20944	+					20945	SPMI118A	+			_CORE/Itm		Mordenkainens_Force_Missiles			.T/DD9009.are@AB0;TODO MADEEL.sto
-SCRX65	+		20530	+					20531	SPMI119A	+			_CORE/Itm		Otilukes_Diamond_Screen	.R/DD7002.are@187C;ARPO05.baf;ARPO28.baf;TODO MADEEL.sto
-SCRX67	+		20534	+					20535	SPMI121A	+			_CORE/Itm		Vampiric_Mist			.R/DRAGGREN.cre@564;TODO MADDEL.sto
-SCRX68	+		20536	+					20537	SPMI122A	+			_CORE/Itm		Inaccury				.T/DD9009.are@AEC;TODO MADEEL.sto
-SCRX72	+		20544	+					20545	SPMI126A	+			_CORE/Itm		Emotion_Fear			.R/WARDWIZS.sto@1DC;ARPO28.baf;TODO MADDEL.sto
-SCRX73	+		20546	+					20457	SPMI127A	+			_CORE/Itm		Emotion_Hope			.T/DD9009.are@1FC4;TODO MADEEL.sto
-SCRX74	+		20548	+					20549	SPMI128A	+			_CORE/Itm		Melfs_Prismatic_Shards	.R/WARDWIZS.sto@1C0;
-SCRX76	+		20552	+					20553	SPMI130A	+			_CORE/Itm		Otilukes_Acid_Cloud		.R/CALIMART.sto@6E4
-SCRX77	+		20554	+					20555	SPMI131A	+			_CORE/Itm		Otilukes_Death_Screen	.R/CALIMART.sto@700
-SCRX81	+		20562	+					20563	SPMI135A	+			_CORE/Itm		Khelbens_Dweomerdoom	.R/CALIMART.sto@6C8
+RESNAME 	NAME1	NAME2	UNIDENTIFIED_DESC	DESC	ICON		UNDROPPABLE PATH_TO_FILE		LEARNABLE	NAME					COMMENTS
+SCRM104		+		20502	+					20503	SPMI104A	+			+					+			Wall of Force			.R/RAZAK01.sto@424;TODO MADEEL.sto
+SCRX1		+		20821	+					20822	CHANNELA	+			+					.			Azragans_Channeling		.R/WARDWIZS.sto@188;R/3307WIZ.sto@188;TODO MADDEL.sto
+SCRX3		+		20825	+					20826	TSTRA		+			+					.			True_Strike				.P/DD3501.are@A98;ARP006.BAF;TODO MADEEL.STO,
+SCRX4		+		20827	+					20828	TORMA		+			+					.			Torment					.T/DD9005.are@1FB0;ARP029.BAF;TODO MADEEL.STO
+SCRX6		+		20942	+					20943	CATA		+			+					.			CtB Cats-Grace				.ARPo05.baf;TODO DD4002.are@0x45C;TODO MADEEL.STO
+SCRX7		+		20831	+					20832	FOCUSA		+			+					.			Endurance				.P/DD3503.are@0xAD4;TODO MADEEL.STO
+SCRX8		+		20835	+					20836	ENDA		+			+					.			Aura_of_Focus			.P/DD3501.are@0xB24;TODO MADEEL.STO
+SCRX9		+		20837	+					20838	LANCEA		+			+					.			Ice_Lance				.R/AR1100.are@E98;TODO MADEEL.STO
+SCRX10		+		20839	+					20840	ADRENA		+			+					.			Adrenaline_Rush			.E/BARHEAL.sto@1CC;TODO MADEEL.sto
+SCRX12		+		20841	+					20842	SHARDA		+			+					.			Ice_ShardD				.T/D9008.are@0x4C0;TODO MADEEL.STO,ARPo05.baf 
+SCRX13		+		20843	+					20844	WEAKXA		+			+					.			Weaken					.P/DD3501.are@0xC14;TODO MADEEL.STO
+SCRX14		+		20053	+					20849	SPFOGXA		+			+					.			Heavy_Fog				.==> TODO ARPO28.baf;TODO MADDEL.sto
+SCRX15		+		20850	+					20851	MASSA		+			+					.			Mass_Teleport			.R/3307WIZ.sto@1A4;T/DD9005.are@2280;TODO MADEEL.sto@260
+SCRX16		+		20946	+					20947	SPWIXXXA	+			+					.			CtB Anti-Magic_Shell
+SCRX17		+		20871	+					20872	SPWI61XA	+			Compat/RoT			.			Monster_Summoning_IV	.R/3307WIZ.sto@1C0;TODO MADDEL.sto
+SCRX18		+		20767	+					20768	ASSIMA		+			+					+			Assimilation			.==> ARPO29.baf;TODO MADDEL.sto
+SCRX19		+		20069	+					20860	SPWW715B	+			+					.			Black_Death				.R/WARDWIZS.sto@1A4;TODO MADDEL.sto
+SCRX20		+		20861	+					20862	SPBULLXB	+			+					.			Raging_Bull				.R/RAZAK01.sto@4B0;TODO MADEEL.sto
+SCRX21		+		20863	+					20864	FROSTA		+			+					.			Frost_Bite				.R/DD8001D.are@404; TODO MADDEL.sto
+SCRX22		+		20865	+					20866	MELTA		+			+					.			Armor_Melt				.P/DD3501.ARE@0xA5C;TODO MADEEL.STO
+SCRX23		+		20869	+					20870	EXECA		+			+					.			Execution				.==> TODO ARPO28.baf;TODO MADDEL.sto
+SCRX24		+		20892	+					20893	SPWI81XA	+			Compat/RoT			.			Monster_Summoning_V		.==> TODO DD8001D.are MADDEL.sto
+SCRX25		+		20873	+					20874	SPORCXA		+			+					.			Orcish_Horde			.E/BARHEAL.sto@1B0;TODO MADEEL.sto
+SCRX26		+		20875	+					20876	HEMOA		+			+					.			Hemophilia	 			.R/3307WIZ.sto@1DC;TODO MADDEL.sto
+SCRX27		+		20877	+					20878	DEXA		+			+					.			Soul_of_Kalan-Zhar		.R/WARDWIZS.sto@214;TODO MADDEL.sto
+SCRX28		+		20879	+					20880	RANEGA		+			+					.			Rarys_Mnemonic_Negator	.R/DUEGSAL3.sto@304; TODO MADDEL.sto
+SCRX29		+		20879	+					20880	IRONA		+			+					.			CtB Iron_Body				.E/DD1800.are@54C;TODO MADEEL.sto
+SCRX31		+		20886	+					20887	BURSTA		+			+					.			Sun_Burst				.C/DD9400.are@F48;TODO MADEEL.sto
+SCRX32		+		20888	+					20889	SUFFA		+			+					.			Suffocation				.P/DD3503.are@0xC00;ARPO28.baf;TODO MADEEL.sto
+SCRX33		+		20890	+					20891	GRAVA		+			+					.			Gravity					.R/WARDWIZS.sto@1F8;TODO MADDEL.sto
+SCRX34		+		20898	+					20899	SPWI91XA	+			Compat/RoT			.			Monster_Summoning_VI	.R/DUEGSAL3.sto@320;TODO MADDEL.sto
+SCRX35		+		20900	+					20901	ARMYA		+			+					.			Army_of_Darkness		.R/DD7001.are@934;TODO MADEEL.sto
+SCRX36		+		20902	+					20903	TATTOOA		+			+					.			Tattoo					.R/DUEGSAL3.sto@33C;TODO MADDEL.sto
+SCRX37		+		20907	+					20908	WARPA		+			+					.			Life_Warping			.R/DDRAGBRW.cre@66C; TODO MADEEL.sto
+SCRX39		+		20921	+					20922	SACA		+			+					.			Sacrificial_Transfer	.R/RAZAK01.sto@478;ARPO28.baf;TODO MADEEL.sto
+SCRX40		+		20923	+					20924	RUNEBA		+			+					.			Sun_Burst				.C/DD9400.are@F5C;TODO MADEEL.sto
+SCRX41		+		20935	+					20936	RARENA		++++++++	+					.			Rarys_Mnemonic_Enhancer	(Used in script) E/DD4003.are@0x1380;E/DD4003.baf;MADEEL.sto
+SCRX42		+		20894	+					20895	WEIRDA		+			+					+			Weird					.R/DRAGGOLD.cre@564; TODO MADEEL.sto
+SCRX43		+		20896	+					20897	COROSEA		+			+					+			Anti-Magic_Cloud		.R/RAZAK01.sto@494;TODO MADEEL.sto
+SCRX46		+		20817	+					20818	MSO-B		+			+					+			Malygnus_Shattering_Obelisk		.R/RAZAK01.sto@440;TODO MADEEL.sto
+SCRX48		+		20491	+					20492	SPMI101A	+			+					+			Mind_Rot				.R/DD8001D.are@440; TODO MADDEL.sto
+SCRX49		+		20494	+					20495	SPMI102A	+			+					+			Molecular_Disjointment	.R/DDRAGBRW.cre@658; TODO MADEEL.sto
+SCRX51		+		20804	+					20804	SPMINTIA	+			+					+			Eyes_of_Wrath			.E/BARHEAL.sto@1E8;TODO MADEEL.sto
+SCRX53		+		20504	+					20505	SPMI106A	+			+					+			Prismatic_Sphere		.R/DUEGSAL3.sto@358;TODO MADDEL.sto
+SCRX54		+		20506	+					20507	SPMI107A	+			+					+			Mass_Charm				.C/DD9400.are@D04;TODO MADEEL.sto;AR2204@6C8
+SCRX55		+		20509	+					20510	SPMI108A	+			+					+			Mystic_Barrier			.R/DRAGGREN.cre@578;TODO MADDEL.sto
+SCRX56		+		20512	+					20513	SPWI106A	+			+					+			Globe_Of_Darkness		.R/DUEGSAL3.sto@2E8;TODO MADDEL.sto
+SCRX57		+		20515	+					20516	SPMI110A	+			+					+			Instant_Army			.R/RAZAK01.sto@45C;TODO MADEEL.sto
+SCRX58		+		20517	+					20518	SPMI111A	+			+					+			Create_Minion			.R/DRAGGOLD.cre@550;TODO MADEEL.sto
+SCRX60		+		20522	+					20523	SPMI113A	+			+					+			Mordenkainens_Phantom_Shield_Maidens	.T/QLOOT4.cre@680;ARP028.BAF;TODO MADEEL.STO
+SCRX64		+		20944	+					20945	SPMI118A	+			+					.			CtB Mordenkainens_Force_Missiles			.T/DD9009.are@AB0;TODO MADEEL.sto
+SCRX65		+		20530	+					20531	SPMI119A	+			+					+			Otilukes_Diamond_Screen	.R/DD7002.are@187C;ARPO05.baf;ARPO28.baf;TODO MADEEL.sto
+SCRX67		+		20534	+					20535	SPMI121A	+			+					+			Vampiric_Mist			.R/DRAGGREN.cre@564;TODO MADDEL.sto
+SCRX68		+		20536	+					20537	SPMI122A	+			+					+			Inaccury				.T/DD9009.are@AEC;TODO MADEEL.sto
+SCRX72		+		20544	+					20545	SPMI126A	+			+					+			Emotion_Fear			.R/WARDWIZS.sto@1DC;ARPO28.baf;TODO MADDEL.sto
+SCRX73		+		20546	+					20457	SPMI127A	+			+					+			Emotion_Hope			.T/DD9009.are@1FC4;TODO MADEEL.sto
+SCRX74		+		20548	+					20549	SPMI128A	+			+					+			Melfs_Prismatic_Shards	.R/WARDWIZS.sto@1C0;
+SCRX76		+		20552	+					20553	SPMI130A	+			+					+			Otilukes_Acid_Cloud		.R/CALIMART.sto@6E4
+SCRX77		+		20554	+					20555	SPMI131A	+			+					+			Otilukes_Death_Screen	.R/CALIMART.sto@700
+SCRX81		+		20562	+					20563	SPMI135A	+			+					+			Khelbens_Dweomerdoom	.R/CALIMART.sto@6C8
+		
+SCRX2 		+		20823	+					20824	PHYSA		+			+					.			Physical_Agility
+SCRX5 		+		20829	+					20830	SPPP594B	+			+					.			Steam
+SCRX11		+		20847	+					20848	SPWI414A	+			+					.			Daer'Ragh's_Aura_Cleansing
+SCRX38		+		20909	+					20910	SHATTA		+			+					.			Shatter_Bones
+SCRX47		+		20815	+					20816	DDD-A		+			+					+			Daelomin's_Drastic_Dromedary
+SCRX50		+		20499	+					20500	SPMI103A	+			+					+			Soul_Rot
+SCRX52		+		20573	+					20574	SPMINTDA	+			+					+			Drowned_Dead
+SCRX59		+		20519	+					20520	SPMI112A	+			+					+			Black_Mantle
+SCRX61		+		20524	+					20525	SPMI115A	+			+					+			Genocide
+SCRX62		+		20526	+					20527	SPMI116A	+			+					+			Animate_Golem
+SCRX63		+		20528	+					20529	SPMI117A	+			+					+			Transmute_Steel_To_Bone
+SCRX66		+		20532	+					20533	SPMI120A	+			+					+			Khelben's_Blackstaff
+SCRX69		+		20538	+					20539	SPMI123A	+			+					+			Animate_Dread_Warrior
+SCRX70		+		20540	+					20541	SPMI124A	+			+					+			Wall_of_White_Magic
+SCRX71		+		20542	+					20543	SPMI125A	+			+					+			Emotion:_Courage
+SCRX88		+		20568	+					20569	SPMI142A	+			+					+			Algarth's_Embattlement
+SCRX89		+		20570	+					20571	SPMI143A	+			+					+			Arcane_Surge
+
+DDSCR229	+		20833   +					20834	SPWI229A	+			+					.			Thunderclap
+
+POSC229A	+		20833	+					20834	SPWI229A	+			_Xzar_Montaron/Itm	.			Thunderclap

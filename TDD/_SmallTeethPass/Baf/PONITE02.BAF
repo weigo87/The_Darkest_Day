@@ -1,0 +1,13 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    CreateVisualEffectObject("SPPORTAL",Myself)
+    Wait(2)
+    CreateVisualEffectObject("SPSTRENH",Myself)
+    SmallWait(10)
+    CreateVisualEffectObject("SPROTECT",Myself)
+    Wait(2)
+    DestroySelf()
+END
+

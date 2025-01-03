@@ -1,0 +1,34 @@
+IF
+  OnCreation()
+  AreaType(OUTDOOR)
+  AreaType(DAYNIGHT)
+THEN
+  RESPONSE #100
+    CreateCreatureObjectOffset("POnite02",LastSummonerOf(Myself),[100.100])
+    CreateCreatureObjectOffset("POnite02",LastSummonerOf(Myself),[-100.-100])
+    Wait(1)
+    CreateCreatureObjectOffset("POnite02",LastSummonerOf(Myself),[100.-100])
+    CreateCreatureObjectOffset("POnite02",LastSummonerOf(Myself),[-100.100])
+    CreateVisualEffectObject("SPSDIMPA",NearestEnemyOf([PC]))
+    CreateVisualEffectObject("SPPOWRRD",LastSummonerOf(Myself))
+    SmallWait(20)
+    CreateVisualEffectObject("SPSDIMPA",NearestEnemyOf([PC]))
+    SmallWait(20)
+    CreateVisualEffectObject("SPSDIMPA",NearestEnemyOf([PC]))
+    CreateVisualEffectObject("ICFRACTI",LastSummonerOf(Myself))
+    CreateVisualEffectObject("ICRMPARI",LastSummonerOf(Myself))
+    Wait(3)
+    DayNight(NOON)
+    DestroySelf()
+END
+
+IF
+  OnCreation()
+  OR(2)
+    !AreaType(OUTDOOR)
+    !AreaType(DAYNIGHT)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

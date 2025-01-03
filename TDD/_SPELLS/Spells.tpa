@@ -1,0 +1,69 @@
+
+//SPPR114 => COM_DRUID_MAGIC_FANG
+
+/*
+OUTER_SET spell_num = IDS_OF_SYMBOL(~spell~ ~WIZARD_DECASTAVE~)
+ACTION_IF (spell_num > 0) BEGIN
+	LAF RES_NUM_OF_SPELL_NAME
+		STR_VAR spell_name = ~WIZARD_DECASTAVE~
+		RET spell_num = spell_num spell = spell_res
+	END
+END ELSE BEGIN
+	ADD_SPELL ~%MOD_FOLDER%/spells/translate/CBWI240.SPL~ 2 2 ~WIZARD_DECASTAVE~
+		SAY NAME1  @346
+		SAY UNIDENTIFIED_DESC @347
+		SPRINT spell ~%DEST_RES%~
+END
+COPY_EXISTING ~CBSELIMT.ITM~ ~override~
+	REPLACE_TEXTUALLY ~CBWI240~ ~%spell%~
+COPY ~CtB/items/translate/CBWT7b10.ITM~ ~override~
+	SAY NAME2  @346
+	SAY DESC   @347
+	WRITE_ASCIIE 0xf6 ~%spell%~ #8
+	WRITE_ASCIIE 0x126 ~%spell%~ #8
+COPY_EXISTING ~baldur.bcs~ ~override~
+	DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~CBWI240~ ~%spell%~
+	END
+*/
+DEFINE_ACTION_MACRO InstallSpecificContents
+BEGIN
+	LAF AddSpells
+		INT_VAR type = 1
+				level = 1
+				name1 = 20575
+				un_desc = 20576
+		STR_VAR	spell_name = ~COM_DRUID_MAGIC_FANG~
+				file_name = ~TZPR114~
+		RET spell file_name
+	END
+	
+	PRINT ~%file_name% => %spell%~
+END
+
+
+DEFINE_ACTION_FUNCTION AddSpells
+	INT_VAR type = 0
+			level = 0
+			name1 = 0
+			un_desc = 0
+	STR_VAR spell_name = ~~
+			file_name = ~~
+	RET		spell file_name
+BEGIN
+	OUTER_SET spell_num = IDS_OF_SYMBOL(~spell~ ~%spell_name%~)
+	ACTION_IF (spell_num > 0) BEGIN
+		LAF RES_NUM_OF_SPELL_NAME
+			STR_VAR spell_name = ~%spell_name%~
+			RET spell = spell_res
+		END
+	END ELSE BEGIN
+		ADD_SPELL ~%MOD_FOLDER%/_Core/Spl/%file_name%.SPL~ type level ~%spell_name%~
+			SAY NAME1  (AT name1)
+			SAY UNIDENTIFIED_DESC (AT un_desc)
+			SPRINT spell ~%DEST_RES%~
+	END
+END
+	
+//file_name	spell_name				name1	un_desc		extra_files		comment
+//TZPR114		COM_DRUID_MAGIC_FANG	20575	20576		0				spell2.log mit opcode 147

@@ -1,0 +1,34 @@
+IF
+  OnCreation()
+  AreaType(OUTDOOR)
+THEN
+  RESPONSE #100
+    Weather(SNOW)
+    CreateVisualEffectObject("SPSDIMPA",NearestEnemyOf([PC]))
+    ApplyDamage(NearestEnemyOf([PC]),9,COLD)
+    CreateVisualEffectObject("SPPOWRRD",LastSummonerOf(Myself))
+    SmallWait(20)
+    CreateVisualEffectObject("SPSDIMPA",NearestEnemyOf([PC]))
+    ApplyDamage(SecondNearestEnemyOf([PC]),9,COLD)
+    SmallWait(20)
+    CreateVisualEffectObject("SPSDIMPA",NearestEnemyOf([PC]))
+    ApplyDamage(ThirdNearestEnemyOf([PC]),9,COLD)
+    CreateVisualEffectObject("ICFRACTI",LastSummonerOf(Myself))
+    CreateVisualEffectObject("SPPOWRRD",LastSummonerOf(Myself))
+    Wait(1)
+    CreateCreatureObjectOffset("POsnow02",LastSummonerOf(Myself),[100.100])
+    CreateCreatureObjectOffset("POsnow02",LastSummonerOf(Myself),[-100.-100])
+    Wait(1)
+    CreateCreatureObjectOffset("POsnow02",LastSummonerOf(Myself),[100.-100])
+    CreateCreatureObjectOffset("POsnow02",LastSummonerOf(Myself),[-100.100])
+    DestroySelf()
+END
+
+IF
+  OnCreation()
+  !AreaType(OUTDOOR)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

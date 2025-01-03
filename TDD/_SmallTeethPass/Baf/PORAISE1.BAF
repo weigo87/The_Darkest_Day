@@ -1,0 +1,42 @@
+IF
+  StateCheck(Player1,STATE_DEAD)
+THEN
+  RESPONSE #100
+    ApplySpell(Player1,CLERIC_RAISE_DEAD)
+END
+
+IF
+  StateCheck(Player2,STATE_DEAD)
+THEN
+  RESPONSE #100
+    ApplySpell(Player2,CLERIC_RAISE_DEAD)
+END
+
+IF
+  StateCheck(Player3,STATE_DEAD)
+THEN
+  RESPONSE #100
+    ApplySpell(Player3,CLERIC_RAISE_DEAD)
+END
+
+IF
+  StateCheck(Player4,STATE_DEAD)
+THEN
+  RESPONSE #100
+    ApplySpell(Player4,CLERIC_RAISE_DEAD)
+END
+
+IF
+  StateCheck(Player5,STATE_DEAD)
+THEN
+  RESPONSE #100
+    ApplySpell(Player5,CLERIC_RAISE_DEAD)
+END
+
+IF
+  StateCheck(Player6,STATE_DEAD)
+THEN
+  RESPONSE #100
+    ApplySpell(Player6,CLERIC_RAISE_DEAD)
+END
+

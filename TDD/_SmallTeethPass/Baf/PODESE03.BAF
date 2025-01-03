@@ -1,0 +1,8 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    CreateCreatureObject("POdese01",Myself,0,0,0)
+    DestroySelf()
+END
+

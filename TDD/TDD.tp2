@@ -142,6 +142,7 @@ LANGUAGE 	~Spanish(Clan REO)~
 // itm bams überprüfen
 // DD3300C1 DD3300CT DD9X00	DD9X00C1 DD1X12 nightmaps? wrong flags set
 // portrait L for EE
+// drunken person DD0118/DD0119 DDKUIRIE.cre is missing and not yet implemented
 
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -250,7 +251,31 @@ BEGIN @901020 // Main component
 //**********************************************************
 	PRINT @901018
 	LAF ImportComponent STR_VAR aComp = ~Kagain_Yeslick~ END
+	
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// The Darkest Day : Wizard & Priest Spells		   \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
+	BEGIN ~Wizard & Priest Spells~ //@901020 // Wizard & Priest Spells
+	DESIGNATED 5
+	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
+
+//**********************************************************
+// Priest Spells SPPRXXXX
+//**********************************************************
+	PRINT ~Priest Spells~ //@901018
+	LAF ImportComponent STR_VAR aComp = ~Spells~ END
+
+//**********************************************************
+// Wizard Spells SPWIXXXX
+//**********************************************************
+//	PRINT ~Wizard Spells~ // @901018
+//	LAF ImportComponent STR_VAR aComp = ~Spells~ END	
+	
 //=============================================================================
 /* USED DURING INITIAL DEVELOPMENT - NOT USED NOW*/
 //BEGIN ~DEBUG~

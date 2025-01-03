@@ -64,6 +64,24 @@ BEGIN
 		SAY 0xae @21783
   
 	LAM PatchAR1700
+
+	
+	COPY ~%RES_FOLDER%/SPL/PODESE01.spl~ ~override~
+		SAY NAME1 @20036                 
+										 
+	COPY ~%RES_FOLDER%/SPL/POFAKE.spl~ ~override~ 
+										 
+	COPY ~%RES_FOLDER%/SPL/POLITE01.spl~ ~override~
+		SAY NAME1 @20485                 
+										 
+	COPY ~%RES_FOLDER%/SPL/PONITE01.spl~ ~override~
+		SAY NAME1 @20486                 
+										 
+	COPY ~%RES_FOLDER%/SPL/PORAIN01.spl~ ~override~
+		SAY NAME1 @20487                 
+										 
+	COPY ~%RES_FOLDER%/SPL/POSNOW01.spl~ ~override~
+		SAY NAME1 @20488
 	
 	OUTER_TEXT_SPRINT sender ~%COMP_FOLDER%~
 	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~ LAF Accept STR_VAR sender target = ~_SmallTeethPass~ END

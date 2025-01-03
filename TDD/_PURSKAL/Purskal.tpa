@@ -13,9 +13,9 @@ BEGIN
 	END
 	COPY_EXISTING ~CITTERNZ.itm~ ~override~ SAY NAME1 #38789
 		
-	LAM HandleCoreItemsContract
-	LAM HandleSpellScrollsContract
-	LAM HandleItemsContract		
+//	LAM HandleCoreItemsContract
+//	LAM HandleSpellScrollsContract
+//	LAM HandleItemsContract		
 	
 	EXTEND_BOTTOM ~AR0300.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/bAR0300.baf~
 	EXTEND_BOTTOM ~AR0902.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/bAR0902.baf~

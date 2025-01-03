@@ -45,9 +45,9 @@ UNLESS ~DD3300~
 	COPY_EXISTING ~override/ZPRIZE4.cre~ ~override~	
 		WRITE_SHORT 0x270 0x80 // Fixed: set allegiance to neutral
 				
-	LAM HandleSpellScrollsContract
-	LAM HandleItemsContract
-	LAM HandleCoreItemsContract
+//	LAM HandleSpellScrollsContract
+//	LAM HandleItemsContract
+//	LAM HandleCoreItemsContract
 		
 	EXTEND_TOP ~AR0020.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/tAR0020.baf~
 	EXTEND_BOTTOM ~AR0406.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/bAR0406.baf~	

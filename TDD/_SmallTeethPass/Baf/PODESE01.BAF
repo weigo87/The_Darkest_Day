@@ -1,0 +1,43 @@
+IF
+  OnCreation()
+THEN
+  RESPONSE #100
+    CreateCreatureObjectOffset("POdese02",Myself,[100.100])
+    CreateCreatureObjectOffset("POdese02",Myself,[-100.-100])
+    CreateCreatureObjectOffset("POdese02",Myself,[100.-100])
+    CreateCreatureObjectOffset("POdese02",Myself,[-100.100])
+    Wait(7)
+    CreateVisualEffectObject("SPPOWRRD",Myself)
+    CreateVisualEffectObject("SPFIRSD2",Myself)
+    Wait(1)
+    CreateVisualEffectObject("SPPOWRRD",Myself)
+    CreateVisualEffectObject("SPFIRSD2",Myself)
+    Wait(1)
+    CreateVisualEffectObject("SPPOWRRD",Myself)
+    CreateVisualEffectObject("SPFIRSD2",Myself)
+    Wait(1)
+    CreateVisualEffectObject("SPPOWRRD",Myself)
+    CreateVisualEffectObject("SPFIRSD2",Myself)
+    Wait(2)
+    SetGlobal("po_desecration_active","GLOBAL",1)
+END
+
+IF
+  Global("po_desecration_active","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Wait(2)
+    SmallWait(15)
+    ReallyForceSpell(Myself,CLERIC_FLAME_STRIKE)
+    ReallyForceSpell(Myself,WIZARD_METEOR_SWARM)
+    Wait(4)
+    ReallyForceSpell(Myself,CLERIC_FLAME_STRIKE)
+    ReallyForceSpell(Myself,WIZARD_FIREBALL)
+    Wait(1)
+    ReallyForceSpell(Myself,CLERIC_FLAME_STRIKE)
+    ReallyForceSpell(Myself,WIZARD_FIREBALL)
+    Wait(2)
+    SetGlobal("po_desecration_active","GLOBAL",0)
+    DestroySelf()
+END
+
