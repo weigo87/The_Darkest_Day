@@ -22,46 +22,73 @@ BEGIN
 	APPEND ~GTIMES.IDS~ ~36 SIX_ROUNDS~        UNLESS ~SIX_ROUNDS~
 	APPEND ~GTIMES.IDS~ ~54 NINE_ROUNDS~       UNLESS ~NINE_ROUNDS~
 	
+	APPEND ~shoutids.ids~ ~2 LEAVE2~ UNLESS ~LEAVE2~
+	APPEND ~shoutids.ids~ ~66 DEAD_MEAT~ UNLESS ~^66~
+	APPEND ~shoutids.ids~ ~68 SUM_ATTACK_GOOD~ UNLESS ~^68~
+	APPEND ~shoutids.ids~ ~69 SUM_ATTACK_EVIL~ UNLESS ~^69~
+	APPEND ~shoutids.ids~ ~79 HELP79~ UNLESS ~^79~
+	APPEND ~shoutids.ids~ ~80 HELPARCHER~ UNLESS ~^80~
+	APPEND ~shoutids.ids~ ~81 FLEEARCHER~ UNLESS ~^81~
+	APPEND ~shoutids.ids~ ~82 COMEARCHER~ UNLESS ~^82~
+	APPEND ~shoutids.ids~ ~83 HELP83~ UNLESS ~^83~
+	APPEND ~shoutids.ids~ ~84 IM_BLIND~ UNLESS ~^84~
+	APPEND ~shoutids.ids~ ~89 ATTACK89~ UNLESS ~^89~
+	APPEND ~shoutids.ids~ ~99 HELPME~ UNLESS ~^99~
+	APPEND ~shoutids.ids~ ~100 HELP100~ UNLESS ~^100~
+	APPEND ~shoutids.ids~ ~101 HELP101~ UNLESS ~^101~
+	APPEND ~shoutids.ids~ ~111 WARNALARM~ UNLESS ~^111~
+	APPEND ~shoutids.ids~ ~115 HELP_ALIBAKKAR~ UNLESS ~^115~
+	APPEND ~shoutids.ids~ ~116 HELP_LURRAXOL~ UNLESS ~^116~
+	APPEND ~shoutids.ids~ ~121 HELP121~ UNLESS ~^121~
+	APPEND ~shoutids.ids~ ~122 HELP122~ UNLESS ~^122~
+	APPEND ~shoutids.ids~ ~151 HELP_ME_GROUP151~ UNLESS ~^151~
+	APPEND ~shoutids.ids~ ~152 ATTACK_MAGE~ UNLESS ~^152~
+	APPEND ~shoutids.ids~ ~153 HELP_ME_GROUP153~ UNLESS ~^153~
+	APPEND ~shoutids.ids~ ~154 FLEE_FROM_MAGE~ UNLESS ~^154~
+	APPEND ~shoutids.ids~ ~155 ATTACK_MAGE~ UNLESS ~^155~
+	APPEND ~shoutids.ids~ ~156 UNDER_ATTACK~ UNLESS ~^156~
+	APPEND ~shoutids.ids~ ~199 HELPME_DRUIDS~ UNLESS ~^199~
+	APPEND ~shoutids.ids~ ~200 POISONED_200~ UNLESS ~^200~
+	
+	APPEND ~STATE.IDS~ ~0x63C08010 STATE_ENCHANTED~        UNLESS ~0x63C08010~
+	
 	ACTION_IF (GAME_IS ~bg2 tob bgt~) BEGIN
 		COPY_EXISTING ~SPELL.IDS~        ~override~
 			REPLACE_TEXTUALLY ~2302 WIZARD_DISPEL_MAGIC~      ~2302 WIZARD_REMOVE_MAGIC~
 		APPEND ~SPELL.IDS~ ~2326 WIZARD_DISPEL_MAGIC~
 		UNLESS ~2326 WIZARD_DISPEL_MAGIC~
-		
-		APPEND ~shoutids.ids~ ~2 LEAVE2~ UNLESS ~LEAVE2~
-		APPEND ~shoutids.ids~ ~66 DEAD_MEAT~ UNLESS ~^66~
-		APPEND ~shoutids.ids~ ~68 SUM_ATTACK_GOOD~ UNLESS ~^68~
-		APPEND ~shoutids.ids~ ~69 SUM_ATTACK_EVIL~ UNLESS ~^69~
-		APPEND ~shoutids.ids~ ~79 HELP79~ UNLESS ~^79~
-		APPEND ~shoutids.ids~ ~80 HELPARCHER~ UNLESS ~^80~
-		APPEND ~shoutids.ids~ ~81 FLEEARCHER~ UNLESS ~^81~
-		APPEND ~shoutids.ids~ ~82 COMEARCHER~ UNLESS ~^82~
-		APPEND ~shoutids.ids~ ~83 HELP83~ UNLESS ~^83~
-		APPEND ~shoutids.ids~ ~84 IM_BLIND~ UNLESS ~^84~
-		APPEND ~shoutids.ids~ ~89 ATTACK89~ UNLESS ~^89~
-		APPEND ~shoutids.ids~ ~99 HELPME~ UNLESS ~^99~
-		APPEND ~shoutids.ids~ ~100 HELP100~ UNLESS ~^100~
-		APPEND ~shoutids.ids~ ~101 HELP101~ UNLESS ~^101~
-		APPEND ~shoutids.ids~ ~111 WARNALARM~ UNLESS ~^111~
-		APPEND ~shoutids.ids~ ~115 HELP_ALIBAKKAR~ UNLESS ~^115~
-		APPEND ~shoutids.ids~ ~116 HELP_LURRAXOL~ UNLESS ~^116~
-		APPEND ~shoutids.ids~ ~121 HELP121~ UNLESS ~^121~
-		APPEND ~shoutids.ids~ ~122 HELP122~ UNLESS ~^122~
-		APPEND ~shoutids.ids~ ~151 HELP_ME_GROUP151~ UNLESS ~^151~
-		APPEND ~shoutids.ids~ ~152 ATTACK_MAGE~ UNLESS ~^152~
-		APPEND ~shoutids.ids~ ~153 HELP_ME_GROUP153~ UNLESS ~^153~
-		APPEND ~shoutids.ids~ ~154 FLEE_FROM_MAGE~ UNLESS ~^154~
-		APPEND ~shoutids.ids~ ~155 ATTACK_MAGE~ UNLESS ~^155~
-		APPEND ~shoutids.ids~ ~156 UNDER_ATTACK~ UNLESS ~^156~
-		APPEND ~shoutids.ids~ ~199 HELPME_DRUIDS~ UNLESS ~^199~
-		APPEND ~shoutids.ids~ ~200 POISONED_200~ UNLESS ~^200~
-		
+				
 		APPEND ~STATE.IDS~ ~0x00102029 STATE_HARMLESS~         UNLESS ~0x00102029~
 		APPEND ~STATE.IDS~ ~0x80040004 STATE_RANGED_TARGET~    UNLESS ~0x80040004~
 		APPEND ~STATE.IDS~ ~0x8014202D STATE_OUT_OF_ACTION~    UNLESS ~0x8014202D~
 		APPEND ~STATE.IDS~ ~0x00400010 STATE_NOT_VISIBLE~      UNLESS ~0x00400010~
 		APPEND ~STATE.IDS~ ~0x60400010 STATE_ILLUSIONS~        UNLESS ~0x60400010~
-		APPEND ~STATE.IDS~ ~0x63C08010 STATE_ENCHANTED~        UNLESS ~0x63C08010~
+		
+		
+		// adding all ToB actions to action.ids unless already present
+		APPEND ~ACTION.IDS~ ~31 SpellRES(S:RES*,O:Target*)~             		UNLESS ~31 SpellRES(S:RES\*,O:Target\*)~
+		APPEND ~ACTION.IDS~ ~95 SpellPointRES(S:RES*,P:Target*)~        		UNLESS ~95 SpellPointRES(S:RES\*,P:Target\*)~
+		APPEND ~ACTION.IDS~ ~113 ForceSpellRES(S:RES*,O:Target)~				UNLESS ~113 ForceSpellRES(S:RES\*,O:Target)~
+		APPEND ~ACTION.IDS~ ~114 ForceSpellPointRES(S:RES*,P:Target)~			UNLESS ~114 ForceSpellPointRES(S:RES\*,P:Target)~
+		APPEND ~ACTION.IDS~ ~147 RemoveSpellRES(S:Spell*)~						UNLESS ~147 RemoveSpellRES(S:Spell\*)~
+		APPEND ~ACTION.IDS~ ~160 ApplySpellRES(S:RES*,O:Target)~				UNLESS ~160 ApplySpellRES(S:RES\*,O:Target)~
+		APPEND ~ACTION.IDS~ ~181 ReallyForceSpellRES(S:RES*,O:Target)~			UNLESS ~181 ReallyForceSpellRES(S:RES\*,O:Target)~
+		APPEND ~ACTION.IDS~ ~191 SpellNoDecRES(S:RES*,O:Target*)~				UNLESS ~191 SpellNoDecRES(S:RES\*,O:Target\*)~
+		APPEND ~ACTION.IDS~ ~192 SpellPointNoDecRES(S:RES*,P:Target*)~			UNLESS ~192 SpellPointNoDecRES(S:RES\*,P:Target\*)~
+		APPEND ~ACTION.IDS~ ~240 ReallyForceSpellDeadRES(S:RES*,O:Target)~		UNLESS ~240 ReallyForceSpellDeadRES(S:RES\*,O:Target)~
+		APPEND ~ACTION.IDS~ ~318 ForceSpellRangeRES(S:RES*,O:Target)~			UNLESS ~318 ForceSpellRangeRES(S:RES\*,O:Target)~
+		APPEND ~ACTION.IDS~ ~319 ForceSpellPointRangeRES(S:RES*,P:Target)~		UNLESS ~319 ForceSpellPointRangeRES(S:RES\*,P:Target)~
+		APPEND ~ACTION.IDS~ ~337 ReallyForceSpellPointRES(S:RES*,P:Target*)~	UNLESS ~337 ReallyForceSpellPointRES(S:RES\*,P:Target\*)~
+		COPY_EXISTING ~action.ids~ ~override~ REPLACE_TEXTUALLY ~^106 Shout(.*$~ ~106 Shout(I:ID*SHOUTIDS)~	BUT_ONLY
+  
+		// additional ToB triggers for SoA
+		APPEND ~TRIGGER.IDS~ ~0x00A1 SpellCastOnMeRES(S:Spell*,O:Caster*)~		UNLESS ~0x00A1 SpellCastOnMeRES(S:Spell\*,O:Caster\*)~
+		APPEND ~TRIGGER.IDS~ ~0x0091 SpellCastRES(S:Spell*,O:Object*)~			UNLESS ~0x0091 SpellCastRES(S:Spell\*,O:Object\*)~
+		APPEND ~TRIGGER.IDS~ ~0x00A6 SpellCastPriestRES(S:Spell*,O:Object*)~	UNLESS ~0x00A6 SpellCastPriestRES(S:Spell\*,O:Object\*)~
+		APPEND ~TRIGGER.IDS~ ~0x00A7 SpellCastInnateRES(S:Spell*,O:Object*)~	UNLESS ~0x00A7 SpellCastInnateRES(S:Spell\*,O:Object\*)~
+		APPEND ~TRIGGER.IDS~ ~0x4031 HaveSpellRES(S:Spell*)~					UNLESS ~0x4031 HaveSpellRES(S:Spell\*)~
+		APPEND ~TRIGGER.IDS~ ~0x40D5 ActuallyInCombat()~						UNLESS ~0x40D5 ActuallyInCombat()~
+		COPY_EXISTING ~trigger.ids~ ~override~ REPLACE_TEXTUALLY ~\bHeard(O:Object\*,I:ID\*)~ ~Heard(O:Object*,I:ID*SHOUTIDS)~ BUT_ONLY
 	END
 
 //*****************************************************************************
@@ -313,29 +340,29 @@ ROBE1   1
 ROBE2   1
 ZGORGET 1
 WAUKEEN 1
-Guarp   1
-DDhrtles 1
-elvarmx 1
-Chan12zz 1
-Blood   1
+GUARP   1
+DDHRTLES 1
+ELVARMX 1
+CHAN12ZZ 1
+BLOOD   1
 SWANARM 1
-shar20  1
-platblue 1
-mintanx 1
-healclck 1
-celebros 1
-bsingchn 1
-Minbalpl 1
-flamplat 1
+SHAR20  1
+PLATBLUE 1
+MINTANX 1
+HEALCLCK 1
+CELEBROS 1
+BSINGCHN 1
+MINBALPL 1
+FLAMPLAT 1
 ROBEARM 1
-runeplat 1
-jerA    1
-samarmx1 1
-Chan6XX 1
-Glory   1
-minplatx 1
-trollarm 1
-Plat05xx 1~
+RUNEPLAT 1
+JERA    1
+SAMARMX1 1
+CHAN6XX 1
+GLORY   1
+MINPLATX 1
+TROLLARM 1
+PLAT05XX 1~
 	UNLESS ~Plat05xx~
 
 	APPEND ~LOADH25.2DA~ ~79          72254~
