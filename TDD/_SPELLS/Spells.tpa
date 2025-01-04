@@ -28,17 +28,758 @@ COPY_EXISTING ~baldur.bcs~ ~override~
 */
 DEFINE_ACTION_MACRO InstallSpecificContents
 BEGIN
+	
 	LAF AddSpells
-		INT_VAR type = 1
-				level = 1
-				name1 = 20575
-				un_desc = 20576
-		STR_VAR	spell_name = ~COM_DRUID_MAGIC_FANG~
-				file_name = ~TZPR114~
+		INT_VAR type = 1 level = 1 name1 = 20575 un_desc = 20576
+		STR_VAR file_name = ~TZPR114~ spell_name = ~COM_DRUID_MAGIC_FANG~
 		RET spell file_name
 	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 1 name1 = 20577 un_desc = 20578
+		STR_VAR file_name = ~TZPR115~ spell_name = ~COM_DRUID_PASS_WITHOUT_TRACE~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 1 name1 = 20580 un_desc = 20581
+		STR_VAR file_name = ~TZPR116~ spell_name = ~COM_DRUID_FEARIE_FIRE~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 1 name1 = 20582 un_desc = 20583
+		STR_VAR file_name = ~TZPR117~ spell_name = ~COM_DRUID_RESISTANCE~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 1 name1 = 20584 un_desc = 20585
+		STR_VAR file_name = ~TZPR118~ spell_name = ~COM_PRIEST_BANE~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 1 name1 = 20586 un_desc = 20587
+		STR_VAR file_name = ~TZPR119~ spell_name = ~COM_PRIEST_DIVINE_FAVOUR~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 1 name1 = 20588 un_desc = 20589
+		STR_VAR file_name = ~TZPR120~ spell_name = ~COM_PRIEST_ENTROPIC_SHIELD~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 1 name1 = 20591 un_desc = 20592
+		STR_VAR file_name = ~TZPR121~ spell_name = ~COM_DRUID_FREEZING_HANDS~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 1 name1 = 20593 un_desc = 20594
+		STR_VAR file_name = ~TZPR122~ spell_name = ~COM_DRUID_ACID_HAND~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 2 name1 = 20599 un_desc = 20600
+		STR_VAR file_name = ~TZPR215~ spell_name = ~COM_DRUID_DELAY_POISEN~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 2 name1 = 20601 un_desc = 20602
+		STR_VAR file_name = ~TZPR216~ spell_name = ~COM_DRUID_HEAT_METAL~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 2 name1 = 20603 un_desc = 20604
+		STR_VAR file_name = ~TZPR217~ spell_name = ~COM_PRIEST_BULLS_STRENGTH~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 3 name1 = 20605 un_desc = 20606
+		STR_VAR file_name = ~TZPR320~ spell_name = ~COM_DRUID_GREATER_MAGIC_FANG~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 3 name1 = 20607 un_desc = 20608
+		STR_VAR file_name = ~TZPR321~ spell_name = ~COM_PRIEST_BESTOW_CURSE~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 3 name1 = 20616 un_desc = 20617
+		STR_VAR file_name = ~TZPR322~ spell_name = ~COM_PRIEST_MAGIC_VESTMENT~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 3 name1 = 20618 un_desc = 20619
+		STR_VAR file_name = ~TZPR323~ spell_name = ~COM_PRIEST_PRAYER~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 3 name1 = 20620 un_desc = 20621
+		STR_VAR file_name = ~TZPR324~ spell_name = ~COM_PRIEST_SEARING_LIGHT~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 3 name1 = 20622 un_desc = 20623
+		STR_VAR file_name = ~TZPR325~ spell_name = ~COM_DRUID_NYMPH_AURA~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 3 name1 = 20625 un_desc = 20626
+		STR_VAR file_name = ~TZPR326~ spell_name = ~COM_DRUID_DOMINATE_ANIMAL~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 3 name1 = 20627 un_desc = 20628
+		STR_VAR file_name = ~TZPR327~ spell_name = ~COM_DRUID_IRON_KNUCKLES~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 3 name1 = 20630 un_desc = 20631
+		STR_VAR file_name = ~TZPR328~ spell_name = ~COM_PRIEST_CLOAK_OF_BRAVERY~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 3 name1 = 20633 un_desc = 20634
+		STR_VAR file_name = ~TZPR329~ spell_name = ~COM_PRIEST_CAUSE_DISEASE~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 4 name1 = 20643 un_desc = 20644
+		STR_VAR file_name = ~TZPR418~ spell_name = ~COM_DRUID_TEMPERATURE_COLD~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 4 name1 = 20645 un_desc = 20646
+		STR_VAR file_name = ~TZPR419~ spell_name = ~COM_DRUID_TEMPERATURE_HEAT~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 4 name1 = 20647 un_desc = 20648
+		STR_VAR file_name = ~TZPR420~ spell_name = ~COM_DRUID_FREEDOM_OF_MOVEMENT~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 4 name1 = 20649 un_desc = 20650
+		STR_VAR file_name = ~TZPR421~ spell_name = ~COM_DRUID_AIR_POCKET~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 4 name1 = 20651 un_desc = 20652
+		STR_VAR file_name = ~TZPR422~ spell_name = ~COM_PRIEST_DIVINE_POWER~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 4 name1 = 20653 un_desc = 20654
+		STR_VAR file_name = ~TZPR423~ spell_name = ~COM_PRIEST_TONGUES~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 4 name1 = 20655 un_desc = 20656
+		STR_VAR file_name = ~TZPR424~ spell_name = ~COM_DRUID_INCREASE_METABOLISM~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 4 name1 = 20658 un_desc = 20659
+		STR_VAR file_name = ~TZPR425~ spell_name = ~COM_DRUID_WINDS_OF_PANDAMONIUM~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 4 name1 = 20660 un_desc = 20661
+		STR_VAR file_name = ~TZPR426~ spell_name = ~COM_PRIEST_STATIC_CHARGE~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 4 name1 = 20662 un_desc = 20663
+		STR_VAR file_name = ~TZPR427~ spell_name = ~COM_PRIEST_CLOUD_OF_PESTILENCE~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 5 name1 = 20674 un_desc = 20675
+		STR_VAR file_name = ~TZPR518~ spell_name = ~COM_DRUID_DEATH_MARK~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 5 name1 = 20676 un_desc = 20677
+		STR_VAR file_name = ~TZPR519~ spell_name = ~COM_DRUID_WALL_OF_FIRE~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 5 name1 = 20678 un_desc = 20679
+		STR_VAR file_name = ~TZPR520~ spell_name = ~COM_DRUID_ICE_STORM~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 5 name1 = 20680 un_desc = 20681
+		STR_VAR file_name = ~TZPR521~ spell_name = ~COM_DRUID_SUMMON_NATURES_ALLY5~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 5 name1 = 20682 un_desc = 20683
+		STR_VAR file_name = ~TZPR522~ spell_name = ~COM_PRIEST_HALLOW~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 5 name1 = 20684 un_desc = 20685
+		STR_VAR file_name = ~TZPR523~ spell_name = ~COM_PRIEST_SCRYING~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 5 name1 = 20058 un_desc = 20686
+		STR_VAR file_name = ~TZPR524~ spell_name = ~COM_PRIEST_CALL_UPON_FAITH~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 5 name1 = 20687 un_desc = 20688
+		STR_VAR file_name = ~TZPR525~ spell_name = ~COM_PRIEST_EMBALM~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 5 name1 = 20689 un_desc = 20690
+		STR_VAR file_name = ~TZPR526~ spell_name = ~COM_PRIEST_HEROES_FEAST~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 5 name1 = 20692 un_desc = 20693
+		STR_VAR file_name = ~TZPR527~ spell_name = ~COM_DRUID_WALL_OF_THORNS~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 5 name1 = 20694 un_desc = 20695
+		STR_VAR file_name = ~TZPR528~ spell_name = ~COM_DRUID_VENOM_PLOOM~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 6 name1 = 20700 un_desc = 20701
+		STR_VAR file_name = ~TZPR615~ spell_name = ~COM_DRUID_ANIMATE_ROCKS~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 6 name1 = 20702 un_desc = 20703
+		STR_VAR file_name = ~TZPR616~ spell_name = ~COM_DRUID_SUMMON_NATURES_ALLY6~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 6 name1 = 20704 un_desc = 20705
+		STR_VAR file_name = ~TZPR617~ spell_name = ~COM_DRUID_HEALING_CIRCLE~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 6 name1 = 20706 un_desc = 20707
+		STR_VAR file_name = ~TZPR618~ spell_name = ~COM_DRUID_GREATER_DISPELLING~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 6 name1 = 20709 un_desc = 20710
+		STR_VAR file_name = ~TZPR620~ spell_name = ~COM_PRIEST_POSSESION~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 6 name1 = 20711 un_desc = 20712
+		STR_VAR file_name = ~TZPR621~ spell_name = ~COM_PRIEST_MOON_BEAM~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 6 name1 = 20714 un_desc = 20715
+		STR_VAR file_name = ~TZPR622~ spell_name = ~COM_DRUID_VITALITY_DRAIN~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 6 name1 = 20716 un_desc = 20717
+		STR_VAR file_name = ~TZPR623~ spell_name = ~COM_PRIEST_VISIONS_OF_PAIN~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 6 name1 = 20718 un_desc = 20719
+		STR_VAR file_name = ~TZPR624~ spell_name = ~COM_DRUID_NATURES_DEABILITATING_RATH~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 6 name1 = 20720 un_desc = 20721
+		STR_VAR file_name = ~TZPR625~ spell_name = ~COM_PRIEST_SOUL_MERGE~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 6 name1 = 20727 un_desc = 20728
+		STR_VAR file_name = ~TZPR628~ spell_name = ~COM_CONVERSION_TO_THE_DARK~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 6 name1 = 20729 un_desc = 20730
+		STR_VAR file_name = ~TZPR629~ spell_name = ~COM_DRUID_SUMMON_LIGHTNING_ELEMENTAL~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 7 name1 = 20733 un_desc = 20734
+		STR_VAR file_name = ~TZPR733~ spell_name = ~CLERIC_SYMBOL_OF_BANISHMENT~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 7 name1 = 20737 un_desc = 20738
+		STR_VAR file_name = ~TZPR735~ spell_name = ~COM_KISS_OF_DEATH~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 7 name1 = 20739 un_desc = 20740
+		STR_VAR file_name = ~TZPR736~ spell_name = ~CLERIC_SUMMON_LAVA_ELEMENTAL~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 7 name1 = 20066 un_desc = 20741
+		STR_VAR file_name = ~TZPR737~ spell_name = ~CLERIC_SUMMON_WATER_ELEMENTAL~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 7 name1 = 20742 un_desc = 20743
+		STR_VAR file_name = ~TZPR741~ spell_name = ~COM_DRUID_EVALUTION~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 7 name1 = 20754 un_desc = 20755
+		STR_VAR file_name = ~TZPR742~ spell_name = ~COM_DRUID_SUNBEAM~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 7 name1 = 20756 un_desc = 20757
+		STR_VAR file_name = ~TZPR743~ spell_name = ~COM_DRUID_SHAPECHANGE~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 7 name1 = 20759 un_desc = 20760
+		STR_VAR file_name = ~TZPR744~ spell_name = ~COM_DRUID_GREATER_SCRYING~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 7 name1 = 20761 un_desc = 20762
+		STR_VAR file_name = ~TZPR745~ spell_name = ~COM_PRIEST_DIETY_BIND~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 7 name1 = 20767 un_desc = 20768
+		STR_VAR file_name = ~TZPR746~ spell_name = ~COM_PRIEST_ASSIMILATION~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 7 name1 = 20779 un_desc = 20780
+		STR_VAR file_name = ~TZPR747~ spell_name = ~COM_PRIEST_MYSTRAS_UNRAVELLING~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 7 name1 = 20782 un_desc = 20783
+		STR_VAR file_name = ~TZPR748~ spell_name = ~COM_PRIEST_GREATER_UNDEAD~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 7 name1 = 20784 un_desc = 20785
+		STR_VAR file_name = ~TZPR749~ spell_name = ~COM_PRIEST_SUCCOR~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 7 name1 = 20790 un_desc = 20791
+		STR_VAR file_name = ~TZPR750~ spell_name = ~COM_DRUID_DRAGON_FLESH~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 7 name1 = 20799 un_desc = 20800
+		STR_VAR file_name = ~TZPR751~ spell_name = ~COM_DRUID_DEVALUTION~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 1 level = 7 name1 = 20802 un_desc = 20803
+		STR_VAR file_name = ~TZPR752~ spell_name = ~COM_DRUID_TROLLISH_FORTITUDE~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 1 name1 = 20821 un_desc = 20822
+		STR_VAR file_name = ~TZWI126~ spell_name = ~COM_AZRAGANS_CHANELLING~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 1 name1 = 20823 un_desc = 20824
+		STR_VAR file_name = ~TZWI127~ spell_name = ~COM_PHYSICAL_AGILITY~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 1 name1 = 20825 un_desc = 20826
+		STR_VAR file_name = ~TZWI128~ spell_name = ~COM_TRUE_STRIKE~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 2 name1 = 20827 un_desc = 20828
+		STR_VAR file_name = ~TZWI225~ spell_name = ~COM_TORMENT~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 2 name1 = 20829 un_desc = 20830
+		STR_VAR file_name = ~TZWI226~ spell_name = ~COM_STEAM~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 2 name1 = 20831 un_desc = 20832
+		STR_VAR file_name = ~TZWI228~ spell_name = ~COM_ENDURANCE~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 2 name1 = 20833 un_desc = 20834
+		STR_VAR file_name = ~TZWI229~ spell_name = ~COM_THUNDERCLAP~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 3 name1 = 20835 un_desc = 20836
+		STR_VAR file_name = ~TZWI327~ spell_name = ~COM_AURA_OF_FOCUS~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 3 name1 = 20837 un_desc = 20838
+		STR_VAR file_name = ~TZWI328~ spell_name = ~COM_ICELANCE~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 3 name1 = 20839 un_desc = 20840
+		STR_VAR file_name = ~TZWI329~ spell_name = ~COM_ADRENALIN_RUSH~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 4 name1 = 20841 un_desc = 20842
+		STR_VAR file_name = ~TZWI427~ spell_name = ~COM_ICE_SHARD~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 4 name1 = 20843 un_desc = 20844
+		STR_VAR file_name = ~TZWI428~ spell_name = ~COM_WEAKEN~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 4 name1 = 20845 un_desc = 20846
+		STR_VAR file_name = ~TZWI429~ spell_name = ~BELTYNS_BURNING_BLOOD~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 4 name1 = 20847 un_desc = 20848
+		STR_VAR file_name = ~TZWI430~ spell_name = ~COM_DAERRAGHS_AURA_OF_CLEANSING~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 5 name1 = 20053 un_desc = 20849
+		STR_VAR file_name = ~TZWI528~ spell_name = ~COM_HEAVY_FOG~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 6 name1 = 20850 un_desc = 20851
+		STR_VAR file_name = ~TZWI626~ spell_name = ~COM_MASS_TELEPORT~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 7 name1 = 20069 un_desc = 20860
+		STR_VAR file_name = ~TZWI725~ spell_name = ~COM_BLACK_DEATH~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 7 name1 = 20861 un_desc = 20862
+		STR_VAR file_name = ~TZWI726~ spell_name = ~COM_RAGING_BULL~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 7 name1 = 20863 un_desc = 20864
+		STR_VAR file_name = ~TZWI727~ spell_name = ~COM_FROST_BITE~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 7 name1 = 20865 un_desc = 20866
+		STR_VAR file_name = ~TZWI728~ spell_name = ~COM_ARMOUR_MELT~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 7 name1 = 20869 un_desc = 20870
+		STR_VAR file_name = ~TZWI729~ spell_name = ~COM_EXECUTION~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 8 name1 = 20873 un_desc = 20874
+		STR_VAR file_name = ~TZWI819~ spell_name = ~COM_ORCISH_HOARD~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 8 name1 = 20875 un_desc = 20876
+		STR_VAR file_name = ~TZWI820~ spell_name = ~COM_HEMOPHILIA~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 8 name1 = 20877 un_desc = 20878
+		STR_VAR file_name = ~TZWI821~ spell_name = ~COM_SOUL_OF_KALANZHAR~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 8 name1 = 20879 un_desc = 20880
+		STR_VAR file_name = ~TZWI822~ spell_name = ~COM_RARYS_MNEMONIC_NEGATOR~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 8 name1 = 20886 un_desc = 20887
+		STR_VAR file_name = ~TZWI825~ spell_name = ~COM_SUNBURST~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 8 name1 = 20888 un_desc = 20889
+		STR_VAR file_name = ~TZWI826~ spell_name = ~COM_SUFFOCATION~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 8 name1 = 20890 un_desc = 20891
+		STR_VAR file_name = ~TZWI827~ spell_name = ~COM_GRAVITY~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 9 name1 = 20900 un_desc = 20901
+		STR_VAR file_name = ~TZWI969~ spell_name = ~COM_ARMY_DARKNESS~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 9 name1 = 20902 un_desc = 20903
+		STR_VAR file_name = ~TZWI970~ spell_name = ~COM_TATTOO~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 9 name1 = 20907 un_desc = 20908
+		STR_VAR file_name = ~TZWI971~ spell_name = ~COM_LIFE_WARP~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 9 name1 = 20909 un_desc = 20910
+		STR_VAR file_name = ~TZWI972~ spell_name = ~COM_SHATTER_BONES~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 9 name1 = 20921 un_desc = 20922
+		STR_VAR file_name = ~TZWI973~ spell_name = ~COM_SACRAFICIAL_TRANSFER~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 9 name1 = 20923 un_desc = 20924
+		STR_VAR file_name = ~TZWI974~ spell_name = ~COM_ARCANE_RUNES~
+		RET spell file_name
+	END
+//=============================================================================
+	LAF AddSpells
+		INT_VAR type = 2 level = 9 name1 = 20935 un_desc = 20936
+		STR_VAR file_name = ~TZWI975~ spell_name = ~COM_RARYS_MNEMONIC_ENCHANCER~
+		RET spell file_name
+	END
+//=============================================================================
+
+	OUTER_SET spell_num = IDS_OF_SYMBOL(~spell~ ~WIZARD_CATS_GRACE~)
+	ACTION_IF (spell_num > 0) BEGIN
+		LAF RES_NUM_OF_SPELL_NAME
+			STR_VAR spell_name = ~WIZARD_CATS_GRACE~
+			RET spell_num = spell_num spell = spell_res
+		END
+	END ELSE BEGIN
+		ADD_SPELL ~%MOD_FOLDER%/Compat/CtB/CBWI227.SPL~ 2 2 ~WIZARD_CATS_GRACE~
+			SAY NAME1  @20942
+			SAY UNIDENTIFIED_DESC @20943
+			SPRINT spell ~%DEST_RES%~	
+	END
+//////////////////////////////////////////////////////////////////////////////////////
+
+	OUTER_SET spell_num = IDS_OF_SYMBOL(~spell~ ~WIZARD_MORDENKAINENS_FORCE_MISSILES~)
+	ACTION_IF (spell_num > 0) BEGIN
+		LAF RES_NUM_OF_SPELL_NAME
+			STR_VAR spell_name = ~WIZARD_MORDENKAINENS_FORCE_MISSILES~
+			RET spell_num = spell_num spell = spell_res
+		END
+	END ELSE BEGIN
+		ADD_SPELL ~%MOD_FOLDER%/Compat/CtB/CBWI440.SPL~ 2 4 ~WIZARD_MORDENKAINENS_FORCE_MISSILES~
+			SAY NAME1  @20944
+			SAY UNIDENTIFIED_DESC @20945
+			SPRINT spell ~%DEST_RES%~	
+	END
+///////////////////////////////////////////////////////////////////////////////////////
+		
+	OUTER_SET spell_num = IDS_OF_SYMBOL(~spell~ ~WIZARD_ANTIMAGIC_FIELD~)
+	ACTION_IF (spell_num > 0) BEGIN
+		LAF RES_NUM_OF_SPELL_NAME
+			STR_VAR spell_name = ~WIZARD_ANTIMAGIC_FIELD~
+			RET spell_num = spell_num spell = spell_res
+		END
+	END ELSE BEGIN
+		ADD_SPELL ~%MOD_FOLDER%/Compat/CtB/CBWI627.SPL~ 2 6 ~WIZARD_ANTIMAGIC_FIELD~
+			SAY NAME1  @20946
+			SAY UNIDENTIFIED_DESC @20947
+			SPRINT spell ~%DEST_RES%~	
+	END
+/////////////////////////////////////////////////////////////////////////////////////////
+		
+	OUTER_SET spell_num = IDS_OF_SYMBOL(~spell~ ~WIZARD_IRON_BODY~)
+	ACTION_IF (spell_num > 0) BEGIN
+		LAF RES_NUM_OF_SPELL_NAME
+			STR_VAR spell_name = ~WIZARD_IRON_BODY~
+			RET spell_num = spell_num spell = spell_res
+		END
+	END ELSE BEGIN
+		ADD_SPELL ~%MOD_FOLDER%/Compat/CtB/CBWI823.SPL~ 2 8 ~WIZARD_IRON_BODY~
+			SAY NAME1  @20948
+			SAY UNIDENTIFIED_DESC @20949
+			SPRINT spell ~%DEST_RES%~	
+	END
+/////////////////////////////////////////////////////////////////////////////////////////	
+
+	OUTER_SET spell_num = IDS_OF_SYMBOL(~spell~ ~WIZARD_MIND_BLANK~)
+	ACTION_IF (spell_num > 0) BEGIN
+		LAF RES_NUM_OF_SPELL_NAME
+			STR_VAR spell_name = ~WIZARD_MIND_BLANK~
+			RET spell_num = spell_num spell = spell_res
+		END
+	END ELSE BEGIN
+		ADD_SPELL ~%MOD_FOLDER%/Compat/CtB/CBWI824.SPL~ 2 8 ~WIZARD_MIND_BLANK~
+			SAY NAME1  @20950
+			SAY UNIDENTIFIED_DESC @20951
+			SPRINT spell ~%DEST_RES%~	
+	END
 	
-	PRINT ~%file_name% => %spell%~
+/////////////////////////////////////////////////////////////////////////////////////////	
+
+	OUTER_SET spell_num = IDS_OF_SYMBOL(~spell~ ~WIZARD_MONSTER_SUMMONING_IV~)
+	ACTION_IF (spell_num > 0) BEGIN
+		LAF RES_NUM_OF_SPELL_NAME
+			STR_VAR spell_name = ~WIZARD_MONSTER_SUMMONING_IV~
+			RET spell_num = spell_num spell = spell_res
+		END
+	END ELSE BEGIN
+		ADD_SPELL ~%MOD_FOLDER%/Compat/RoT/RTWI733.SPL~ 2 7 ~WIZARD_MONSTER_SUMMONING_IV~
+			SAY NAME1  @20871
+			SAY UNIDENTIFIED_DESC @20872
+			SPRINT spell ~%DEST_RES%~	
+	END
+
+/////////////////////////////////////////////////////////////////////////////////////////	
+
+	OUTER_SET spell_num = IDS_OF_SYMBOL(~spell~ ~WIZARD_MONSTER_SUMMONING_V~)
+	ACTION_IF (spell_num > 0) BEGIN
+		LAF RES_NUM_OF_SPELL_NAME
+			STR_VAR spell_name = ~WIZARD_MONSTER_SUMMONING_V~
+			RET spell_num = spell_num spell = spell_res
+		END
+	END ELSE BEGIN
+		ADD_SPELL ~%MOD_FOLDER%/Compat/RoT/RTWI828.SPL~ 2 8 ~WIZARD_MONSTER_SUMMONING_V~
+			SAY NAME1  @20892
+			SAY UNIDENTIFIED_DESC @20893
+			SPRINT spell ~%DEST_RES%~	
+	END
+
+/////////////////////////////////////////////////////////////////////////////////////////	
+
+	OUTER_SET spell_num = IDS_OF_SYMBOL(~spell~ ~WIZARD_MONSTER_SUMMONING_VI~)
+	ACTION_IF (spell_num > 0) BEGIN
+		LAF RES_NUM_OF_SPELL_NAME
+			STR_VAR spell_name = ~WIZARD_MONSTER_SUMMONING_VI~
+			RET spell_num = spell_num spell = spell_res
+		END
+	END ELSE BEGIN
+		ADD_SPELL ~%MOD_FOLDER%/Compat/RoT/RTWI968.SPL~ 2 9 ~WIZARD_MONSTER_SUMMONING_VI~
+			SAY NAME1  @20898
+			SAY UNIDENTIFIED_DESC @20899
+			SPRINT spell ~%DEST_RES%~	
+	END
+
 END
 
 
@@ -54,7 +795,7 @@ BEGIN
 	OUTER_SET spell_num = IDS_OF_SYMBOL(~spell~ ~%spell_name%~)
 	ACTION_IF (spell_num > 0) BEGIN
 		LAF RES_NUM_OF_SPELL_NAME
-			STR_VAR spell_name = ~%spell_name%~
+			STR_VAR spell_name = EVAL ~%spell_name%~
 			RET spell = spell_res
 		END
 	END ELSE BEGIN

@@ -61,10 +61,10 @@ BEGIN
 		ACTION_IF ~%restype%~ STR_EQ ~MOS~ OR ~%restype%~ STR_EQ ~BAF~ BEGIN
 			ACTION_IF DIRECTORY_EXISTS "%RES_FOLDER%/%restype%/%engine%"
 				BEGIN COPY ~%RES_FOLDER%/%restype%/%engine%~ ~%to%~ END // ee or non-ee
-			END ELSE BEGIN
+			END //ELSE BEGIN
 			ACTION_IF DIRECTORY_EXISTS "%RES_FOLDER%/%restype%"
 				BEGIN COPY ~%RES_FOLDER%/%restype%~ ~%to%~ END
-			END 
+//			END 
 		END
 
 	LAM ApplyScriptedXpCustomization
