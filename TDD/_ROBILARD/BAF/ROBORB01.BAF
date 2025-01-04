@@ -31,7 +31,7 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("tz_prep03","LOCALS",1)
-    ReallyForceSpell(Myself,1737)
+    ReallyForceSpellRES("TZPR737",Myself)
 END
 
 IF
