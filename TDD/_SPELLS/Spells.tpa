@@ -26,348 +26,555 @@ COPY_EXISTING ~baldur.bcs~ ~override~
 		REPLACE_TEXTUALLY ~CBWI240~ ~%spell%~
 	END
 */
-DEFINE_ACTION_MACRO InstallSpecificContents
+
+DEFINE_ACTION_MACRO InstallSpecificContents			// code from K4thos http://www.shsforums.net/topic/46717-add-spell-in-spell-mods/?p=581696
 BEGIN
-	
+
+MKDIR ~moreWizSlots~
+COPY_EXISTING ~SPELL.IDS~ ~override~
+    REPLACE_TEXTUALLY ~%WNL%~ ~%LNL%~ //ADD_SPELL breaks regexp new lines detection
+    REPLACE_TEXTUALLY ~[%TAB% ]+~ ~ ~
+    REPLACE_TEXTUALLY ~^[%TAB% ]+~ ~~
+    REPLACE_TEXTUALLY ~[%TAB% ]+$~ ~~
+    PATCH_IF (GAME_IS ~bg2 tob bgt bg2ee~) BEGIN //not sure if Tutu should be listed here
+        REPLACE_TEXTUALLY ~2924 BERESH_CHANGE%LNL%~ ~~ //WIZARD_SUMMON_PLANATAR_EVIL dupe
+        REPLACE_TEXTUALLY ~2925 KAISHAS_CHANGE%LNL%~ ~~ //WIZARD_COMET dupe
+    END
+BUT_ONLY
+
+//SPWI926-999 converted to SPIN301-360
+OUTER_FOR (i=926; i<=999; i=i+1) BEGIN
+    LAF NAME_NUM_OF_SPELL_RES STR_VAR spell_res = EVAL ~SPWI%i%~ RET spell_name spell_num END
+    ACTION_IF (FILE_EXISTS_IN_GAME ~HIDESPL.2DA~) BEGIN
+        COPY_EXISTING ~HIDESPL.2DA~ ~override~
+            PRETTY_PRINT_2DA
+            REPLACE_TEXTUALLY ~^SPWI%i% .+%LNL%~ ~~
+        BUT_ONLY
+    END
+    COPY_EXISTING ~SPELL.IDS~ ~override~
+        REPLACE_TEXTUALLY ~%WNL%~ ~%LNL%~
+        REPLACE_TEXTUALLY ~^%spell_num% %spell_name%%LNL%~ ~~
+    BUT_ONLY
+    ACTION_IF (NOT IS_AN_INT ~%spell_name%~) BEGIN //only true if spell has IDS name (so it skips SPWI938)
+        ACTION_IF (FILE_EXISTS_IN_GAME ~SPWI%i%.spl~) BEGIN
+            COPY_EXISTING ~SPWI%i%.spl~ ~moreWizSlots~
+            ACTION_IF (FILE_EXISTS ~override/SPWI%i%.spl~) BEGIN
+                DELETE ~override/SPWI%i%.spl~
+            END
+            DISABLE_FROM_KEY ~SPWI%i%.spl~ //Removes file from the chitin.key, while leaving the containing bif file itself untouched
+            ADD_SPELL ~moreWizSlots/SPWI%i%.spl~ 3 3 ~%spell_name%~
+            ACTION_DEFINE_ASSOCIATIVE_ARRAY table_junkNumName BEGIN
+                ~%spell_num%~ => ~%spell_name%~
+            END
+        END
+    END
+END
+
+//update compiled scripts and dialogues
+COPY_EXISTING_REGEXP GLOB ~.+\.DLG~ ~override~
+    ~.+\.BCS~ ~override~
+    DECOMPILE_AND_PATCH BEGIN
+        //HaveSpell, RemoveSpell, HaveSpellParty
+        REPLACE_EVALUATE CASE_INSENSITIVE ~\([A-Za-z]+Spell[A-Za-z]*(\)\(29[0-9]+\))~ BEGIN
+            PHP_EACH table_junkNumName AS num => spell_name BEGIN
+                PATCH_IF (IS_AN_INT ~%MATCH2%~) AND (MATCH2 = num) BEGIN
+                    PATCH_PRINT ~Patching %SOURCE_FILESPEC%: %num% => %spell_name%~
+                    SPRINT MATCH2 ~%spell_name%~
+                END
+            END
+        END ~%MATCH1%%MATCH2%)~
+        //SpellCast, SpellCastOnMe, SpellCastPriest, SpellCastInnate, Spell, ForceSpell, ApplySpell, ReallyForceSpell, SpellPoint, ForceSpellPoint, ReallyForceSpellPoint, SpellNoDec, SpellPointNoDec, ReallyForceSpellDead, ForceSpellRange, ForceSpellPointRange
+        REPLACE_EVALUATE CASE_INSENSITIVE ~\([A-Za-z]*Spell[A-Za-z]*([^,]+,\)\(29[0-9]+\))~ BEGIN
+            PHP_EACH table_junkNumName AS num => spell_name BEGIN
+                PATCH_IF (IS_AN_INT ~%MATCH2%~) AND (MATCH2 = num) BEGIN
+                    PATCH_PRINT ~Patching %SOURCE_FILESPEC%: %num% => %spell_name%~
+                    SPRINT MATCH2 ~%spell_name%~
+                END
+            END
+        END ~%MATCH1%%MATCH2%)~
+        REPLACE_TEXTUALLY ~\(Allegiance(.*,\)ANYONE)~ ~\10)~ //workaround for weidu compiler bug
+    END
+BUT_ONLY
+
+
+//**********************************************************
+// Cleric/Priest Level 1
+//**********************************************************	
 	LAF AddSpells
 		INT_VAR type = 1 level = 1 name1 = 20575 un_desc = 20576
-		STR_VAR file_name = ~TZPR114~ spell_name = ~COM_DRUID_MAGIC_FANG~
+		STR_VAR file_name = ~TZPR114~ spell_name = ~CLERIC_MAGIC_FANG~	//~COM_DRUID_MAGIC_FANG~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~KIVAN10.CRE~ ~KIVAN12.CRE~ ~KIVAN13.CRE~ ~VESINE8.CRE~ ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END		
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 1 name1 = 20577 un_desc = 20578
-		STR_VAR file_name = ~TZPR115~ spell_name = ~COM_DRUID_PASS_WITHOUT_TRACE~
+		STR_VAR file_name = ~TZPR115~ spell_name = ~CLERIC_PASS_WITHOUT_TRACE~	//~COM_DRUID_PASS_WITHOUT_TRACE~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~KIVAN10.CRE~ ~KIVAN12.CRE~ ~KIVAN13.CRE~ ~VESINE8.CRE~ ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END		
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 1 name1 = 20580 un_desc = 20581
-		STR_VAR file_name = ~TZPR116~ spell_name = ~COM_DRUID_FEARIE_FIRE~
+		STR_VAR file_name = ~TZPR116~ spell_name = ~CLERIC_FROST_FINGERS~	//~COM_DRUID_FEARIE_FIRE~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~KIVAN10.CRE~ ~KIVAN12.CRE~ ~KIVAN13.CRE~ ~VESINE8.CRE~ ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END		
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 1 name1 = 20582 un_desc = 20583
-		STR_VAR file_name = ~TZPR117~ spell_name = ~COM_DRUID_RESISTANCE~
+		STR_VAR file_name = ~TZPR117~ spell_name = ~CLERIC_RESIST~	//~COM_DRUID_RESISTANCE~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~KIVAN10.CRE~ ~KIVAN12.CRE~ ~KIVAN13.CRE~ ~VESINE8.CRE~ ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END		
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 1 name1 = 20584 un_desc = 20585
-		STR_VAR file_name = ~TZPR118~ spell_name = ~COM_PRIEST_BANE~
+		STR_VAR file_name = ~TZPR118~ spell_name = ~CLERIC_BANE~	//~COM_PRIEST_BANE~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~AVAUN9.CRE~ ~AVAUN11.CRE~ ~AVAUN13.CRE~ ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~NIGHTWLK.CRE~
+							~SENTIENT.CRE~ ~SILVERSH.CRE~ ~YESLIC9.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END	
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 1 name1 = 20586 un_desc = 20587
-		STR_VAR file_name = ~TZPR119~ spell_name = ~COM_PRIEST_DIVINE_FAVOUR~
+		STR_VAR file_name = ~TZPR119~ spell_name = ~CLERIC_DIVINE_FAVOR~	//~COM_PRIEST_DIVINE_FAVOUR~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~AVAUN9.CRE~ ~AVAUN11.CRE~ ~AVAUN13.CRE~ ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~NIGHTWLK.CRE~
+							~SENTIENT.CRE~ ~SILVERSH.CRE~ ~YESLIC9.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END	
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 1 name1 = 20588 un_desc = 20589
-		STR_VAR file_name = ~TZPR120~ spell_name = ~COM_PRIEST_ENTROPIC_SHIELD~
+		STR_VAR file_name = ~TZPR120~ spell_name = ~CLERIC_ENTROPIC_SHIELD~	//~COM_PRIEST_ENTROPIC_SHIELD~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~AVAUN9.CRE~ ~AVAUN11.CRE~ ~AVAUN13.CRE~ ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~NIGHTWLK.CRE~
+							~SENTIENT.CRE~ ~SILVERSH.CRE~ ~YESLIC9.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END	
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 1 name1 = 20591 un_desc = 20592
-		STR_VAR file_name = ~TZPR121~ spell_name = ~COM_DRUID_FREEZING_HANDS~
+		STR_VAR file_name = ~TZPR121~ spell_name = ~CLERIC_FROST_FINGERS~	//~COM_DRUID_FREEZING_HANDS~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~KIVAN10.CRE~ ~KIVAN12.CRE~ ~KIVAN13.CRE~ ~VESINE8.CRE~ ~VESINE11.CRE~ ~VESINE13.CRE~ 
+							~CORPMINI:CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END	
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 1 name1 = 20593 un_desc = 20594
-		STR_VAR file_name = ~TZPR122~ spell_name = ~COM_DRUID_ACID_HAND~
+		STR_VAR file_name = ~TZPR122~ spell_name = ~CLERIC_ACID_SPRAY~	//~COM_DRUID_ACID_HAND~
 		RET spell file_name
 	END
-//=============================================================================
+	ACTION_FOR_EACH file IN ~KIVAN10.CRE~ ~KIVAN12.CRE~ ~KIVAN13.CRE~ ~VESINE8.CRE~ ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END	
+//**********************************************************
+// Cleric/Priest Level 2
+//**********************************************************
 	LAF AddSpells
 		INT_VAR type = 1 level = 2 name1 = 20599 un_desc = 20600
-		STR_VAR file_name = ~TZPR215~ spell_name = ~COM_DRUID_DELAY_POISEN~
+		STR_VAR file_name = ~TZPR215~ spell_name = ~CLERIC_DELAY_POISON~	//~COM_DRUID_DELAY_POISEN~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~AVAUN11.CRE~ ~AVAUN13.CRE~ ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~KIVAN10.CRE~ ~KIVAN12.CRE~ 
+							~KIVAN13.CRE~ ~NIGHTWLK.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~ ~VESINE8.CRE~ ~VESINE11.CRE~ 
+							~VESINE13.CRE~ ~YESLIC9.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END	
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 2 name1 = 20601 un_desc = 20602
-		STR_VAR file_name = ~TZPR216~ spell_name = ~COM_DRUID_HEAT_METAL~
+		STR_VAR file_name = ~TZPR216~ spell_name = ~CLERIC_HEAT_METAL~	//~COM_DRUID_HEAT_METAL~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~KIVAN10.CRE~ ~KIVAN12.CRE~ ~KIVAN13.CRE~ ~VESINE8.CRE~ ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END	
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 2 name1 = 20603 un_desc = 20604
-		STR_VAR file_name = ~TZPR217~ spell_name = ~COM_PRIEST_BULLS_STRENGTH~
+		STR_VAR file_name = ~TZPR217~ spell_name = ~CLERIC_BULLS_STRENGTH~	//~COM_PRIEST_BULLS_STRENGTH~
 		RET spell file_name
 	END
-//=============================================================================
+	ACTION_FOR_EACH file IN ~AVAUN11.CRE~ ~AVAUN13.CRE~ ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~NIGHTWLK.CRE~ ~SENTIENT.CRE~ 
+							~SILVERSH.CRE~ ~YESLIC9.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END	
+//**********************************************************
+// Cleric/Priest Level 3
+//**********************************************************
 	LAF AddSpells
 		INT_VAR type = 1 level = 3 name1 = 20605 un_desc = 20606
-		STR_VAR file_name = ~TZPR320~ spell_name = ~COM_DRUID_GREATER_MAGIC_FANG~
+		STR_VAR file_name = ~TZPR320~ spell_name = ~CLERIC_GREATER_MAGIC_FANG~	//~COM_DRUID_GREATER_MAGIC_FANG~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~KIVAN12.CRE~ ~KIVAN13.CRE~ ~VESINE8.CRE~ ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END	
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 3 name1 = 20607 un_desc = 20608
-		STR_VAR file_name = ~TZPR321~ spell_name = ~COM_PRIEST_BESTOW_CURSE~
+		STR_VAR file_name = ~TZPR321~ spell_name = ~CLERIC_BESTOW_CURSE~	//~COM_PRIEST_BESTOW_CURSE~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~AVAUN13.CRE~ ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~NIGHTWLK.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~
+							~YESLIC9.CRE~ ~SPPAL10.SPL~ BEGIN
+		LAM ChangeSpellNamesInFiles END	
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 3 name1 = 20616 un_desc = 20617
-		STR_VAR file_name = ~TZPR322~ spell_name = ~COM_PRIEST_MAGIC_VESTMENT~
+		STR_VAR file_name = ~TZPR322~ spell_name = ~CLERIC_MAGICAL_VESTMENT~	//~COM_PRIEST_MAGIC_VESTMENT~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~AVAUN13.CRE~ ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~NIGHTWLK.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~
+							~YESLIC9.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 3 name1 = 20618 un_desc = 20619
-		STR_VAR file_name = ~TZPR323~ spell_name = ~COM_PRIEST_PRAYER~
+		STR_VAR file_name = ~TZPR323~ spell_name = ~CLERIC_PRAYER~	//~COM_PRIEST_PRAYER~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~AVAUN13.CRE~ ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~NIGHTWLK.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~
+							~YESLIC9.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 3 name1 = 20620 un_desc = 20621
-		STR_VAR file_name = ~TZPR324~ spell_name = ~COM_PRIEST_SEARING_LIGHT~
+		STR_VAR file_name = ~TZPR324~ spell_name = ~CLERIC_SEARING_LIGHT~	//~COM_PRIEST_SEARING_LIGHT~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~AVAUN13.CRE~ ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~NIGHTWLK.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~
+							~YESLIC9.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 3 name1 = 20622 un_desc = 20623
-		STR_VAR file_name = ~TZPR325~ spell_name = ~COM_DRUID_NYMPH_AURA~
+		STR_VAR file_name = ~TZPR325~ spell_name = ~CLERIC_NYMPHS_AURA~	//~COM_DRUID_NYMPH_AURA~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~KIVAN12.CRE~ ~KIVAN13.CRE~ ~VESINE8.CRE~ ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END	
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 3 name1 = 20625 un_desc = 20626
-		STR_VAR file_name = ~TZPR326~ spell_name = ~COM_DRUID_DOMINATE_ANIMAL~
+		STR_VAR file_name = ~TZPR326~ spell_name = ~CLERIC_CONTROL_ANIMAL~	//~COM_DRUID_DOMINATE_ANIMAL~
 		RET spell file_name
 	END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 3 name1 = 20627 un_desc = 20628
-		STR_VAR file_name = ~TZPR327~ spell_name = ~COM_DRUID_IRON_KNUCKLES~
+		STR_VAR file_name = ~TZPR327~ spell_name = ~CLERIC_IRON_KNUCKLES~	//~COM_DRUID_IRON_KNUCKLES~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~KIVAN12.CRE~ ~KIVAN13.CRE~ ~VESINE8.CRE~ ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END	
 //=============================================================================
-	LAF AddSpells
+	LAF AddSpells																// Level 4 ???
 		INT_VAR type = 1 level = 3 name1 = 20630 un_desc = 20631
-		STR_VAR file_name = ~TZPR328~ spell_name = ~COM_PRIEST_CLOAK_OF_BRAVERY~
+		STR_VAR file_name = ~TZPR328~ spell_name = ~CLERIC_CLOAK_OF_BRAVERY~	//~COM_PRIEST_CLOAK_OF_BRAVERY~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~AVAUN13.CRE~ ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~NIGHTWLK.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~
+							~YESLIC9.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 3 name1 = 20633 un_desc = 20634
-		STR_VAR file_name = ~TZPR329~ spell_name = ~COM_PRIEST_CAUSE_DISEASE~
+		STR_VAR file_name = ~TZPR329~ spell_name = ~CLERIC_CAUSE_DISEASE~	//~COM_PRIEST_CAUSE_DISEASE~
 		RET spell file_name
 	END
-//=============================================================================
+	ACTION_FOR_EACH file IN ~DD1700CL.CRE~ ~YESLIC9.CRE~ ~SPPR329.SPL~ BEGIN
+		LAM ChangeSpellNamesInFiles END	
+//**********************************************************
+// Cleric/Priest Level 4
+//**********************************************************
 	LAF AddSpells
 		INT_VAR type = 1 level = 4 name1 = 20643 un_desc = 20644
-		STR_VAR file_name = ~TZPR418~ spell_name = ~COM_DRUID_TEMPERATURE_COLD~
+		STR_VAR file_name = ~TZPR418~ spell_name = ~CLERIC_CONTROL_TEMPERATURE_COLD~	//~COM_DRUID_TEMPERATURE_COLD~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~VESINE8.CRE~ ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 4 name1 = 20645 un_desc = 20646
-		STR_VAR file_name = ~TZPR419~ spell_name = ~COM_DRUID_TEMPERATURE_HEAT~
+		STR_VAR file_name = ~TZPR419~ spell_name = ~CLERIC_CONTROL_TEMPERATURE_HEAT~	//~COM_DRUID_TEMPERATURE_HEAT~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~VESINE8.CRE~ ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 4 name1 = 20647 un_desc = 20648
-		STR_VAR file_name = ~TZPR420~ spell_name = ~COM_DRUID_FREEDOM_OF_MOVEMENT~
+		STR_VAR file_name = ~TZPR420~ spell_name = ~CLERIC_FREE_ACTION~	//~COM_DRUID_FREEDOM_OF_MOVEMENT~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~VESINE8.CRE~ ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 4 name1 = 20649 un_desc = 20650
-		STR_VAR file_name = ~TZPR421~ spell_name = ~COM_DRUID_AIR_POCKET~
+		STR_VAR file_name = ~TZPR421~ spell_name = ~CLERIC_CLEAR_AIR~	//~COM_DRUID_AIR_POCKET~	???
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~VESINE8.CRE~ ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 4 name1 = 20651 un_desc = 20652
-		STR_VAR file_name = ~TZPR422~ spell_name = ~COM_PRIEST_DIVINE_POWER~
+		STR_VAR file_name = ~TZPR422~ spell_name = ~CLERIC_DIVINE_POWER~	//~COM_PRIEST_DIVINE_POWER~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~NIGHTWLK.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~ ~YESLIC9.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 4 name1 = 20653 un_desc = 20654
-		STR_VAR file_name = ~TZPR423~ spell_name = ~COM_PRIEST_TONGUES~
+		STR_VAR file_name = ~TZPR423~ spell_name = ~CLERIC_TONGUES~	//~COM_PRIEST_TONGUES~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~NIGHTWLK.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~ ~YESLIC9.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 4 name1 = 20655 un_desc = 20656
-		STR_VAR file_name = ~TZPR424~ spell_name = ~COM_DRUID_INCREASE_METABOLISM~
+		STR_VAR file_name = ~TZPR424~ spell_name = ~CLERIC_INCREASE_METABOLISM~	//~COM_DRUID_INCREASE_METABOLISM~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~VESINE8.CRE~ ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 4 name1 = 20658 un_desc = 20659
-		STR_VAR file_name = ~TZPR425~ spell_name = ~COM_DRUID_WINDS_OF_PANDAMONIUM~
+		STR_VAR file_name = ~TZPR425~ spell_name = ~CLERIC_WINDS_OF_PANDEMONIUM~	//~COM_DRUID_WINDS_OF_PANDAMONIUM~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~VESINE8.CRE~ ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 4 name1 = 20660 un_desc = 20661
-		STR_VAR file_name = ~TZPR426~ spell_name = ~COM_PRIEST_STATIC_CHARGE~
+		STR_VAR file_name = ~TZPR426~ spell_name = ~CLERIC_STATIC_CHARGE~	//~COM_PRIEST_STATIC_CHARGE~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~NIGHTWLK.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~ ~YESLIC9.CRE~
+							~VESINE8.CRE~ ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 4 name1 = 20662 un_desc = 20663
-		STR_VAR file_name = ~TZPR427~ spell_name = ~COM_PRIEST_CLOUD_OF_PESTILENCE~
+		STR_VAR file_name = ~TZPR427~ spell_name = ~CLERIC_CLOUD_OF_PESTILENCE~	//~COM_PRIEST_CLOUD_OF_PESTILENCE~
 		RET spell file_name
 	END
-//=============================================================================
+	ACTION_FOR_EACH file IN ~DD1700CL.CRE~ ~VESINE8.CRE~ ~VESINE11.CRE~ ~VESINE13.CRE~ ~YESLIC9.CRE~ ~SPAQUQ3.SPL~ 
+							~SPPR421.SPL~ ~SPPR427.SPL~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+//**********************************************************
+// Cleric/Priest Level 5
+//**********************************************************
 	LAF AddSpells
 		INT_VAR type = 1 level = 5 name1 = 20674 un_desc = 20675
-		STR_VAR file_name = ~TZPR518~ spell_name = ~COM_DRUID_DEATH_MARK~
+		STR_VAR file_name = ~TZPR518~ spell_name = ~CLERIC_DEATH_MARK~	//~COM_DRUID_DEATH_MARK~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 5 name1 = 20676 un_desc = 20677
-		STR_VAR file_name = ~TZPR519~ spell_name = ~COM_DRUID_WALL_OF_FIRE~
+		STR_VAR file_name = ~TZPR519~ spell_name = ~CLERIC_WALL_OF_FIRE~	//~COM_DRUID_WALL_OF_FIRE~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 5 name1 = 20678 un_desc = 20679
-		STR_VAR file_name = ~TZPR520~ spell_name = ~COM_DRUID_ICE_STORM~
+		STR_VAR file_name = ~TZPR520~ spell_name = ~CLERIC_ICE_STORM~	//~COM_DRUID_ICE_STORM~	Level 4 ????
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 5 name1 = 20680 un_desc = 20681
-		STR_VAR file_name = ~TZPR521~ spell_name = ~COM_DRUID_SUMMON_NATURES_ALLY5~
+		STR_VAR file_name = ~TZPR521~ spell_name = ~CLERIC_SUMMON_NATURES_ALLY_5~	//~COM_DRUID_SUMMON_NATURES_ALLY5~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 5 name1 = 20682 un_desc = 20683
-		STR_VAR file_name = ~TZPR522~ spell_name = ~COM_PRIEST_HALLOW~
+		STR_VAR file_name = ~TZPR522~ spell_name = ~CLERIC_HALLOW~	//~COM_PRIEST_HALLOW~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~ ~YESLIC9.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 5 name1 = 20684 un_desc = 20685
-		STR_VAR file_name = ~TZPR523~ spell_name = ~COM_PRIEST_SCRYING~
+		STR_VAR file_name = ~TZPR523~ spell_name = ~CLERIC_SCRYING~	//~COM_PRIEST_SCRYING~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~ ~YESLIC9.CRE~ ~SPPR523.SPL~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 5 name1 = 20058 un_desc = 20686
-		STR_VAR file_name = ~TZPR524~ spell_name = ~COM_PRIEST_CALL_UPON_FAITH~
+		STR_VAR file_name = ~TZPR524~ spell_name = ~CLERIC_CALL_UPON_FAITH~	//~COM_PRIEST_CALL_UPON_FAITH~	Level 1 ???
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~ ~YESLIC9.CRE~ ~MITALBRE.ITM~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 5 name1 = 20687 un_desc = 20688
-		STR_VAR file_name = ~TZPR525~ spell_name = ~COM_PRIEST_EMBALM~
+		STR_VAR file_name = ~TZPR525~ spell_name = ~CLERIC_EMBALM~	//~COM_PRIEST_EMBALM~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~ ~YESLIC9.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 5 name1 = 20689 un_desc = 20690
-		STR_VAR file_name = ~TZPR526~ spell_name = ~COM_PRIEST_HEROES_FEAST~
+		STR_VAR file_name = ~TZPR526~ spell_name = ~CLERIC_HEROS_FEAST~	//~COM_PRIEST_HEROES_FEAST~	Level 6 ???
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~ ~YESLIC9.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 5 name1 = 20692 un_desc = 20693
-		STR_VAR file_name = ~TZPR527~ spell_name = ~COM_DRUID_WALL_OF_THORNS~
+		STR_VAR file_name = ~TZPR527~ spell_name = ~CLERIC_WALL_OF_THORNS~	//~COM_DRUID_WALL_OF_THORNS~	Level 6 ???
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 5 name1 = 20694 un_desc = 20695
-		STR_VAR file_name = ~TZPR528~ spell_name = ~COM_DRUID_VENOM_PLOOM~
+		STR_VAR file_name = ~TZPR528~ spell_name = ~CLERIC_VENOM_PLUME~	//~COM_DRUID_VENOM_PLOOM~
 		RET spell file_name
 	END
-//=============================================================================
+	ACTION_FOR_EACH file IN ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+//**********************************************************
+// Cleric/Priest Level 6
+//**********************************************************
 	LAF AddSpells
 		INT_VAR type = 1 level = 6 name1 = 20700 un_desc = 20701
-		STR_VAR file_name = ~TZPR615~ spell_name = ~COM_DRUID_ANIMATE_ROCKS~
+		STR_VAR file_name = ~TZPR615~ spell_name = ~CLERIC_ANIMATE_ROCK~	//~COM_DRUID_ANIMATE_ROCKS~	Level 7 ???
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 6 name1 = 20702 un_desc = 20703
-		STR_VAR file_name = ~TZPR616~ spell_name = ~COM_DRUID_SUMMON_NATURES_ALLY6~
+		STR_VAR file_name = ~TZPR616~ spell_name = ~CLERIC_SUMMON_NATURES_ALLY_6~	//~COM_DRUID_SUMMON_NATURES_ALLY6~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 6 name1 = 20704 un_desc = 20705
-		STR_VAR file_name = ~TZPR617~ spell_name = ~COM_DRUID_HEALING_CIRCLE~
+		STR_VAR file_name = ~TZPR617~ spell_name = ~CLERIC_HEALING_CIRCLE~	//~COM_DRUID_HEALING_CIRCLE~	???
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 6 name1 = 20706 un_desc = 20707
-		STR_VAR file_name = ~TZPR618~ spell_name = ~COM_DRUID_GREATER_DISPELLING~
+		STR_VAR file_name = ~TZPR618~ spell_name = ~CLERIC_GREATER_DISPEL_MAGIC~	//~COM_DRUID_GREATER_DISPELLING~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~ ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 6 name1 = 20709 un_desc = 20710
-		STR_VAR file_name = ~TZPR620~ spell_name = ~COM_PRIEST_POSSESION~
+		STR_VAR file_name = ~TZPR620~ spell_name = ~CLERIC_POSSESSION~	//~COM_PRIEST_POSSESION~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 6 name1 = 20711 un_desc = 20712
-		STR_VAR file_name = ~TZPR621~ spell_name = ~COM_PRIEST_MOON_BEAM~
+		STR_VAR file_name = ~TZPR621~ spell_name = ~CLERIC_MOONBEAM~	//~COM_PRIEST_MOON_BEAM~	Level 5 ???
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 6 name1 = 20714 un_desc = 20715
-		STR_VAR file_name = ~TZPR622~ spell_name = ~COM_DRUID_VITALITY_DRAIN~
+		STR_VAR file_name = ~TZPR622~ spell_name = ~CLERIC_VITALITY_DRAIN~	//~COM_DRUID_VITALITY_DRAIN~	???
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 6 name1 = 20716 un_desc = 20717
-		STR_VAR file_name = ~TZPR623~ spell_name = ~COM_PRIEST_VISIONS_OF_PAIN~
+		STR_VAR file_name = ~TZPR623~ spell_name = ~CLERIC_VISIONS_OF_PAIN~	//~COM_PRIEST_VISIONS_OF_PAIN~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 6 name1 = 20718 un_desc = 20719
-		STR_VAR file_name = ~TZPR624~ spell_name = ~COM_DRUID_NATURES_DEABILITATING_RATH~
+		STR_VAR file_name = ~TZPR624~ spell_name = ~CLERIC_NATURES_DEBILITATING_CHARM~	//~COM_DRUID_NATURES_DEABILITATING_RATH~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~VESINE11.CRE~ ~VESINE13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 6 name1 = 20720 un_desc = 20721
-		STR_VAR file_name = ~TZPR625~ spell_name = ~COM_PRIEST_SOUL_MERGE~
+		STR_VAR file_name = ~TZPR625~ spell_name = ~CLERIC_SOUL_MERGE~	//~COM_PRIEST_SOUL_MERGE~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 6 name1 = 20727 un_desc = 20728
-		STR_VAR file_name = ~TZPR628~ spell_name = ~COM_CONVERSION_TO_THE_DARK~
+		STR_VAR file_name = ~TZPR628~ spell_name = ~CLERIC_CONVERSION_DARK~	//~COM_CONVERSION_TO_THE_DARK~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 6 name1 = 20729 un_desc = 20730
-		STR_VAR file_name = ~TZPR629~ spell_name = ~COM_DRUID_SUMMON_LIGHTNING_ELEMENTAL~
+		STR_VAR file_name = ~TZPR629~ spell_name = ~CLERIC_CONJURE_LIGHTNING_ELEMENTAL~	//~COM_DRUID_SUMMON_LIGHTNING_ELEMENTAL~
 		RET spell file_name
 	END
-//=============================================================================
+	ACTION_FOR_EACH file IN ~VESINE11.CRE~ ~VESINE13.CRE~ ~SPPR629.SPL~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+//**********************************************************
+// Cleric/Priest Level 7
+//**********************************************************
 	LAF AddSpells
 		INT_VAR type = 1 level = 7 name1 = 20733 un_desc = 20734
 		STR_VAR file_name = ~TZPR733~ spell_name = ~CLERIC_SYMBOL_OF_BANISHMENT~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DARKMIST.ITM~ ~DD1700CL.CRE~ ~SENTIENT.CRE~ ~SILVERSH.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 7 name1 = 20737 un_desc = 20738
-		STR_VAR file_name = ~TZPR735~ spell_name = ~COM_KISS_OF_DEATH~
+		STR_VAR file_name = ~TZPR735~ spell_name = ~CLERIC_KISS_OF_DEATH~	//~COM_KISS_OF_DEATH~
 		RET spell file_name
 	END
 //=============================================================================
@@ -376,294 +583,440 @@ BEGIN
 		STR_VAR file_name = ~TZPR736~ spell_name = ~CLERIC_SUMMON_LAVA_ELEMENTAL~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~SPPR736.SPL~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 7 name1 = 20066 un_desc = 20741
-		STR_VAR file_name = ~TZPR737~ spell_name = ~CLERIC_SUMMON_WATER_ELEMENTAL~
+		STR_VAR file_name = ~TZPR737~ spell_name = ~CLERIC_SUMMON_WATER_ELEMENTAL~	// Level 6 ???
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~QUOST.ITM~ ~SPPR737.SPL~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 7 name1 = 20742 un_desc = 20743
-		STR_VAR file_name = ~TZPR741~ spell_name = ~COM_DRUID_EVALUTION~
+		STR_VAR file_name = ~TZPR741~ spell_name = ~CLERIC_EVOLUTION~	//~COM_DRUID_EVALUTION~
 		RET spell file_name
 	END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 7 name1 = 20754 un_desc = 20755
-		STR_VAR file_name = ~TZPR742~ spell_name = ~COM_DRUID_SUNBEAM~
+		STR_VAR file_name = ~TZPR742~ spell_name = ~CLERIC_SUNBEAM~		//~COM_DRUID_SUNBEAM~
 		RET spell file_name
 	END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 7 name1 = 20756 un_desc = 20757
-		STR_VAR file_name = ~TZPR743~ spell_name = ~COM_DRUID_SHAPECHANGE~
+		STR_VAR file_name = ~TZPR743~ spell_name = ~CLERIC_SHAPECHANGE~	//~COM_DRUID_SHAPECHANGE~
 		RET spell file_name
 	END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 7 name1 = 20759 un_desc = 20760
-		STR_VAR file_name = ~TZPR744~ spell_name = ~COM_DRUID_GREATER_SCRYING~
+		STR_VAR file_name = ~TZPR744~ spell_name = ~CLERIC_GREATER_SCRYING~	//~COM_DRUID_GREATER_SCRYING~
 		RET spell file_name
 	END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 7 name1 = 20761 un_desc = 20762
-		STR_VAR file_name = ~TZPR745~ spell_name = ~COM_PRIEST_DIETY_BIND~
+		STR_VAR file_name = ~TZPR745~ spell_name = ~CLERIC_DEITY_BIND~	//~COM_PRIEST_DIETY_BIND~
 		RET spell file_name
 	END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 7 name1 = 20767 un_desc = 20768
-		STR_VAR file_name = ~TZPR746~ spell_name = ~COM_PRIEST_ASSIMILATION~
+		STR_VAR file_name = ~TZPR746~ spell_name = ~CLERIC_ASSIMILATION~	//~COM_PRIEST_ASSIMILATION~
 		RET spell file_name
 	END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 7 name1 = 20779 un_desc = 20780
-		STR_VAR file_name = ~TZPR747~ spell_name = ~COM_PRIEST_MYSTRAS_UNRAVELLING~
+		STR_VAR file_name = ~TZPR747~ spell_name = ~CLERIC_MYSTRAS_UNRAVELLING~	//~COM_PRIEST_MYSTRAS_UNRAVELLING~
 		RET spell file_name
 	END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 7 name1 = 20782 un_desc = 20783
-		STR_VAR file_name = ~TZPR748~ spell_name = ~COM_PRIEST_GREATER_UNDEAD~
+		STR_VAR file_name = ~TZPR748~ spell_name = ~CLERIC_CREATE_GREATER_UNDEAD~	//~COM_PRIEST_GREATER_UNDEAD~
 		RET spell file_name
 	END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 7 name1 = 20784 un_desc = 20785
-		STR_VAR file_name = ~TZPR749~ spell_name = ~COM_PRIEST_SUCCOR~
+		STR_VAR file_name = ~TZPR749~ spell_name = ~CLERIC_SUCCOR~	//~COM_PRIEST_SUCCOR~
 		RET spell file_name
 	END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 7 name1 = 20790 un_desc = 20791
-		STR_VAR file_name = ~TZPR750~ spell_name = ~COM_DRUID_DRAGON_FLESH~
+		STR_VAR file_name = ~TZPR750~ spell_name = ~CLERIC_DRAGON_FLESH~	//~COM_DRUID_DRAGON_FLESH~
 		RET spell file_name
 	END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 7 name1 = 20799 un_desc = 20800
-		STR_VAR file_name = ~TZPR751~ spell_name = ~COM_DRUID_DEVALUTION~
+		STR_VAR file_name = ~TZPR751~ spell_name = ~CLERIC_DEVOLUTION~	//~COM_DRUID_DEVALUTION~
 		RET spell file_name
 	END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 1 level = 7 name1 = 20802 un_desc = 20803
-		STR_VAR file_name = ~TZPR752~ spell_name = ~COM_DRUID_TROLLISH_FORTITUDE~
+		STR_VAR file_name = ~TZPR752~ spell_name = ~CLERIC_TROLLISH_FORTITUDE~	//~COM_DRUID_TROLLISH_FORTITUDE~	Level 6 ???
 		RET spell file_name
 	END
-//=============================================================================
+//**********************************************************
+// Wizard Level 1
+//**********************************************************
 	LAF AddSpells
 		INT_VAR type = 2 level = 1 name1 = 20821 un_desc = 20822
-		STR_VAR file_name = ~TZWI126~ spell_name = ~COM_AZRAGANS_CHANELLING~
+		STR_VAR file_name = ~TZWI126~ spell_name = ~WIZARD_AZRAGANS_CHANNELING~	//~COM_AZRAGANS_CHANELLING~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ ~SPSELF6.SPL~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX1.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 1 name1 = 20823 un_desc = 20824
-		STR_VAR file_name = ~TZWI127~ spell_name = ~COM_PHYSICAL_AGILITY~
+		STR_VAR file_name = ~TZWI127~ spell_name = ~WIZARD_PHYSICAL_AGILITY~	//~COM_PHYSICAL_AGILITY~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX2.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 1 name1 = 20825 un_desc = 20826
-		STR_VAR file_name = ~TZWI128~ spell_name = ~COM_TRUE_STRIKE~
+		STR_VAR file_name = ~TZWI128~ spell_name = ~WIZARD_TRUE_STRIKE~	//~COM_TRUE_STRIKE~
 		RET spell file_name
 	END
-//=============================================================================
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX3.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
+//**********************************************************
+// Wizard Level 2
+//**********************************************************
 	LAF AddSpells
 		INT_VAR type = 2 level = 2 name1 = 20827 un_desc = 20828
-		STR_VAR file_name = ~TZWI225~ spell_name = ~COM_TORMENT~
+		STR_VAR file_name = ~TZWI225~ spell_name = ~WIZARD_TORMENT~	//~COM_TORMENT~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX4.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 2 name1 = 20829 un_desc = 20830
-		STR_VAR file_name = ~TZWI226~ spell_name = ~COM_STEAM~
+		STR_VAR file_name = ~TZWI226~ spell_name = ~WIZARD_STEAM~	//~COM_STEAM~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX5.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 2 name1 = 20831 un_desc = 20832
-		STR_VAR file_name = ~TZWI228~ spell_name = ~COM_ENDURANCE~
+		STR_VAR file_name = ~TZWI228~ spell_name = ~WIZARD_ENDURANCE~	//~COM_ENDURANCE~	???
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX7.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 2 name1 = 20833 un_desc = 20834
-		STR_VAR file_name = ~TZWI229~ spell_name = ~COM_THUNDERCLAP~
+		STR_VAR file_name = ~TZWI229~ spell_name = ~WIZARD_THUNDERCLAP~	//~COM_THUNDERCLAP~
 		RET spell file_name
 	END
-//=============================================================================
+	ACTION_FOR_EACH file IN ~DDSCR229.ITM~ ~SPWI229.SPL~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~POSC229A.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
+//**********************************************************
+// Wizard Level 3
+//**********************************************************
 	LAF AddSpells
 		INT_VAR type = 2 level = 3 name1 = 20835 un_desc = 20836
-		STR_VAR file_name = ~TZWI327~ spell_name = ~COM_AURA_OF_FOCUS~
+		STR_VAR file_name = ~TZWI327~ spell_name = ~WIZARD_AURA_OF_FOCUS~	//~COM_AURA_OF_FOCUS~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX8.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 3 name1 = 20837 un_desc = 20838
-		STR_VAR file_name = ~TZWI328~ spell_name = ~COM_ICELANCE~
+		STR_VAR file_name = ~TZWI328~ spell_name = ~WIZARD_ICELANCE~	//~COM_ICELANCE~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX9.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 3 name1 = 20839 un_desc = 20840
-		STR_VAR file_name = ~TZWI329~ spell_name = ~COM_ADRENALIN_RUSH~
+		STR_VAR file_name = ~TZWI329~ spell_name = ~WIZARD_ADRENALINE_RUSH~	//~COM_ADRENALIN_RUSH~
 		RET spell file_name
 	END
-//=============================================================================
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX10.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
+//**********************************************************
+// Wizard Level 4
+//**********************************************************
 	LAF AddSpells
 		INT_VAR type = 2 level = 4 name1 = 20841 un_desc = 20842
-		STR_VAR file_name = ~TZWI427~ spell_name = ~COM_ICE_SHARD~
+		STR_VAR file_name = ~TZWI427~ spell_name = ~WIZARD_ICE_SHARD~	//~COM_ICE_SHARD~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX12.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 4 name1 = 20843 un_desc = 20844
-		STR_VAR file_name = ~TZWI428~ spell_name = ~COM_WEAKEN~
+		STR_VAR file_name = ~TZWI428~ spell_name = ~WIZARD_WEAKEN~	//~COM_WEAKEN~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX13.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 4 name1 = 20845 un_desc = 20846
-		STR_VAR file_name = ~TZWI429~ spell_name = ~BELTYNS_BURNING_BLOOD~
+		STR_VAR file_name = ~TZWI429~ spell_name = ~WIZARD_BELTYNS_BURNING_BLOOD~	//~BELTYNS_BURNING_BLOOD~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ ~CORPMINI.CRE~ ~XZAR13.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 4 name1 = 20847 un_desc = 20848
-		STR_VAR file_name = ~TZWI430~ spell_name = ~COM_DAERRAGHS_AURA_OF_CLEANSING~
+		STR_VAR file_name = ~TZWI430~ spell_name = ~WIZARD_DAERRAGHS_AURA_OF_CLEANSING~	//~COM_DAERRAGHS_AURA_OF_CLEANSING~
 		RET spell file_name
 	END
-//=============================================================================
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ ~DD1700WI.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX11.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
+//**********************************************************
+// Wizard Level 5
+//**********************************************************
 	LAF AddSpells
 		INT_VAR type = 2 level = 5 name1 = 20053 un_desc = 20849
-		STR_VAR file_name = ~TZWI528~ spell_name = ~COM_HEAVY_FOG~
+		STR_VAR file_name = ~TZWI528~ spell_name = ~WIZARD_HEAVY_FOG~	//~COM_HEAVY_FOG~
 		RET spell file_name
 	END
-//=============================================================================
+	ACTION_FOR_EACH file IN ~SPWI528.SPL~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX14.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
+//**********************************************************
+// Wizard Level 6
+//**********************************************************
 	LAF AddSpells
 		INT_VAR type = 2 level = 6 name1 = 20850 un_desc = 20851
-		STR_VAR file_name = ~TZWI626~ spell_name = ~COM_MASS_TELEPORT~
+		STR_VAR file_name = ~TZWI626~ spell_name = ~WIZARD_MASS_DIMENSION_DOOR~	//~COM_MASS_TELEPORT~
 		RET spell file_name
 	END
-//=============================================================================
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX15.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
+//**********************************************************
+// Wizard Level 7
+//**********************************************************
 	LAF AddSpells
 		INT_VAR type = 2 level = 7 name1 = 20069 un_desc = 20860
-		STR_VAR file_name = ~TZWI725~ spell_name = ~COM_BLACK_DEATH~
+		STR_VAR file_name = ~TZWI725~ spell_name = ~WIZARD_BLACK_DEATH~	//~COM_BLACK_DEATH~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX19.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 7 name1 = 20861 un_desc = 20862
-		STR_VAR file_name = ~TZWI726~ spell_name = ~COM_RAGING_BULL~
+		STR_VAR file_name = ~TZWI726~ spell_name = ~WIZARD_RAGING_BULL~	//~COM_RAGING_BULL~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX16.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 7 name1 = 20863 un_desc = 20864
-		STR_VAR file_name = ~TZWI727~ spell_name = ~COM_FROST_BITE~
+		STR_VAR file_name = ~TZWI727~ spell_name = ~WIZARD_FROSTBITE~	//~COM_FROST_BITE~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX21.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 7 name1 = 20865 un_desc = 20866
-		STR_VAR file_name = ~TZWI728~ spell_name = ~COM_ARMOUR_MELT~
+		STR_VAR file_name = ~TZWI728~ spell_name = ~WIZARD_ARMOR_MELT~	//~COM_ARMOUR_MELT~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX22.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 7 name1 = 20869 un_desc = 20870
-		STR_VAR file_name = ~TZWI729~ spell_name = ~COM_EXECUTION~
+		STR_VAR file_name = ~TZWI729~ spell_name = ~WIZARD_EXECUTION~	//~COM_EXECUTION~
 		RET spell file_name
 	END
-//=============================================================================
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX23.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
+//**********************************************************
+// Wizard Level 8
+//**********************************************************
 	LAF AddSpells
 		INT_VAR type = 2 level = 8 name1 = 20873 un_desc = 20874
-		STR_VAR file_name = ~TZWI819~ spell_name = ~COM_ORCISH_HOARD~
+		STR_VAR file_name = ~TZWI819~ spell_name = ~WIZARD_ORCISH_HORDE~	//~COM_ORCISH_HOARD~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX25.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 8 name1 = 20875 un_desc = 20876
-		STR_VAR file_name = ~TZWI820~ spell_name = ~COM_HEMOPHILIA~
+		STR_VAR file_name = ~TZWI820~ spell_name = ~WIZARD_HEMOPHILIA~	//~COM_HEMOPHILIA~	???
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX26.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 8 name1 = 20877 un_desc = 20878
-		STR_VAR file_name = ~TZWI821~ spell_name = ~COM_SOUL_OF_KALANZHAR~
+		STR_VAR file_name = ~TZWI821~ spell_name = ~WIZARD_SOUL_OF_KALANZHAR~	//~COM_SOUL_OF_KALANZHAR~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX27.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 8 name1 = 20879 un_desc = 20880
-		STR_VAR file_name = ~TZWI822~ spell_name = ~COM_RARYS_MNEMONIC_NEGATOR~
+		STR_VAR file_name = ~TZWI822~ spell_name = ~WIZARD_RARYS_MNEMONIC_NEGATOR~	//~COM_RARYS_MNEMONIC_NEGATOR~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX28.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 8 name1 = 20886 un_desc = 20887
-		STR_VAR file_name = ~TZWI825~ spell_name = ~COM_SUNBURST~
+		STR_VAR file_name = ~TZWI825~ spell_name = ~WIZARD_SUNBURST~	//~COM_SUNBURST~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ ~SPMI132.SPL~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX31.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 8 name1 = 20888 un_desc = 20889
-		STR_VAR file_name = ~TZWI826~ spell_name = ~COM_SUFFOCATION~
+		STR_VAR file_name = ~TZWI826~ spell_name = ~WIZARD_SUFFOCATION~	//~COM_SUFFOCATION~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX32.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 8 name1 = 20890 un_desc = 20891
-		STR_VAR file_name = ~TZWI827~ spell_name = ~COM_GRAVITY~
+		STR_VAR file_name = ~TZWI827~ spell_name = ~WIZARD_GRAVITY~		//~COM_GRAVITY~
 		RET spell file_name
 	END
-//=============================================================================
+	ACTION_FOR_EACH file IN ~DDMARY.CRE~ BEGIN
+		LAM ChangeSpellNamesInFiles END
+	ACTION_FOR_EACH file IN ~SCRX33.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
+//**********************************************************
+// Wizard Level 9
+//**********************************************************
 	LAF AddSpells
 		INT_VAR type = 2 level = 9 name1 = 20900 un_desc = 20901
-		STR_VAR file_name = ~TZWI969~ spell_name = ~COM_ARMY_DARKNESS~
+		STR_VAR file_name = ~TZWI969~ spell_name = ~WiZARD_ARMY_OF_DARKNESS~	//~COM_ARMY_DARKNESS~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~SCRX35.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 9 name1 = 20902 un_desc = 20903
-		STR_VAR file_name = ~TZWI970~ spell_name = ~COM_TATTOO~
+		STR_VAR file_name = ~TZWI970~ spell_name = ~WIZARD_TATTOO~	//~COM_TATTOO~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~SCRX36.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 9 name1 = 20907 un_desc = 20908
-		STR_VAR file_name = ~TZWI971~ spell_name = ~COM_LIFE_WARP~
+		STR_VAR file_name = ~TZWI971~ spell_name = ~WIZARD_LIFE_WARP~	//~COM_LIFE_WARP~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~SCRX37.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 9 name1 = 20909 un_desc = 20910
-		STR_VAR file_name = ~TZWI972~ spell_name = ~COM_SHATTER_BONES~
+		STR_VAR file_name = ~TZWI972~ spell_name = ~WIZARD_SHATTER_BONES~	//~COM_SHATTER_BONES~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~SCRX38.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 9 name1 = 20921 un_desc = 20922
-		STR_VAR file_name = ~TZWI973~ spell_name = ~COM_SACRAFICIAL_TRANSFER~
+		STR_VAR file_name = ~TZWI973~ spell_name = ~WIZARD_SACRIFICIAL_TRANSFER~	//~COM_SACRAFICIAL_TRANSFER~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~SCRX39.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 9 name1 = 20923 un_desc = 20924
-		STR_VAR file_name = ~TZWI974~ spell_name = ~COM_ARCANE_RUNES~
+		STR_VAR file_name = ~TZWI974~ spell_name = ~WIZARD_ARCANE_RUNES~	//~COM_ARCANE_RUNES~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~SCRX40.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 	LAF AddSpells
 		INT_VAR type = 2 level = 9 name1 = 20935 un_desc = 20936
-		STR_VAR file_name = ~TZWI975~ spell_name = ~COM_RARYS_MNEMONIC_ENCHANCER~
+		STR_VAR file_name = ~TZWI975~ spell_name = ~WIZARD_RARYS_MNEMONIC_ENCHANCER~	//~COM_RARYS_MNEMONIC_ENCHANCER~
 		RET spell file_name
 	END
+	ACTION_FOR_EACH file IN ~SCRX41.ITM~ BEGIN
+		LAM ChangeSpellNamesInScrolls END
 //=============================================================================
 
 	OUTER_SET spell_num = IDS_OF_SYMBOL(~spell~ ~WIZARD_CATS_GRACE~)
@@ -782,7 +1135,7 @@ BEGIN
 
 END
 
-
+//=============================================================================
 DEFINE_ACTION_FUNCTION AddSpells
 	INT_VAR type = 0
 			level = 0
@@ -805,6 +1158,39 @@ BEGIN
 			SPRINT spell ~%DEST_RES%~
 	END
 END
-	
-//file_name	spell_name				name1	un_desc		extra_files		comment
-//TZPR114		COM_DRUID_MAGIC_FANG	20575	20576		0				spell2.log mit opcode 147
+
+//=============================================================================
+DEFINE_ACTION_MACRO ChangeSpellNamesInFiles BEGIN
+		ACTION_IF FILE_EXISTS_IN_GAME ~%file%~ BEGIN
+			ACTION_TO_UPPER	spell
+			COPY_EXISTING ~%file%~ ~override~
+				REPLACE_EVALUATE ~%file_name%~ BEGIN
+					PATCH_PRINT ~Patching %SOURCE_FILE%: %file_name% => %spell%~
+				END ~%spell%~
+		END
+	END
+
+//=============================================================================
+DEFINE_ACTION_MACRO	ChangeSpellNamesInScrolls BEGIN
+		ACTION_IF FILE_EXISTS_IN_GAME ~%file%~ BEGIN
+			COPY - ~%MOD_FOLDER%/_Core/SpellScrollsContract.2da~ ~%workspace%/%COMP_FOLDER%/SpellScrollsContract.2da~
+				COUNT_2DA_ROWS 9 count
+				WHILE (count > 1) BEGIN
+					READ_2DA_ENTRY (count -1) 0 9 resname
+					READ_2DA_ENTRY (count -1) 7 9 path_to_file
+					SET count = count -1
+					TO_UPPER resname
+					PATCH_IF ~%resname%.ITM~ STR_EQ ~%file%~ BEGIN
+						PATCH_IF ~%path_to_file%~ STR_EQ ~+~ BEGIN
+						END ELSE BEGIN
+						END
+					END
+				END
+			ACTION_TO_UPPER	file_name
+			ACTION_TO_UPPER	spell
+			COPY ~%MOD_FOLDER%/%path%/%file%~ ~override~
+				REPLACE_EVALUATE ~%file_name%~ BEGIN
+					PATCH_PRINT ~Patching %SOURCE_FILE%: %file_name% => %spell%~
+				END ~%spell%~
+		END
+	END
