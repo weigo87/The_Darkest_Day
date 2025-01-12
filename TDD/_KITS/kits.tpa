@@ -57,7 +57,7 @@ BEGIN
 	LAM InstallKitTDD_Faith
 	LAM InstallKitTDD_Drowc
 	// Druid
-	LAM InstallKitTDD_Silvan
+	LAM InstallKitTDD_Silvan		// Text is a priest
 	// Cleric
 	LAM InstallKitTDD_Tybboch
 	LAM InstallKitTDD_Tempus
@@ -86,6 +86,10 @@ BEGIN
 	LAM InstallKitTDD_Delver
 	LAM InstallKitTDD_Merchant
 	LAM InstallKitTDD_Swindler
+	
+	EXTEND_TOP  ~DPLAYER.BCS~  ~%RES_FOLDER%/SNIP/tDPLAYER.BAF~
+	EXTEND_TOP  ~DPLAYER2.BCS~  ~%RES_FOLDER%/SNIP/tDPLAYER.BAF~
+	EXTEND_TOP  ~DPLAYER3.BCS~  ~%RES_FOLDER%/SNIP/tDPLAYER.BAF~
 END
 
 //=============================================================================

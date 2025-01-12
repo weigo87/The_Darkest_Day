@@ -1,0 +1,29 @@
+IF
+	Kit(Myself,TDD_Anti_Paladin)
+	FallenPaladin(Myself)
+	ReputationLT(Myself,15)
+	Global("GOODIE_TWO_SHOES","LOCALS",0)
+THEN
+	RESPONSE #100
+		RegainPaladinHood()
+END
+
+IF
+	Kit(Myself,TDD_Anti_Paladin)
+	!FallenPaladin(Myself)
+	ReputationGT(Myself,14)
+THEN
+	RESPONSE #100
+		SetGlobal("GOODIE_TWO_SHOES","LOCALS",1)
+		RemovePaladinHood()
+END
+
+IF
+  BreakingPoint()
+  CheckStat(Myself,3,178)//WIZARD_RESIST_FEAR) //Value set for Hero's Feast = 178
+THEN
+  RESPONSE #100
+    Calm(Myself) // I haven't actually tested this Action, to my knowledge. It looks like it will work. If not, we'll need a SpellRES to do this.
+    Continue()
+END
+

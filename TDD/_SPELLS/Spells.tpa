@@ -1182,7 +1182,9 @@ DEFINE_ACTION_MACRO	ChangeSpellNamesInScrolls BEGIN
 					TO_UPPER resname
 					PATCH_IF ~%resname%.ITM~ STR_EQ ~%file%~ BEGIN
 						PATCH_IF ~%path_to_file%~ STR_EQ ~+~ BEGIN
+							SPRINT path	~_Core/Itm~
 						END ELSE BEGIN
+							SPRINT path	~%path_to_file%~
 						END
 					END
 				END
@@ -1194,3 +1196,4 @@ DEFINE_ACTION_MACRO	ChangeSpellNamesInScrolls BEGIN
 				END ~%spell%~
 		END
 	END
+	
