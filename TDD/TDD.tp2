@@ -251,6 +251,24 @@ BEGIN @901020 // Main component
 //**********************************************************
 	PRINT @901018
 	LAF ImportComponent STR_VAR aComp = ~Kagain_Yeslick~ END
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// The Darkest Day : Character Kits Pack			   \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+	BEGIN ~Character Kits Pack~ //@901021 // Kits
+	DESIGNATED 4
+	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
+
+//**********************************************************
+// Kits
+//**********************************************************
+	PRINT ~Kits~ //@901021 // Kits
+	LAF ImportComponent STR_VAR aComp = ~Kits~ END
 	
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -265,7 +283,7 @@ BEGIN @901020 // Main component
 	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
 
 //**********************************************************
-// Priest Spells SPPRXXXX
+// Priest Spells SPPRXXXX Wizard Spells SPWIXXXX
 //**********************************************************
 	PRINT ~Priest Spells~ //@901018
 	LAF ImportComponent STR_VAR aComp = ~Spells~ END

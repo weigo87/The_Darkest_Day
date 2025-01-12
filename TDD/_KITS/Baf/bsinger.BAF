@@ -1,0 +1,209 @@
+IF
+  Global("multypart1a","LOCALS",0)
+  XPLT(Myself,250000)
+THEN
+  RESPONSE #100
+    ChangeClass(Myself,FIGHTER_MAGE)
+    SetGlobal("multypart1a","LOCALS",1)
+END
+
+IF
+  Global("multypart1a","LOCALS",1)
+  XPGT(Myself,499999)
+  CheckStat(Myself,8,LEVEL)
+THEN
+  RESPONSE #100
+    SetGlobal("multypart1a","LOCALS",0)
+    SpellNoDecRES("SPBSBL",Myself)
+    ChangeClass(Myself,FIGHTER)
+    AddKit(TDD_BladeSinger)
+    SmallWait(5)
+    PauseGame()
+END
+
+IF
+  Global("multypart1a","LOCALS",0)
+  CheckStat(Myself,9,LEVEL)
+THEN
+  RESPONSE #100
+    SetGlobal("multypart1a","LOCALS",1)
+    SpellNoDecRES("SPBSAL",Myself)
+    ChangeClass(Myself,FIGHTER_MAGE)
+    AddKit(TDD_BladeSinger)
+END
+
+IF
+  Global("multypart1a","LOCALS",1)
+  XPGT(Myself,1999999)
+  CheckStat(Myself,11,LEVEL)
+THEN
+  RESPONSE #100
+    SetGlobal("multypart1a","LOCALS",0)
+    SpellNoDecRES("SPBSBL",Myself)
+    ChangeClass(Myself,FIGHTER)
+    AddKit(TDD_BladeSinger)
+    SmallWait(5)
+    PauseGame()
+END
+
+IF
+  Global("multypart1a","LOCALS",0)
+  CheckStat(Myself,12,LEVEL)
+THEN
+  RESPONSE #100
+    SetGlobal("multypart1a","LOCALS",1)
+    SpellNoDecRES("SPBSAL",Myself)
+    ChangeClass(Myself,FIGHTER_MAGE)
+    AddKit(TDD_BladeSinger)
+END
+
+IF
+  Global("multypart1a","LOCALS",1)
+  XPGT(Myself,3499999)
+  CheckStat(Myself,14,LEVEL)
+THEN
+  RESPONSE #100
+    SetGlobal("multypart1a","LOCALS",0)
+    SpellNoDecRES("SPBSBL",Myself)
+    ChangeClass(Myself,FIGHTER)
+    AddKit(TDD_BladeSinger)
+    SmallWait(5)
+    PauseGame()
+END
+
+IF
+  Global("multypart1a","LOCALS",0)
+  CheckStat(Myself,15,LEVEL)
+THEN
+  RESPONSE #100
+    SetGlobal("multypart1a","LOCALS",1)
+    SpellNoDecRES("SPBSAL",Myself)
+    ChangeClass(Myself,FIGHTER_MAGE)
+    AddKit(TDD_BladeSinger)
+END
+
+IF
+  Global("multypart1a","LOCALS",1)
+  XPGT(Myself,4999999)
+  CheckStat(Myself,17,LEVEL)
+THEN
+  RESPONSE #100
+    SetGlobal("multypart1a","LOCALS",0)
+    SpellNoDecRES("SPBSBL",Myself)
+    ChangeClass(Myself,FIGHTER)
+    AddKit(TDD_BladeSinger)
+    SmallWait(5)
+    PauseGame()
+END
+
+IF
+  Global("multypart1a","LOCALS",0)
+  CheckStat(Myself,18,LEVEL)
+THEN
+  RESPONSE #100
+    SetGlobal("multypart1a","LOCALS",1)
+    SpellNoDecRES("SPBSAL",Myself)
+    ChangeClass(Myself,FIGHTER_MAGE)
+    AddKit(TDD_BladeSinger)
+END
+
+IF
+  Global("multypart1a","LOCALS",1)
+  XPGT(Myself,6499999)
+  CheckStat(Myself,20,LEVEL)
+THEN
+  RESPONSE #100
+    SetGlobal("multypart1a","LOCALS",0)
+    SpellNoDecRES("SPBSBL",Myself)
+    ChangeClass(Myself,FIGHTER)
+    AddKit(TDD_BladeSinger)
+    SmallWait(5)
+    PauseGame()
+END
+
+IF
+  Global("multypart1a","LOCALS",0)
+  CheckStat(Myself,21,LEVEL)
+THEN
+  RESPONSE #100
+    SetGlobal("multypart1a","LOCALS",1)
+    SpellNoDecRES("SPBSAL",Myself)
+    ChangeClass(Myself,FIGHTER_MAGE)
+    AddKit(TDD_BladeSinger)
+END
+
+IF
+  Global("multypart1a","LOCALS",1)
+  XPGT(Myself,7999999)
+  CheckStat(Myself,23,LEVEL)
+THEN
+  RESPONSE #100
+    SetGlobal("multypart1a","LOCALS",0)
+    SpellNoDecRES("SPBSBL",Myself)
+    ChangeClass(Myself,FIGHTER)
+    AddKit(TDD_BladeSinger)
+    SmallWait(5)
+    PauseGame()
+END
+
+IF
+  Global("multypart1a","LOCALS",0)
+  CheckStat(Myself,24,LEVEL)
+THEN
+  RESPONSE #100
+    SetGlobal("multypart1a","LOCALS",1)
+    SpellNoDecRES("SPBSAL",Myself)
+    ChangeClass(Myself,FIGHTER_MAGE)
+    AddKit(TDD_BladeSinger)
+END
+
+IF
+  Global("multypart1a","LOCALS",1)
+  XPGT(Myself,9499999)
+  CheckStat(Myself,26,LEVEL)
+THEN
+  RESPONSE #100
+    SetGlobal("multypart1a","LOCALS",0)
+    SpellNoDecRES("SPBSBL",Myself)
+    ChangeClass(Myself,FIGHTER)
+    AddKit(TDD_BladeSinger)
+    SmallWait(1)
+    PauseGame()
+END
+
+IF
+  Global("multypart1a","LOCALS",0)
+  CheckStat(Myself,27,LEVEL)
+THEN
+  RESPONSE #100
+    SetGlobal("multypart1a","LOCALS",1)
+    SpellNoDecRES("SPBSAL",Myself)
+    ChangeClass(Myself,FIGHTER_MAGE)
+    AddKit(TDD_BladeSinger)
+END
+
+IF
+  Global("multypart1a","LOCALS",1)
+  XPGT(Myself,10999999)
+  CheckStat(Myself,29,LEVEL)
+THEN
+  RESPONSE #100
+    SetGlobal("multypart1a","LOCALS",0)
+    SpellNoDecRES("SPBSBL",Myself)
+    ChangeClass(Myself,FIGHTER)
+    AddKit(TDD_BladeSinger)
+    Wait(1)
+    PauseGame()
+END
+
+IF
+  Global("multypart1a","LOCALS",0)
+  CheckStat(Myself,30,LEVEL)
+THEN
+  RESPONSE #100
+    SetGlobal("multypart1a","LOCALS",1)
+    SpellNoDecRES("SPBSAL",Myself)
+    ChangeClass(Myself,FIGHTER_MAGE)
+    AddKit(TDD_BladeSinger)
+END
+

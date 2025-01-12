@@ -1,0 +1,3714 @@
+//=============================================================================
+DEFINE_ACTION_MACRO InstallSpecificContents
+BEGIN
+	// Fighter
+	LAM InstallKitTDD_Mage_Hunter
+	LAM InstallKitTDD_BladeSinger
+	LAM InstallKitTDD_Frost_Dweller
+	LAM InstallKitTDD_VampireHunter
+	LAM InstallKitTDD_Marksman
+	LAM InstallKitTDD_Sellsword
+	LAM InstallKitTDD_Grunt
+	LAM InstallKitTDD_Pit
+	LAM InstallKitTDD_Duergar
+	LAM InstallKitTDD_Guardian
+	LAM InstallKitTDD_Ravager
+	LAM InstallKitTDD_Drowf
+	LAM InstallKitTDD_Drowb
+	LAM InstallKitTDD_Trollslayer
+	LAM InstallKitTDD_Fgnome
+	LAM InstallKitTDD_Breach
+	LAM InstallKitTDD_Harch
+	LAM InstallKitTDD_Tact
+	LAM InstallKitTDD_Blademast
+	LAM InstallKitTDD_Rhythm
+	LAM InstallKitTDD_Vind
+	LAM InstallKitTDD_Holy
+	LAM InstallKitTDD_Tief
+	LAM InstallKitTDD_Amazon
+	// BARD
+	LAM InstallKitTDD_DDChanter
+	LAM InstallKitTDD_Cronicler
+	LAM InstallKitTDD_Minstrel
+	LAM InstallKitTDD_Troubador
+	LAM InstallKitTDD_Buccaneer
+	LAM InstallKitTDD_Musician
+	// Druid
+	LAM InstallKitTDD_Shamen
+	LAM InstallKitTDD_Shadow
+	LAM InstallKitTDD_Aerial
+	LAM InstallKitTDD_Aquatic
+	LAM InstallKitTDD_Just
+	LAM InstallKitTDD_Dream
+	// Paladin
+	LAM InstallKitTDD_Anti_Paladin
+	LAM InstallKitTDD_Cerebral
+	LAM InstallKitTDD_Lord
+	LAM InstallKitTDD_Dragon
+	LAM InstallKitTDD_Demon
+	LAM InstallKitTDD_Saurial
+	LAM InstallKitTDD_Dark
+	// Cleric
+	LAM InstallKitTDD_Healer
+	LAM InstallKitTDD_Selune
+	LAM InstallKitTDD_Malar
+	LAM InstallKitTDD_Auril
+	LAM InstallKitTDD_Warlock
+	LAM InstallKitTDD_Faith
+	LAM InstallKitTDD_Drowc
+	// Druid
+	LAM InstallKitTDD_Silvan
+	// Cleric
+	LAM InstallKitTDD_Tybboch
+	LAM InstallKitTDD_Tempus
+	LAM InstallKitTDD_Amaunator
+	LAM InstallKitTDD_Shar
+	LAM InstallKitTDD_Tyr
+	// Ranger
+	LAM InstallKitTDD_Wilderness
+	LAM InstallKitTDD_Samurai
+	LAM InstallKitTDD_Drowr
+	LAM InstallKitTDD_Tracker
+	LAM InstallKitTDD_Giant
+	LAM InstallKitTDD_Eye
+	LAM InstallKitTDD_Forest
+	LAM InstallKitTDD_Slinger
+	// Thief
+	LAM InstallKitTDD_Ninja
+	LAM InstallKitTDD_Knife
+	LAM InstallKitTDD_Sniper
+	LAM InstallKitTDD_Svirf
+	LAM InstallKitTDD_Drowa
+	LAM InstallKitTDD_Burglar
+	LAM InstallKitTDD_Plane
+	LAM InstallKitTDD_Thug
+	LAM InstallKitTDD_Huntsman
+	LAM InstallKitTDD_Delver
+	LAM InstallKitTDD_Merchant
+	LAM InstallKitTDD_Swindler
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Mage_Hunter
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21469)
+			lower		= RESOLVE_STR_REF(@214690)
+			help		= RESOLVE_STR_REF(@21470)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21470)
+		STR_VAR
+			kit_name	= ~TDD_Mage_Hunter~
+			unusable	= ~0x00000002~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~5 5 0 5 5 5 5 0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 0 0 0 0 0 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2~
+			abclasrq	= ~9 12 0 0 9 9~
+			abclsmod	= ~1 -1 0 0 0 0~
+			abdcdsrq	= ~17 0 0 0 17 0~
+			abdcscrq	= ~15 0 0 0 15 0~
+			alignmnt	= ~1 0 0 1 0 0 1 0 0~
+			dualclas	= ~0 1 0 1 1 1~
+			luabbr	= ~Pa0~
+			stweap	= ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI06.2DA~
+			kittable	= ~K_F_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPCLMH1.spl~	~override~
+		~TDD/_Kits/SPL/SPCLMH2.spl~	~override~
+		~TDD/_Kits/SPL/SPCLMH3.spl~	~override~
+
+	COPY ~TDD/_Kits/SPL/SPMH701.spl~	~override~
+		SAY NAME1 @21471
+		SAY 0x24e @21472
+	
+	COPY ~TDD/_Kits/ITM/MHSWD.itm~  	~override~
+		SAY NAME2 @20051
+		SAY DESC @21473
+	
+	APPEND ~LAYHANDS.2DA~
+		~Mage_Hunter 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100~
+	UNLESS ~Mage_Hunter~
+	COPY_EXISTING ~LAYHANDS.2DA~ ~override~ PRETTY_PRINT_2DA
+
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_BladeSinger
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21474)
+			lower		= RESOLVE_STR_REF(@214740)
+			help		= RESOLVE_STR_REF(@21475)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21475)
+		STR_VAR
+			kit_name	= ~TDD_BladeSinger~
+			unusable	= ~0x40000000~
+			clasweap	= ~1 1 0 0 0 0 1 1~
+			weapprof	= ~5 5 0 0 0 0 5 0 5 5 5 5 0 5 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2~
+			abclasrq	= ~13 15 13 15 0 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~17 17 0 17 0 0~
+			abdcscrq	= ~15 15 0 15 0 0~
+			alignmnt	= ~1 1 1 1 1 1 1 1 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~FM0~
+			stweap	= ~LEAT14 * * BAG28 RING06 RING05,10 * BOOT02 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 DAGG12 SW1H28 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI07.2DA~
+			kittable	= ~K_F_E~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+//	COMPILE ~TDD/KITSNIP/bsinger.baf~
+
+	COPY ~TDD/_Kits/SPL/SPBSAL.spl~      		~TDD-SPL~  //XP bonus 200%
+		~TDD/_Kits/SPL/SPBSBL.spl~      		~TDD-SPL~  //XP bonus 50%
+		SAY NAME1 @21474
+		SAY 0xce @21474
+		SAY 0xfe @21474
+	
+	COPY ~TDD/_Kits/SPL/SPBS6.spl~       		~TDD-SPL~   //Parry move
+		SAY NAME1 @21476
+	
+	COPY ~TDD/_Kits/SPL/SPBS14.spl~      		~TDD-SPL~  //THAC0 -5 + casts spell SPSB15
+		SAY NAME1 @21477
+	
+	COPY ~TDD/_Kits/SPL/SPBS15.spl~      		~TDD-SPL~
+		SAY NAME1 @21478
+	
+	COPY ~TDD/_Kits/SPL/SPBS11.spl~      		~TDD-SPL~  //casting speed -2
+	
+	COPY ~TDD/_Kits/SPL/SPBS7.spl~       		~TDD-SPL~  //attack damage +1,  max HP -14, THAC0 +1 - switching to FIGHTER_MAGE at lvl 8
+		SAY 0x15e @21474
+		SAY 0x18e @21474
+
+//*******************************************
+//following spells used by numerous kits
+//*******************************************
+	COPY ~TDD/_Kits/SPL/SPBS1.spl~       		~TDD-SPL~    //bonus to THAC0 +2
+	COPY ~TDD/_Kits/SPL/SPBS3.spl~       		~TDD-SPL~    //create shadows spell
+	COPY ~TDD/_Kits/SPL/SPBS4.spl~       		~TDD-SPL~    //magic missile spell
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Frost_Dweller
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21479)
+			lower		= RESOLVE_STR_REF(@214790)
+			help		= RESOLVE_STR_REF(@21480)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21480)
+		STR_VAR
+			kit_name	= ~TDD_Frost_Dweller~
+			unusable	= ~0x00004000~
+			clasweap	= ~0 0 1 0 0 1 1 1~
+			weapprof	= ~0 0 0 5 5 5 5 0 0 0 0 5 0 0 0 5 5 5 5 0 5 5 5 0 0 0 0 0 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2~
+			abclasrq	= ~16 0 16 0 0 0~
+			abclsmod	= ~0 0 1 -1 0 -13~
+			abdcdsrq	= ~17 0 17 0 0 0~
+			abdcscrq	= ~15 0 15 0 0 0~
+			alignmnt	= ~0 0 0 0 0 0 1 1 1~
+			dualclas	= ~0 1 1 1 1 0~
+			luabbr	= ~Fi0~
+			stweap	= ~CHAN09 * HELM07 BAG21 * * * * * * * AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI08.2da~
+			kittable	= ~K_F_HO K_F_D K_F_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPFR1.spl~  	~override~
+		~TDD/_Kits/SPL/SPFR4.spl~  	~override~
+		~TDD/_Kits/SPL/SPFR5.spl~  	~override~
+
+	COPY ~TDD/_Kits/SPL/SPFR2.spl~  	~override~
+		SAY NAME1 @20863
+
+	COPY ~TDD/_Kits/SPL/SPFR3.spl~  	~override~
+		SAY NAME1 @20819
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_VampireHunter
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21481)
+			lower		= RESOLVE_STR_REF(@214810)
+			help		= RESOLVE_STR_REF(@21482)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21482)
+		STR_VAR
+			kit_name	= ~TDD_VampireHunter~
+			unusable	= ~0x00000001~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~3 3 5 5 3 3 3 5 3 3 5 3 3 3 3 5 3 3 5 3 3 3 3 5 5 5 5 3 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2~
+			abclasrq	= ~17 0 17 0 0 0~
+			abclsmod	= ~0 0 1 0 0 0~
+			abdcdsrq	= ~17 0 17 0 0 0~
+			abdcscrq	= ~15 0 15 0 0 0~
+			alignmnt	= ~1 0 0 1 0 0 1 0 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Fi0~
+			stweap	= ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI09.2da~
+			kittable	= ~K_F_HO K_F_HL K_F_HE K_F_E K_F_G K_F_D K_F_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPVAMH1.spl~	~override~
+
+	COPY ~TDD/_Kits/SPL/SPVAMH2.spl~	~override~
+		SAY NAME1 @21483
+
+
+	COPY ~TDD/_Kits/ITM/VHUNTZ1.itm~	~override~
+		SAY NAME2 @21483
+		SAY DESC @21484
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Marksman
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21485)
+			lower		= RESOLVE_STR_REF(@214850)
+			help		= RESOLVE_STR_REF(@21486)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21486)
+		STR_VAR
+			kit_name	= ~TDD_Marksman~
+			unusable	= ~0x10000000~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~2 2 5 2 2 2 2 5 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 5 5 5 2 2 0 0 2 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2~
+			abclasrq	= ~15 19 0 0 0 0~
+			abclsmod	= ~0 1 0 0 0 0~
+			abdcdsrq	= ~15 19 0 0 0 0~
+			abdcscrq	= ~13 17 0 0 0 0~
+			alignmnt	= ~1 1 1 1 1 1 1 1 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Fi0~
+			stweap	= ~LEAT14 * HELM07 BAG25 RING06 RING31 CLCK02 BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 BOW18 XBOW09 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI10.2DA~
+			kittable	= ~K_F_E~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPMARK1.spl~	~override~
+		SAY NAME1 @21487
+
+	COPY ~TDD/_Kits/SPL/SPMARK2.spl~	~override~
+		SAY NAME1 @20981
+
+	COPY ~TDD/_Kits/SPL/SPMARK3.spl~	~override~
+		SAY NAME1 @21488
+
+	COPY ~TDD/_Kits/ITM/ARMARK1.itm~	~override~
+		SAY NAME1 @21489
+		SAY NAME2 @21487
+		SAY DESC @21490
+
+	COPY ~TDD/_Kits/ITM/ARMARK2.itm~	~override~
+		SAY NAME1 @21489
+		SAY NAME2 @20981
+		SAY DESC @21491
+
+	COPY ~TDD/_Kits/ITM/ARMARK3.itm~	~override~
+		SAY NAME1 @21489
+		SAY NAME2 @21488
+		SAY DESC @21492
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Sellsword
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21493)
+			lower		= RESOLVE_STR_REF(@214930)
+			help		= RESOLVE_STR_REF(@21494)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21494)
+		STR_VAR
+			kit_name	= ~TDD_Sellsword~
+			unusable	= ~0x00004000~
+			clasweap	= ~1 1 1 0 0 1 1 1~
+			weapprof	= ~5 0 5 5 5 0 0 5 0 0 0 0 5 0 0 0 0 0 5 5 0 0 5 5 5 5 0 0 2 0 0 0 5 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3~
+			abclasrq	= ~18 0 17 0 0 0~
+			abclsmod	= ~1 -3 0 0 0 0~
+			abdcdsrq	= ~18 0 17 0 0 0~
+			abdcscrq	= ~16 0 15 0 0 0~
+			alignmnt	= ~1 1 1 1 1 1 1 1 1~
+			dualclas	= ~0 1 1 1 1 0~
+			luabbr	= ~Fi0~
+			stweap	= ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI11.2DA~
+			kittable	= ~K_F_HO K_F_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPSELL2.spl~	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Grunt
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21495)
+			lower		= RESOLVE_STR_REF(@214950)
+			help		= RESOLVE_STR_REF(@21496)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21496)
+		STR_VAR
+			kit_name	= ~TDD_Grunt~
+			unusable	= ~0x40000000~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2~
+			abclasrq	= ~9 0 0 0 0 0~
+			abclsmod	= ~1 -1 1 0 0 -10~
+			abdcdsrq	= ~17 0 0 0 0 0~
+			abdcscrq	= ~15 0 0 0 0 0~
+			alignmnt	= ~0 0 0 0 0 0 1 1 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Fi0~
+			stweap	= ~CHAN09 * HELM07 BAG21 * * * * * * * AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI12.2DA~
+			kittable	= ~K_F_HO~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+	END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Pit
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21497)
+			lower		= RESOLVE_STR_REF(@214970)
+			help		= RESOLVE_STR_REF(@21498)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21498)
+		STR_VAR
+			kit_name	= ~TDD_Pit~
+			unusable	= ~0x40000000~
+			clasweap	= ~  1 1 1 0 0 1 1 1~
+			weapprof	= ~3 3 0 3 3 3 3 0 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 0 0 0 0 0 0 2 0 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~  16 16 16 0 0 0~
+			abclsmod	= ~  0 0 0 0 0 0~
+			abdcdsrq	= ~  17 0 17 0 0 0~
+			abdcscrq	= ~  15 0 15 0 0 0~
+			alignmnt	= ~  0 1 1 1 1 1 1 1 1~
+			dualclas	= ~  0 1 1 1 1 0~
+			luabbr	= ~Fi0~
+			stweap	= ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI13.2DA~
+			kittable	= ~K_F_HO K_F_D K_F_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPPIT1.spl~ 	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Duergar
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21499)
+			lower		= RESOLVE_STR_REF(@214990)
+			help		= RESOLVE_STR_REF(@21500)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21500)
+		STR_VAR
+			kit_name	= ~TDD_Duergar~
+			unusable	= ~0X00004000~
+			clasweap	= ~0 0 1 1 1 0 1 0~
+			weapprof	= ~0 0 1 0 5 0 5 1 0 0 0 5 0 0 0 0 5 0 0 0 0 5 0 1 1 1 1 1 0 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~9 0 0 0 0 0~
+			abclsmod	= ~0 0 1 0 0 -6~
+			abdcdsrq	= ~17 0 17 0 0 0~
+			abdcscrq	= ~15 0 15 0 0 0~
+			alignmnt	= ~0 0 1 0 0 1 0 0 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Fi0~
+			stweap	= ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI14.2DA~
+			kittable	= ~K_F_D~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPDUER1.spl~	~override~
+		SAY NAME1 @21501
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Guardian
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21502)
+			lower		= RESOLVE_STR_REF(@215020)
+			help		= RESOLVE_STR_REF(@21503)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21503)
+		STR_VAR
+			kit_name	= ~TDD_Guardian~
+			unusable	= ~0X00004000~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~5 5 5 0 5 5 5 5 5 5 5 5 0 5 5 5 5 5 0 0 5 5 0 5 0 0 0 0 0 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~9 0 0 0 0 0~
+			abclsmod	= ~0 0 0 0 -2 0~
+			abdcdsrq	= ~17 0 0 0 0 0~
+			abdcscrq	= ~15 0 0 0 0 0~
+			alignmnt	= ~1 1 1 1 1 1 0 0 0~
+			dualclas	= ~0 1 1 1 1 0~
+			luabbr	= ~Fi0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI15.2DA~
+			kittable	= ~K_F_D~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPGUAR1.spl~	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Ravager
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21504)
+			lower		= RESOLVE_STR_REF(@215040)
+			help		= RESOLVE_STR_REF(@21505)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21505)
+		STR_VAR
+			kit_name	= ~TDD_Ravager~
+			unusable	= ~0X00000008~
+			clasweap	= ~0 0 1 0 0 0 0 0~
+			weapprof	= ~0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 5 5 0 0 5 5 5 0 0 0 0 0 2 2 2 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~9 0 0 0 0 0~
+			abclsmod	= ~0 0 1 -1 0 0~
+			abdcdsrq	= ~17 0 0 0 0 0~
+			abdcscrq	= ~15 0 0 0 0 0~
+			alignmnt	= ~1 0 1 1 0 1 1 0 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Fi0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI16.2DA~
+			kittable	= ~K_F_G~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+	END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Drowf
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@215050)
+			lower		= RESOLVE_STR_REF(@215051)
+			help		= RESOLVE_STR_REF(@21506)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21506)
+		STR_VAR
+			kit_name	= ~TDD_Drowf~
+			unusable	= ~0X00004000~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~4 4 0 4 4 4 4 0 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 0 0 0 0 0 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~16 0 0 10 0 0~
+			abclsmod	= ~0 0 0 0 0 -10~
+			abdcdsrq	= ~17 0 0 0 0 0~
+			abdcscrq	= ~15 0 0 8 0 0~
+			alignmnt	= ~0 0 1 0 0 1 0 0 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Fi0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI17.2DA~
+			kittable	= ~K_F_E~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+	END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Drowb
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21507)
+			lower		= RESOLVE_STR_REF(@215070)
+			help		= RESOLVE_STR_REF(@21508)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21508)
+		STR_VAR
+			kit_name	= ~TDD_Drowb~
+			unusable	= ~0X00000004~
+			clasweap	= ~1 1 1 1 1 1 1 0~
+			weapprof	= ~5 5 0 0 5 5 5 5 5 5 5 5 0 5 5 5 5 5 0 0 5 5 0 5 0 0 0 0 0 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~14 0 0 0 0 0~
+			abclsmod	= ~0 1 0 -2 0 -10~
+			abdcdsrq	= ~17 0 0 0 0 0~
+			abdcscrq	= ~15 0 0 0 0 0~
+			alignmnt	= ~0 0 0 0 0 0 0 0 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Fi0~
+			stweap	= ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI18.2DA~
+			kittable	= ~K_F_E~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Trollslayer
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21509)
+			lower		= RESOLVE_STR_REF(@215090)
+			help		= RESOLVE_STR_REF(@21510)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21510)
+		STR_VAR
+			kit_name	= ~TDD_Trollslayer~
+			unusable	= ~0X00004000~
+			clasweap	= ~0 0 1 0 0 1 1 1~
+			weapprof	= ~0 0 0 5 5 5 5 0 0 0 0 5 0 0 0 0 5 5 5 5 5 5 5 0 0 0 0 0 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~9 0 0 0 0 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~17 0 0 0 0 0~
+			abdcscrq	= ~15 0 0 0 0 0~
+			alignmnt	= ~0 0 0 0 0 0 1 1 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Fi0~
+			stweap	= ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI19.2DA~
+			kittable	= ~K_F_D~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+			kittable
+	END
+	ACTION_IF (kit_id >= 0) BEGIN
+		LAM InstallNotVisibleNPCKits
+	END
+	COPY ~TDD/_Kits/SPL/TROLLSL1.spl~	~override~
+
+
+	COPY ~TDD/_Kits/ITM/TROLLSL.itm~	~override~
+		SAY NAME2 @21509
+		SAY DESC @21511
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Fgnome
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21512)
+			lower		= RESOLVE_STR_REF(@215120)
+			help		= RESOLVE_STR_REF(@21513)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21513)
+		STR_VAR
+			kit_name	= ~TDD_Fgnome~
+			unusable	= ~0X00004000~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~9 0 0 0 0 0~
+			abclsmod	= ~-1 1 0 -1 1 0~
+			abdcdsrq	= ~17 0 0 0 0 0~
+			abdcscrq	= ~15 0 0 0 0 0~
+			alignmnt	= ~1 1 1 1 1 1 1 1 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Fi0~
+			stweap	= ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI20.2DA~
+			kittable	= ~K_F_G~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPFG1.spl~  	~override~
+		SAY NAME1 @21514
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Breach
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21515)
+			lower		= RESOLVE_STR_REF(@215150)
+			help		= RESOLVE_STR_REF(@21516)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21516)
+		STR_VAR
+			kit_name	= ~TDD_Breach~
+			unusable	= ~0X00004000~
+			clasweap	= ~0 0 1 0 0 1 1 1~
+			weapprof	= ~0 0 0 3 3 3 3 0 0 0 0 3 0 0 0 3 3 3 3 3 3 3 3 0 0 0 0 0 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~16 0 0 0 0 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~17 0 0 0 0 0~
+			abdcscrq	= ~15 0 0 0 0 0~
+			alignmnt	= ~1 0 1 1 0 1 1 0 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Fi0~
+			stweap	= ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI21.2DA~
+			kittable	= ~K_F_G~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPBRE1.spl~ 	~override~
+		~TDD/_Kits/SPL/SPBRE2.spl~ 	~override~
+		~TDD/_Kits/SPL/SPBRE3.spl~ 	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Harch
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21517)
+			lower		= RESOLVE_STR_REF(@215170)
+			help		= RESOLVE_STR_REF(@21518)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21518)
+		STR_VAR
+			kit_name	= ~TDD_Harch~
+			unusable	= ~0X40000000~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~3 3 5 3 3 3 3 5 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 5 5 5 5 5 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~9 14 0 0 0 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~17 0 0 0 0 0~
+			abdcscrq	= ~15 0 0 0 0 0~
+			alignmnt	= ~1 1 1 1 1 1 1 1 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Fi0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI22.2DA~
+			kittable	= ~K_F_HL~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+			kittable
+	END
+	ACTION_IF (kit_id >= 0) BEGIN
+		LAM InstallNotVisibleNPCKits
+	END
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Tact
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21519)
+			lower		= RESOLVE_STR_REF(@215190)
+			help		= RESOLVE_STR_REF(@21520)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21520)
+		STR_VAR
+			kit_name	= ~TDD_Tact~
+			unusable	= ~0X40000000~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~9 0 0 12 0 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~17 0 0 0 15 0~
+			abdcscrq	= ~15 0 0 0 0 0~
+			alignmnt	= ~1 1 1 1 1 1 1 1 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Fi0~
+			stweap	= ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI23.2DA~
+			kittable	= ~K_F_HL K_F_G~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPTACT1.spl~	~override~
+		~TDD/_Kits/SPL/SPTACT2.spl~	~override~
+		~TDD/_Kits/SPL/SPTACT3.spl~	~override~
+		~TDD/_Kits/SPL/SPTACT4.spl~	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Blademast
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21521)
+			lower		= RESOLVE_STR_REF(@215210)
+			help		= RESOLVE_STR_REF(@21522)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21522)
+		STR_VAR
+			kit_name	= ~TDD_Blademast~
+			unusable	= ~0X00010000~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~5 0 5 5 5 5 0 5 5 5 0 0 5 0 0 5 0 0 5 0 0 0 5 0 5 0 0 0 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~12 15 0 9 0 0~
+			abclsmod	= ~-1 1 0 0 0 0~
+			abdcdsrq	= ~17 0 0 0 0 0~
+			abdcscrq	= ~15 0 0 0 0 0~
+			alignmnt	= ~1 1 1 1 1 1 1 1 1~
+			dualclas	= ~0 1 1 1 1 0~
+			luabbr	= ~Fi0~
+			stweap	= ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI24.2DA~
+			kittable	= ~K_F_HL K_F_HE K_F_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+			kittable
+	END
+	ACTION_IF (kit_id >= 0) BEGIN
+		LAM InstallNotVisibleNPCKits
+	END
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Rhythm
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21523)
+			lower		= RESOLVE_STR_REF(@215230)
+			help		= RESOLVE_STR_REF(@21524)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21524)
+		STR_VAR
+			kit_name	= ~TDD_Rhythm~
+			unusable	= ~0X00000004~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~0 5 0 5 5 5 0 5 0 0 5 0 0 0 0 5 0 0 5 0 0 0 5 0 0 0 5 5 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~10 14 12 0 0 0~
+			abclsmod	= ~0 1 0 0 0 0~
+			abdcdsrq	= ~17 0 0 0 0 0~
+			abdcscrq	= ~15 0 0 0 0 0~
+			alignmnt	= ~1 1 1 0 0 0 0 0 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Fi0~
+			stweap	= ~* * HELM19 BAG22 RING06 RING29 CLCK02 BOOT01 AMUL19 BRAC14 BELT06 * * * POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI25.2DA~
+			kittable	= ~K_F_HL K_F_HE K_F_E~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPRHYTH2.spl~	~override~
+		~TDD/_Kits/SPL/SPRHYTH3.spl~	~override~
+		~TDD/_Kits/SPL/SPRHYTH4.spl~	~override~
+		~TDD/_Kits/SPL/SPRHYTH5.spl~	~override~
+		~TDD/_Kits/SPL/SPRHYTH6.spl~	~override~
+		~TDD/_Kits/SPL/SPRHYTH7.spl~	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Vind
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21525)
+			lower		= RESOLVE_STR_REF(@215250)
+			help		= RESOLVE_STR_REF(@21526)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21526)
+		STR_VAR
+			kit_name	= ~TDD_Vind~
+			unusable	= ~0X00000020~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~5 0 0 0 5 5 0 5 0 5 0 0 0 0 5 5 0 0 0 0 0 0 5 5 0 0 0 0 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~13 13 14 0 14 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~17 0 0 0 0 0~
+			abdcscrq	= ~15 0 0 0 0 0~
+			alignmnt	= ~1 0 0 1 0 0 1 0 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Fi0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI26.2DA~
+			kittable	= ~K_F_HL K_F_HE K_F_G~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPVIND1.spl~	~override~
+		~TDD/_Kits/SPL/SPVIND2.spl~	~override~
+		~TDD/_Kits/SPL/SPVIND3.spl~	~override~
+
+	COPY ~TDD/_Kits/ITM/UNDSLAY.itm~	~override~
+		SAY NAME2 @21527
+		SAY DESC @21528
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Holy
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21529)
+			lower		= RESOLVE_STR_REF(@215290)
+			help		= RESOLVE_STR_REF(@21530)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21530)
+		STR_VAR
+			kit_name	= ~TDD_Holy~
+			unusable	= ~0X40000000~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~0 0 0 0 5 5 0 5 0 0 0 0 0 0 0 0 5 5 0 0 5 5 5 0 0 0 0 5 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~17 0 14 0 14 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~17 0 0 0 0 0~
+			abdcscrq	= ~15 0 0 0 0 0~
+			alignmnt	= ~1 1 1 0 0 0 0 0 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Fi0~
+			stweap	= ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI27.2DA~
+			kittable	= ~K_F_HO~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPHOL1.spl~ 	~override~
+		SAY NAME1 @20618 
+
+	COPY ~TDD/_Kits/SPL/SPHOL2.spl~ 	~override~
+		SAY NAME1 @21531
+		SAY 0xfe @21124
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Tief
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21532)
+			lower		= RESOLVE_STR_REF(@215320)
+			help		= RESOLVE_STR_REF(@21533)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21533)
+		STR_VAR
+			kit_name	= ~TDD_Tief~
+			unusable	= ~0X40000000~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~9 0 0 0 0 0~
+			abclsmod	= ~2 0 -1 -1 -1 2~
+			abdcdsrq	= ~17 0 0 0 0 0~
+			abdcscrq	= ~15 0 0 0 0 0~
+			alignmnt	= ~1 0 0 1 0 0 1 0 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Fi0~
+			stweap	= ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI28.2DA~
+			kittable	= ~K_F_HE~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPTIEF1.spl~	~override~
+		SAY NAME1 @21534
+		SAY 0xce @21535
+
+	COPY ~TDD/_Kits/SPL/SPTIEF2.spl~	~override~
+		~TDD/_Kits/SPL/SPTIEF5.spl~	~override~
+
+	COPY ~TDD/_Kits/SPL/SPTIEF3.spl~	~override~
+		SAY NAME1 @21536
+		SAY 0x1ee @21537
+		SAY 0x21e @21538
+		SAY 0x24e @21539
+
+	COPY ~TDD/_Kits/SPL/SPTIEF4.spl~	~override~
+		SAY NAME1 @21540
+		SAY 0x12e @21541
+		SAY 0x1be @21542
+		SAY 0x24e @21543
+
+	COPY ~TDD/_Kits/SPL/SPTIEF6.spl~	~override~
+		SAY NAME1 @21544
+		SAY 0x12e @21545
+		SAY 0x1be @21546
+		SAY 0x24e @21547
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Amazon
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 2	// FIGHTER
+			mixed		= RESOLVE_STR_REF(@21548)
+			lower		= RESOLVE_STR_REF(@215480)
+			help		= RESOLVE_STR_REF(@21549)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21549)
+		STR_VAR
+			kit_name	= ~TDD_Amazon~
+			unusable	= ~0X40000000~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~2 2 2 5 2 0 2 0 2 2 2 2 2 2 2 0 0 2 5 0 0 0 0 2 5 2 2 2 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~13 0 0 0 0 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~17 0 0 0 0 0~
+			abdcscrq	= ~15 0 0 0 0 0~
+			alignmnt	= ~0 0 0 1 1 1 1 1 1~
+			dualclas	= ~0 1 1 1 1 0~
+			luabbr	= ~Fi0~
+			stweap	= ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABFI29.2DA~
+			kittable	= ~K_F_HE~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~4~
+			clascolr	= ~30 91 93 93 23 93~
+			bdstweap	= ~CHAN04 SHLD04 HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN12,1 * SW1H05 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPAMAZ01.spl~	~override~
+		SAY NAME1 @21550
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_DDChanter
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 5	// BARD
+			mixed		= RESOLVE_STR_REF(@21551)
+			lower		= RESOLVE_STR_REF(@215510)
+			help		= RESOLVE_STR_REF(@21552)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21552)
+		STR_VAR
+			kit_name	= ~TDD_DDChanter~
+			unusable	= ~0x00400000~
+			clasweap	= ~1 1 1 0 0 1 1 1~
+			weapprof	= ~1 1 1 1 1 1 1 1 1 1 0 1 1 0 0 0 1 1 1 0 1 1 0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~15 12 0 13 0 15~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~15 17 0 0 0 17~
+			abdcscrq	= ~13 15 0 0 0 15~
+			alignmnt	= ~1 1 1 1 1 1 1 1 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Ba0~
+			stweap	= ~LEATH14 * * BAG30 RING06 RING34 CLCK02 BOOT01 AMUL19 BRAC16 BELT10 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 DAGG12 SW1H28 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABBA05.2DA~
+			kittable	= ~K_B_HE K_B_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 0 1 0 0 0 0~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPROG~
+			numwslot	= ~2~
+			clascolr	= ~24 67 56 56 2 25~
+			bdstweap	= ~LEAT01 * * * RING06 * * * * BRAC09 BELT04 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 * * SW1H08 STAF02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPBAX3.spl~ 	~override~
+		~TDD/_Kits/SPL/SPBAX3A.spl~	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Cronicler
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 5	// BARD
+			mixed		= RESOLVE_STR_REF(@21553)
+			lower		= RESOLVE_STR_REF(@215530)
+			help		= RESOLVE_STR_REF(@21554)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21554)
+		STR_VAR
+			kit_name	= ~TDD_Cronicler~
+			unusable	= ~0x00800000~
+			clasweap	= ~1 1 1 0 0 1 1 1~
+			weapprof	= ~2 2 0 1 1 1 2 0 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~15 12 15 13 0 15~
+			abclsmod	= ~0 -1 1 0 0 0~
+			abdcdsrq	= ~0 17 0 0 0 17~
+			abdcscrq	= ~0 15 0 0 0 15~
+			alignmnt	= ~0 0 0 0 0 0 1 1 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Ba0~
+			stweap	= ~LEATH14 * * BAG30 RING06 RING34 CLCK02 BOOT01 AMUL19 BRAC16 BELT10 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 DAGG12 SW1H28 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABBA06.2DA~
+			kittable	= ~K_B_HE K_B_D K_B_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 0 1 0 0 0 0~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPROG~
+			numwslot	= ~2~
+			clascolr	= ~24 67 56 56 2 25~
+			bdstweap	= ~LEAT01 * * * RING06 * * * * BRAC09 BELT04 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 * * SW1H08 STAF02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPBAX1.spl~ 	~override~
+		~TDD/_Kits/SPL/SPBAX1A.spl~	~override~
+
+	COPY ~TDD/_Kits/SPL/SPCRON1.spl~	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Minstrel
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 5	// BARD
+			mixed		= RESOLVE_STR_REF(@21555)
+			lower		= RESOLVE_STR_REF(@215550)
+			help		= RESOLVE_STR_REF(@21556)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21556)
+		STR_VAR
+			kit_name	= ~TDD_Minstrel~
+			unusable	= ~0X00400000~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~1 1 1 0 1 1 1 1 1 1 1 1 0 1 1 1 1 1 0 0 1 1 0 1 1 1 1 1 0 1 1 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~16 12 0 13 0 17~
+			abclsmod	= ~-1 0 0 0 0 4~
+			abdcdsrq	= ~0 17 0 0 0 17~
+			abdcscrq	= ~0 15 0 0 0 15~
+			alignmnt	= ~1 0 0 1 0 0 1 0 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Ba0~
+			stweap	= ~LEATH14 * * BAG30 RING06 RING34 CLCK02 BOOT01 AMUL19 BRAC16 BELT10 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 DAGG12 SW1H28 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABBA07.2DA~
+			kittable	= ~K_B_HE K_B_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 0 1 0 0 0 0~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPROG~
+			numwslot	= ~2~
+			clascolr	= ~24 67 56 56 2 25~
+			bdstweap	= ~LEAT01 * * * RING06 * * * * BRAC09 BELT04 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 * * SW1H08 STAF02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPMIN1.spl~ 	~override~
+		SAY NAME1 @21557 
+
+	COPY ~TDD/_Kits/SPL/SPMIN2.spl~ 	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Troubador
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 5	// BARD
+			mixed		= RESOLVE_STR_REF(@21558)
+			lower		= RESOLVE_STR_REF(@215580)
+			help		= RESOLVE_STR_REF(@21559)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21559)
+		STR_VAR
+			kit_name	= ~TDD_Troubador~
+			unusable	= ~0X00800000~
+			clasweap	= ~1 1 1 0 0 1 1 1~
+			weapprof	= ~1 3 0 1 1 1 1 0 3 3 3 3 1 3 3 3 3 3 1 1 3 3 1 0 0 0 0 0 1 1 1 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 12 0 13 0 15~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~0 17 0 0 0 17~
+			abdcscrq	= ~0 15 0 0 0 15~
+			alignmnt	= ~0 0 0 1 1 0 1 1 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Ba0~
+			stweap	= ~LEATH14 * * BAG30 RING06 RING34 CLCK02 BOOT01 AMUL19 BRAC16 BELT10 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 DAGG12 SW1H28 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABBA08.2DA~
+			kittable	= ~K_B_HE K_B_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 0 1 0 0 0 0~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPROG~
+			numwslot	= ~2~
+			clascolr	= ~24 67 56 56 2 25~
+			bdstweap	= ~LEAT01 * * * RING06 * * * * BRAC09 BELT04 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 * * SW1H08 STAF02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPBAX4.spl~ 	~override~
+		~TDD/_Kits/SPL/SPBAX4A.spl~	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Buccaneer
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 5	// BARD
+			mixed		= RESOLVE_STR_REF(@21560)
+			lower		= RESOLVE_STR_REF(@215600)
+			help		= RESOLVE_STR_REF(@21561)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21561)
+		STR_VAR
+			kit_name	= ~TDD_Buccaneer~
+			unusable	= ~0X00800000~
+			clasweap	= ~1 1 1 1 1 1 1 0~
+			weapprof	= ~2 2 1 0 0 1 1 1 1 3 3 1 0 1 1 1 0 0 0 0 0 0 0 1 1 2 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 12 0 13 0 15~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~0 17 0 0 0 17~
+			abdcscrq	= ~0 15 0 0 0 15~
+			alignmnt	= ~1 0 0 1 0 0 1 0 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Ba0~
+			stweap	= ~LEATH14 * * BAG30 RING06 RING34 CLCK02 BOOT01 AMUL19 BRAC16 BELT10 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 DAGG12 SW1H28 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABBA09.2DA~
+			kittable	= ~K_B_HE K_B_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 0 1 0 0 0 0~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPROG~
+			numwslot	= ~2~
+			clascolr	= ~24 67 56 56 2 25~
+			bdstweap	= ~LEAT01 * * * RING06 * * * * BRAC09 BELT04 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 * * SW1H08 STAF02~
+		RET
+			kit_id
+	END
+	END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Musician
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 5	// BARD
+			mixed		= RESOLVE_STR_REF(@21562)
+			lower		= RESOLVE_STR_REF(@215620)
+			help		= RESOLVE_STR_REF(@21563)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21563)
+		STR_VAR
+			kit_name	= ~TDD_Musician~
+			unusable	= ~0X00200000~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~1 1 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 12 0 13 0 15~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~0 17 0 0 0 17~
+			abdcscrq	= ~0 15 0 0 0 15~
+			alignmnt	= ~1 1 1 1 1 1 1 1 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Ba0~
+			stweap	= ~LEATH14 * * BAG30 RING06 RING34 CLCK02 BOOT01 AMUL19 BRAC16 BELT10 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 DAGG12 SW1H28 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABBA10.2DA~
+			kittable	= ~K_B_HE K_B_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 0 1 0 0 0 0~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPROG~
+			numwslot	= ~2~
+			clascolr	= ~24 67 56 56 2 25~
+			bdstweap	= ~LEAT01 * * * RING06 * * * * BRAC09 BELT04 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 * * SW1H08 STAF02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPBAX2.spl~ 	~override~
+		~TDD/_Kits/SPL/SPBAX2A.spl~	~override~
+
+	COPY ~TDD/_Kits/SPL/SPMUS1.spl~ 	~override~
+		SAY NAME1 @21564
+
+	COPY ~TDD/_Kits/SPL/SPMUS2.spl~ 	~override~
+		SAY NAME1 @21565
+
+	COPY ~TDD/_Kits/SPL/SPMUS3.spl~ 	~override~
+		SAY NAME1 @21566
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Shamen
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 11	// DRUID
+			mixed		= RESOLVE_STR_REF(@21567)
+			lower		= RESOLVE_STR_REF(@215670)
+			help		= RESOLVE_STR_REF(@21568)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21568)
+		STR_VAR
+			kit_name	= ~TDD_Shamen~
+			unusable	= ~0X10000000~
+			clasweap	= ~1 0 1 0 0 0 0 1~
+			weapprof	= ~0 1 0 1 1 0 0 0 0 0 0 0 0 0 1 1 0 1 1 0 0 0 1 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 0 0 0 17 16~
+			abclsmod	= ~-5 0 0 0 0 0~
+			abdcdsrq	= ~0 0 0 0 17 17~
+			abdcscrq	= ~0 0 0 0 15 15~
+			alignmnt	= ~0 0 0 0 1 0 0 0 0~
+			dualclas	= ~1 0 0 0 0 0~
+			luabbr	= ~Dr0~
+			stweap	= ~LEAT20 * HELM19 BAG27 RING06 RING31 CLCK02 BOOT01 AMUL19 BRAC14 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABDR05.2DA~
+			kittable	= ~K_D_HO K_D_HL K_D_HE K_D_E K_D_G K_D_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 0 1 0 0 0 0~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPPRS~
+			numwslot	= ~2~
+			clascolr	= ~30 86 37 37 1 110~
+			bdstweap	= ~LEAT05 * * * RING06 * * * * BRAC02 BELT02 * BULL02,40 * POTN08,5 POTN17,3 * SLNG02 BLUN36 STAF02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPSHAM1.spl~	~override~
+		SAY NAME1 @21569
+
+	COPY ~TDD/_Kits/SPL/SPSHAM2.spl~	~override~
+		SAY NAME1 @20067
+
+	COPY ~TDD/_Kits/SPL/SPSHAM3.spl~	~override~
+		~TDD/_Kits/SPL/SPSHAM4.spl~	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Shadow
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 11	// DRUID
+			mixed		= RESOLVE_STR_REF(@21570)
+			lower		= RESOLVE_STR_REF(@215700)
+			help		= RESOLVE_STR_REF(@21571)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21571)
+		STR_VAR
+			kit_name	= ~TDD_Shadow~
+			unusable	= ~0X08000000~
+			clasweap	= ~1 0 1 1 1 1 1 1~
+			weapprof	= ~0 0 0 0 1 1 0 1 0 0 0 0 0 0 1 1 0 1 1 0 0 0 1 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 17 17 0 12 15~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~0 0 0 0 17 17~
+			abdcscrq	= ~0 0 0 0 15 15~
+			alignmnt	= ~0 0 0 1 1 1 0 0 0~
+			dualclas	= ~1 0 0 0 0 0~
+			luabbr	= ~Dr0~
+			stweap	= ~LEAT14 * * BAG28 RING06 RING05,10 * BOOT02 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 DAGG12 SW1H28 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABDR06.2DA~
+			kittable	= ~K_D_HE K_D_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 0 1 0 0 0 0~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPPRS~
+			numwslot	= ~2~
+			clascolr	= ~30 86 37 37 1 110~
+			bdstweap	= ~LEAT05 * * * RING06 * * * * BRAC02 BELT02 * BULL02,40 * POTN08,5 POTN17,3 * SLNG02 BLUN36 STAF02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPSHAD1.spl~	~override~
+		SAY NAME1 @21572
+
+	COPY ~TDD/_Kits/SPL/SPSHAD2.spl~	~override~
+
+	COPY ~TDD/_Kits/SPL/SPSHAD3.spl~	~override~
+		SAY NAME1 @21573
+		SAY 0xce @21574
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Aerial
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 11	// DRUID
+			mixed		= RESOLVE_STR_REF(@21575)
+			lower		= RESOLVE_STR_REF(@215750)
+			help		= RESOLVE_STR_REF(@21576)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21576)
+		STR_VAR
+			kit_name	= ~TDD_Aerial~
+			unusable	= ~0x10000000~
+			clasweap	= ~1 0 1 1 0 0 0 1~
+			weapprof	= ~0 0 0 0 1 1 0 1 0 0 0 0 0 0 0 1 0 1 1 0 0 0 1 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 0 0 0 12 15~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~0 0 0 0 17 17~
+			abdcscrq	= ~0 0 0 0 15 15~
+			alignmnt	= ~0 0 0 0 1 0 0 0 0~
+			dualclas	= ~1 0 0 0 0 0~
+			luabbr	= ~Dr0~
+			stweap	= ~LEAT20 * HELM19 BAG27 RING06 RING31 CLCK02 BOOT01 AMUL19 BRAC14 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABDR07.2DA~
+			kittable	= ~K_D_HE K_D_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 0 1 0 0 0 0~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPPRS~
+			numwslot	= ~2~
+			clascolr	= ~30 86 37 37 1 110~
+			bdstweap	= ~LEAT05 * * * RING06 * * * * BRAC02 BELT02 * BULL02,40 * POTN08,5 POTN17,3 * SLNG02 BLUN36 STAF02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPAER1.spl~ 	~override~
+
+	COPY ~TDD/_Kits/SPL/SPAER2.spl~ 	~override~
+		SAY NAME1 @21577
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Aquatic
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 11	// DRUID
+			mixed		= RESOLVE_STR_REF(@21578)
+			lower		= RESOLVE_STR_REF(@215780)
+			help		= RESOLVE_STR_REF(@21579)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21579)
+		STR_VAR
+			kit_name	= ~TDD_Aquatic~
+			unusable	= ~0X10000000~
+			clasweap	= ~1 0 1 0 0 1 0 1~
+			weapprof	= ~0 0 0 0 1 1 0 0 0 0 0 0 0 0 1 1 0 1 1 0 0 0 1 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 0 0 0 12 15~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~0 0 0 0 17 17~
+			abdcscrq	= ~0 0 0 0 15 15~
+			alignmnt	= ~0 0 0 0 1 0 0 0 0~
+			dualclas	= ~1 0 0 0 0 0~
+			luabbr	= ~Dr0~
+			stweap	= ~LEAT20 * HELM19 BAG27 RING06 RING31 CLCK02 BOOT01 AMUL19 BRAC14 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABDR08.2DA~
+			kittable	= ~K_D_HE K_D_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 0 1 0 0 0 0~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPPRS~
+			numwslot	= ~2~
+			clascolr	= ~30 86 37 37 1 110~
+			bdstweap	= ~LEAT05 * * * RING06 * * * * BRAC02 BELT02 * BULL02,40 * POTN08,5 POTN17,3 * SLNG02 BLUN36 STAF02~
+		RET
+			kit_id
+			kittable
+	END
+	ACTION_IF (kit_id >= 0) BEGIN
+		LAM InstallNotVisibleNPCKits
+	END
+	
+	COPY ~TDD/_Kits/SPL/SPAQUA2.spl~	~override~
+		SAY NAME1 @21580
+
+	COPY ~TDD/_Kits/SPL/SPAQUQ3.spl~	~override~
+
+	COPY ~TDD/_Kits/ITM/SEAHAND.itm~	~override~
+		
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Just
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 11	// DRUID
+			mixed		= RESOLVE_STR_REF(@21581)
+			lower		= RESOLVE_STR_REF(@215810)
+			help		= RESOLVE_STR_REF(@21582)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21582)
+		STR_VAR
+			kit_name	= ~TDD_Just~
+			unusable	= ~0X20000000~
+			clasweap	= ~0 0 1 1 0 0 0 1~
+			weapprof	= ~0 0 0 1 1 0 0 1 0 0 0 0 0 0 1 1 0 1 1 0 0 0 1 0 0 0 1 3 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 0 0 0 12 15~
+			abclsmod	= ~-1 2 -2 0 0 0~
+			abdcdsrq	= ~0 0 0 0 17 17~
+			abdcscrq	= ~0 0 0 0 15 15~
+			alignmnt	= ~0 0 0 1 1 1 0 0 0~
+			dualclas	= ~1 0 0 0 0 0~
+			luabbr	= ~Dr0~
+			stweap	= ~LEAT20 * HELM19 BAG27 RING06 RING31 CLCK02 BOOT01 AMUL19 BRAC14 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABDR09.2DA~
+			kittable	= ~K_D_HE K_D_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 0 1 0 0 0 0~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPPRS~
+			numwslot	= ~2~
+			clascolr	= ~30 86 37 37 1 110~
+			bdstweap	= ~LEAT05 * * * RING06 * * * * BRAC02 BELT02 * BULL02,40 * POTN08,5 POTN17,3 * SLNG02 BLUN36 STAF02~
+		RET
+			kit_id
+	END
+	END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Dream
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 11	// DRUID
+			mixed		= RESOLVE_STR_REF(@21583)
+			lower		= RESOLVE_STR_REF(@215830)
+			help		= RESOLVE_STR_REF(@21584)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21584)
+		STR_VAR
+			kit_name	= ~TDD_Dream~
+			unusable	= ~0X08000000~
+			clasweap	= ~0 0 1 1 0 0 0 1~
+			weapprof	= ~0 0 0 1 1 0 0 1 0 0 0 0 0 0 1 1 0 1 1 0 0 0 1 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 0 0 0 12 15~
+			abclsmod	= ~-1 0 0 0 0 1~
+			abdcdsrq	= ~0 0 0 0 17 17~
+			abdcscrq	= ~0 0 0 0 15 15~
+			alignmnt	= ~0 0 0 0 1 0 0 0 0~
+			dualclas	= ~1 0 0 0 0 0~
+			luabbr	= ~Dr0~
+			stweap	= ~LEAT20 * HELM19 BAG27 RING06 RING31 CLCK02 BOOT01 AMUL19 BRAC14 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABDR10.2DA~
+			kittable	= ~K_D_HE~
+			// EE-specific arguments
+			clsrcreq	= ~1 0 1 0 0 0 0~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPPRS~
+			numwslot	= ~2~
+			clascolr	= ~30 86 37 37 1 110~
+			bdstweap	= ~LEAT05 * * * RING06 * * * * BRAC02 BELT02 * BULL02,40 * POTN08,5 POTN17,3 * SLNG02 BLUN36 STAF02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPDREAM1.spl~	~override~
+
+	COPY ~TDD/_Kits/SPL/SPDREAM2.spl~	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Anti_Paladin
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 6	// PALADIN
+			mixed		= RESOLVE_STR_REF(@21585)
+			lower		= RESOLVE_STR_REF(@215850)
+			help		= RESOLVE_STR_REF(@21586)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21586)
+		STR_VAR
+			kit_name	= ~TDD_Anti_Paladin~
+			unusable	= ~0x00000008~
+			clasweap	= ~1 1 0 0 0 0 0 0~
+			weapprof	= ~2 2 0 0 0 0 0 0 2 2 2 0 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0 2 0 2 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2~
+			abclasrq	= ~16 0 9 14 15 0~
+			abclsmod	= ~0 0 0 0 0 -15~
+			abdcdsrq	= ~17 0 0 0 0 0~
+			abdcscrq	= ~15 0 0 0 0 0~
+			alignmnt	= ~0 0 0 0 0 0 0 0 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Pa0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPA06.2DA~
+			kittable	= ~K_P_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 0 0 0 0 0 0~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~3~
+			clascolr	= ~25 28 57 57 2 24~
+			bdstweap	= ~PLAT01 * HELM01 * RING06 * * * * * BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN03,1 * * SW2H02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/PALREP.spl~ 	~override~
+
+	COPY ~TDD/_Kits/SPL/SPPAL1.spl~ 	~override~
+		SAY NAME1 @21587
+
+	COPY ~TDD/_Kits/SPL/SPPAL10.spl~	~override~
+		~TDD/_Kits/SPL/SPPAL11.spl~	~override~
+		~TDD/_Kits/SPL/SPPAL14.spl~	~override~
+		~TDD/_Kits/SPL/SPPAL9.spl~ 	~override~
+
+	COPY ~TDD/_Kits/SPL/SPPAL13.spl~	~override~
+		SAY NAME1 @21588
+		SAY 0x64e @21589
+		SAY 0x6de @21589
+		SAY 0x76e @21589
+		SAY 0x7fe @21589
+		SAY 0x88e @21589
+		SAY 0x91e @21589
+		SAY 0x9ae @21589
+		SAY 0xa3e @21589
+		SAY 0xace @21589
+		SAY 0xb5e @21589
+		SAY 0xbee @21589
+		SAY 0xc7e @21589
+		SAY 0xd0e @21589
+		SAY 0xd9e @21589
+		SAY 0xe2e @21589
+		SAY 0xebe @21589
+		SAY 0xf4e @21589
+		SAY 0xfde @21589
+		SAY 0x106e @21589
+		SAY 0x10fe @21589
+		SAY 0x118e @21589
+		SAY 0x121e @21589
+		SAY 0x12ae @21589
+		SAY 0x133e @21589
+		SAY 0x13ce @21589
+		SAY 0x145e @21589
+		SAY 0x14ee @21589
+		SAY 0x157e @21589
+		SAY 0x160e @21589
+		SAY 0x169e @21589
+		SAY 0x172e @21589
+		SAY 0x17be @21589
+		SAY 0x184e @21589
+		SAY 0x18de @21589
+
+	COPY ~TDD/_Kits/SPL/SPPAL2.spl~ 	~override~
+		SAY NAME1 @21590
+
+	COPY ~TDD/_Kits/SPL/SPPAL3.spl~ 	~override~
+		SAY NAME1 @21591
+		SAY 0x15e @20508
+
+	COPY ~TDD/_Kits/SPL/SPPAL4.spl~ 	~override~
+		SAY NAME1 @21592
+		SAY 0x15e @20508
+
+	COPY ~TDD/_Kits/SPL/SPPAL5.spl~ 	~override~
+		SAY NAME1 @21593
+		SAY 0x6be @20077
+		SAY 0x7de @21594
+		SAY 0xa1e @21594
+		SAY 0xb3e @21595
+
+	COPY ~TDD/_Kits/SPL/SPPAL6.spl~ 	~override~
+		SAY NAME1 @21596
+		SAY 0xce @21597
+
+	COPY ~TDD/_Kits/SPL/SPPAL7.spl~ 	~override~
+		SAY NAME1 @21598
+
+	COPY ~TDD/_Kits/SPL/SPPAL8.spl~ 	~override~
+		SAY NAME1 @21599
+
+	COPY ~TDD/_Kits/ITM/ANTISW.itm~ 	~override~
+		SAY NAME1 @21600
+		SAY NAME2 @21601
+		SAY DESC @21602
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Cerebral
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 6	// PALADIN
+			mixed		= RESOLVE_STR_REF(@21603)
+			lower		= RESOLVE_STR_REF(@216030)
+			help		= RESOLVE_STR_REF(@21604)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21604)
+		STR_VAR
+			kit_name	= ~TDD_Cerebral~
+			unusable	= ~0x00000008~
+			clasweap	= ~1 1 0 1 1 0 0 0~
+			weapprof	= ~2 2 0 0 0 0 0 2 2 2 2 0 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0 2 2 2 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2~
+			abclasrq	= ~13 0 13 12 15 10~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~17 0 0 0 0 17~
+			abdcscrq	= ~15 0 0 0 0 15~
+			alignmnt	= ~1 0 0 0 0 0 0 0 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Pa0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPA07.2DA~
+			kittable	= ~K_P_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 0 0 0 0 0 0~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~3~
+			clascolr	= ~25 28 57 57 2 24~
+			bdstweap	= ~PLAT01 * HELM01 * RING06 * * * * * BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN03,1 * * SW2H02~
+		RET
+			kit_id
+			kittable
+	END
+	ACTION_IF (kit_id >= 0) BEGIN
+		LAM InstallNotVisibleNPCKits
+	END
+	COPY ~TDD/_Kits/SPL/SPCERB1.spl~	~override~
+		~TDD/_Kits/SPL/SPCERB2.spl~	~override~
+		~TDD/_Kits/SPL/SPCERB3.spl~	~override~
+
+	COPY ~TDD/_Kits/SPL/SPCERB4.spl~	~override~
+		SAY NAME1 @21605
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Lord
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 6	// PALADIN
+			mixed		= RESOLVE_STR_REF(@21606)
+			lower		= RESOLVE_STR_REF(@216060)
+			help		= RESOLVE_STR_REF(@21607)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21607)
+		STR_VAR
+			kit_name	= ~TDD_Lord~
+			unusable	= ~0X00004000~
+			clasweap	= ~0 1 1 1 1 0 0 1~
+			weapprof	= ~0 0 2 2 2 0 0 2 0 0 0 0 5 0 0 0 0 0 2 2 0 0 2 5 2 2 2 2 2 0 0 0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~17 0 9 0 13 17~
+			abclsmod	= ~0 -2 0 0 0 1~
+			abdcdsrq	= ~17 0 0 0 0 17~
+			abdcscrq	= ~15 0 0 0 0 15~
+			alignmnt	= ~1 0 0 0 0 0 0 0 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Pa0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPA08.2DA~
+			kittable	= ~K_P_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 0 0 0 0 0 0~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~3~
+			clascolr	= ~25 28 57 57 2 24~
+			bdstweap	= ~PLAT01 * HELM01 * RING06 * * * * * BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN03,1 * * SW2H02~
+		RET
+			kit_id
+	END
+	END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Dragon
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 6	// PALADIN
+			mixed		= RESOLVE_STR_REF(@21608)
+			lower		= RESOLVE_STR_REF(@216080)
+			help		= RESOLVE_STR_REF(@21609)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21609)
+		STR_VAR
+			kit_name	= ~TDD_Dragon~
+			unusable	= ~0X00000020~
+			clasweap	= ~0 1 1 1 1 0 0 1~
+			weapprof	= ~0 0 2 2 2 0 0 2 0 0 0 0 5 0 0 0 0 0 5 5 0 0 5 2 2 2 2 2 2 0 0 0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~17 0 15 0 13 17~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~17 0 0 0 0 17~
+			abdcscrq	= ~15 0 17 0 0 15~
+			alignmnt	= ~1 0 0 0 0 0 0 0 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Pa0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPA09.2DA~
+			kittable	= ~K_P_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 0 0 0 0 0 0~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~3~
+			clascolr	= ~25 28 57 57 2 24~
+			bdstweap	= ~PLAT01 * HELM01 * RING06 * * * * * BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN03,1 * * SW2H02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPDRAG.spl~ 	~override~
+		~TDD/_Kits/SPL/SPDRAG2.spl~	~override~
+
+	COPY ~TDD/_Kits/SPL/SPDRAG1.spl~	~override~
+		SAY NAME1 @21610
+
+	COPY ~TDD/_Kits/ITM/ARWDRAG.itm~	~override~
+		SAY NAME1 @21489
+		SAY NAME2 @21611
+		SAY DESC @21612
+
+	COPY ~TDD/_Kits/ITM/SWDRAGX.itm~	~override~
+		SAY NAME2 @21613
+		SAY DESC @21614
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Demon
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 6	// PALADIN
+			mixed		= RESOLVE_STR_REF(@21615)
+			lower		= RESOLVE_STR_REF(@216150)
+			help		= RESOLVE_STR_REF(@21616)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21616)
+		STR_VAR
+			kit_name	= ~TDD_Demon~
+			unusable	= ~0X00000008~
+			clasweap	= ~1 1 1 0 0 1 1 1~
+			weapprof	= ~3 3 0 3 3 3 3 0 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 0 0 0 0 0 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~12 0 9 0 13 17~
+			abclsmod	= ~0 1 0 0 0 -1~
+			abdcdsrq	= ~17 0 0 0 0 17~
+			abdcscrq	= ~15 0 0 0 0 15~
+			alignmnt	= ~1 0 0 0 0 0 0 0 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Pa0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPA10.2DA~
+			kittable	= ~K_P_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 0 0 0 0 0 0~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~3~
+			clascolr	= ~25 28 57 57 2 24~
+			bdstweap	= ~PLAT01 * HELM01 * RING06 * * * * * BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN03,1 * * SW2H02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPDEM1.spl~ 	~override~
+		~TDD/_Kits/SPL/SPDEM2.spl~ 	~override~
+		~TDD/_Kits/SPL/SPDEM3.spl~ 	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Saurial
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 6	// PALADIN
+			mixed		= RESOLVE_STR_REF(@21617)
+			lower		= RESOLVE_STR_REF(@216170)
+			help		= RESOLVE_STR_REF(@21618)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21618)
+		STR_VAR
+			kit_name	= ~TDD_Saurial~
+			unusable	= ~0X00004000~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~3 3 1 2 3 3 3 1 3 3 3 3 2 3 3 3 3 3 2 2 3 3 2 1 1 1 1 1 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~12 0 9 0 13 17~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~17 0 0 0 0 17~
+			abdcscrq	= ~15 0 0 0 0 15~
+			alignmnt	= ~1 0 0 0 0 0 0 0 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Pa0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPA11.2DA~
+			kittable	= ~K_P_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 0 0 0 0 0 0~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~3~
+			clascolr	= ~25 28 57 57 2 24~
+			bdstweap	= ~PLAT01 * HELM01 * RING06 * * * * * BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN03,1 * * SW2H02~
+		RET
+			kit_id
+	END
+	END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Dark
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 6	// PALADIN
+			mixed		= RESOLVE_STR_REF(@21619)
+			lower		= RESOLVE_STR_REF(@216190)
+			help		= RESOLVE_STR_REF(@21620)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21620)
+		STR_VAR
+			kit_name	= ~TDD_Dark~
+			unusable	= ~0X00004000~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 0 2 2 0 0 2 2 2 2 2 2 2 2 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~13 0 9 0 12 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~17 0 0 0 0 0~
+			abdcscrq	= ~0 0 0 0 0 0~
+			alignmnt	= ~0 0 1 0 0 1 0 0 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Pa0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPA12.2DA~
+			kittable	= ~K_P_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 0 0 0 0 0 0~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~3~
+			clascolr	= ~25 28 57 57 2 24~
+			bdstweap	= ~PLAT01 * HELM01 * RING06 * * * * * BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN03,1 * * SW2H02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPDARKK1.spl~	~override~
+		SAY NAME1 @20584
+
+	COPY ~TDD/_Kits/SPL/SPDARKK2.spl~	~override~
+		SAY NAME1 @20588
+		SAY 0x1c6 @20590
+		SAY 0x286 @20590
+		SAY 0x346 @20590
+		SAY 0x406 @20590
+		SAY 0x4c6 @20590
+		SAY 0x586 @20590
+
+	COPY ~TDD/_Kits/SPL/SPDARKK3.spl~	~override~
+		SAY NAME1 @20630
+		SAY 0x12e @21621
+
+	COPY ~TDD/_Kits/SPL/SPDARKK5.spl~	~override~
+		SAY NAME1 @20058
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Healer
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 3	// CLERIC
+			mixed		= RESOLVE_STR_REF(@21622)
+			lower		= RESOLVE_STR_REF(@216220)
+			help		= RESOLVE_STR_REF(@21623)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21623)
+		STR_VAR
+			kit_name	= ~TDD_Healer~
+			unusable	= ~0x04000000~
+			clasweap	= ~0 0 1 1 0 1 0 0~
+			weapprof	= ~0 0 0 0 1 1 0 1 0 0 0 0 0 0 0 0 1 1 0 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 0 16 0 17 0~
+			abclsmod	= ~-3 -3 0 0 0 0~
+			abdcdsrq	= ~0 0 0 0 17 0~
+			abdcscrq	= ~0 0 0 0 15 0~
+			alignmnt	= ~1 0 0 0 0 0 0 0 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~CL0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPR05.2DA~
+			kittable	= ~K_C_HO K_C_HE K_C_G K_C_D~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPPRS~
+			numwslot	= ~2~
+			clascolr	= ~25 28 57 57 2 24~
+			bdstweap	= ~CHAN02 SHLD04 HELM01 * RING06 * * * * * BELT02 * BULL02,40 * POTN08,5 POTN17,3 * * SLNG02 HAMM02~
+		RET
+			kit_id
+	END
+	END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Selune
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 3	// CLERIC
+			mixed		= RESOLVE_STR_REF(@21624)
+			lower		= RESOLVE_STR_REF(@216240)
+			help		= RESOLVE_STR_REF(@21625)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21625)
+		STR_VAR
+			kit_name	= ~TDD_Selune~
+			unusable	= ~0x00008000~
+			clasweap	= ~0 0 0 0 0 1 0 0~
+			weapprof	= ~0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 0 0 15 17 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~0 0 0 0 17 0~
+			abdcscrq	= ~0 0 0 13 15 0~
+			alignmnt	= ~0 0 0 0 0 0 1 0 0~
+			dualclas	= ~1 0 1 1 0 1~
+			luabbr	= ~CL0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPR06.2DA~
+			kittable	= ~K_C_HL K_C_HE K_C_E K_C_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPPRS~
+			numwslot	= ~2~
+			clascolr	= ~25 28 57 57 2 24~
+			bdstweap	= ~CHAN02 SHLD04 HELM01 * RING06 * * * * * BELT02 * BULL02,40 * POTN08,5 POTN17,3 * * SLNG02 HAMM02~
+		RET
+			kit_id
+	END
+	                 
+	COPY ~TDD/_Kits/SPL/SPSE201.spl~	~override~
+		SAY NAME1 @21626
+
+	COPY ~TDD/_Kits/SPL/SPSE212.spl~	~override~
+		SAY NAME1 @21627
+
+	COPY ~TDD/_Kits/SPL/SPSE305.spl~	~override~
+		SAY NAME1 @21628
+
+	COPY ~TDD/_Kits/SPL/SPSE307.spl~	~override~
+		SAY NAME1 @21629 
+
+	COPY ~TDD/_Kits/SPL/SPSE408.spl~	~override~
+		SAY NAME1 @21630
+
+	COPY ~TDD/_Kits/SPL/SPSEL1.spl~ 	~override~
+		~TDD/_Kits/SPL/SPSEL2.spl~ 	~override~
+
+	COPY ~TDD/_Kits/SPL/SPSEL3.spl~ 	~override~
+		SAY NAME1 @21631
+		SAY 0x196 @21632
+		SAY 0x1f6 @21632
+		SAY 0x256 @21632
+		SAY 0x2b6 @21632
+		SAY 0x316 @21632
+		SAY 0x376 @21632
+
+	COPY ~TDD/_Kits/SPL/SPSEL4.spl~ 	~override~
+		SAY NAME1 @21633
+
+	COPY ~TDD/_Kits/SPL/SPSEL5.spl~ 	~override~
+		SAY NAME1 @21634
+
+	COPY ~TDD/_Kits/ITM/MOONBS.itm~ 	~override~
+		SAY DESC @21635 
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Malar
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 3	// CLERIC
+			mixed		= RESOLVE_STR_REF(@21636)
+			lower		= RESOLVE_STR_REF(@216360)
+			help		= RESOLVE_STR_REF(@21637)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21637)
+		STR_VAR
+			kit_name	= ~TDD_Malar~
+			unusable	= ~0X01000000~
+			clasweap	= ~0 0 1 1 0 0 0 0~
+			weapprof	= ~0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 0 0 15 17 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~0 0 0 0 17 0~
+			abdcscrq	= ~0 0 0 13 15 0~
+			alignmnt	= ~0 0 0 0 0 0 0 0 1~
+			dualclas	= ~1 0 1 1 0 1~
+			luabbr	= ~CL0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPR07.2DA~
+			kittable	= ~K_C_HO K_C_HL K_C_E K_C_G K_C_D K_C_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPPRS~
+			numwslot	= ~2~
+			clascolr	= ~25 28 57 57 2 24~
+			bdstweap	= ~CHAN02 SHLD04 HELM01 * RING06 * * * * * BELT02 * BULL02,40 * POTN08,5 POTN17,3 * * SLNG02 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPMAL1.spl~ 	~override~
+		SAY NAME1 @21638
+
+	COPY ~TDD/_Kits/SPL/SPMAL2.spl~ 	~override~
+		SAY NAME1 @21639
+
+	COPY ~TDD/_Kits/SPL/SPMAL3.spl~ 	~override~
+		SAY NAME1 @21640
+		SAY 0x15e @21641
+
+	COPY ~TDD/_Kits/SPL/SPMAL4.spl~ 	~override~
+		SAY NAME1 @21642
+
+	COPY ~TDD/_Kits/SPL/SPMAL5.spl~ 	~override~
+		SAY NAME1 @21643
+		SAY 0x15e @20508
+
+	COPY ~TDD/_Kits/SPL/SPMAL6.spl~ 	~override~
+		SAY NAME1 @21644
+
+	COPY ~TDD/_Kits/SPL/SPMAL7.spl~ 	~override~
+		SAY NAME1 @21645
+
+	COPY ~TDD/_Kits/SPL/SPMAL8.spl~ 	~override~
+		SAY NAME1 @21646
+
+	COPY ~TDD/_Kits/ITM/BCLAW.itm~  	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Auril
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 3	// CLERIC
+			mixed		= RESOLVE_STR_REF(@21647)
+			lower		= RESOLVE_STR_REF(@216470)
+			help		= RESOLVE_STR_REF(@21648)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21648)
+		STR_VAR
+			kit_name	= ~TDD_Auril~
+			unusable	= ~0X00008000~
+			clasweap	= ~1 1 1 1 0 1 1 1~
+			weapprof	= ~0 0 0 0 1 1 0 1 0 0 0 0 0 0 0 0 1 1 0 0 1 1 1 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 0 13 0 12 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~0 0 0 0 17 0~
+			abdcscrq	= ~0 0 0 0 15 0~
+			alignmnt	= ~0 0 0 0 0 1 0 0 0~
+			dualclas	= ~1 0 1 1 0 1~
+			luabbr	= ~CL0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPR08.2DA~
+			kittable	= ~K_C_HE K_C_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPPRS~
+			numwslot	= ~2~
+			clascolr	= ~25 28 57 57 2 24~
+			bdstweap	= ~CHAN02 SHLD04 HELM01 * RING06 * * * * * BELT02 * BULL02,40 * POTN08,5 POTN17,3 * * SLNG02 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPAUR1.spl~ 	~override~
+		~TDD/_Kits/SPL/SPAUR2.spl~ 	~override~
+		~TDD/_Kits/SPL/SPAUR3.spl~ 	~override~
+		~TDD/_Kits/SPL/SPAUR7.spl~ 	~override~
+
+	COPY ~TDD/_Kits/SPL/SPAUR4.spl~ 	~override~
+		SAY NAME1 @20591
+
+	COPY ~TDD/_Kits/SPL/SPAUR6.spl~ 	~override~
+		SAY NAME1 @21649
+		SAY 0xce @21650
+
+
+	COPY ~TDD/_Kits/ITM/AURHAND.itm~	~override~
+		SAY 0x13e @21651
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Warlock
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 3	// CLERIC
+			mixed		= RESOLVE_STR_REF(@21652)
+			lower		= RESOLVE_STR_REF(@216520)
+			help		= RESOLVE_STR_REF(@21653)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21653)
+		STR_VAR
+			kit_name	= ~TDD_Warlock~
+			unusable	= ~0X01000000~
+			clasweap	= ~0 0 0 0 0 1 0 0~
+			weapprof	= ~0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 0 0 16 9 0~
+			abclsmod	= ~-5 0 -1 0 0 0~
+			abdcdsrq	= ~0 0 0 0 17 0~
+			abdcscrq	= ~0 0 0 0 15 0~
+			alignmnt	= ~0 0 1 0 0 1 0 0 1~
+			dualclas	= ~1 0 1 1 1 0~
+			luabbr	= ~CL0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPR09.2DA~
+			kittable	= ~K_C_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPPRS~
+			numwslot	= ~2~
+			clascolr	= ~25 28 57 57 2 24~
+			bdstweap	= ~CHAN02 SHLD04 HELM01 * RING06 * * * * * BELT02 * BULL02,40 * POTN08,5 POTN17,3 * * SLNG02 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPWAR1.spl~ 	~override~         
+		SAY NAME1 @21654
+
+	COPY ~TDD/_Kits/SPL/SPWAR2.spl~ 	~override~
+		SAY NAME1 @21655
+		SAY 0x18e @21656
+
+	COPY ~TDD/_Kits/SPL/SPWAR3.spl~ 	~override~
+		SAY NAME1 @20875
+
+	COPY ~TDD/_Kits/SPL/SPWAR4.spl~ 	~override~
+		SAY NAME1 @21657
+
+	COPY ~TDD/_Kits/SPL/SPWAR5.spl~ 	~override~
+		SAY NAME1 @20069
+
+	COPY ~TDD/_Kits/SPL/SPWAR6.spl~ 	~override~
+		SAY NAME1 @21658
+
+	COPY ~TDD/_Kits/SPL/SPWAR7.spl~ 	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Faith
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 3	// CLERIC
+			mixed		= RESOLVE_STR_REF(@21659)
+			lower		= RESOLVE_STR_REF(@216590)
+			help		= RESOLVE_STR_REF(@21660)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21660)
+		STR_VAR
+			kit_name	= ~TDD_Faith~
+			unusable	= ~0X01000000~
+			clasweap	= ~0 0 1 1 0 1 0 0~
+			weapprof	= ~0 0 0 0 3 0 0 1 0 0 0 0 0 0 0 0 3 1 0 0 3 3 1 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 0 0 0 9 0~
+			abclsmod	= ~0 0 0 0 -5 0~
+			abdcdsrq	= ~0 0 0 0 17 0~
+			abdcscrq	= ~0 0 0 0 15 0~
+			alignmnt	= ~1 0 0 1 0 0 1 0 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~CL0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPR10.2DA~
+			kittable	= ~K_C_HO K_C_HL K_C_G K_C_D~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPPRS~
+			numwslot	= ~2~
+			clascolr	= ~25 28 57 57 2 24~
+			bdstweap	= ~CHAN02 SHLD04 HELM01 * RING06 * * * * * BELT02 * BULL02,40 * POTN08,5 POTN17,3 * * SLNG02 HAMM02~
+		RET
+			kit_id
+	END
+	END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Drowc
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 3	// CLERIC
+			mixed		= RESOLVE_STR_REF(@21661)
+			lower		= RESOLVE_STR_REF(@216610)
+			help		= RESOLVE_STR_REF(@21662)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21662)
+		STR_VAR
+			kit_name	= ~TDD_Drowc~
+			unusable	= ~0X00008000~
+			clasweap	= ~0 0 1 0 0 1 0 0~
+			weapprof	= ~0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 3 1 1 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 0 0 0 9 0~
+			abclsmod	= ~-1 0 0 1 0 -10~
+			abdcdsrq	= ~0 0 0 0 17 0~
+			abdcscrq	= ~0 0 0 0 15 0~
+			alignmnt	= ~0 0 1 0 0 1 0 0 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~CL0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPR11.2DA~
+			kittable	= ~K_C_E~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPPRS~
+			numwslot	= ~2~
+			clascolr	= ~25 28 57 57 2 24~
+			bdstweap	= ~CHAN02 SHLD04 HELM01 * RING06 * * * * * BELT02 * BULL02,40 * POTN08,5 POTN17,3 * * SLNG02 HAMM02~
+		RET
+			kit_id
+	END
+	END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Silvan
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 11	// DRUID
+			mixed		= RESOLVE_STR_REF(@21663)
+			lower		= RESOLVE_STR_REF(@216630)
+			help		= RESOLVE_STR_REF(@21664)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21664)
+		STR_VAR
+			kit_name	= ~TDD_Silvan~
+			unusable	= ~0X00004000~
+			clasweap	= ~1 0 1 1 0 1 0 1~
+			weapprof	= ~0 0 0 0 2 2 0 2 0 0 0 0 0 0 1 1 0 1 1 0 0 0 1 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 0 0 0 12 15~
+			abclsmod	= ~-1 0 -1 0 0 0~
+			abdcdsrq	= ~0 0 0 0 17 17~
+			abdcscrq	= ~0 0 0 0 15 15~
+			alignmnt	= ~0 0 0 0 1 0 0 0 0~
+			dualclas	= ~1 0 0 0 0 0~
+			luabbr	= ~Dr0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABDR11.2DA~
+			kittable	= ~K_D_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 0 1 0 0 0 0~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPPRS~
+			numwslot	= ~2~
+			clascolr	= ~30 86 37 37 1 110~
+			bdstweap	= ~LEAT05 * * * RING06 * * * * BRAC02 BELT02 * BULL02,40 * POTN08,5 POTN17,3 * SLNG02 BLUN36 STAF02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPSYLV1.spl~	~override~
+		SAY NAME1 @21665
+
+	COPY ~TDD/_Kits/SPL/SPSYLV2.spl~	~override~
+		SAY NAME1 @21666
+
+	COPY ~TDD/_Kits/SPL/SPSYLV3.spl~	~override~
+		SAY NAME1 @21667
+
+	COPY ~TDD/_Kits/SPL/SPSYLV4.spl~	~override~
+		SAY NAME1 @21668
+
+	COPY ~TDD/_Kits/SPL/SPSYLV5.spl~	~override~
+		SAY NAME1 @21669
+
+	COPY ~TDD/_Kits/SPL/SPSYLV6.spl~	~override~
+		SAY NAME1 @21670
+
+	COPY ~TDD/_Kits/SPL/SPSYLV7.spl~	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Tybboch
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 3	// CLERIC
+			mixed		= RESOLVE_STR_REF(@21671)
+			lower		= RESOLVE_STR_REF(@216710)
+			help		= RESOLVE_STR_REF(@21672)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21672)
+		STR_VAR
+			kit_name	= ~TDD_Tybboch~
+			unusable	= ~0X00004000~
+			clasweap	= ~0 0 1 1 0 1 0 0~
+			weapprof	= ~0 0 0 0 1 1 0 1 0 0 0 0 0 0 0 0 1 1 0 0 1 1 1 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 0 0 0 9 0~
+			abclsmod	= ~0 0 0 0 -1 0~
+			abdcdsrq	= ~0 0 0 0 17 0~
+			abdcscrq	= ~0 0 0 0 15 0~
+			alignmnt	= ~0 0 1 0 0 1 0 0 0~
+			dualclas	= ~1 0 1 1 0 1~
+			luabbr	= ~CL0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPR13.2DA~
+			kittable	= ~K_C_HO K_C_D K_C_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPPRS~
+			numwslot	= ~2~
+			clascolr	= ~25 28 57 57 2 24~
+			bdstweap	= ~CHAN02 SHLD04 HELM01 * RING06 * * * * * BELT02 * BULL02,40 * POTN08,5 POTN17,3 * * SLNG02 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPTYB1.spl~ 	~override~
+
+	COPY ~TDD/_Kits/SPL/SPTYB2.spl~ 	~override~
+		SAY NAME1 @21673
+		SAY 0x12e @20508
+
+	COPY ~TDD/_Kits/SPL/SPTYB4.spl~ 	~override~
+		SAY NAME1 @21590
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Tempus
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 3	// CLERIC
+			mixed		= RESOLVE_STR_REF(@21674)
+			lower		= RESOLVE_STR_REF(@216740)
+			help		= RESOLVE_STR_REF(@21675)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21675)
+		STR_VAR
+			kit_name	= ~TDD_Tempus~
+			unusable	= ~0X00000008~
+			clasweap	= ~0 0 1 1 0 1 0 0~
+			weapprof	= ~0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 1 1 0 0 1 1 1 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~14 0 0 0 12 0~
+			abclsmod	= ~0 -1 0 0 0 0~
+			abdcdsrq	= ~0 0 0 0 17 0~
+			abdcscrq	= ~0 0 0 0 15 0~
+			alignmnt	= ~0 0 0 0 0 0 0 1 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~CL0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPR14.2DA~
+			kittable	= ~K_C_HO K_C_HL K_C_HE K_C_E K_C_G K_C_D~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPPRS~
+			numwslot	= ~2~
+			clascolr	= ~25 28 57 57 2 24~
+			bdstweap	= ~CHAN02 SHLD04 HELM01 * RING06 * * * * * BELT02 * BULL02,40 * POTN08,5 POTN17,3 * * SLNG02 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPTPUS1.spl~	~override~
+		SAY NAME1 @20689 
+		SAY 0x1be @20691
+
+	COPY ~TDD/_Kits/SPL/SPTPUS2.spl~	~override~
+		SAY NAME1 @21676
+
+	COPY ~TDD/_Kits/SPL/SPTPUS3.spl~	~override~
+		SAY NAME1 @21677
+
+	COPY ~TDD/_Kits/SPL/SPTPUS4.spl~	~override~
+		SAY NAME1 @21678
+
+
+	COPY ~TDD/_Kits/ITM/TFLAIL1.itm~	~override~
+		~TDD/_Kits/ITM/TFLAIL2.itm~	~override~
+		~TDD/_Kits/ITM/TFLAIL3.itm~	~override~
+		~TDD/_Kits/ITM/TFLAIL4.itm~	~override~
+		~TDD/_Kits/ITM/TFLAIL5.itm~	~override~
+		SAY NAME2 @21679
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Amaunator
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 3	// CLERIC
+			mixed		= RESOLVE_STR_REF(@21680)
+			lower		= RESOLVE_STR_REF(@216800)
+			help		= RESOLVE_STR_REF(@21681)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21681)
+		STR_VAR
+			kit_name	= ~TDD_Amaunator~
+			unusable	= ~0X40000000~
+			clasweap	= ~0 0 1 1 0 1 0 0~
+			weapprof	= ~0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 1 1 0 0 1 1 1 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 0 0 10 9 0~
+			abclsmod	= ~0 0 -1 0 -2 0~
+			abdcdsrq	= ~0 0 0 0 17 0~
+			abdcscrq	= ~0 0 0 0 15 0~
+			alignmnt	= ~0 0 0 0 0 0 1 1 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~CL0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPR15.2DA~
+			kittable	= ~K_C_HO K_C_HL K_C_G K_C_D~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPPRS~
+			numwslot	= ~2~
+			clascolr	= ~25 28 57 57 2 24~
+			bdstweap	= ~CHAN02 SHLD04 HELM01 * RING06 * * * * * BELT02 * BULL02,40 * POTN08,5 POTN17,3 * * SLNG02 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPAMAUN1.spl~	~override~
+		SAY NAME1 @21682
+
+	COPY ~TDD/_Kits/SPL/SPAMAUN2.spl~	~override~
+
+	COPY ~TDD/_Kits/SPL/SPAMAUN3.spl~	~override~
+		SAY NAME1 @21683
+
+	COPY ~TDD/_Kits/SPL/SPAMAUN4.spl~	~override~
+		SAY NAME1 @21684
+		SAY 0xfe @21685
+
+
+	COPY ~TDD/_Kits/ITM/SSCEPT.itm~ 	~override~
+		SAY NAME2 @21683
+		SAY DESC ~~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Shar
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 3	// CLERIC
+			mixed		= RESOLVE_STR_REF(@21686)
+			lower		= RESOLVE_STR_REF(@216860)
+			help		= RESOLVE_STR_REF(@21687)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21687)
+		STR_VAR
+			kit_name	= ~TDD_Shar~
+			unusable	= ~0X00008000~
+			clasweap	= ~0 0 1 1 0 1 0 0~
+			weapprof	= ~0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 1 1 0 0 1 1 1 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~12 0 0 0 12 0~
+			abclsmod	= ~0 0 0 0 0 -5~
+			abdcdsrq	= ~0 0 0 0 17 0~
+			abdcscrq	= ~0 0 0 0 15 0~
+			alignmnt	= ~0 0 0 0 0 1 0 0 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~CL0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPR16.2DA~
+			kittable	= ~K_C_HE K_C_E~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPPRS~
+			numwslot	= ~2~
+			clascolr	= ~25 28 57 57 2 24~
+			bdstweap	= ~CHAN02 SHLD04 HELM01 * RING06 * * * * * BELT02 * BULL02,40 * POTN08,5 POTN17,3 * * SLNG02 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPSHAR1.spl~	~override~
+		SAY NAME1 @21688
+
+	COPY ~TDD/_Kits/SPL/SPSHAR2.spl~	~override~
+		SAY NAME1 @21689
+
+	COPY ~TDD/_Kits/SPL/SPSHAR3.spl~	~override~
+		~TDD/_Kits/SPL/SPSHAR5.spl~	~override~
+
+	COPY ~TDD/_Kits/SPL/SPSHAR4.spl~	~override~
+		SAY NAME1 @21690
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Tyr
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 3	// CLERIC
+			mixed		= RESOLVE_STR_REF(@21691)
+			lower		= RESOLVE_STR_REF(@216910)
+			help		= RESOLVE_STR_REF(@21692)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21692)
+		STR_VAR
+			kit_name	= ~TDD_Tyr~
+			unusable	= ~0X00004000~
+			clasweap	= ~  0 0 1 1 0 1 0 0~
+			weapprof	= ~0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 2 1 0 0 1 1 1 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~  14 0 0 0 16 0~
+			abclsmod	= ~  0 0 0 0 0 0~
+			abdcdsrq	= ~  0 0 0 0 17 0~
+			abdcscrq	= ~  0 0 0 0 15 0~
+			alignmnt	= ~  1 0 0 0 0 0 0 0 0~
+			dualclas	= ~  0 0 0 0 0 0~
+			luabbr	= ~CL0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPR17.2DA~
+			kittable	= ~K_C_HL K_C_G~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPPRS~
+			numwslot	= ~2~
+			clascolr	= ~25 28 57 57 2 24~
+			bdstweap	= ~CHAN02 SHLD04 HELM01 * RING06 * * * * * BELT02 * BULL02,40 * POTN08,5 POTN17,3 * * SLNG02 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/TYR1.spl~   	~override~
+		SAY NAME1 @21693 
+
+	COPY ~TDD/_Kits/SPL/TYR2.spl~   	~override~
+		SAY NAME1 @21694
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Wilderness
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 12	// RANGER
+			mixed		= RESOLVE_STR_REF(@21698)
+			lower		= RESOLVE_STR_REF(@216980)
+			help		= RESOLVE_STR_REF(@21699)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21699)
+		STR_VAR
+			kit_name	= ~TDD_Wilderness~
+			unusable	= ~0X00010000~
+			clasweap	= ~0 0 1 1 1 0 1 1~
+			weapprof	= ~0 0 1 1 1 0 1 1 0 0 0 1 0 0 0 0 0 1 1 0 0 0 1 2 2 2 2 2 2 2 2 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~13 13 14 0 14 0~
+			abclsmod	= ~0 0 0 0 0 -6~
+			abdcdsrq	= ~17 17 0 0 17 0~
+			abdcscrq	= ~15 15 0 0 15 0~
+			alignmnt	= ~1 0 0 1 0 0 1 0 0~
+			dualclas	= ~0 1 0 0 0 0~
+			luabbr	= ~Ra0~
+			stweap	= ~LEAT14 * HELM07 BAG25 RING06 RING31 CLCK02 BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 BOW18 XBOW09 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABRN06.2DA~
+			kittable	= ~K_R_HE K_R_E K_R_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 0 0 0 0~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~3~
+			clascolr	= ~30 37 86 86 1 110~
+			bdstweap	= ~LEAT05 * HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN03,1 HAMM02 SW1H05 BOW04~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPWILD1.spl~	~override~        
+		SAY NAME1 @21700 
+
+	COPY ~TDD/_Kits/SPL/SPWILD2.spl~	~override~
+		SAY NAME1 @20871
+
+	COPY ~TDD/_Kits/SPL/SPWILD3.spl~	~override~
+		SAY NAME1 @20892
+
+	COPY ~TDD/_Kits/SPL/SPWILD4.spl~	~override~
+		SAY NAME1 @20898
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Samurai
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 12	// RANGER
+			mixed		= RESOLVE_STR_REF(@21701)
+			lower		= RESOLVE_STR_REF(@217010)
+			help		= RESOLVE_STR_REF(@21702)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21702)
+		STR_VAR
+			kit_name	= ~TDD_Samurai~
+			unusable	= ~0X00010000~
+			clasweap	= ~0 1 0 0 0 0 0 0~
+			weapprof	= ~0 0 0 0 0 0 0 0 0 0 0 0 0 5 5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~13 17 14 0 14 0~
+			abclsmod	= ~0 2 -1 0 -1 0~
+			abdcdsrq	= ~17 17 0 0 17 0~
+			abdcscrq	= ~15 15 0 0 15 0~
+			alignmnt	= ~1 1 1 0 0 0 0 0 0~
+			dualclas	= ~0 1 0 0 0 0~
+			luabbr	= ~Ra0~
+			stweap	= ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABRN07.2DA~
+			kittable	= ~K_R_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 0 0 0 0~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~3~
+			clascolr	= ~30 37 86 86 1 110~
+			bdstweap	= ~LEAT05 * HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN03,1 HAMM02 SW1H05 BOW04~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPSAM1.spl~ 	~override~
+
+	COPY ~TDD/_Kits/SPL/SPSAM3.spl~ 	~override~
+		SAY NAME1 @21703
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Drowr
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 12	// RANGER
+			mixed		= RESOLVE_STR_REF(@21709)
+			lower		= RESOLVE_STR_REF(@217090)
+			help		= RESOLVE_STR_REF(@21710)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21710)
+		STR_VAR
+			kit_name	= ~TDD_Drowr~
+			unusable	= ~0X00008000~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~3 3 2 2 2 2 2 2 3 3 3 2 3 3 3 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~13 13 14 0 14 0~
+			abclsmod	= ~0 1 0 0 0 -8~
+			abdcdsrq	= ~17 17 0 0 17 0~
+			abdcscrq	= ~15 15 0 0 15 0~
+			alignmnt	= ~0 0 1 0 0 1 0 0 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Ra0~
+			stweap	= ~LEAT14 * HELM07 BAG25 RING06 RING31 CLCK02 BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 BOW18 XBOW09 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABRN09.2DA~
+			kittable	= ~K_R_E~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 0 0 0 0~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~3~
+			clascolr	= ~30 37 86 86 1 110~
+			bdstweap	= ~LEAT05 * HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN03,1 HAMM02 SW1H05 BOW04~
+		RET
+			kit_id
+	END
+	END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Tracker
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 12	// RANGER
+			mixed		= RESOLVE_STR_REF(@21711)
+			lower		= RESOLVE_STR_REF(@217110)
+			help		= RESOLVE_STR_REF(@21712)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21712)
+		STR_VAR
+			kit_name	= ~TDD_Tracker~
+			unusable	= ~0X00010000~
+			clasweap	= ~0 0 1 1 1 1 1 0~
+			weapprof	= ~0 0 3 0 2 2 3 3 0 0 0 3 0 0 0 0 2 2 0 0 2 2 0 3 3 3 3 3 0 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~13 13 14 0 14 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~17 17 0 0 17 0~
+			abdcscrq	= ~15 15 0 0 15 0~
+			alignmnt	= ~0 0 0 1 1 1 0 0 0~
+			dualclas	= ~0 1 0 0 0 0~
+			luabbr	= ~Ra0~
+			stweap	= ~LEAT14 * HELM07 BAG25 RING06 RING31 CLCK02 BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 BOW18 XBOW09 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABRN10.2DA~
+			kittable	= ~K_R_HE K_R_E K_R_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 0 0 0 0~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~3~
+			clascolr	= ~30 37 86 86 1 110~
+			bdstweap	= ~LEAT05 * HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN03,1 HAMM02 SW1H05 BOW04~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPTRACK1.spl~	~override~
+		SAY NAME1 @21713
+
+	COPY ~TDD/_Kits/SPL/SPTRACK2.spl~	~override~
+		SAY NAME1 @21714
+
+	COPY ~TDD/_Kits/SPL/SPTRACK3.spl~	~override~
+		SAY NAME1 @21715
+
+	COPY ~TDD/_Kits/SPL/SPTRACK4.spl~	~override~
+		SAY NAME1 @21716
+
+
+	COPY ~TDD/_Kits/ITM/STUNNER.itm~	~override~        
+		SAY NAME2 @21716
+		SAY DESC @21717
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Giant
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 12	// RANGER
+			mixed		= RESOLVE_STR_REF(@21718)
+			lower		= RESOLVE_STR_REF(@217180)
+			help		= RESOLVE_STR_REF(@21719)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21719)
+		STR_VAR
+			kit_name	= ~TDD_Giant~
+			unusable	= ~0X40000000~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~2 2 1 2 2 2 2 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 2 0 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~13 13 14 0 14 0~
+			abclsmod	= ~0 -1 0 0 0 0~
+			abdcdsrq	= ~14 13 14 0 14 0~
+			abdcscrq	= ~15 15 0 0 15 0~
+			alignmnt	= ~1 0 0 1 0 0 1 0 0~
+			dualclas	= ~0 1 0 0 0 0~
+			luabbr	= ~Ra0~
+			stweap	= ~CHAN09 * HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABRN11.2DA~
+			kittable	= ~K_R_HE K_R_E K_R_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 0 0 0 0~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~3~
+			clascolr	= ~30 37 86 86 1 110~
+			bdstweap	= ~LEAT05 * HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN03,1 HAMM02 SW1H05 BOW04~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPGIANT1.spl~	~override~
+		~TDD/_Kits/SPL/SPGIANT2.spl~	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Eye
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 12	// RANGER
+			mixed		= RESOLVE_STR_REF(@21720)
+			lower		= RESOLVE_STR_REF(@217200)
+			help		= RESOLVE_STR_REF(@21721)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21721)
+		STR_VAR
+			kit_name	= ~TDD_Eye~
+			unusable	= ~0X40000000~
+			clasweap	= ~  1 1 1 0 0 1 1 1~
+			weapprof	= ~4 2 0 2 2 2 2 0 2 4 2 2 2 2 4 2 2 2 2 2 2 2 2 0 0 0 0 0 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~  13 13 14 0 14 0~
+			abclsmod	= ~  0 0 0 0 0 0~
+			abdcdsrq	= ~  17 17 0 0 17 0~
+			abdcscrq	= ~  15 15 0 0 15 0~
+			alignmnt	= ~  1 0 0 1 0 0 1 0 0~
+			dualclas	= ~  0 1 0 0 0 0~
+			luabbr	= ~Ra0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABRN12.2DA~
+			kittable	= ~K_R_HE K_R_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 0 0 0 0~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~3~
+			clascolr	= ~30 37 86 86 1 110~
+			bdstweap	= ~LEAT05 * HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN03,1 HAMM02 SW1H05 BOW04~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPEYE1.spl~ 	~override~
+		SAY NAME1 @21722
+
+	COPY ~TDD/_Kits/SPL/SPEYE2.spl~ 	~override~
+		~TDD/_Kits/SPL/SPEYE3.spl~ 	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Forest
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 12	// RANGER
+			mixed		= RESOLVE_STR_REF(@21723)
+			lower		= RESOLVE_STR_REF(@217230)
+			help		= RESOLVE_STR_REF(@21724)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21724)
+		STR_VAR
+			kit_name	= ~TDD_Forest~
+			unusable	= ~0X00010000~
+			clasweap	= ~1 1 1 1 1 1 1 1~
+			weapprof	= ~0 0 2 2 2 2 2 2 0 0 0 2 0 2 0 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~13 13 14 0 14 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~17 17 0 0 17 0~
+			abdcscrq	= ~15 15 0 0 15 0~
+			alignmnt	= ~1 1 0 1 1 0 1 1 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Ra0~
+			stweap	= ~LEAT14 * HELM07 BAG24 RING06 RING31 CLCK02 BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H39 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABRN13.2DA~
+			kittable	= ~K_R_HE K_R_E~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 0 0 0 0~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~3~
+			clascolr	= ~30 37 86 86 1 110~
+			bdstweap	= ~LEAT05 * HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN03,1 HAMM02 SW1H05 BOW04~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPFOR1.spl~ 	~override~
+		SAY NAME1 @21725 
+
+	COPY ~TDD/_Kits/SPL/SPFOR2.spl~ 	~override~
+		SAY NAME1 @21726
+
+	COPY ~TDD/_Kits/SPL/SPFOR3.spl~ 	~override~         
+		SAY NAME1 @21727 
+
+	COPY ~TDD/_Kits/SPL/SPFOR4.spl~ 	~override~         
+		SAY NAME1 @21728
+
+	COPY ~TDD/_Kits/SPL/SPFOR5.spl~ 	~override~         
+		SAY NAME1 @21729 
+
+	COPY ~TDD/_Kits/SPL/SPFOR6.spl~ 	~override~         
+		SAY NAME1 @21730 
+
+	COPY ~TDD/_Kits/SPL/SPFOR7.spl~ 	~override~
+		SAY NAME1 @21731
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Slinger
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 12	// RANGER
+			mixed		= RESOLVE_STR_REF(@21732)
+			lower		= RESOLVE_STR_REF(@217320)
+			help		= RESOLVE_STR_REF(@21733)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21733)
+		STR_VAR
+			kit_name	= ~TDD_Slinger~
+			unusable	= ~0X00010000~
+			clasweap	= ~1 1 1 1 0 1 1 1~
+			weapprof	= ~2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 0 0 0 0 5 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~13 13 14 0 14 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~17 17 0 0 17 0~
+			abdcscrq	= ~15 15 0 0 15 0~
+			alignmnt	= ~1 1 0 1 1 0 1 1 0~
+			dualclas	= ~0 1 0 0 0 0~
+			luabbr	= ~Ra0~
+			stweap	= ~LEAT14 * HELM07 BAG24 RING06 RING31 CLCK02 BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H39 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABRN14.2DA~
+			kittable	= ~K_R_HE K_R_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 0 0 0 0~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~3~
+			clascolr	= ~30 37 86 86 1 110~
+			bdstweap	= ~LEAT05 * HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN03,1 HAMM02 SW1H05 BOW04~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPSLING1.spl~	~override~
+		SAY NAME1 @21734
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Ninja
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 4	// THIEF
+			mixed		= RESOLVE_STR_REF(@21735)
+			lower		= RESOLVE_STR_REF(@217350)
+			help		= RESOLVE_STR_REF(@21736)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21736)
+		STR_VAR
+			kit_name	= ~TDD_Ninja~
+			unusable	= ~0X00040000~
+			clasweap	= ~1 1 1 0 0 1 0 1~
+			weapprof	= ~0 5 0 5 1 0 0 5 0 5 5 0 0 5 5 5 0 1 0 0 0 0 1 0 0 0 1 0 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2~
+			abclasrq	= ~12 16 14 8 0 0~
+			abclsmod	= ~-2 2 -1 0 0 0~
+			abdcdsrq	= ~16 17 14 8 0 0~
+			abdcscrq	= ~15 15 0 0 0 0~
+			alignmnt	= ~0 1 1 0 1 1 0 1 1~
+			dualclas	= ~1 1 1 0 0 0~
+			luabbr	= ~Th0~
+			stweap	= ~LEAT14 * * BAG28 RING06 RING05,10 * BOOT02 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 DAGG12 SW1H28 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABTH05.2DA~
+			kittable	= ~K_T_HO K_T_HL K_T_HE K_T_E K_T_G K_T_D K_T_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPROG~
+			numwslot	= ~2~
+			clascolr	= ~24 99 169 169 2 93~
+			bdstweap	= ~LEAT05 * * * * * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN36,1 * BOW06 DAGG02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPNINJ1.spl~	~override~
+		SAY NAME1 @21737
+
+	COPY ~TDD/_Kits/SPL/SPNINJ4.spl~	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Knife
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 4	// THIEF
+			mixed		= RESOLVE_STR_REF(@21738)
+			lower		= RESOLVE_STR_REF(@217380)
+			help		= RESOLVE_STR_REF(@21739)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21739)
+		STR_VAR
+			kit_name	= ~TDD_Knife~
+			unusable	= ~0X00004000~
+			clasweap	= ~1 0 0 1 1 0 0 0~
+			weapprof	= ~0 5 0 0 0 0 0 5 0 0 1 0 0 0 0 5 0 0 0 0 0 0 0 0 0 0 0 0 1 2 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 18 0 0 0 0~
+			abclsmod	= ~0 1 0 0 0 0~
+			abdcdsrq	= ~0 18 0 0 0 0~
+			abdcscrq	= ~0 16 0 0 0 0~
+			alignmnt	= ~1 1 1 1 1 1 1 1 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Th0~
+			stweap	= ~LEATH14 * * BAG30 RING06 RING34 CLCK02 BOOT01 AMUL19 BRAC16 BELT10 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 DAGG12 SW1H28 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABTH06.2DA~
+			kittable	= ~K_T_HL~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPROG~
+			numwslot	= ~2~
+			clascolr	= ~24 99 169 169 2 93~
+			bdstweap	= ~LEAT05 * * * * * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN36,1 * BOW06 DAGG02~
+		RET
+			kit_id
+	END
+	END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Sniper
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 4	// THIEF
+			mixed		= RESOLVE_STR_REF(@21740)
+			lower		= RESOLVE_STR_REF(@217400)
+			help		= RESOLVE_STR_REF(@21741)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21741)
+		STR_VAR
+			kit_name	= ~TDD_Sniper~
+			unusable	= ~0X00100000~
+			clasweap	= ~1 0 1 1 1 0 0 0~
+			weapprof	= ~0 0 5 0 0 0 0 5 0 0 5 0 0 0 0 5 0 0 0 0 0 0 0 5 0 5 0 0 1 1 1 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 9 0 0 0 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~0 17 0 0 0 0~
+			abdcscrq	= ~0 15 0 0 0 0~
+			alignmnt	= ~0 1 1 0 1 1 0 1 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Th0~
+			stweap	= ~* * * BAG29 RING06 RING40 * BOOT01 AMUL21 BRAC15 BELT10 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 SLING05 DAGG05,40 STAF20~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABTH07.2DA~
+			kittable	= ~K_T_HL K_T_E~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPROG~
+			numwslot	= ~2~
+			clascolr	= ~24 99 169 169 2 93~
+			bdstweap	= ~LEAT05 * * * * * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN36,1 * BOW06 DAGG02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPSNIP1.spl~	~override~
+		SAY NAME1 @20981
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Svirf
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 4	// THIEF
+			mixed		= RESOLVE_STR_REF(@21742)
+			lower		= RESOLVE_STR_REF(@217420)
+			help		= RESOLVE_STR_REF(@21743)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21743)
+		STR_VAR
+			kit_name	= ~TDD_Svirf~
+			unusable	= ~0X00080000~
+			clasweap	= ~1 0 0 1 1 0 0 0~
+			weapprof	= ~0 1 1 0 0 0 0 1 0 1 1 0 0 1 1 5 0 1 0 0 0 0 1 1 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 15 0 0 0 0~
+			abclsmod	= ~0 1 0 -1 1 -1~
+			abdcdsrq	= ~0 17 0 0 0 0~
+			abdcscrq	= ~0 15 0 0 0 0~
+			alignmnt	= ~1 1 0 1 1 0 1 1 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Th0~
+			stweap	= ~LEATH14 * * BAG30 RING06 RING34 CLCK02 BOOT01 AMUL19 BRAC16 BELT10 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 DAGG12 SW1H28 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABTH08.2DA~
+			kittable	= ~K_T_G~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPROG~
+			numwslot	= ~2~
+			clascolr	= ~24 99 169 169 2 93~
+			bdstweap	= ~LEAT05 * * * * * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN36,1 * BOW06 DAGG02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPSVIRF2.spl~	~override~
+		SAY NAME1 @21744
+
+	COPY ~TDD/_Kits/SPL/SPSVIRF3.spl~	~override~
+
+	COPY ~TDD/_Kits/SPL/SPSVIRF5.spl~	~override~
+		SAY NAME1 @20077
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Drowa
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 4	// THIEF
+			mixed		= RESOLVE_STR_REF(@21745)
+			lower		= RESOLVE_STR_REF(@217450)
+			help		= RESOLVE_STR_REF(@21746)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21746)
+		STR_VAR
+			kit_name	= ~TDD_Drowa~
+			unusable	= ~0X00040000~
+			clasweap	= ~1 0 0 1 1 0 0 0~
+			weapprof	= ~0 1 1 0 0 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 0 0 1 1 0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 9 0 0 0 0~
+			abclsmod	= ~-2 2 -1 1 0 -10~
+			abdcdsrq	= ~0 17 0 0 0 0~
+			abdcscrq	= ~0 15 0 0 0 0~
+			alignmnt	= ~0 0 1 0 0 1 0 0 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Th0~
+			stweap	= ~LEAT14 * * BAG28 RING06 RING05,10 * BOOT02 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 DAGG12 SW1H28 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABTH09.2DA~
+			kittable	= ~K_T_E~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPROG~
+			numwslot	= ~2~
+			clascolr	= ~24 99 169 169 2 93~
+			bdstweap	= ~LEAT05 * * * * * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN36,1 * BOW06 DAGG02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPTHCR.spl~ 	~override~
+		SAY NAME1 @21747 
+		SAY 0x12e @21748 
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Burglar
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 4	// THIEF
+			mixed		= RESOLVE_STR_REF(@21749)
+			lower		= RESOLVE_STR_REF(@217490)
+			help		= RESOLVE_STR_REF(@21750)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21750)
+		STR_VAR
+			kit_name	= ~TDD_Burglar~
+			unusable	= ~0X00004000~
+			clasweap	= ~1 0 1 1 1 0 0 0~
+			weapprof	= ~0 1 1 0 1 0 0 1 0 1 1 0 0 1 1 1 0 1 0 0 0 0 1 1 0 1 1 1 1 1 1 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 9 0 0 0 0~
+			abclsmod	= ~-1 1 0 0 0 0~
+			abdcdsrq	= ~0 17 0 0 0 0~
+			abdcscrq	= ~0 15 0 0 0 0~
+			alignmnt	= ~0 0 0 0 1 1 0 1 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Th0~
+			stweap	= ~LEAT14 * * BAG28 RING06 RING05,10 * BOOT02 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 DAGG12 SW1H28 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABTH10.2DA~
+			kittable	= ~K_T_HL K_T_HE K_T_G~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPROG~
+			numwslot	= ~2~
+			clascolr	= ~24 99 169 169 2 93~
+			bdstweap	= ~LEAT05 * * * * * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN36,1 * BOW06 DAGG02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPBURG1.spl~	~override~
+
+	COPY ~TDD/_Kits/SPL/SPBURG2.spl~	~override~
+		SAY NAME1 @21751
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Plane
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 4	// THIEF
+			mixed		= RESOLVE_STR_REF(@21752)
+			lower		= RESOLVE_STR_REF(@217520)
+			help		= RESOLVE_STR_REF(@21753)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21753)
+		STR_VAR
+			kit_name	= ~TDD_Plane~
+			unusable	= ~0X00040000~
+			clasweap	= ~1 0 1 0 0 0 0 0~
+			weapprof	= ~0 1 0 0 1 0 0 0 0 0 1 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 9 0 0 0 12~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~0 17 0 0 0 0~
+			abdcscrq	= ~0 15 0 0 0 0~
+			alignmnt	= ~0 1 0 0 1 0 0 1 0~
+			dualclas	= ~1 1 1 0 0 0~
+			luabbr	= ~Th0~
+			stweap	= ~LEAT14 * * BAG28 RING06 RING05,10 * BOOT02 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 DAGG12 SW1H28 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABTH11.2DA~
+			kittable	= ~K_T_HL K_T_HE K_T_E K_T_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPROG~
+			numwslot	= ~2~
+			clascolr	= ~24 99 169 169 2 93~
+			bdstweap	= ~LEAT05 * * * * * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN36,1 * BOW06 DAGG02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPPLAN1.spl~	~override~
+		SAY NAME1 @21754
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Thug
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 4	// THIEF
+			mixed		= RESOLVE_STR_REF(@21755)
+			lower		= RESOLVE_STR_REF(@217550)
+			help		= RESOLVE_STR_REF(@21756)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21756)
+		STR_VAR
+			kit_name	= ~TDD_Thug~
+			unusable	= ~0X00040000~
+			clasweap	= ~1 0 1 1 1 0 0 0~
+			weapprof	= ~0 2 2 0 2 0 0 2 0 2 2 0 0 2 2 3 0 2 0 0 0 0 2 1 1 1 1 1 2 2 2 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 9 0 0 0 0~
+			abclsmod	= ~0 0 0 0 0 -6~
+			abdcdsrq	= ~0 17 0 0 0 0~
+			abdcscrq	= ~0 15 0 0 0 0~
+			alignmnt	= ~0 0 0 0 0 1 0 0 1~
+			dualclas	= ~1 1 1 0 0 0~
+			luabbr	= ~Th0~
+			stweap	= ~LEAT14 * * BAG28 RING06 RING05,10 * BOOT02 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 DAGG12 SW1H28 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABTH12.2DA~
+			kittable	= ~K_T_HO K_T_HL K_T_HE K_T_E K_T_G K_T_D K_T_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPROG~
+			numwslot	= ~2~
+			clascolr	= ~24 99 169 169 2 93~
+			bdstweap	= ~LEAT05 * * * * * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN36,1 * BOW06 DAGG02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPTHUG1.spl~	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Huntsman
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 4	// THIEF
+			mixed		= RESOLVE_STR_REF(@21757)
+			lower		= RESOLVE_STR_REF(@217570)
+			help		= RESOLVE_STR_REF(@21758)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21758)
+		STR_VAR
+			kit_name	= ~TDD_Huntsman~
+			unusable	= ~0X00040000~
+			clasweap	= ~1 0 1 1 1 0 0 0~
+			weapprof	= ~0 1 2 0 1 0 0 2 0 1 1 0 0 1 1 1 0 1 0 0 0 0 1 2 0 2 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 9 0 0 0 0~
+			abclsmod	= ~-1 1 0 0 0 -3~
+			abdcdsrq	= ~0 17 0 0 0 0~
+			abdcscrq	= ~0 15 0 0 0 0~
+			alignmnt	= ~0 1 1 0 1 1 0 1 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Th0~
+			stweap	= ~LEAT14 * * BAG28 RING06 RING05,10 * BOOT02 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 DAGG12 SW1H28 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABTH13.2DA~
+			kittable	= ~K_T_E~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPROG~
+			numwslot	= ~2~
+			clascolr	= ~24 99 169 169 2 93~
+			bdstweap	= ~LEAT05 * * * * * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN36,1 * BOW06 DAGG02~
+		RET
+			kit_id
+	END
+	END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Delver
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 4	// THIEF
+			mixed		= RESOLVE_STR_REF(@21759)
+			lower		= RESOLVE_STR_REF(@217590)
+			help		= RESOLVE_STR_REF(@21760)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21760)
+		STR_VAR
+			kit_name	= ~TDD_Delver~
+			unusable	= ~0X00100000~
+			clasweap	= ~1 0 1 1 1 0 0 0~
+			weapprof	= ~0 3 3 0 3 0 0 3 0 3 3 0 0 3 3 3 0 3 0 0 0 0 3 3 0 3 3 3 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~14 9 0 9 0 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~0 17 0 0 0 0~
+			abdcscrq	= ~0 15 0 0 0 0~
+			alignmnt	= ~1 1 1 1 1 1 1 1 1~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Th0~
+			stweap	= ~LEATH14 * * BAG30 RING06 RING34 CLCK02 BOOT01 AMUL19 BRAC16 BELT10 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 DAGG12 SW1H28 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABTH14.2DA~
+			kittable	= ~K_T_HO K_T_HE K_T_G K_T_D K_T_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPROG~
+			numwslot	= ~2~
+			clascolr	= ~24 99 169 169 2 93~
+			bdstweap	= ~LEAT05 * * * * * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN36,1 * BOW06 DAGG02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPDELV1.spl~	~override~
+		~TDD/_Kits/SPL/SPDELV5.spl~	~override~
+
+	COPY ~TDD/_Kits/SPL/SPDELV2.spl~	~override~
+		SAY NAME1 @21761
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Merchant
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 4	// THIEF
+			mixed		= RESOLVE_STR_REF(@217610)
+			lower		= RESOLVE_STR_REF(@217611)
+			help		= RESOLVE_STR_REF(@21762)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21762)
+		STR_VAR
+			kit_name	= ~TDD_Merchant~
+			unusable	= ~0X00100000~
+			clasweap	= ~1 0 1 1 1 0 0 0~
+			weapprof	= ~0 1 1 0 0 0 0 1 0 0 1 0 0 1 0 1 0 0 0 0 0 0 0 2 0 1 1 2 1 1 2 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 9 0 13 0 13~
+			abclsmod	= ~-1 0 0 0 0 0~
+			abdcdsrq	= ~0 17 0 0 0 0~
+			abdcscrq	= ~0 15 0 0 0 0~
+			alignmnt	= ~0 1 1 0 1 1 0 1 1~
+			dualclas	= ~1 1 1 0 0 0~
+			luabbr	= ~Th0~
+			stweap	= ~LEATH14 * * BAG30 RING06 RING34 CLCK02 BOOT01 AMUL19 BRAC16 BELT10 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 DAGG12 SW1H28 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABTH15.2DA~
+			kittable	= ~K_T_HO K_T_HE K_T_G K_T_D K_T_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPROG~
+			numwslot	= ~2~
+			clascolr	= ~24 99 169 169 2 93~
+			bdstweap	= ~LEAT05 * * * * * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN36,1 * BOW06 DAGG02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPMERC1.spl~	~override~
+		SAY NAME1 @21763
+
+	COPY ~TDD/_Kits/SPL/SPMERC2.spl~	~override~
+		SAY NAME1 @21764
+
+	COPY ~TDD/_Kits/SPL/SPMERC3.spl~	~override~
+
+	COPY ~TDD/_Kits/ITM/SGBAG04.itm~	~override~
+		SAY NAME1 @21765
+		SAY NAME2 @21765
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Swindler
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 4	// THIEF
+			mixed		= RESOLVE_STR_REF(@21766)
+			lower		= RESOLVE_STR_REF(@217660)
+			help		= RESOLVE_STR_REF(@21767)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21767)
+		STR_VAR
+			kit_name	= ~TDD_Swindler~
+			unusable	= ~0X00080000~
+			clasweap	= ~1 0 1 1 1 0 1 0~
+			weapprof	= ~0 1 1 0 1 0 1 1 0 1 1 0 0 1 1 1 0 1 0 0 0 0 1 1 0 0 1 1 1 1 1 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 14 0 14 0 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~0 17 0 0 0 0~
+			abdcscrq	= ~0 15 0 0 0 0~
+			alignmnt	= ~1 1 1 1 1 1 1 1 1~
+			dualclas	= ~1 1 1 0 0 0~
+			luabbr	= ~Th0~
+			stweap	= ~LEAT14 * * BAG28 RING06 RING05,10 * BOOT02 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 DAGG12 SW1H28 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABTH16.2DA~
+			kittable	= ~K_T_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPROG~
+			numwslot	= ~2~
+			clascolr	= ~24 99 169 169 2 93~
+			bdstweap	= ~LEAT05 * * * * * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN36,1 * BOW06 DAGG02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPSWIND1.spl~	~override~
+		SAY NAME1 @21628
+
+	COPY ~TDD/_Kits/SPL/SPSWIND2.spl~	~override~
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallNotVisibleNPCKits
+BEGIN
+	LAF a7#add_kit_ex#split STR_VAR string = EVAL ~%kittable%~ RET items RET_ARRAY items END
+	OUTER_SET i = (items > 0 && ($items(~0~) STR_EQ ~%kit_name%~ || $items(~0~) STR_EQ ~%kit_class_name%~)) ? 1 : 0
+	OUTER_FOR (; i < items; ++i) BEGIN
+		OUTER_TEXT_SPRINT resref $items(~%i%~)
+		// ensure table exists
+		OUTER_SET def_items = 1
+		OUTER_TEXT_SPRINT $def_items(~0~) ~1 0~
+		LAF a7#add_kit_ex#create_2da
+		STR_VAR
+			resref
+			default = ~*~
+			columns = ~KIT~
+			items = ~def_items~
+		RET success
+		END
+		// adding kittable entry
+		ACTION_IF (success) BEGIN
+			LAF a7#add_kit_ex#next_row STR_VAR resref RET index END
+			OUTER_SET index += 1
+			OUTER_TEXT_SPRINT line ~%index% %kit_id%~
+			APPEND ~%resref%.2DA~ ~%line%~ UNLESS ~^[ %TAB%]*[0-9]+[ %TAB%]+%kit_id%[ %TAB%%MNL%]*$~
+			ACTION_TO_UPPER ~resref~
+			ACTION_DEFINE_ASSOCIATIVE_ARRAY tables_modified BEGIN ~%resref%~ => 1 END
+		END ELSE BEGIN
+			LAF a7#add_kit_ex#print_message INT_VAR severity = 2 STR_VAR msg = EVAL ~Could not add kit reference to %resref%.2DA.~ END
+		END
+		ACTION_PHP_EACH tables_modified AS resref => _ BEGIN
+			COPY_EXISTING ~%resref%.2DA~ ~override~	PRETTY_PRINT_2DA BUT_ONLY IF_EXISTS
+		END
+	END
+END	

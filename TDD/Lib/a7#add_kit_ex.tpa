@@ -1675,6 +1675,7 @@ STR_VAR
   bdstweap      = ~~
 RET
   kit_id
+  kittable
 BEGIN
   OUTER_SET kit_id = "-1"
 
