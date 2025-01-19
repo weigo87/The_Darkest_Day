@@ -1,0 +1,80 @@
+RESNAME 	NAME1	NAME2	DEATHVAR	S_OVERRIDE	S_CLASS		S_RACE		S_GENERAL	S_DEFAULT	DIALOGUE	PORTRAIT 	XP		COMMENTS
+
+ANGOL01		20130	20130	+			GENSHT01	+			+			+			WDASIGHT	+			+
+ANGOL02		20130	20130	+			GENSHT01	+			+			+			WDASIGHT	+			+
+ANGOL03		20130	20130	+			GENSHT01	+			+			+			WDASIGHT	+			+
+ANGOL04		20130	20130	+			GENSHT01	+			+			+			WDASIGHT	+			+
+DRAGUND		20294	20294	+			+			MINTDRAG	+			+			WTASIGHT	+			+
+JARLAX01	20250	20250	Solaufein	+			dwPlot		udsola01	+			SAFESITE	udsola01	+
+SHADELD						shadeld		+			SHADEL		+			+			DPLAYER		+			+
+
+//don't exist in setup-tdd
+DDCHILD1					DDCHILD1	SHOUT		+			RUNENEMY	+			WDRUNSGT	+			+
+DDRIL01						DDRIL01		+			+			+			+			+			+			+
+MUMX1		+		+		Mummy		MUMMY		+			+			+			WTASIGHT	MUMMY		+
+psihall3					HALLTALK	+			PSICERE		+			+			+			+			+
+
+
+//SPMI110
+ARMY1		20133	20133	+			+			+			+			+			WTARSGT		+			+
+ARMY2		20133	20133	+			+			WTASIGHT	+			+			+			+			+
+ARMY3		20133	20133	+			+			+			+			+			DUEWAR01	+			+
+ARMY4		20133	20133	+			+			+			+			WTASIGHT	+			+			+
+
+//SPMI111
+CORPMINI	20221	20221	+			+			+			+			+			+			+			+
+
+//SPPR521 TZPR521 //Summon Natures Ally V
+CHETAH1		+		+		+			GENSHT01	+			HUNTER		+			WTASIGHT	+			+
+CHETAH2		+		+		+			GENSHT01	+			HUNTER		+			WTASIGHT	+			+
+GRIZZ1		+		+		+			SUMSHT02	+			BEAR		HUNTER		WDASIGHT	+			+
+GRIZZ2		+		+		+			SUMSHT02	+			BEAR		HUNTER		WDASIGHT	+			+
+JAG1		+		+		+			GENSHT01	+			HUNTER		+			WTASIGHT	+			+
+JAG2		+		+		+			GENSHT01	+			HUNTER		+			WTASIGHT	+			+
+LEOPARD1	+		+		+			GENSHT01	+			HUNTER		+			WTASIGHT	+			+
+LEOPARD2	+		+		+			GENSHT01	+			HUNTER		+			WTASIGHT	+			+
+LION1		+		+		+			+			+			HUNTER		+			WTASIGHT	+			+
+LION2		+		+		+			+			+			HUNTER		+			WTASIGHT	+			+
+TIGER1		+		+		+			GENSHT01	+			+			+			WTASIGHT	+			+
+TIGER2		+		+		+			GENSHT01	+			+			+			WTASIGHT	+			+
+
+
+//SPMI123
+DREADX		20295	20295	+			+			+			+			+			dreadw		zombie		+
+
+//SPMI115
+GENOGENI	20320	20320	genogeni	+			+			+			+			GENOGENI	GENOGENI	+
+
+//SPPR529 TZPR529
+HAMMER		20323	20323	+			+			+			+			+			WTASIGHT	+			+
+
+//SPWI726 TZWI726
+MINAT		20340	20340	0			+			+			OGRE		+			WTASIGHT	+			+
+
+//SPWI819
+ORCSUM		+		+		+			GENSHT01	+			ORCWAR		+			WTARSGT		+			+
+ORCSUM2		+		+		firarc01	+			+			+			+			WTASIGHT	+			+
+
+//SPMI113
+PHANTOMA	20357	20357	+			+			+			+			+			PHANTOMA	+			+
+
+//SPMI133 Otilukes Leuchtkugel
+RADIENT1	20419	20419	+			+			+			+			+			radient1	+			+
+RADIENT2	20419	20419	+			+			+			+			+			radient2	+			+
+RADIENT3	20419	20419	+			+			+			+			+			radient3	+			+
+RADIENT4	20419	20419	+			+			+			+			+			radient4	+			+
+
+//SPPR523 TZPR523 Wahrsagen
+SCRY		20439	20439	wizeye		wizeye		+			+			+			+			+			+
+
+//SPPR748 SPSHAR2
+SPECX1		+		+		shadow01	GENSHT01	+			+			+			WTASIGHT	+			+
+
+//SPPR615
+STONESER	20452	20452	+			GENSHT01	+			+			+			WDASIGHT	+			+
+
+//SPWI225
+TORMENT		20458	20458	+			SHDWKILL	GENSHT01	+			+			WTASIGHT	+			+
+
+//SPPR748 
+VAMQ1		+		+		+			+			+			+			VAMPIR01	+			+			+

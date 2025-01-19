@@ -16,7 +16,7 @@ THEN
     CreateCreature("riat03",[639.856],0)
     CreateCreature("riat04",[695.708],0)
     CreateCreature("riat05",[844.824],0)
-    ApplySpell(Player1,1964)
+    ApplySpell(Player1,1964)	// we don't know 1964 SPPR964
     Explore()
     MoveViewPoint([765.772],INSTANT)
     FadeFromColor([30.0],0)

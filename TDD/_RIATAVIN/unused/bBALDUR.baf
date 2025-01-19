@@ -1,0 +1,18 @@
+IF
+	Global("tz_bgarival","GLOBAL",3)
+	GlobalTimerExpired("tz_RiatavinPlague","GLOBAL")
+THEN
+	RESPONSE #100
+		StartCutSceneMode()
+		StartCutScene("Riatplag")
+		SetGlobal("tz_bgarival","GLOBAL",4)
+END
+
+IF
+	Global("riatslay","GLOBAL",1)
+THEN
+	RESPONSE #100
+		StartCutSceneMode()
+		StartCutScene("riatslay")
+		SetGlobal("tz_riatslay","GLOBAL",2)
+END

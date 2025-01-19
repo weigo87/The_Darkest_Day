@@ -41,6 +41,6 @@ THEN
     RestorePartyLocations()
     MultiPlayerSync()
     EndCutSceneMode()
-    SetGlobal("riatslay","GLOBAL",1)
+    SetGlobal("tz_riatslay","GLOBAL",1)
 END
 
