@@ -129,17 +129,13 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPCLMH1.spl~	~override~
-		~TDD/_Kits/SPL/SPCLMH2.spl~	~override~
-		~TDD/_Kits/SPL/SPCLMH3.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPCLMH1.spl~ ~override~
+		~TDD/_Kits/SPL/SPCLMH2.spl~ ~override~
+		~TDD/_Kits/SPL/SPCLMH3.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPMH701.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPMH701.spl~ ~override~
 		SAY NAME1 @21471
 		SAY 0x24e @21472
-	
-	COPY ~TDD/_Kits/ITM/MHSWD.itm~  	~override~
-		SAY NAME2 @20051
-		SAY DESC @21473
 	
 	APPEND ~LAYHANDS.2DA~
 		~Mage_Hunter 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100~
@@ -187,33 +183,33 @@ BEGIN
 	END
 //	COMPILE ~TDD/KITSNIP/bsinger.baf~
 
-	COPY ~TDD/_Kits/SPL/SPBSAL.spl~      		~TDD-SPL~  //XP bonus 200%
-		~TDD/_Kits/SPL/SPBSBL.spl~      		~TDD-SPL~  //XP bonus 50%
+	COPY ~TDD/_Kits/SPL/SPBSAL.spl~ ~override~  //XP bonus 200%
+		~TDD/_Kits/SPL/SPBSBL.spl~ ~override~  //XP bonus 50%
 		SAY NAME1 @21474
 		SAY 0xce @21474
 		SAY 0xfe @21474
 	
-	COPY ~TDD/_Kits/SPL/SPBS6.spl~       		~TDD-SPL~   //Parry move
+	COPY ~TDD/_Kits/SPL/SPBS6.spl~ ~override~   //Parry move
 		SAY NAME1 @21476
 	
-	COPY ~TDD/_Kits/SPL/SPBS14.spl~      		~TDD-SPL~  //THAC0 -5 + casts spell SPSB15
+	COPY ~TDD/_Kits/SPL/SPBS14.spl~ ~override~  //THAC0 -5 + casts spell SPSB15
 		SAY NAME1 @21477
 	
-	COPY ~TDD/_Kits/SPL/SPBS15.spl~      		~TDD-SPL~
+	COPY ~TDD/_Kits/SPL/SPBS15.spl~ ~override~
 		SAY NAME1 @21478
 	
-	COPY ~TDD/_Kits/SPL/SPBS11.spl~      		~TDD-SPL~  //casting speed -2
+	COPY ~TDD/_Kits/SPL/SPBS11.spl~ ~override~  //casting speed -2
 	
-	COPY ~TDD/_Kits/SPL/SPBS7.spl~       		~TDD-SPL~  //attack damage +1,  max HP -14, THAC0 +1 - switching to FIGHTER_MAGE at lvl 8
+	COPY ~TDD/_Kits/SPL/SPBS7.spl~ ~override~  //attack damage +1,  max HP -14, THAC0 +1 - switching to FIGHTER_MAGE at lvl 8
 		SAY 0x15e @21474
 		SAY 0x18e @21474
 
 //*******************************************
 //following spells used by numerous kits
 //*******************************************
-	COPY ~TDD/_Kits/SPL/SPBS1.spl~       		~TDD-SPL~    //bonus to THAC0 +2
-	COPY ~TDD/_Kits/SPL/SPBS3.spl~       		~TDD-SPL~    //create shadows spell
-	COPY ~TDD/_Kits/SPL/SPBS4.spl~       		~TDD-SPL~    //magic missile spell
+	COPY ~TDD/_Kits/SPL/SPBS1.spl~ ~override~    //bonus to THAC0 +2
+	COPY ~TDD/_Kits/SPL/SPBS3.spl~ ~override~    //create shadows spell
+	COPY ~TDD/_Kits/SPL/SPBS4.spl~ ~override~    //magic missile spell
 END
 
 //=============================================================================
@@ -253,14 +249,14 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPFR1.spl~  	~override~
-		~TDD/_Kits/SPL/SPFR4.spl~  	~override~
-		~TDD/_Kits/SPL/SPFR5.spl~  	~override~
+	COPY ~TDD/_Kits/SPL/SPFR1.spl~ ~override~
+		~TDD/_Kits/SPL/SPFR4.spl~ ~override~
+		~TDD/_Kits/SPL/SPFR5.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPFR2.spl~  	~override~
+	COPY ~TDD/_Kits/SPL/SPFR2.spl~ ~override~
 		SAY NAME1 @20863
 
-	COPY ~TDD/_Kits/SPL/SPFR3.spl~  	~override~
+	COPY ~TDD/_Kits/SPL/SPFR3.spl~ ~override~
 		SAY NAME1 @20819
 END
 
@@ -301,15 +297,11 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPVAMH1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPVAMH1.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPVAMH2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPVAMH2.spl~ ~override~
 		SAY NAME1 @21483
 
-
-	COPY ~TDD/_Kits/ITM/VHUNTZ1.itm~	~override~
-		SAY NAME2 @21483
-		SAY DESC @21484
 END
 
 //=============================================================================
@@ -349,29 +341,15 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPMARK1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPMARK1.spl~ ~override~
 		SAY NAME1 @21487
 
-	COPY ~TDD/_Kits/SPL/SPMARK2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPMARK2.spl~ ~override~
 		SAY NAME1 @20981
 
-	COPY ~TDD/_Kits/SPL/SPMARK3.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPMARK3.spl~ ~override~
 		SAY NAME1 @21488
 
-	COPY ~TDD/_Kits/ITM/ARMARK1.itm~	~override~
-		SAY NAME1 @21489
-		SAY NAME2 @21487
-		SAY DESC @21490
-
-	COPY ~TDD/_Kits/ITM/ARMARK2.itm~	~override~
-		SAY NAME1 @21489
-		SAY NAME2 @20981
-		SAY DESC @21491
-
-	COPY ~TDD/_Kits/ITM/ARMARK3.itm~	~override~
-		SAY NAME1 @21489
-		SAY NAME2 @21488
-		SAY DESC @21492
 END
 
 //=============================================================================
@@ -411,7 +389,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPSELL2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSELL2.spl~ ~override~
 END
 
 //=============================================================================
@@ -451,7 +429,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	END
+END
 
 //=============================================================================
 DEFINE_ACTION_MACRO InstallKitTDD_Pit
@@ -490,7 +468,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPPIT1.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPPIT1.spl~ ~override~
 END
 
 //=============================================================================
@@ -530,7 +508,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPDUER1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPDUER1.spl~ ~override~
 		SAY NAME1 @21501
 END
 
@@ -571,7 +549,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPGUAR1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPGUAR1.spl~ ~override~
 END
 
 //=============================================================================
@@ -611,7 +589,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	END
+END
 
 //=============================================================================
 DEFINE_ACTION_MACRO InstallKitTDD_Drowf
@@ -650,7 +628,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	END
+END
 
 //=============================================================================
 DEFINE_ACTION_MACRO InstallKitTDD_Drowb
@@ -732,12 +710,8 @@ BEGIN
 	ACTION_IF (kit_id >= 0) BEGIN
 		LAM InstallNotVisibleNPCKits
 	END
-	COPY ~TDD/_Kits/SPL/TROLLSL1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/TROLLSL1.spl~ ~override~
 
-
-	COPY ~TDD/_Kits/ITM/TROLLSL.itm~	~override~
-		SAY NAME2 @21509
-		SAY DESC @21511
 END
 
 //=============================================================================
@@ -777,7 +751,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPFG1.spl~  	~override~
+	COPY ~TDD/_Kits/SPL/SPFG1.spl~ ~override~
 		SAY NAME1 @21514
 END
 
@@ -818,9 +792,9 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPBRE1.spl~ 	~override~
-		~TDD/_Kits/SPL/SPBRE2.spl~ 	~override~
-		~TDD/_Kits/SPL/SPBRE3.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPBRE1.spl~ ~override~
+		~TDD/_Kits/SPL/SPBRE2.spl~ ~override~
+		~TDD/_Kits/SPL/SPBRE3.spl~ ~override~
 END
 
 //=============================================================================
@@ -903,10 +877,10 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPTACT1.spl~	~override~
-		~TDD/_Kits/SPL/SPTACT2.spl~	~override~
-		~TDD/_Kits/SPL/SPTACT3.spl~	~override~
-		~TDD/_Kits/SPL/SPTACT4.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPTACT1.spl~ ~override~
+		~TDD/_Kits/SPL/SPTACT2.spl~ ~override~
+		~TDD/_Kits/SPL/SPTACT3.spl~ ~override~
+		~TDD/_Kits/SPL/SPTACT4.spl~ ~override~
 END
 
 //=============================================================================
@@ -989,12 +963,12 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPRHYTH2.spl~	~override~
-		~TDD/_Kits/SPL/SPRHYTH3.spl~	~override~
-		~TDD/_Kits/SPL/SPRHYTH4.spl~	~override~
-		~TDD/_Kits/SPL/SPRHYTH5.spl~	~override~
-		~TDD/_Kits/SPL/SPRHYTH6.spl~	~override~
-		~TDD/_Kits/SPL/SPRHYTH7.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPRHYTH2.spl~ ~override~
+		~TDD/_Kits/SPL/SPRHYTH3.spl~ ~override~
+		~TDD/_Kits/SPL/SPRHYTH4.spl~ ~override~
+		~TDD/_Kits/SPL/SPRHYTH5.spl~ ~override~
+		~TDD/_Kits/SPL/SPRHYTH6.spl~ ~override~
+		~TDD/_Kits/SPL/SPRHYTH7.spl~ ~override~
 END
 
 //=============================================================================
@@ -1034,13 +1008,10 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPVIND1.spl~	~override~
-		~TDD/_Kits/SPL/SPVIND2.spl~	~override~
-		~TDD/_Kits/SPL/SPVIND3.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPVIND1.spl~ ~override~
+		~TDD/_Kits/SPL/SPVIND2.spl~ ~override~
+		~TDD/_Kits/SPL/SPVIND3.spl~ ~override~
 
-	COPY ~TDD/_Kits/ITM/UNDSLAY.itm~	~override~
-		SAY NAME2 @21527
-		SAY DESC @21528
 END
 
 //=============================================================================
@@ -1080,10 +1051,10 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPHOL1.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPHOL1.spl~ ~override~
 		SAY NAME1 @20618 
 
-	COPY ~TDD/_Kits/SPL/SPHOL2.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPHOL2.spl~ ~override~
 		SAY NAME1 @21531
 		SAY 0xfe @21124
 END
@@ -1125,26 +1096,26 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPTIEF1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPTIEF1.spl~ ~override~
 		SAY NAME1 @21534
 		SAY 0xce @21535
 
-	COPY ~TDD/_Kits/SPL/SPTIEF2.spl~	~override~
-		~TDD/_Kits/SPL/SPTIEF5.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPTIEF2.spl~ ~override~
+		~TDD/_Kits/SPL/SPTIEF5.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPTIEF3.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPTIEF3.spl~ ~override~
 		SAY NAME1 @21536
 		SAY 0x1ee @21537
 		SAY 0x21e @21538
 		SAY 0x24e @21539
 
-	COPY ~TDD/_Kits/SPL/SPTIEF4.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPTIEF4.spl~ ~override~
 		SAY NAME1 @21540
 		SAY 0x12e @21541
 		SAY 0x1be @21542
 		SAY 0x24e @21543
 
-	COPY ~TDD/_Kits/SPL/SPTIEF6.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPTIEF6.spl~ ~override~
 		SAY NAME1 @21544
 		SAY 0x12e @21545
 		SAY 0x1be @21546
@@ -1188,7 +1159,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPAMAZ01.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPAMAZ01.spl~ ~override~
 		SAY NAME1 @21550
 END
 
@@ -1229,8 +1200,8 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPBAX3.spl~ 	~override~
-		~TDD/_Kits/SPL/SPBAX3A.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPBAX3.spl~ ~override~
+		~TDD/_Kits/SPL/SPBAX3A.spl~ ~override~
 END
 
 //=============================================================================
@@ -1270,10 +1241,10 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPBAX1.spl~ 	~override~
-		~TDD/_Kits/SPL/SPBAX1A.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPBAX1.spl~ ~override~
+		~TDD/_Kits/SPL/SPBAX1A.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPCRON1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPCRON1.spl~ ~override~
 END
 
 //=============================================================================
@@ -1313,10 +1284,10 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPMIN1.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPMIN1.spl~ ~override~
 		SAY NAME1 @21557 
 
-	COPY ~TDD/_Kits/SPL/SPMIN2.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPMIN2.spl~ ~override~
 END
 
 //=============================================================================
@@ -1356,8 +1327,8 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPBAX4.spl~ 	~override~
-		~TDD/_Kits/SPL/SPBAX4A.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPBAX4.spl~ ~override~
+		~TDD/_Kits/SPL/SPBAX4A.spl~ ~override~
 END
 
 //=============================================================================
@@ -1436,16 +1407,16 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPBAX2.spl~ 	~override~
-		~TDD/_Kits/SPL/SPBAX2A.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPBAX2.spl~ ~override~
+		~TDD/_Kits/SPL/SPBAX2A.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPMUS1.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPMUS1.spl~ ~override~
 		SAY NAME1 @21564
 
-	COPY ~TDD/_Kits/SPL/SPMUS2.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPMUS2.spl~ ~override~
 		SAY NAME1 @21565
 
-	COPY ~TDD/_Kits/SPL/SPMUS3.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPMUS3.spl~ ~override~
 		SAY NAME1 @21566
 END
 
@@ -1486,14 +1457,14 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPSHAM1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSHAM1.spl~ ~override~
 		SAY NAME1 @21569
 
-	COPY ~TDD/_Kits/SPL/SPSHAM2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSHAM2.spl~ ~override~
 		SAY NAME1 @20067
 
-	COPY ~TDD/_Kits/SPL/SPSHAM3.spl~	~override~
-		~TDD/_Kits/SPL/SPSHAM4.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSHAM3.spl~ ~override~
+		~TDD/_Kits/SPL/SPSHAM4.spl~ ~override~
 END
 
 //=============================================================================
@@ -1533,12 +1504,12 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPSHAD1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSHAD1.spl~ ~override~
 		SAY NAME1 @21572
 
-	COPY ~TDD/_Kits/SPL/SPSHAD2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSHAD2.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPSHAD3.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSHAD3.spl~ ~override~
 		SAY NAME1 @21573
 		SAY 0xce @21574
 END
@@ -1580,9 +1551,9 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPAER1.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPAER1.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPAER2.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPAER2.spl~ ~override~
 		SAY NAME1 @21577
 END
 
@@ -1628,12 +1599,10 @@ BEGIN
 		LAM InstallNotVisibleNPCKits
 	END
 	
-	COPY ~TDD/_Kits/SPL/SPAQUA2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPAQUA2.spl~ ~override~
 		SAY NAME1 @21580
 
-	COPY ~TDD/_Kits/SPL/SPAQUQ3.spl~	~override~
-
-	COPY ~TDD/_Kits/ITM/SEAHAND.itm~	~override~
+	COPY ~TDD/_Kits/SPL/SPAQUQ3.spl~ ~override~
 		
 END
 
@@ -1674,7 +1643,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	END
+END
 
 //=============================================================================
 DEFINE_ACTION_MACRO InstallKitTDD_Dream
@@ -1713,9 +1682,9 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPDREAM1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPDREAM1.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPDREAM2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPDREAM2.spl~ ~override~
 END
 
 //=============================================================================
@@ -1755,17 +1724,17 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/PALREP.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/PALREP.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPPAL1.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPPAL1.spl~ ~override~
 		SAY NAME1 @21587
 
-	COPY ~TDD/_Kits/SPL/SPPAL10.spl~	~override~
-		~TDD/_Kits/SPL/SPPAL11.spl~	~override~
-		~TDD/_Kits/SPL/SPPAL14.spl~	~override~
-		~TDD/_Kits/SPL/SPPAL9.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPPAL10.spl~ ~override~
+		~TDD/_Kits/SPL/SPPAL11.spl~ ~override~
+		~TDD/_Kits/SPL/SPPAL14.spl~ ~override~
+		~TDD/_Kits/SPL/SPPAL9.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPPAL13.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPPAL13.spl~ ~override~
 		SAY NAME1 @21588
 		SAY 0x64e @21589
 		SAY 0x6de @21589
@@ -1802,38 +1771,34 @@ BEGIN
 		SAY 0x184e @21589
 		SAY 0x18de @21589
 
-	COPY ~TDD/_Kits/SPL/SPPAL2.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPPAL2.spl~ ~override~
 		SAY NAME1 @21590
 
-	COPY ~TDD/_Kits/SPL/SPPAL3.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPPAL3.spl~ ~override~
 		SAY NAME1 @21591
 		SAY 0x15e @20508
 
-	COPY ~TDD/_Kits/SPL/SPPAL4.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPPAL4.spl~ ~override~
 		SAY NAME1 @21592
 		SAY 0x15e @20508
 
-	COPY ~TDD/_Kits/SPL/SPPAL5.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPPAL5.spl~ ~override~
 		SAY NAME1 @21593
 		SAY 0x6be @20077
 		SAY 0x7de @21594
 		SAY 0xa1e @21594
 		SAY 0xb3e @21595
 
-	COPY ~TDD/_Kits/SPL/SPPAL6.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPPAL6.spl~ ~override~
 		SAY NAME1 @21596
 		SAY 0xce @21597
 
-	COPY ~TDD/_Kits/SPL/SPPAL7.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPPAL7.spl~ ~override~
 		SAY NAME1 @21598
 
-	COPY ~TDD/_Kits/SPL/SPPAL8.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPPAL8.spl~ ~override~
 		SAY NAME1 @21599
 
-	COPY ~TDD/_Kits/ITM/ANTISW.itm~ 	~override~
-		SAY NAME1 @21600
-		SAY NAME2 @21601
-		SAY DESC @21602
 END
 
 //=============================================================================
@@ -1877,11 +1842,11 @@ BEGIN
 	ACTION_IF (kit_id >= 0) BEGIN
 		LAM InstallNotVisibleNPCKits
 	END
-	COPY ~TDD/_Kits/SPL/SPCERB1.spl~	~override~
-		~TDD/_Kits/SPL/SPCERB2.spl~	~override~
-		~TDD/_Kits/SPL/SPCERB3.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPCERB1.spl~ ~override~
+		~TDD/_Kits/SPL/SPCERB2.spl~ ~override~
+		~TDD/_Kits/SPL/SPCERB3.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPCERB4.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPCERB4.spl~ ~override~
 		SAY NAME1 @21605
 END
 
@@ -1922,7 +1887,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	END
+END
 
 //=============================================================================
 DEFINE_ACTION_MACRO InstallKitTDD_Dragon
@@ -1961,20 +1926,12 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPDRAG.spl~ 	~override~
-		~TDD/_Kits/SPL/SPDRAG2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPDRAG.spl~ ~override~
+		~TDD/_Kits/SPL/SPDRAG2.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPDRAG1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPDRAG1.spl~ ~override~
 		SAY NAME1 @21610
 
-	COPY ~TDD/_Kits/ITM/ARWDRAG.itm~	~override~
-		SAY NAME1 @21489
-		SAY NAME2 @21611
-		SAY DESC @21612
-
-	COPY ~TDD/_Kits/ITM/SWDRAGX.itm~	~override~
-		SAY NAME2 @21613
-		SAY DESC @21614
 END
 
 //=============================================================================
@@ -2014,9 +1971,9 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPDEM1.spl~ 	~override~
-		~TDD/_Kits/SPL/SPDEM2.spl~ 	~override~
-		~TDD/_Kits/SPL/SPDEM3.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPDEM1.spl~ ~override~
+		~TDD/_Kits/SPL/SPDEM2.spl~ ~override~
+		~TDD/_Kits/SPL/SPDEM3.spl~ ~override~
 END
 
 //=============================================================================
@@ -2056,7 +2013,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	END
+END
 
 //=============================================================================
 DEFINE_ACTION_MACRO InstallKitTDD_Dark
@@ -2095,10 +2052,10 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPDARKK1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPDARKK1.spl~ ~override~
 		SAY NAME1 @20584
 
-	COPY ~TDD/_Kits/SPL/SPDARKK2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPDARKK2.spl~ ~override~
 		SAY NAME1 @20588
 		SAY 0x1c6 @20590
 		SAY 0x286 @20590
@@ -2107,11 +2064,11 @@ BEGIN
 		SAY 0x4c6 @20590
 		SAY 0x586 @20590
 
-	COPY ~TDD/_Kits/SPL/SPDARKK3.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPDARKK3.spl~ ~override~
 		SAY NAME1 @20630
 		SAY 0x12e @21621
 
-	COPY ~TDD/_Kits/SPL/SPDARKK5.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPDARKK5.spl~ ~override~
 		SAY NAME1 @20058
 END
 
@@ -2152,7 +2109,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	END
+END
 
 //=============================================================================
 DEFINE_ACTION_MACRO InstallKitTDD_Selune
@@ -2192,25 +2149,25 @@ BEGIN
 			kit_id
 	END
 	                 
-	COPY ~TDD/_Kits/SPL/SPSE201.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSE201.spl~ ~override~
 		SAY NAME1 @21626
 
-	COPY ~TDD/_Kits/SPL/SPSE212.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSE212.spl~ ~override~
 		SAY NAME1 @21627
 
-	COPY ~TDD/_Kits/SPL/SPSE305.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSE305.spl~ ~override~
 		SAY NAME1 @21628
 
-	COPY ~TDD/_Kits/SPL/SPSE307.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSE307.spl~ ~override~
 		SAY NAME1 @21629 
 
-	COPY ~TDD/_Kits/SPL/SPSE408.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSE408.spl~ ~override~
 		SAY NAME1 @21630
 
-	COPY ~TDD/_Kits/SPL/SPSEL1.spl~ 	~override~
-		~TDD/_Kits/SPL/SPSEL2.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPSEL1.spl~ ~override~
+		~TDD/_Kits/SPL/SPSEL2.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPSEL3.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPSEL3.spl~ ~override~
 		SAY NAME1 @21631
 		SAY 0x196 @21632
 		SAY 0x1f6 @21632
@@ -2219,14 +2176,12 @@ BEGIN
 		SAY 0x316 @21632
 		SAY 0x376 @21632
 
-	COPY ~TDD/_Kits/SPL/SPSEL4.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPSEL4.spl~ ~override~
 		SAY NAME1 @21633
 
-	COPY ~TDD/_Kits/SPL/SPSEL5.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPSEL5.spl~ ~override~
 		SAY NAME1 @21634
 
-	COPY ~TDD/_Kits/ITM/MOONBS.itm~ 	~override~
-		SAY DESC @21635 
 END
 
 //=============================================================================
@@ -2266,33 +2221,32 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPMAL1.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPMAL1.spl~ ~override~
 		SAY NAME1 @21638
 
-	COPY ~TDD/_Kits/SPL/SPMAL2.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPMAL2.spl~ ~override~
 		SAY NAME1 @21639
 
-	COPY ~TDD/_Kits/SPL/SPMAL3.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPMAL3.spl~ ~override~
 		SAY NAME1 @21640
 		SAY 0x15e @21641
 
-	COPY ~TDD/_Kits/SPL/SPMAL4.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPMAL4.spl~ ~override~
 		SAY NAME1 @21642
 
-	COPY ~TDD/_Kits/SPL/SPMAL5.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPMAL5.spl~ ~override~
 		SAY NAME1 @21643
 		SAY 0x15e @20508
 
-	COPY ~TDD/_Kits/SPL/SPMAL6.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPMAL6.spl~ ~override~
 		SAY NAME1 @21644
 
-	COPY ~TDD/_Kits/SPL/SPMAL7.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPMAL7.spl~ ~override~
 		SAY NAME1 @21645
 
-	COPY ~TDD/_Kits/SPL/SPMAL8.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPMAL8.spl~ ~override~
 		SAY NAME1 @21646
 
-	COPY ~TDD/_Kits/ITM/BCLAW.itm~  	~override~
 END
 
 //=============================================================================
@@ -2332,21 +2286,18 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPAUR1.spl~ 	~override~
-		~TDD/_Kits/SPL/SPAUR2.spl~ 	~override~
-		~TDD/_Kits/SPL/SPAUR3.spl~ 	~override~
-		~TDD/_Kits/SPL/SPAUR7.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPAUR1.spl~ ~override~
+		~TDD/_Kits/SPL/SPAUR2.spl~ ~override~
+		~TDD/_Kits/SPL/SPAUR3.spl~ ~override~
+		~TDD/_Kits/SPL/SPAUR7.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPAUR4.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPAUR4.spl~ ~override~
 		SAY NAME1 @20591
 
-	COPY ~TDD/_Kits/SPL/SPAUR6.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPAUR6.spl~ ~override~
 		SAY NAME1 @21649
 		SAY 0xce @21650
 
-
-	COPY ~TDD/_Kits/ITM/AURHAND.itm~	~override~
-		SAY 0x13e @21651
 END
 
 //=============================================================================
@@ -2386,26 +2337,26 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPWAR1.spl~ 	~override~         
+	COPY ~TDD/_Kits/SPL/SPWAR1.spl~ ~override~         
 		SAY NAME1 @21654
 
-	COPY ~TDD/_Kits/SPL/SPWAR2.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPWAR2.spl~ ~override~
 		SAY NAME1 @21655
 		SAY 0x18e @21656
 
-	COPY ~TDD/_Kits/SPL/SPWAR3.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPWAR3.spl~ ~override~
 		SAY NAME1 @20875
 
-	COPY ~TDD/_Kits/SPL/SPWAR4.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPWAR4.spl~ ~override~
 		SAY NAME1 @21657
 
-	COPY ~TDD/_Kits/SPL/SPWAR5.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPWAR5.spl~ ~override~
 		SAY NAME1 @20069
 
-	COPY ~TDD/_Kits/SPL/SPWAR6.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPWAR6.spl~ ~override~
 		SAY NAME1 @21658
 
-	COPY ~TDD/_Kits/SPL/SPWAR7.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPWAR7.spl~ ~override~
 END
 
 //=============================================================================
@@ -2445,7 +2396,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	END
+END
 
 //=============================================================================
 DEFINE_ACTION_MACRO InstallKitTDD_Drowc
@@ -2484,7 +2435,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	END
+END
 
 //=============================================================================
 DEFINE_ACTION_MACRO InstallKitTDD_Silvan
@@ -2523,25 +2474,25 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPSYLV1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSYLV1.spl~ ~override~
 		SAY NAME1 @21665
 
-	COPY ~TDD/_Kits/SPL/SPSYLV2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSYLV2.spl~ ~override~
 		SAY NAME1 @21666
 
-	COPY ~TDD/_Kits/SPL/SPSYLV3.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSYLV3.spl~ ~override~
 		SAY NAME1 @21667
 
-	COPY ~TDD/_Kits/SPL/SPSYLV4.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSYLV4.spl~ ~override~
 		SAY NAME1 @21668
 
-	COPY ~TDD/_Kits/SPL/SPSYLV5.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSYLV5.spl~ ~override~
 		SAY NAME1 @21669
 
-	COPY ~TDD/_Kits/SPL/SPSYLV6.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSYLV6.spl~ ~override~
 		SAY NAME1 @21670
 
-	COPY ~TDD/_Kits/SPL/SPSYLV7.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSYLV7.spl~ ~override~
 END
 
 //=============================================================================
@@ -2581,13 +2532,13 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPTYB1.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPTYB1.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPTYB2.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPTYB2.spl~ ~override~
 		SAY NAME1 @21673
 		SAY 0x12e @20508
 
-	COPY ~TDD/_Kits/SPL/SPTYB4.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPTYB4.spl~ ~override~
 		SAY NAME1 @21590
 END
 
@@ -2628,26 +2579,19 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPTPUS1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPTPUS1.spl~ ~override~
 		SAY NAME1 @20689 
 		SAY 0x1be @20691
 
-	COPY ~TDD/_Kits/SPL/SPTPUS2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPTPUS2.spl~ ~override~
 		SAY NAME1 @21676
 
-	COPY ~TDD/_Kits/SPL/SPTPUS3.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPTPUS3.spl~ ~override~
 		SAY NAME1 @21677
 
-	COPY ~TDD/_Kits/SPL/SPTPUS4.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPTPUS4.spl~ ~override~
 		SAY NAME1 @21678
 
-
-	COPY ~TDD/_Kits/ITM/TFLAIL1.itm~	~override~
-		~TDD/_Kits/ITM/TFLAIL2.itm~	~override~
-		~TDD/_Kits/ITM/TFLAIL3.itm~	~override~
-		~TDD/_Kits/ITM/TFLAIL4.itm~	~override~
-		~TDD/_Kits/ITM/TFLAIL5.itm~	~override~
-		SAY NAME2 @21679
 END
 
 //=============================================================================
@@ -2687,22 +2631,18 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPAMAUN1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPAMAUN1.spl~ ~override~
 		SAY NAME1 @21682
 
-	COPY ~TDD/_Kits/SPL/SPAMAUN2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPAMAUN2.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPAMAUN3.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPAMAUN3.spl~ ~override~
 		SAY NAME1 @21683
 
-	COPY ~TDD/_Kits/SPL/SPAMAUN4.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPAMAUN4.spl~ ~override~
 		SAY NAME1 @21684
 		SAY 0xfe @21685
 
-
-	COPY ~TDD/_Kits/ITM/SSCEPT.itm~ 	~override~
-		SAY NAME2 @21683
-		SAY DESC ~~
 END
 
 //=============================================================================
@@ -2742,16 +2682,16 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPSHAR1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSHAR1.spl~ ~override~
 		SAY NAME1 @21688
 
-	COPY ~TDD/_Kits/SPL/SPSHAR2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSHAR2.spl~ ~override~
 		SAY NAME1 @21689
 
-	COPY ~TDD/_Kits/SPL/SPSHAR3.spl~	~override~
-		~TDD/_Kits/SPL/SPSHAR5.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSHAR3.spl~ ~override~
+		~TDD/_Kits/SPL/SPSHAR5.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPSHAR4.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSHAR4.spl~ ~override~
 		SAY NAME1 @21690
 END
 
@@ -2792,10 +2732,10 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/TYR1.spl~   	~override~
+	COPY ~TDD/_Kits/SPL/TYR1.spl~ ~override~
 		SAY NAME1 @21693 
 
-	COPY ~TDD/_Kits/SPL/TYR2.spl~   	~override~
+	COPY ~TDD/_Kits/SPL/TYR2.spl~ ~override~
 		SAY NAME1 @21694
 END
 
@@ -2836,16 +2776,16 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPWILD1.spl~	~override~        
+	COPY ~TDD/_Kits/SPL/SPWILD1.spl~ ~override~        
 		SAY NAME1 @21700 
 
-	COPY ~TDD/_Kits/SPL/SPWILD2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPWILD2.spl~ ~override~
 		SAY NAME1 @20871
 
-	COPY ~TDD/_Kits/SPL/SPWILD3.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPWILD3.spl~ ~override~
 		SAY NAME1 @20892
 
-	COPY ~TDD/_Kits/SPL/SPWILD4.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPWILD4.spl~ ~override~
 		SAY NAME1 @20898
 END
 
@@ -2886,9 +2826,9 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPSAM1.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPSAM1.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPSAM3.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPSAM3.spl~ ~override~
 		SAY NAME1 @21703
 END
 
@@ -2929,7 +2869,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	END
+END
 
 //=============================================================================
 DEFINE_ACTION_MACRO InstallKitTDD_Tracker
@@ -2968,22 +2908,18 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPTRACK1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPTRACK1.spl~ ~override~
 		SAY NAME1 @21713
 
-	COPY ~TDD/_Kits/SPL/SPTRACK2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPTRACK2.spl~ ~override~
 		SAY NAME1 @21714
 
-	COPY ~TDD/_Kits/SPL/SPTRACK3.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPTRACK3.spl~ ~override~
 		SAY NAME1 @21715
 
-	COPY ~TDD/_Kits/SPL/SPTRACK4.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPTRACK4.spl~ ~override~
 		SAY NAME1 @21716
 
-
-	COPY ~TDD/_Kits/ITM/STUNNER.itm~	~override~        
-		SAY NAME2 @21716
-		SAY DESC @21717
 END
 
 //=============================================================================
@@ -3023,8 +2959,8 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPGIANT1.spl~	~override~
-		~TDD/_Kits/SPL/SPGIANT2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPGIANT1.spl~ ~override~
+		~TDD/_Kits/SPL/SPGIANT2.spl~ ~override~
 END
 
 //=============================================================================
@@ -3064,11 +3000,11 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPEYE1.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPEYE1.spl~ ~override~
 		SAY NAME1 @21722
 
-	COPY ~TDD/_Kits/SPL/SPEYE2.spl~ 	~override~
-		~TDD/_Kits/SPL/SPEYE3.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPEYE2.spl~ ~override~
+		~TDD/_Kits/SPL/SPEYE3.spl~ ~override~
 END
 
 //=============================================================================
@@ -3108,25 +3044,25 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPFOR1.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPFOR1.spl~ ~override~
 		SAY NAME1 @21725 
 
-	COPY ~TDD/_Kits/SPL/SPFOR2.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPFOR2.spl~ ~override~
 		SAY NAME1 @21726
 
-	COPY ~TDD/_Kits/SPL/SPFOR3.spl~ 	~override~         
+	COPY ~TDD/_Kits/SPL/SPFOR3.spl~ ~override~         
 		SAY NAME1 @21727 
 
-	COPY ~TDD/_Kits/SPL/SPFOR4.spl~ 	~override~         
+	COPY ~TDD/_Kits/SPL/SPFOR4.spl~ ~override~         
 		SAY NAME1 @21728
 
-	COPY ~TDD/_Kits/SPL/SPFOR5.spl~ 	~override~         
+	COPY ~TDD/_Kits/SPL/SPFOR5.spl~ ~override~         
 		SAY NAME1 @21729 
 
-	COPY ~TDD/_Kits/SPL/SPFOR6.spl~ 	~override~         
+	COPY ~TDD/_Kits/SPL/SPFOR6.spl~ ~override~         
 		SAY NAME1 @21730 
 
-	COPY ~TDD/_Kits/SPL/SPFOR7.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPFOR7.spl~ ~override~
 		SAY NAME1 @21731
 END
 
@@ -3167,7 +3103,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPSLING1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSLING1.spl~ ~override~
 		SAY NAME1 @21734
 END
 
@@ -3208,10 +3144,10 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPNINJ1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPNINJ1.spl~ ~override~
 		SAY NAME1 @21737
 
-	COPY ~TDD/_Kits/SPL/SPNINJ4.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPNINJ4.spl~ ~override~
 END
 
 //=============================================================================
@@ -3251,7 +3187,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	END
+END
 
 //=============================================================================
 DEFINE_ACTION_MACRO InstallKitTDD_Sniper
@@ -3290,7 +3226,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPSNIP1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSNIP1.spl~ ~override~
 		SAY NAME1 @20981
 END
 
@@ -3331,12 +3267,12 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPSVIRF2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSVIRF2.spl~ ~override~
 		SAY NAME1 @21744
 
-	COPY ~TDD/_Kits/SPL/SPSVIRF3.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSVIRF3.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPSVIRF5.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSVIRF5.spl~ ~override~
 		SAY NAME1 @20077
 END
 
@@ -3377,7 +3313,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPTHCR.spl~ 	~override~
+	COPY ~TDD/_Kits/SPL/SPTHCR.spl~ ~override~
 		SAY NAME1 @21747 
 		SAY 0x12e @21748 
 END
@@ -3419,9 +3355,9 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPBURG1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPBURG1.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPBURG2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPBURG2.spl~ ~override~
 		SAY NAME1 @21751
 END
 
@@ -3462,7 +3398,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPPLAN1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPPLAN1.spl~ ~override~
 		SAY NAME1 @21754
 END
 
@@ -3503,7 +3439,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPTHUG1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPTHUG1.spl~ ~override~
 END
 
 //=============================================================================
@@ -3543,7 +3479,7 @@ BEGIN
 		RET
 			kit_id
 	END
-	END
+END
 
 //=============================================================================
 DEFINE_ACTION_MACRO InstallKitTDD_Delver
@@ -3582,10 +3518,10 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPDELV1.spl~	~override~
-		~TDD/_Kits/SPL/SPDELV5.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPDELV1.spl~ ~override~
+		~TDD/_Kits/SPL/SPDELV5.spl~ ~override~
 
-	COPY ~TDD/_Kits/SPL/SPDELV2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPDELV2.spl~ ~override~
 		SAY NAME1 @21761
 END
 
@@ -3626,17 +3562,14 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPMERC1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPMERC1.spl~ ~override~
 		SAY NAME1 @21763
 
-	COPY ~TDD/_Kits/SPL/SPMERC2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPMERC2.spl~ ~override~
 		SAY NAME1 @21764
 
-	COPY ~TDD/_Kits/SPL/SPMERC3.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPMERC3.spl~ ~override~
 
-	COPY ~TDD/_Kits/ITM/SGBAG04.itm~	~override~
-		SAY NAME1 @21765
-		SAY NAME2 @21765
 END
 
 //=============================================================================
@@ -3676,10 +3609,10 @@ BEGIN
 		RET
 			kit_id
 	END
-	COPY ~TDD/_Kits/SPL/SPSWIND1.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSWIND1.spl~ ~override~
 		SAY NAME1 @21628
 
-	COPY ~TDD/_Kits/SPL/SPSWIND2.spl~	~override~
+	COPY ~TDD/_Kits/SPL/SPSWIND2.spl~ ~override~
 END
 
 //=============================================================================

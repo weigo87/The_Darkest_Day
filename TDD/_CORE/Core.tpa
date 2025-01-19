@@ -203,7 +203,111 @@ BEGIN
 
 // Load Hint
 	LAM LoadHint
+
+
+//*****************************************************************************
+// Areas
+//*****************************************************************************			
+
+//Container 1 => 2 items
+	LAM PatchAR1904
+
+// Golem
+//Tool CT 3 => Golem Items
+	LAM PatchAR0411
+	EXTEND_BOTTOM ~BALDUR.bcs~ ~%RES_FOLDER%/Snips/bBALDUR.baf~
 	
+// Scrolls DDPOTNP1.itm DDSCR229.itm
+	EXTEND_BOTTOM ~AR0402.bcs~ ~%RES_FOLDER%/Snips/bAR0402.baf~
+
+//*****************************************************
+// Patching BG2 creatures
+//*****************************************************
+PRINT @20101
+
+//COPY_EXISTING ~ARAN.cre~            ~override~
+//              ~ARAN02.cre~          ~override~
+// WRITE_ASCII 0x34 ~ARANS~ #8    //small portrait
+//BUT_ONLY_IF_IT_CHANGES
+//
+//COPY_EXISTING ~BERNARD.cre~         ~override~
+// WRITE_ASCII 0x34 ~GM110S~ #8   //small portrait
+//BUT_ONLY_IF_IT_CHANGES
+//
+//COPY_EXISTING ~DRAGBLAC.cre~        ~override~
+// WRITE_ASCII 0x34 ~DRAGBLS~ #8  //small portrait
+//BUT_ONLY_IF_IT_CHANGES
+//
+//COPY_EXISTING ~DRAGRED.cre~         ~override~
+//              ~FIRKRA02.cre~        ~override~
+// WRITE_ASCII 0x34 ~FIRKS~ #8    //small portrait
+//BUT_ONLY_IF_IT_CHANGES
+//
+//COPY_EXISTING ~DRAGSHAD.cre~        ~override~
+// WRITE_ASCII 0x34 ~SHADS~ #8    //small portrait
+//BUT_ONLY_IF_IT_CHANGES
+//
+//COPY_EXISTING ~DRAGSILV.cre~        ~override~
+//              ~UDSILVER.cre~        ~override~
+// WRITE_ASCII 0x34 ~DRAGWS~ #8    //small portrait
+//BUT_ONLY_IF_IT_CHANGES
+//
+//COPY_EXISTING ~DRUIDAD.cre~         ~override~
+// WRITE_ASCII 0x248 ~DRUIDAD~ #8    //OVERRIDE script
+//BUT_ONLY_IF_IT_CHANGES
+//
+//COPY_EXISTING ~LAVOK02.cre~         ~override~
+// READ_LONG 0x2bc "itm_offset"
+// READ_LONG 0x2c0 "itm_cnt"
+// FOR( cnt=0; cnt<"%itm_cnt%"; cnt=cnt+1 ) BEGIN  //containers loop
+//   READ_ASCII ("%itm_offset%"+0x14*cnt)       "itm_name"
+//   PATCH_IF (("%itm_name%" STRING_COMPARE_CASE "STAF01")=0) BEGIN
+//     WRITE_ASCII ("%itm_offset%"+0x14*cnt)    "MINTGOH"  #8   //replacing item
+//   END
+// END
+//BUT_ONLY_IF_IT_CHANGES
+//
+//COPY_EXISTING ~MAEVAR.cre~          ~override~
+// WRITE_ASCII 0x34 ~MAEVARS~ #8    //small portrait
+//BUT_ONLY_IF_IT_CHANGES
+//
+//COPY_EXISTING ~ORC01.cre~           ~override~
+// WRITE_SHORT 0x24  55
+// WRITE_SHORT 0x26  55     //new HP - was 35
+// WRITE_BYTE  0x52  13     //THAC0 - was 17
+//BUT_ONLY_IF_IT_CHANGES
+//
+//COPY_EXISTING ~ORC02.cre~           ~override~
+// WRITE_SHORT 0x24  55
+// WRITE_SHORT 0x26  55     //new HP - was 35
+// WRITE_BYTE  0x52  12     //THAC0 - was 18
+//BUT_ONLY_IF_IT_CHANGES
+//
+//COPY_EXISTING ~ORC03.cre~           ~override~
+// WRITE_BYTE  0x52  14     //THAC0 - was 19
+//BUT_ONLY_IF_IT_CHANGES
+//
+//COPY_EXISTING ~ORC04.cre~           ~override~
+// WRITE_SHORT 0x24  45
+// WRITE_SHORT 0x26  45     //new HP - was 30
+// WRITE_SHORT 0x48  1      //effective AC - was 5
+// WRITE_BYTE  0x52  15     //THAC0 - was 19
+//BUT_ONLY_IF_IT_CHANGES
+//
+//COPY_EXISTING ~RENAL.cre~           ~override~
+// WRITE_ASCII 0x34 ~RENALS~ #8    //small portrait
+//BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING ~SHADRA01.cre~        ~override~
+	WRITE_ASCII 0x34 ~SHADS~ #8    //small portrait
+	REPLACE_CRE_ITEM ~MINTRANM~ #0 #0 #0 ~NONE~ ~INV2~
+	BUT_ONLY_IF_IT_CHANGES
+
+//COPY_EXISTING ~SPY406.cre~          ~override~
+// WRITE_ASCII 0x248 ~SPY406~ #8   //OVERRIDE script
+//BUT_ONLY_IF_IT_CHANGES
+
+	       
 //*****************************************************************************
 // worldmap
 //*****************************************************************************	
@@ -1053,4 +1157,75 @@ BEGIN
 		SAY 0x24e @20939
 		SAY 0x2ae @20940
 		SAY 0x33e @20941
+END
+
+
+DEFINE_ACTION_MACRO PatchAR1904 BEGIN	
+	COPY_EXISTING ~AR1904.ARE~  ~override~
+		GET_OFFSET_ARRAY container_array ARE_V10_CONTAINERS
+		PHP_EACH container_array AS idx => container_offset BEGIN
+			READ_ASCII container_offset name (11) NULL
+			PATCH_IF ~%name%~ STR_EQ ~Container 1~ BEGIN
+				LPF fj_are_structure
+					INT_VAR
+					fj_con_itm_idx		= EVAL ~%idx%~
+					STR_VAR                                             
+					fj_structure_type   = itm                        
+					fj_name             = MINTELEF                                           
+				END
+				LPF fj_are_structure
+					INT_VAR
+					fj_con_itm_idx		= EVAL ~%idx%~
+					fj_charge0			= 3
+					STR_VAR                                             
+					fj_structure_type   = itm                        
+					fj_name             = MISC07
+				END
+			END
+		END
+END
+
+DEFINE_ACTION_MACRO PatchAR0411 BEGIN	
+	COPY_EXISTING ~AR0411.ARE~  ~override~
+		GET_OFFSET_ARRAY container_array ARE_V10_CONTAINERS
+		PHP_EACH container_array AS idx => container_offset BEGIN
+			READ_ASCII container_offset name (9) NULL
+			PATCH_IF ~%name%~ STR_EQ ~Tool CT 3~ BEGIN
+				LPF fj_are_structure
+					INT_VAR
+					fj_con_itm_idx		= EVAL ~%idx%~
+					STR_VAR                                             
+					fj_structure_type   = itm                        
+					fj_name             = MINTGOLA                                           
+				END
+				LPF fj_are_structure
+					INT_VAR
+					fj_con_itm_idx		= EVAL ~%idx%~
+					STR_VAR                                             
+					fj_structure_type   = itm                        
+					fj_name             = MINTGOLB
+				END
+				LPF fj_are_structure
+					INT_VAR
+					fj_con_itm_idx		= EVAL ~%idx%~
+					STR_VAR                                             
+					fj_structure_type   = itm                        
+					fj_name             = MINTGOLR                                           
+				END
+				LPF fj_are_structure
+					INT_VAR
+					fj_con_itm_idx		= EVAL ~%idx%~
+					STR_VAR                                             
+					fj_structure_type   = itm                        
+					fj_name             = MINTGOLS                                           
+				END
+				LPF fj_are_structure
+					INT_VAR
+					fj_con_itm_idx		= EVAL ~%idx%~
+					STR_VAR                                             
+					fj_structure_type   = itm                        
+					fj_name             = GOLBOOK
+				END
+			END
+		END
 END

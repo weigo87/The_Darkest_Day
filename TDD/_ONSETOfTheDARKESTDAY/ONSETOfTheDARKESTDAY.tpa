@@ -36,7 +36,10 @@ UNLESS ~ARPO05~
 		WRITE_ASCII SCRIPT_GENERAL ~~ #8
 		WRITE_ASCII SCRIPT_DEFAULT ~~ #8
 		WRITE_ASCII DIALOG ~DDSUELLE~ #8
-	BUT_ONLY	
+	BUT_ONLY
+	
+	COPY_EXISTING ~FIGMIST.itm~  ~override~
+		SAY 0x10e @21155
 	
 //	LAM HandleSpellScrollsContract
 //	LAM HandleCoreItemsContract
@@ -203,16 +206,16 @@ END
 
 //=============================================================================
 DEFINE_ACTION_MACRO PatchArpo05	BEGIN
-	COPY_EXISTING ~Arpo05.are~ ~override~
-		READ_LONG 0x5c trigger_offset
-		FOR( i = SHORT_AT 0x5a ; i ; --i )BEGIN
-			READ_ASCII trigger_offset + (i - 1) * 0xc4 trigger_name (32) NULL
-			READ_ASCII trigger_offset + (i - 1) * 0xc4 + 0x38 dest_name (32) NULL
-			PATCH_IF ((~%trigger_name%~ STR_EQ ~ICM EXIT trigger~) AND (~%dest_name%~ STR_EQ ~ARPO08~)) BEGIN
-				LPF fj_are_structure
-				INT_VAR fj_delete_mode = i - 1 STR_VAR fj_structure_type = region END
-			END
-		END
+//	COPY_EXISTING ~Arpo05.are~ ~override~
+//		READ_LONG 0x5c trigger_offset
+//		FOR( i = SHORT_AT 0x5a ; i ; --i )BEGIN
+//			READ_ASCII trigger_offset + (i - 1) * 0xc4 trigger_name (32) NULL
+//			READ_ASCII trigger_offset + (i - 1) * 0xc4 + 0x38 dest_name (32) NULL
+//			PATCH_IF ((~%trigger_name%~ STR_EQ ~ICM EXIT trigger~) AND (~%dest_name%~ STR_EQ ~ARPO08~)) BEGIN
+//				LPF fj_are_structure
+//				INT_VAR fj_delete_mode = i - 1 STR_VAR fj_structure_type = region END
+//			END
+//		END
 END
 
 //=============================================================================

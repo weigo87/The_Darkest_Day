@@ -1,0 +1,16 @@
+//Golem Items
+IF
+  PartyHasItem("mintgoH")
+  PartyHasItem("mintgolA")
+  PartyHasItem("mintgolR")
+  PartyHasItem("mintgolB")
+  PartyHasItem("mintgolS")
+THEN
+  RESPONSE #100
+    TakePartyItem("mintgoH")
+    TakePartyItem("mintgolA")
+    TakePartyItem("mintgolR")
+    TakePartyItem("mintgolB")
+    TakeItemReplace("mintgolF","mintgolS",Player1)
+    DisplayStringHead(Player1,@10204)
+END

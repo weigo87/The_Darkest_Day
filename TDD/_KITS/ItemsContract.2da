@@ -1,0 +1,24 @@
+RESNAME 	NAME1	NAME2	UNIDENTIFIED_DESC	DESC	ICON		UNDROPPABLE COMMENTS
+MHSWD		+		20051	+					21473	DDMHSWD		.			TDD_Mage_Hunter
+VHUNTZ1		+		21483	+					21484	+			.			TDD_VampireHunter
+ARMARK1		21489	21487	+					21490	IAROW+3		.			TDD_Marksman
+ARMARK2		21489	20981	+					21491	IAROW+4		.			TDD_Marksman
+ARMARK3		21489	21488	+					21492	IAROW+5		.			TDD_Marksman
+TROLLSL		+		21509	+					21511	+			.			TDD_Trollslayer
+UNDSLAY		+		21527	+					21528	+			.			TDD_Vind
+SEAHAND		+		+		+					+		+			.			TDD_Aquatic
+ANTISW		21600	21601	+					21602	IANTI		.			TDD_Anti_Paladin
+SWDRAGX		+		21613	+					21614	0			.			TDD_Dragon
+MOONBS		+		+		+					21635	+			.			TDD_Selune
+BCLAW		+		+		+					+		+			.			TDD_Malar
+AURHAND		+		+		+					+		+			.			TDD_Auril
+TFLAIL1		+		21679	+					+		TFLAILX		.			TDD_Tempus
+TFLAIL2		+		21679	+					+		TFLAILX		.			TDD_Tempus
+TFLAIL3		+		21679	+					+		TFLAILX		.			TDD_Tempus
+TFLAIL4		+		21679	+					+		TFLAILX		.			TDD_Tempus
+TFLAIL5		+		21679	+					+		TFLAILX		.			TDD_Tempus
+SSCEPT		+		21683	+					+		+			.			TDD_Amaunator
+STUNNER		+		21716	+					21717	ISTUN		.			TDD_Tracker
+SGBAG04		21765	21765	+					+		+			.			TDD_Merchant
+ARWDRAG		21489	21611	+					21612	IAROWX3		.			TDD_Dragon
+RINGX1		+		+		+					+		+			.			TDD_Plane TDD_Warlock
