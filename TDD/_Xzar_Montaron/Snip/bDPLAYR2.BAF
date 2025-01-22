@@ -1,0 +1,12 @@
+IF
+        Global("ENDOFBG1","GLOBAL",2)
+	Name("XzarDD",Myself)
+	Global("LearnSpell","LOCALS",0)
+THEN
+	RESPONSE #100
+		GiveItemCreate("POSC229a",Myself,1,0,0) // Thunderclap
+		UseItem("POSC229a",Myself) // Thunderclap
+		SetGlobal("LearnSpell","LOCALS",1)
+END
+
+

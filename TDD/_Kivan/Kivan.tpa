@@ -11,11 +11,14 @@ BEGIN
 
 	// BGT-WeiDU compatibility
 	ACTION_IF GAME_IS ~bgt~ BEGIN    //BGT-WeiDU compatibility
+		//===============================
 		EXTEND_TOP ~AR1100.BCS~ ~TDD/Compat/BGT/Replace/xAR1100.BAF~
+		//===============================
 		COPY_EXISTING ~DDKIV1.BCS~ ~override~	//TDD scripts
 			DECOMPILE_AND_PATCH BEGIN
 				REPLACE_TEXTUALLY ~"kivandd"~ ~"Kivan"~   //change DeathVar check
 			END
+		//===============================
 		COPY_EXISTING ~ARAM00.BCS~ ~override~
 			DECOMPILE_AND_PATCH BEGIN
 				REPLACE_TEXTUALLY
@@ -30,22 +33,23 @@ SetGlobal("KivanPartyBG1","GLOBAL",1)
 ActionOverride("Kivan",ChangeAIScript("SBTKIV",CLASS))
 ActionOverride("Kivan",MoveBetweenAreas("AR1100",[4172.1239],4))~
 			END
-	
+		//===============================
 		COPY + ~%MOD_FOLDER%/Compat/BGT/aKIVANP.D~ ~%workspace%/%COMP_FOLDER%~
 	END ELSE BEGIN
 		COPY +	~%MOD_FOLDER%/Compat/TDD/KIVANP.D~ ~%workspace%/%COMP_FOLDER%~
 	END
-	
+	//===============================
 	LAF GET_KIT_EX
 		STR_VAR kit_name = "FERALAN"
 		RET kit_id
 	END
-	
+	//===============================
 	COPY_EXISTING ~KIVAN10.cre~ ~override~
 				~KIVAN12.cre~ ~override~
 				~KIVAN13.cre~ ~override~
 		SAY 0x1cc @20092
 		WRITE_LONG 0x244 ((kit_id + 0x4000) << 16)
+	//===============================
 	ACTION_IF GAME_IS ~eet bgt~ BEGIN    //BGT-WeiDU compatibility
 		COPY_EXISTING ~KIVAN.cre~ ~override~ //override - to catch immediate Kit Pack installation
 					~KIVAN4.cre~ ~override~

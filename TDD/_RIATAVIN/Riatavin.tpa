@@ -12,10 +12,11 @@ DDC19X   value~
 UNLESS ~DD3300~	
 
 		
-	COPY_EXISTING ~CYCCALI1.CRE~ 	~override~ WRITE_LONG 0x28 0xE000 // IC_CYCLOPS
-	COPY_EXISTING ~CYCCALI2.CRE~ 	~override~ WRITE_LONG 0x28 0xE000 // IC_CYCLOPS
-	COPY_EXISTING ~CYCCALI3.CRE~ 	~override~ WRITE_LONG 0x28 0xE000 // IC_CYCLOPS
-	
+	COPY_EXISTING ~CYC01.cre~ 		~override~ 
+				  ~CYCCALI1.CRE~ 	~override~ 
+				  ~CYCCALI2.CRE~ 	~override~ 
+				  ~CYCCALI3.CRE~ 	~override~ 
+		WRITE_LONG 0x28 0xE000 // IC_CYCLOPS
 	
 			
 	ACTION_IF FILE_EXISTS_IN_GAME ~MIELIKKI.itm~ THEN BEGIN
@@ -90,10 +91,17 @@ UNLESS ~DD3300~
 					~DD3300CT.are~	~override~
 		SAY 0x180 @20085
 		SAY 0x244 @20086
-		SAY 0x308 @20087	
+		SAY 0x308 @20087
+
+	COPY_EXISTING ~DD3306B.are~ ~override~
+		WRITE_ASCII 0x94 ~DD3306B~ #8  //area script, non-existing, replacing ToB area space
 		
 	COPY_EXISTING ~DD3309.are~ ~override~
 		WRITE_ASCII 0x94 ~~ #8 // clear area script
+	
+	COPY_EXISTING ~AR1005.are~           ~override~
+		WRITE_ASCII 0x94 "AR1005" #8       //area script
+	BUT_ONLY_IF_IT_CHANGES
 		
 	ACTION_DEFINE_ASSOCIATIVE_ARRAY areas BEGIN
 		AR1106CT => ARCT11

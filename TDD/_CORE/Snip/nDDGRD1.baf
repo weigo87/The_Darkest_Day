@@ -1,0 +1,49 @@
+IF
+	See(NearestEnemyOf(Myself))
+	!StateCheck(Myself,STATE_INVISIBLE)
+	Global("Shield","LOCALS",0)
+THEN
+	RESPONSE #100
+		ApplySpell(Myself,WIZARD_FIRE_SHIELD_RED)
+		SetGlobal("Shield","LOCALS",1)
+END
+
+IF
+	HaveSpell(WIZARD_GHOST_ARMOR)
+	CheckStatGT(Myself,2,ARMORCLASS)
+	RandomNumLT(6,3)
+THEN
+	RESPONSE #100
+		Spell(Myself,WIZARD_GHOST_ARMOR)
+END
+
+IF
+	HaveSpell(2326)//WIZARD_DISPEL_MAGIC)
+	OR(12)
+		StateCheck(ThirdNearestEnemyOf(Myself),STATE_HASTED)
+		StateCheck(ThirdNearestEnemyOf(Myself),STATE_NONDETECTION)
+		StateCheck(ThirdNearestEnemyOf(Myself),STATE_NOT_VISIBLE)
+		StateCheck(ThirdNearestEnemyOf(Myself),STATE_CHANT)
+		StateCheck(ThirdNearestEnemyOf(Myself),STATE_LUCK)
+		StateCheck(ThirdNearestEnemyOf(Myself),STATE_DRAWUPONHOLYMIGHT)
+		StateCheck(ThirdNearestEnemyOf(Myself),STATE_MIRRORIMAGE)
+		CheckStatGT(ThirdNearestEnemyOf(Myself),0,STONESKINS)
+		HasImmunityEffects(ThirdNearestEnemyOf(Myself))
+		HasBounceEffects(ThirdNearestEnemyOf(Myself))
+		See(NearestEnemyOfType("COPY"))
+		See(NearestEnemyOfType([GOODCUTOFF]))
+THEN
+	RESPONSE #100
+		Spell(ThirdNearestEnemyOf(Myself),2326)//WIZARD_DISPEL_MAGIC)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	StateCheck(Myself,STATE_INVISIBLE)
+	Global("EfreetiFireball","LOCALS",0)
+THEN
+	RESPONSE #100
+		ReallyForceSpell(NearestEnemyOf(Myself),WIZARD_FIREBALL)
+		SetGlobal("EfreetiFireball","LOCALS",1)
+END
+

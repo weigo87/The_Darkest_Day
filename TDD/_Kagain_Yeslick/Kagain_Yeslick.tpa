@@ -14,13 +14,16 @@ BEGIN
 	ACTION_IF GAME_IS ~bgt~ BEGIN    //BGT-WeiDU compatibility
 		EXTEND_TOP ~AR0020.BCS~ ~%MOD_FOLDER%/Compat/BGT/Replace/xAR0200.BAF~ //BAF modified
 		EXTEND_TOP ~AR0900.BCS~ ~%MOD_FOLDER%/Compat/BGT/Replace/xAR0900.BAF~
+		//===============================
 		COPY_EXISTING ~BALDUR.BCS~ ~override~
 			DECOMPILE_AND_PATCH BEGIN
 				REPLACE_TEXTUALLY ~"kagaindd"~  ~"Kagain"~  //change DeathVar check
 				REPLACE_TEXTUALLY ~"yeslicdd"~   ~"Yeslick"~      //change DeathVar check
 			END
+		//===============================
 		COPY_EXISTING ~AR0300.BCS~ ~override~
 			REPLACE_BCS_BLOCK ~%MOD_FOLDER%/Compat/BGT/Replace/rAR0300.BAF~ ~%MOD_FOLDER%/Compat/BGT/Replace/xAR0300.BAF~
+		//===============================
 		COPY_EXISTING ~MONTYRAS.BCS~   ~override~    //TDD scripts
 					~DPLAYER2.BCS~   ~override~    //TDD scripts
 					~HARPASS2.BCS~   ~override~    //TDD scripts
@@ -30,6 +33,7 @@ BEGIN
  			DECOMPILE_AND_PATCH BEGIN
 					REPLACE_TEXTUALLY ~"xzardd"~  ~"Xzar"~        //change DeathVar check
 			END
+		//===============================
 		COPY_EXISTING ~KAGAINDD.BCS~ ~override~
 			DECOMPILE_AND_PATCH BEGIN
 				REPLACE_TEXTUALLY
@@ -37,6 +41,7 @@ BEGIN
 ~Global("ENDOFBG1","GLOBAL",2)
 InParty("kagaindd")~				
 			END
+		//===============================
 		COPY_EXISTING ~ARAM00.BCS~ ~override~
 			DECOMPILE_AND_PATCH BEGIN
 				REPLACE_TEXTUALLY
@@ -62,7 +67,7 @@ SetGlobal("YeslickPartyBG1","GLOBAL",1)
 ActionOverride("Yeslick",ChangeAIScript("SBTYES",RACE))
 ActionOverride("Yeslick",MoveBetweenAreas("AR0900",[3445.1896],4))~
 			END
-	
+		//===============================
 		COPY + ~%MOD_FOLDER%/Compat/BGT/aKAGAIP.D~ ~%workspace%/%COMP_FOLDER%~
 			~%MOD_FOLDER%/Compat/BGT/aYESLIP.D~ ~%workspace%/%COMP_FOLDER%~
 	END ELSE BEGIN

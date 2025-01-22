@@ -349,28 +349,28 @@ DEFINE_ACTION_MACRO PatchDD8000 BEGIN
 			fj_box_top   		= 3702           
 			fj_box_right  		= 3971           
 			fj_box_bottom  		= 3802           
-			fj_cursor_idx      = 34							
-			fj_flags        = 0x00000004        
-			fj_loc_x				= 3921           
-			fj_loc_y				= 3752            
+			fj_cursor_idx      	= 34							
+			fj_flags        	= 0x00000004        
+			fj_loc_x			= 3921           
+			fj_loc_y			= 3752            
 			fj_vertex_0   		= 3871 + (3702 << 16) 
 			fj_vertex_1   		= 3971 + (3702 << 16) 
 			fj_vertex_2   		= 3971 + (3802 << 16) 
 			fj_vertex_3   		= 3871 + (3802 << 16) 
 			STR_VAR                       
-			fj_structure_type  = region            
-			fj_name       = Tran8001           
+			fj_structure_type  	= region            
+			fj_name       		= Tran8001           
 			fj_destination_area	= DD8001            
 			fj_destination_name = EXIT8000           
 		END
 		LPF fj_are_structure
 			INT_VAR
-			fj_loc_x    = 3921 
-			fj_loc_y    = 3752 
-			fj_orientation = 8
+			fj_loc_x    	= 3921 
+			fj_loc_y    	= 3752 
+			fj_orientation 	= 8
 			STR_VAR
 			fj_structure_type = entrance
-			fj_name      = EXIT8001
+			fj_name      	  = EXIT8001
 		END
 		FOR( i = SHORT_AT 0x64 ; i ; --i )BEGIN
 			LPF fj_are_structure
@@ -391,28 +391,28 @@ DEFINE_ACTION_MACRO PatchDD8001 BEGIN
 			fj_box_top   		= 62             
 			fj_box_right  		= 561            
 			fj_box_bottom  		= 162            
-			fj_cursor_idx      = 34							
-			fj_flags        = 0x00000004        
-			fj_loc_x				= 511           
-			fj_loc_y				= 112            
+			fj_cursor_idx      	= 34							
+			fj_flags        	= 0x00000004        
+			fj_loc_x			= 511           
+			fj_loc_y			= 112            
 			fj_vertex_0   		= 461 + (62 << 16) 
 			fj_vertex_1   		= 561 + (62 << 16) 
 			fj_vertex_2   		= 561 + (162 << 16) 
 			fj_vertex_3   		= 461 + (162 << 16) 
 			STR_VAR                       
-			fj_structure_type  = region            
-			fj_name       = Tranc020           
+			fj_structure_type  	= region            
+			fj_name       		= Tranc020           
 			fj_destination_area	= DD8000            
 			fj_destination_name = EXIT8001           
 		END
 		LPF fj_are_structure
 			INT_VAR
-			fj_loc_x    = 511 
-			fj_loc_y    = 112 
-			fj_orientation = 14
+			fj_loc_x    	= 511 
+			fj_loc_y    	= 112 
+			fj_orientation 	= 14
 			STR_VAR
 			fj_structure_type = entrance
-			fj_name      = EXIT8000
+			fj_name      	  = EXIT8000
 		END
 		FOR( i = SHORT_AT 0x64 ; i ; --i )BEGIN
 			LPF fj_are_structure

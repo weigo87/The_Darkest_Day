@@ -1,0 +1,16 @@
+IF
+	See(NearestEnemyOf(Myself))
+	Global("strike","LOCALS",0)
+THEN
+	RESPONSE #100
+		ForceSpell(NearestEnemyOf(Myself),CLERIC_FLAME_STRIKE)
+		SetGlobal("strike","LOCALS",1)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		AttackReevaluate(NearestEnemyOf(Myself),15)
+END
+

@@ -1,4 +1,8 @@
 //=============================================================================
+  //****** Montaron ****************************************************************
+  // as far as he's going to be resurrected there's no continuation - his new location is unknown
+  // based on MONTAR13.CRE from TDD
+  //********************************************************************************
 DEFINE_ACTION_MACRO InstallSpecificContents
 BEGIN
 	ACTION_IF !GAME_IS ~bgt~ BEGIN
@@ -17,8 +21,10 @@ BEGIN
 				REPLACE_TEXTUALLY ~"montydd"~  ~"Montaron"~  //change DeathVar check
 				REPLACE_TEXTUALLY ~"xzardd"~   ~"Xzar"~      //change DeathVar check
 			END
+		//===============================
 		COPY_EXISTING ~AR0300.BCS~ ~override~
 			REPLACE_BCS_BLOCK ~%MOD_FOLDER%/Compat/BGT/Replace/rAR0300.BAF~ ~%MOD_FOLDER%/Compat/BGT/Replace/xAR0300.BAF~
+		//===============================
 		COPY_EXISTING ~MONTYRAS.BCS~   ~override~    //TDD scripts
 					~DPLAYER2.BCS~   ~override~    //TDD scripts
 					~HARPASS2.BCS~   ~override~    //TDD scripts
@@ -28,6 +34,8 @@ BEGIN
  			DECOMPILE_AND_PATCH BEGIN
 					REPLACE_TEXTUALLY ~"xzardd"~  ~"Xzar"~        //change DeathVar check
 			END
+		EXTEND_BOTTOM ~DPLAYER2.BCS~ ~%workspace%/%COMP_FOLDER%/SNIP/bDPLAYR2.BAF~
+		//===============================
 		COPY_EXISTING ~XZARDD.BCS~ ~override~
 			DECOMPILE_AND_PATCH BEGIN
 				REPLACE_TEXTUALLY
@@ -35,6 +43,7 @@ BEGIN
 ~Global("tz_harperxzarfued","GLOBAL",0)
 Global("ENDOFBG1","GLOBAL",2)~				
 			END
+		//===============================
 		COPY_EXISTING ~ARAM00.BCS~ ~override~
 			DECOMPILE_AND_PATCH BEGIN
 				REPLACE_TEXTUALLY
@@ -50,9 +59,11 @@ ActionOverride("Xzar",ChangeAIScript("SBTXZR",RACE))
 ActionOverride("Xzar",MoveBetweenAreas("AR0300",[2372.2475],0))~
 			END
 	
-		COPY + ~%MOD_FOLDER%/Compat/BGT/aXZARP.D~ ~%workspace%/%COMP_FOLDER%~
+		COPY +  ~%MOD_FOLDER%/Compat/BGT/aXZARP.D~ ~%workspace%/%COMP_FOLDER%~
+				~%MOD_FOLDER%/Compat/BGT/aMONTAP.D~ ~%workspace%/%COMP_FOLDER%~
 	END ELSE BEGIN
 		COPY +	~%MOD_FOLDER%/Compat/TDD/XZARP.D~ ~%workspace%/%COMP_FOLDER%~
+				~%MOD_FOLDER%/Compat/TDD/MONTAP.D~ ~%workspace%/%COMP_FOLDER%~
 	END
 	
 		
