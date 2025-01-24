@@ -1,0 +1,9 @@
+// Départ mécontent (bonne réputation)
+@0     = ~Eh ! Magicien fou ! Vous allez vous faire tuer ! Ecartez-vous, <CHARNAME> !~
+// Ré-embauche
+@1     = ~Si vous voulez parler, faites-le avec ce fichu magicien dément à côté de moi !~
+// Exclure du groupe
+@2     = ~Qu'est-ce que vous voulez, <CHARNAME> ? Si vous tenez à la vie, vous feriez mieux d'continuer à avancer !~
+@3     = ~Je pense qu'on va devoir se séparer, Montaron. Adieu.~
+@4     = ~Oh, rien. Désolé de vous avoir dérangé.~ ~Oh, rien. Désolée de vous avoir dérangé.~
+@5     = ~Oui, bon. D'toute façon, j'en avais ras l'casque d'votre présence. N'roupillez que d'un oeil, <CHARNAME>. Venez, Grand Penseur !~

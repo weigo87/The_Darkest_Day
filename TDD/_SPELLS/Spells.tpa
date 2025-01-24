@@ -1145,6 +1145,9 @@ DEFINE_ACTION_FUNCTION AddSpells
 			file_name = ~~
 	RET		spell file_name
 BEGIN
+	ACTION_IF type = 0 BEGIN OUTER_SPRINT folder ~~ END
+	ACTION_IF type = 1 BEGIN OUTER_SPRINT folder ~Priest~ END
+	ACTION_IF type = 2 BEGIN OUTER_SPRINT folder ~Wizard~ END
 	OUTER_SET spell_num = IDS_OF_SYMBOL(~spell~ ~%spell_name%~)
 	ACTION_IF (spell_num > 0) BEGIN
 		LAF RES_NUM_OF_SPELL_NAME
@@ -1152,7 +1155,7 @@ BEGIN
 			RET spell = spell_res
 		END
 	END ELSE BEGIN
-		ADD_SPELL ~%MOD_FOLDER%/_Core/Spl/%file_name%.SPL~ type level ~%spell_name%~
+		ADD_SPELL ~%MOD_FOLDER%/_Core/Spl/%folder%/%file_name%.SPL~ type level ~%spell_name%~
 			SAY NAME1  (AT name1)
 			SAY UNIDENTIFIED_DESC (AT un_desc)
 			SPRINT spell ~%DEST_RES%~

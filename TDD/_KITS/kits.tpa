@@ -1,7 +1,7 @@
 //=============================================================================
 DEFINE_ACTION_MACRO InstallSpecificContents
 BEGIN
-	LAM PrepareKitsIds (by Idobek - thanks!!!)
+	LAM PrepareKitsIds //(by Idobek - thanks!!!)
 	LAM KitSpells
 
 	// Fighter
@@ -67,9 +67,11 @@ BEGIN
 	LAM InstallKitTDD_Amaunator
 	LAM InstallKitTDD_Shar
 	LAM InstallKitTDD_Tyr
+	LAM InstallKitTDD_Mystra
 	// Ranger
 	LAM InstallKitTDD_Wilderness
 	LAM InstallKitTDD_Samurai
+	LAM InstallKitTDD_ShadElf
 	LAM InstallKitTDD_Drowr
 	LAM InstallKitTDD_Tracker
 	LAM InstallKitTDD_Giant
@@ -2713,14 +2715,14 @@ BEGIN
 		STR_VAR
 			kit_name	= ~TDD_Tyr~
 			unusable	= ~0X00004000~
-			clasweap	= ~  0 0 1 1 0 1 0 0~
+			clasweap	= ~ 0 0 1 1 0 1 0 0~
 			weapprof	= ~0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 2 1 0 0 1 1 1 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
-			abclasrq	= ~  14 0 0 0 16 0~
-			abclsmod	= ~  0 0 0 0 0 0~
-			abdcdsrq	= ~  0 0 0 0 17 0~
-			abdcscrq	= ~  0 0 0 0 15 0~
-			alignmnt	= ~  1 0 0 0 0 0 0 0 0~
-			dualclas	= ~  0 0 0 0 0 0~
+			abclasrq	= ~14 0 0 0 16 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~0 0 0 0 17 0~
+			abdcscrq	= ~0 0 0 0 15 0~
+			alignmnt	= ~1 0 0 0 0 0 0 0 0~
+			dualclas	= ~0 0 0 0 0 0~
 			luabbr	= ~CL0~
 			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
 			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPR17.2DA~
@@ -2740,6 +2742,66 @@ BEGIN
 
 	COPY ~TDD/_Kits/SPL/TYR2.spl~ ~override~
 		SAY NAME1 @21694
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_Mystra
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 3	// CLERIC
+			mixed		= RESOLVE_STR_REF(@21695)
+			lower		= RESOLVE_STR_REF(@216950)
+			help		= RESOLVE_STR_REF(@21696)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21696)
+		STR_VAR
+			kit_name	= ~TDD_Mystra~
+			unusable	= ~0X00004000~
+			clasweap	= ~0 0 1 0 0 1 0 0~
+			weapprof	= ~0 0 0 0 2 2 0 0 0 0 0 0 0 0 0 0 1 1 0 0 1 1 1 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0~
+			abclasrq	= ~0 0 0 14 12 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~0 0 0 0 17 0~
+			abdcscrq	= ~0 0 0 0 15 0~
+			alignmnt	= ~0 0 0 1 0 0 0 0 0~
+			dualclas	= ~1 0 1 1 0 1~
+			luabbr	= ~CL0~
+			stweap	= ~CHAN09 * HELM07 BAG26 RING06 RING31 * BOOT01 AMUL20 BRAC10 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABPR17.2DA~
+			kittable	= ~K_C_HE  K_C_E  K_C_H~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 1 1 1 1~
+			clswpbon	= ~0 0 3~
+			hpclass	= ~HPPRS~
+			numwslot	= ~2~
+			clascolr	= ~25 28 57 57 2 24~
+			bdstweap	= ~CHAN02 SHLD04 HELM01 * RING06 * * * * * BELT02 * BULL02,40 * POTN08,5 POTN17,3 * * SLNG02 HAMM02~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPMYST14.spl~ ~override~
+
+	COPY ~TDD/_Kits/SPL/MYST1.spl~ ~override~
+		~TDD/_Kits/SPL/MYST2.spl~ ~override~
+		~TDD/_Kits/SPL/MYST3.spl~ ~override~
+		~TDD/_Kits/SPL/MYST5.spl~ ~override~
+		~TDD/_Kits/SPL/MYST6.spl~ ~override~
+		~TDD/_Kits/SPL/MYST8.spl~ ~override~
+		~TDD/_Kits/SPL/MYST9.spl~ ~override~
+		~TDD/_Kits/SPL/MYST10.spl~ ~override~
+		~TDD/_Kits/SPL/MYST11.spl~ ~override~
+		~TDD/_Kits/SPL/MYST12.spl~ ~override~
+		~TDD/_Kits/SPL/MYST13.spl~ ~override~
+	
+	COPY ~TDD/_Kits/SPL/MYST4.spl~ ~override~
+		SAY NAME1 @20829
+		SAY UNIDENTIFIED_DESC @20830
+	
+	COPY ~TDD/_Kits/SPL/MYST7.spl~ ~override~
+		SAY NAME1 @20837
+		SAY UNIDENTIFIED_DESC @21697
 END
 
 //=============================================================================
@@ -2833,6 +2895,53 @@ BEGIN
 
 	COPY ~TDD/_Kits/SPL/SPSAM3.spl~ ~override~
 		SAY NAME1 @21703
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallKitTDD_ShadElf
+BEGIN
+	LAF ADD_KIT_EX
+		INT_VAR
+			visible		= 1
+			kit_class	= 12	// RANGER
+			mixed		= RESOLVE_STR_REF(@21704)
+			lower		= RESOLVE_STR_REF(@217040)
+			help		= RESOLVE_STR_REF(@21705)
+			// EE-specific arguments
+			briefdesc	= RESOLVE_STR_REF(@21705)
+		STR_VAR
+			kit_name	= ~TDD_ShadElf~
+			unusable	= ~0X00010000~
+			clasweap	= ~1 1 1 0 0 1 1 1~
+			weapprof	= ~2 2 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 0 0 0 0 0 2 2 2 3 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5~
+			abclasrq	= ~13 13 14 15 14 0~
+			abclsmod	= ~0 0 0 0 0 0~
+			abdcdsrq	= ~17 17 0 0 17 0~
+			abdcscrq	= ~15 15 0 0 15 0~
+			alignmnt	= ~0 0 0 0 0 0 0 0 0~
+			dualclas	= ~0 0 0 0 0 0~
+			luabbr	= ~Ra0~
+			stweap	= ~LEAT14 * HELM07 BAG25 RING06 RING31 CLCK02 BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 BOW18 XBOW09 STAF08~
+			clab_path	= EVAL ~%MOD_FOLDER%/_KITS/2da/CLABRN09.2DA~
+			kittable	= ~K_R_E~
+			// EE-specific arguments
+			clsrcreq	= ~1 1 1 0 0 0 0~
+			clswpbon	= ~1 0 2~
+			hpclass	= ~HPWAR~
+			numwslot	= ~3~
+			clascolr	= ~30 37 86 86 1 110~
+			bdstweap	= ~LEAT05 * HELM01 * RING06 * * * * BRAC09 BELT02 AROW02,40 BULL02,40 BOLT02,40 POTN08,5 POTN17,3 POTN03,1 HAMM02 SW1H05 BOW04~
+		RET
+			kit_id
+	END
+	COPY ~TDD/_Kits/SPL/SPSELF4.spl~ ~override~
+		SAY NAME1 @21706
+
+	COPY ~TDD/_Kits/SPL//SPSELF5.spl~ ~override~
+		SAY NAME1 @21707
+
+	COPY ~TDD/_Kits/SPL//SPSELF6.spl~ ~override~
+		SAY NAME1 @21708
 END
 
 //=============================================================================
@@ -3655,6 +3764,7 @@ END
 
 //=============================================================================
 DEFINE_ACTION_MACRO PrepareKitsIds
+BEGIN
 	//KIT.IDS (by Idobek - thanks!!!)
 	ACTION_IF (GAME_IS ~bg2 tob bgt~) BEGIN
 		COPY_EXISTING ~KIT.IDS~ ~override~
@@ -3696,45 +3806,45 @@ END
 //=============================================================================
 DEFINE_ACTION_MACRO KitSpells
 BEGIN
-	COPY ~TDD/SPL/SPDROWR1.spl~         ~TDD-SPL~
-		~TDD/SPL/SPDROWR4.spl~         ~TDD-SPL~
+	COPY ~TDD/_Kits/SPL/SPDROWR1.spl~ ~override~
+		~TDD/_Kits/SPL/SPDROWR4.spl~ ~override~
 	
-	COPY ~TDD/SPL/SPDROWA1.spl~         ~TDD-SPL~
+	COPY ~TDD/_Kits/SPL/SPDROWA1.spl~ ~override~
 	SAY NAME1 @21768
 	
-	COPY ~TDD/SPL/SPDROWC1.spl~         ~TDD-SPL~
+	COPY ~TDD/_Kits/SPL/SPDROWC1.spl~ ~override~
 	SAY NAME1 @20716
 	
-	COPY ~TDD/SPL/SPDROWC2.spl~         ~TDD-SPL~
+	COPY ~TDD/_Kits/SPL/SPDROWC2.spl~ ~override~
 	SAY NAME1 @21769
 	
-	COPY ~TDD/SPL/SPDROWC3.spl~         ~TDD-SPL~
+	COPY ~TDD/_Kits/SPL/SPDROWC3.spl~ ~override~
 	SAY NAME1 @21770
 	
-	COPY ~TDD/SPL/SPDROWC4.spl~         ~TDD-SPL~
+	COPY ~TDD/_Kits/SPL/SPDROWC4.spl~ ~override~
 	SAY NAME1 @21771
 	
-	COPY ~TDD/SPL/SPDROWR2.spl~         ~TDD-SPL~
+	COPY ~TDD/_Kits/SPL/SPDROWR2.spl~ ~override~
 	SAY NAME1 @21772
 	
-	COPY ~TDD/SPL/SPDROWR3.spl~         ~TDD-SPL~
+	COPY ~TDD/_Kits/SPL/SPDROWR3.spl~ ~override~
 	SAY NAME1 @21773
 	
-	COPY ~TDD/SPL/SPGR1.spl~            ~TDD-SPL~
-	COPY ~TDD/SPL/SPGR2.spl~            ~TDD-SPL~
+	COPY ~TDD/_Kits/SPL/SPGR1.spl~    ~override~
+	COPY ~TDD/_Kits/SPL/SPGR2.spl~    ~override~
 	
-	COPY ~TDD/SPL/SPHEAL1.spl~          ~TDD-SPL~
+	COPY ~TDD/_Kits/SPL/SPHEAL1.spl~  ~override~
 	SAY NAME1 @21531
 	SAY 0xfe @21124
 	
-	COPY ~TDD/SPL/SPHEAL2.spl~          ~TDD-SPL~
+	COPY ~TDD/_Kits/SPL/SPHEAL2.spl~  ~override~
 	SAY NAME1 @20057
 	SAY 0xfe @21774
 	
-	COPY ~TDD/SPL/SPHEAL4.spl~          ~TDD-SPL~
-		~TDD/SPL/SPHEAL5.spl~          ~TDD-SPL~
+	COPY ~TDD/_Kits/SPL/SPHEAL4.spl~  ~override~
+		~TDD/_Kits/SPL/SPHEAL5.spl~  ~override~
 	
-	COPY ~TDD/SPL/SPHEAL6.spl~          ~TDD-SPL~
+	COPY ~TDD/_Kits/SPL/SPHEAL6.spl~  ~override~
 	SAY NAME1 @21775
 	SAY 0xfe @21124
 END
