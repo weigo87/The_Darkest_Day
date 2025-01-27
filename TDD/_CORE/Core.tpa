@@ -116,6 +116,19 @@ BEGIN
 //*****************************************************
 	PRINT @20101
 	LAM PatchingBG2Creatures
+
+//*****************************************************
+// Patching BG2 items
+//*****************************************************
+	PRINT @20952
+	LAM PatchingBG2Items
+
+//******************************************************************
+//  STORES
+//******************************************************************
+	PRINT @21456
+	LAM PatchingStores
+	LAM InstallStores
 	       
 //*****************************************************************************
 // worldmap
@@ -172,7 +185,7 @@ BEGIN
 	ACTION_IF NOT (MOD_IS_INSTALLED "RoT.tp2" (ID_OF_LABEL "RoT.tp2" "region_of_terror" )) BEGIN    // Compatibility with RoT
 		COPY_EXISTING ~ORC06.cre~          ~override~
 						~HLOLAF.cre~         ~override~
-						~CHAK.cre~           ~override~
+						~CHAK.cre~ ~override~
 						~AR18FIG.cre~        ~override~
 		WRITE_LONG 0x28  0xE700   //IC_OROG1 instead of IC_OROG2
 		BUT_ONLY
@@ -1446,15 +1459,15 @@ BEGIN
 			END
 		END
 		PATCH_IF found = 0 BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 112 target = 2 timing = 1 probability1 = 100 STR_VAR resource = ~SSCEPT~ END //from SPAMAUN3.SPL
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 112 target = 2 timing = 1 probability1 = 100 STR_VAR resource = ~AURHAND~ END //from SPAUR6.SPL
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 112 target = 2 timing = 1 probability1 = 100 STR_VAR resource = ~BCLAW~ END //from SPMAL6.SPL
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 112 target = 2 timing = 1 probability1 = 100 STR_VAR resource = ~KELBHAND~ END //from SPMI120.SPL
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 112 target = 2 timing = 1 probability1 = 100 STR_VAR resource = ~PSHARD~ END //from SPMI128.SPL
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 112 target = 2 timing = 1 probability1 = 100 STR_VAR resource = ~IRONKN~ END //from SPPR327.SPL
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 112 target = 2 timing = 1 probability1 = 100 STR_VAR resource = ~MOONBLA~ END //from SPPR330.SPL
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 112 target = 2 timing = 1 probability1 = 100 STR_VAR resource = ~GONDFIST~ END //from SPPR432.SPL
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 112 target = 2 timing = 1 probability1 = 100 STR_VAR resource = ~VITALD~ END //from SPPR622.SPL
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 112 target = 2 timing = 1 STR_VAR resource = ~SSCEPT~ END //from SPAMAUN3.SPL
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 112 target = 2 timing = 1 STR_VAR resource = ~AURHAND~ END //from SPAUR6.SPL
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 112 target = 2 timing = 1 STR_VAR resource = ~BCLAW~ END //from SPMAL6.SPL
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 112 target = 2 timing = 1 STR_VAR resource = ~KELBHAND~ END //from SPMI120.SPL
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 112 target = 2 timing = 1 STR_VAR resource = ~PSHARD~ END //from SPMI128.SPL
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 112 target = 2 timing = 1 STR_VAR resource = ~IRONKN~ END //from SPPR327.SPL
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 112 target = 2 timing = 1 STR_VAR resource = ~MOONBLA~ END //from SPPR330.SPL
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 112 target = 2 timing = 1 STR_VAR resource = ~GONDFIST~ END //from SPPR432.SPL
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 112 target = 2 timing = 1 STR_VAR resource = ~VITALD~ END //from SPPR622.SPL
 		END
 	BUT_ONLY
 	
@@ -1486,8 +1499,8 @@ BEGIN
 			END
 		END
 		PATCH_IF found = 0 BEGIN
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = target power = level resist_dispel = 3 duration = time probability1 = 100 STR_VAR resource = ~SPSE305~ END
-			LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = target power = level resist_dispel = 3 duration = time probability1 = 100 STR_VAR resource = ~SPSWIND1~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = target power = level resist_dispel = 3 duration = time STR_VAR resource = ~SPSE305~ END
+			LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = target power = level resist_dispel = 3 duration = time STR_VAR resource = ~SPSWIND1~ END
 		END
 	BUT_ONLY
 END
@@ -1809,7 +1822,7 @@ BEGIN
 	PRINT @20101
 
 	// small portrait
-	COPY_EXISTING ~ARAN.cre~            ~override~
+	COPY_EXISTING ~ARAN.cre~  ~override~
 				~ARAN02.cre~          ~override~
 		WRITE_ASCII 0x34 ~ARANS~ #8    //small portrait
 	BUT_ONLY
@@ -1840,7 +1853,7 @@ BEGIN
 		WRITE_ASCII 0x34 ~MAEVARS~ #8    //small portrait
 	BUT_ONLY
 	
-	COPY_EXISTING ~RENAL.cre~           ~override~
+	COPY_EXISTING ~RENAL.cre~ ~override~
 		WRITE_ASCII 0x34 ~RENALS~ #8    //small portrait
 	BUT_ONLY
 	
@@ -1868,26 +1881,205 @@ BEGIN
 	BUT_ONLY
 		
 	// change cre stats
-	COPY_EXISTING ~ORC01.cre~           ~override~
+	COPY_EXISTING ~ORC01.cre~ ~override~
 		WRITE_SHORT 0x24  55
 		WRITE_SHORT 0x26  55     //new HP - was 35
 		WRITE_BYTE  0x52  13     //THAC0 - was 17
 	BUT_ONLY
 	
-	COPY_EXISTING ~ORC02.cre~           ~override~
+	COPY_EXISTING ~ORC02.cre~ ~override~
 		WRITE_SHORT 0x24  55
 		WRITE_SHORT 0x26  55     //new HP - was 35
 		WRITE_BYTE  0x52  12     //THAC0 - was 18
 	BUT_ONLY
 	
-	COPY_EXISTING ~ORC03.cre~           ~override~
+	COPY_EXISTING ~ORC03.cre~ ~override~
 		WRITE_BYTE  0x52  14     //THAC0 - was 19
 	BUT_ONLY
 	
-	COPY_EXISTING ~ORC04.cre~           ~override~
+	COPY_EXISTING ~ORC04.cre~ ~override~
 		WRITE_SHORT 0x24  45
 		WRITE_SHORT 0x26  45     //new HP - was 30
 		WRITE_SHORT 0x48  1      //effective AC - was 5
 		WRITE_BYTE  0x52  15     //THAC0 - was 19
 	BUT_ONLY
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO PatchingBG2Items
+BEGIN
+	COPY_EXISTING ~DWSPER01.ITM~ ~override~
+		GET_OFFSET_ARRAY ab_array ITM_V10_HEADERS
+		PHP_EACH ab_array AS int => ab_off BEGIN
+			READ_BYTE ab_off type
+			PATCH_IF type = 1 BEGIN
+				WRITE_SHORT ab_off + 0x0e 3    //Range
+				WRITE_SHORT ab_off + 0x12 8    //Speed
+			END
+		END
+	BUT_ONLY
+	COPY_EXISTING ~HALB11.ITM~ ~override~
+		GET_OFFSET_ARRAY ab_array ITM_V10_HEADERS
+		PHP_EACH ab_array AS int => ab_off BEGIN
+			READ_BYTE ab_off type
+			PATCH_IF type = 1 BEGIN
+				WRITE_SHORT ab_off + 0x0e 3    //Range
+				WRITE_SHORT ab_off + 0x12 5    //Speed
+			END
+		END
+	BUT_ONLY
+	COPY_EXISTING ~MISC9Y.ITM~ ~override~
+		GET_OFFSET_ARRAY ab_array ITM_V10_HEADERS 
+		PHP_EACH ab_array AS int => ab_off BEGIN
+			READ_BYTE ab_off type
+			PATCH_IF type = 3 BEGIN
+				LPF ADD_ITEM_EFFECT INT_VAR opcode = 206 target = 1 power = 8 resist_dispel = 1 duration = 60 STR_VAR resource = ~SPIN542~ END
+				LPF ADD_ITEM_EFFECT INT_VAR opcode = 206 target = 1 power = 8 resist_dispel = 1 duration = 60 STR_VAR resource = ~SPIN543~ END
+				LPF ADD_ITEM_EFFECT INT_VAR opcode = 206 target = 1 power = 8 resist_dispel = 1 duration = 60 STR_VAR resource = ~SPIN804~ END
+				LPF ADD_ITEM_EFFECT INT_VAR opcode = 206 target = 1 power = 8 resist_dispel = 1 duration = 60 STR_VAR resource = ~SPIN545~ END
+				LPF ADD_ITEM_EFFECT INT_VAR opcode = 206 target = 1 power = 8 resist_dispel = 1 duration = 60 STR_VAR resource = ~SPIN547~ END
+			END
+		END
+	BUT_ONLY
+	COPY_EXISTING ~RINGLOUP.itm~ ~override~
+		GET_OFFSET_ARRAY glob_eff_array ITM_V10_GEN_EFFECTS
+		PHP_EACH glob_eff_array AS int => glob_eff_off BEGIN
+			READ_SHORT glob_eff_off type
+			READ_LONG glob_eff_off + 0x08 weapon_type
+			PATCH_IF type = 120 BEGIN					//Immunity to weapons
+				PATCH_IF weapon_type = 11 BEGIN			
+					WRITE_LONG glob_eff_off + 0x08 2	//non-magical
+				END
+				LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 1 opcode = 120 target = 1 power = 7 parameter1 = 1 timing = 2 END
+				LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 2 opcode = 120 target = 1 power = 7 parameter1 = 2 timing = 2 END
+			END
+		END
+	BUT_ONLY
+	COPY_EXISTING ~ROSSRING.itm~ ~override~
+		WRITE_BYTE 0x18 (THIS & ` BIT2)  //undroppable
+	BUT_ONLY
+	COPY_EXISTING ~SW1H47.itm~ ~override~
+		WRITE_LONG 0x18 (THIS | BIT6)   //magical
+		WRITE_LONG 0x1e (THIS | BIT30)  //usability
+	BUT_ONLY
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO PatchingStores
+BEGIN
+	COPY_EXISTING ~BDBART01.sto~ ~override~
+		WRITE_LONG 0x10 (THIS | BIT0)    //flags - can buy
+		ADD_STORE_ITEM + ~HELMDEF~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+    BUT_ONLY
+	
+	COPY_EXISTING ~BERNARD2.sto~ ~override~
+		WRITE_LONG 0x10 (THIS & ` BIT3)    //flags - can't steal
+		ADD_STORE_ITEM + ~ABLEEDER~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+		ADD_STORE_ITEM + ~PITGLOVZ~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+		ADD_STORE_ITEM + ~VALIANT~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+    BUT_ONLY
+	
+	COPY_EXISTING ~HELMPR.sto~ ~override~
+		ADD_STORE_ITEM + ~TOMB~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY	
+	
+	COPY_EXISTING ~JAYES.sto~ ~override~
+		ADD_STORE_ITEM + ~ZZU6CS~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY
+	
+	COPY_EXISTING ~RIBALD.sto~ ~override~
+		ADD_STORE_ITEM + ~ARAVORNX~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+		ADD_STORE_ITEM + ~PLANGARD~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY
+	
+	COPY_EXISTING ~RIBALD3.sto~ ~override~
+		ADD_STORE_ITEM + ~ZZ14IN~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+		ADD_STORE_ITEM + ~BWTALIS~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+		ADD_STORE_ITEM + ~YOUNG~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY
+	
+	COPY_EXISTING ~ROGER.sto~ ~override~
+		WRITE_LONG 0x10 (THIS & ` BIT3)    //flags - can't steal
+		ADD_STORE_ITEM + ~DELVSCUE~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+		ADD_STORE_ITEM + ~ZZG7TS~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY
+	
+	COPY_EXISTING ~SCROLLS.sto~ ~override~
+		ADD_STORE_ITEM + ~MMCHAL~ LAST #1 #0 #0 ~IDENTIFIED~ #0 ~UNLIMITED~
+	BUT_ONLY
+	
+	COPY_EXISTING ~TEMLATH.sto~ ~override~
+		ADD_STORE_ITEM + ~SHADCANE~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY
+	
+	COPY_EXISTING ~TEMPLE.sto~ ~override~
+		ADD_STORE_ITEM + ~WAUKEEN~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY
+	
+	COPY_EXISTING ~TEMTALOS.sto~ ~override~
+		ADD_STORE_ITEM + ~STAFFBES~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY
+	
+	COPY_EXISTING ~THUMB.sto~ ~override~
+		ADD_STORE_ITEM + ~DRAWER~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY
+	COPY_EXISTING ~DRAWER.itm~ ~override~
+		SAY 0x19e @21124
+		
+	COPY_EXISTING ~TRMER02.sto~ ~override~
+		WRITE_LONG 0x10 (THIS & ` BIT3)    //flags - can't steal
+		ADD_STORE_ITEM + ~QUOST~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+		ADD_STORE_ITEM + ~UMSTR4B~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+		ADD_STORE_ITEM + ~SPIRIT~ LAST #1 #0 #0 ~IDENTIFIED~ #5
+	BUT_ONLY
+	COPY_EXISTING ~SPIRIT.itm~ ~override~
+		SAY 0xde @21371
+	
+	COPY_EXISTING ~UDDROW23.sto~ ~override~
+		WRITE_LONG 0x10 (THIS & ` BIT3)    //flags - can't steal
+		ADD_STORE_ITEM + ~CONTAGON~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+		ADD_STORE_ITEM + ~SCRX38~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY
+	
+	COPY_EXISTING ~UDDUER01.sto~ ~override~
+		WRITE_LONG 0x10 (THIS & ` BIT3)    //flags - can't steal
+		ADD_STORE_ITEM + ~LIFELESS~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY
+	
+	COPY_EXISTING ~UDDUER02.sto~ ~override~
+		WRITE_LONG 0x10 (THIS & ` BIT3)    //flags - can't steal
+		ADD_STORE_ITEM + ~SWANARM~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+		ADD_STORE_ITEM + ~CAIRN~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY
+	
+	COPY_EXISTING ~UDSVIR04.sto~ ~override~
+		WRITE_LONG 0x10 (THIS | BIT0 | BIT1)    //flags - can buy, can sell
+		ADD_STORE_ITEM + ~HELLPIK~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY
+	
+	COPY_EXISTING ~WILMAT.sto~ ~override~
+		ADD_STORE_ITEM + ~MISTY~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+	BUT_ONLY
+	
+	COPY_EXISTING ~WMART2.sto~ ~override~
+		WRITE_LONG 0x10 (THIS & ` BIT3)    //flags - can't steal
+		WRITE_LONG 0x14 100                //sell markup
+		WRITE_LONG 0x18 40                 //buy markup
+		ADD_STORE_ITEM + ~BELT06~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+		ADD_STORE_ITEM + ~BRAC10~ LAST #1 #0 #0 ~IDENTIFIED~ #1
+		ADD_STORE_ITEM + ~POTN47~ LAST #1 #0 #0 ~IDENTIFIED~ #5
+		ADD_STORE_ITEM + ~POTN52~ LAST #1 #0 #0 ~IDENTIFIED~ #0 ~UNLIMITED~
+	BUT_ONLY
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO InstallStores
+BEGIN
+	COPY_EXISTING ~BREACHAM.itm~ ~override~
+		SAY 0x22e @21009
+	
+	COPY_EXISTING ~SYLVCLUB.itm~ ~override~
+		SAY 0x19e @21392
+		SAY 0x28e @21393
+
 END

@@ -1,11 +1,13 @@
 RESNAME 	NAME1	NAME2	UNIDENTIFIED_DESC	DESC	ICON		UNDROPPABLE COMMENTS
 AROWVEN		+		20981	+					20982	IAROWXV		.			
-DDLETT01	21067	21067	21067				21067	+			++++++++	
+DDLETT01	21067	21067	21067				21067	ISCRL01		++++++++	//This is for male title change for some languages
 DDNAMCH1	+		21073	+					+		+			.			
 DDNAMCH2	+		21073	+					+		+			.			
-DDSTUN		+		21073	+					+		+			++++++++	
+DDSTUN		+		21073	+					+		+			++++++++	//This is for female title change for some languages-POCT1B
 DDVES01		+		21094	+					21095	+			.			
 DDVESRN1	+		+		+					+		+			.			
 DDVESRNG	+		21096	+					21097	+			.			
 POAMUL01	+		+		+					+		+			.			
-POAMUL02	+		+		+					+		+			.			
+POAMUL02	+		+		+					+		+			.	
+	
+DDRING01	+		21090	+					21091	+			+

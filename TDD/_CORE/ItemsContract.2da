@@ -25,3 +25,115 @@ MINTGOLS	21246	21246	+					21246	+			+			Golem
 GOLBOOK		21174	21174	+					21175	+			+			Golem
 MINTRANC	+		+		+					+		+			+
 MINTRANM	+		21248	+					21249	+			+
+
+TROGSW1H	+		+		+					+		+			+
+CELEBROS    +		21028	+					21029	+			+
+DARKLITE    +		21051	+					21052	+			+
+DDRAVE06    +		21085	+					21087	+			+
+DREADW      +		+		+					+		+			+
+GONDFIST    +		+		+					+		+			+
+HELMDED     +		21189	+					21190	+			+
+IOUNX9      +		21201	+					21202	+			+
+IRONKN      +		+		+					+		+			+
+KELBHAND    +		+		+					+		+			+
+KIBADAY     +		20047	+					21213	+			+
+KIBAXX      +		20047	+					21213	+			+
+MINTGOH     21024	21024	+					21237	+			+
+MOONBLA     21258	21258	+					+		+			+
+PITGLOVX    +		+		+					+		+			+
+PSHARD      21284	21284	21285				21285	+			+
+ROGUE       21298	21299	21300				21301	+			+
+RUNEZ1      +		21302	+					21303	+			+
+RUNEZ2      +		21304	+					21305	+			+
+RUNEZ3      +		21306	+					21307	+			+
+RUNEZ4      +		21308	+					21309	+			+
+RUNEZ5      +		21310	+					21311	+			+
+RUNEZ6      +		21312	+					21313	+			+
+RUNEZ7      +		21312	+					21314	+			+
+RUNEZ8      +		21315	+					21316	+			+
+RUNEZ9      +		21317	+					21318	+			+
+RUNEZ10     +		21319	+					21320	+			+
+SASH        +		21329	+					21330	+			+
+SHLDRED     +		21347	+					21348	+			+
+STAFDRAG    +		20070	+					20072	+			+
+SUCX1       +		21376	+					21377	+			+
+SUCX2       +		21376	+					21378	+			+
+SUCX3       +		21376	+					21379	+			+
+U1HAX3A     +		21414	+					21415	+			+
+UDAGG5A     +		21420	+					21421	+			+
+VITALD      21434	21434	+					+		+			+
+ZZN6GC      +		21451	+					21452	+			+
+
+//StoresBG2
+HELMDEF		+		21191	+					21192	+			+			//BDBART01.sto
+ABLEEDER	+		20954	+					20955	+			+			//BERNARD2.sto
+PITGLOVZ	+		21271	+					21272	+			+			//BERNARD2.sto
+VALIANT		+		21430	+					21431	+			+			//BERNARD2.sto
+TOMB		+		21396	+					21397	+			+			//HELMPR.sto
+ZZU6CS		+		21454	+					21455	+			+			//JAYES.sto
+ARAVORNX	+		20977	+					20978	+			+			//HELMPR.sto
+PLANGARD	+		21275	+					21276	+			+			//RIBALD.sto
+BWTALIS		21018	21019	21020				21021	+			+			//RIBALD3.sto
+YOUNG       +		21443	+					21444	+			+			//RIBALD3.sto
+ZZ14IN      +		21447	+					21448	+			+			//RIBALD3.sto
+DELVSCUE	+		21104	+					21105	+			+			//ROGER.sto
+ZZG7TS      +		21449	+					21450	+			+			//ROGER.sto
+MMCHAL      +		20483	21255				21255	+			+			//SCROLLS.sto
+SHADCANE    +		21341	+					21342	+			+			//TEMLATH.sto
+WAUKEEN		+		21437	+					21438	+			+			//TEMPLE.sto
+STAFFBES	+		20074	+					21373	+			+			//TEMTALOS.sto
+DRAWER		+		21122	+					21123	+			+			//THUMB.sto
+QUOST		+		21287	+					21288	+			+			//TRMER02.sto
+SPIRIT      +		21369	+					21370	+			+			//TRMER02.sto
+UMSTR4B     +		21424	+					21425	+			+			//TRMER02.sto
+CONTAGON	+		21040	+					21041	+			+			//UDDROW23.sto
+LIFELESS	+		21217	+					21218	+			+			//UDDUER01.sto
+CAIRN		+		21022	+					21023	+			+			//UDDUER02.sto
+SWANARM     +		21382	+					21383	+			+			//UDDUER02.sto
+HELLPIK		+		21187	+					21188	+			+			//UDSVIR04.sto
+MISTY		+		21252	+					21253	+			+			//WILMAT.sto
+//NewStores
+ACIDRASP	+		20957	+					20958	+			+
+AQATICSC	+		20973	+					20974	+			+
+AURILMAL	+		20985	+					20986	+			+
+BEARKNFX	+		20987	+					20988	+			+
+BLOODMAL	+		20995	+					20996	+			+
+BMASTAMU	+		20997	+					20998	+			+
+BMASTSW1	+		20999	+					21000	+			+
+BREACHAM	+		21007	+					21008	+			+
+BREATHXZ	+		21010	+					21011	+			+
+BSINGCHN	+		21012	+					21013	+			+
+BUCCEPIE	+		21014	+					21015	+			+
+CHANTHRN	+		21033	+					21034	+			+
+DARKKNHM	+		21049	+					21050	+			+
+DEMONCHM	+		21108	+					21109	+			+
+DRAGBRCX	+		21120	+					21121	+			+
+DREAMNEC	+		21125	+					21126	+			+
+DROWBMSC	+		21127	+					21128	+			+
+DROWCFLA	+		21129	+					21130	+			+
+DROWDAGX	+		21131	+					21132	+			+
+DROWWARS	+		21133	+					21134	+			+
+DWELLAXE	+		21137	+					21138	+			+
+FAITHMCE	+		21151	+					21152	+			+
+FORESTHM	+		21164	+					21165	+			+
+GRUNTSWX	+		21176	+					21177	+			+
+GUARDSHZ	+		21178	+					21179	+			+
+HEALCLCK	+		21184	+					21185	+			+
+HEAVENST	+		20045	+					21186	+			+
+JUSTSPER	+		21203	+					21204	+			+
+LORDSW2H	+		21221	+					21222	+			+
+NINJSHRK	+		21261	+					21262	+			+
+PLANDAGG	+		21273	+					21274	+			+
+RHYTHMSD	+		21289	+					21290	+			+
+SAMARMX1	+		21321	+					21322	+			+
+SAMBRACX	+		21323	+					21324	+			+
+SAMHELMX	+		21325	+					21326	+			+
+SHARFLAL	+		21345	+					21346	+			+
+SLINGSLG	+		21361	+					21362	+			+
+SNIPPRED	+		21365	+					21366	+			+
+SPINETAP	+		21367	+					21368	+			+
+SWINDBLR	+		21384	+					21385	+			+
+SYLVCLUB	+		21390	+					21391	+			+
+THUGBJAK	+		21394	+					21395	+			+
+TROUBRAP	+		21409	+					21410	+			+
+TYBBMACE	+		21411	+					21412	+			+
