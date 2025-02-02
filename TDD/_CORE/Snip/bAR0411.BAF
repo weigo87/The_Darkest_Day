@@ -1,0 +1,26 @@
+IF
+	Global("SpawnAssassins","AR0411",1)
+THEN
+	RESPONSE #100
+		SetGlobal("SpawnAssassins","AR0411",2)
+		StartCutSceneMode()
+		CreateVisualEffect("SPWOOD",[2774.2650])
+		CreateVisualEffect("SPWOOD",[2839.2781])
+		CreateVisualEffect("SPWOOD",[3160.2714])
+		CreateVisualEffect("SPWOOD",[2989.2821])
+		CreateVisualEffect("SPWOOD",[2908.2795])
+		CreateVisualEffect("SPWOOD",[2842.2772])
+		CreateVisualEffect("SPWOOD",[2894.2508])
+		Wait(5)
+		CreateCreatureImpassable("mgass01",[2774.2650],14) // Sergeant Natula
+		CreateCreatureImpassable("mgass02",[2839.2781],11) // Tyrian
+		CreateCreatureImpassable("mgass03",[3160.2714],4) // Vilhelm
+		CreateCreatureImpassable("pardru",[2989.2821],8) // Sorsha
+		CreateCreatureImpassable("parthf",[2908.2795],8) // Alnarow
+		CreateCreatureImpassable("parmonk",[2842.2772],8) // Mahar
+		CreateCreatureImpassable("parfig16",[2894.2508],8) // Jalin Tix
+		EndCutSceneMode()
+		ActionOverride("mgass01",StartDialogueNoSet(Player1))
+END
+
+

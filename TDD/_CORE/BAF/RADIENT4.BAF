@@ -1,0 +1,12 @@
+IF
+  See([ANYONE])
+  Range(LastSeenBy(Myself),8)
+THEN
+  RESPONSE #100
+    ApplySpell(LastSeenBy(Myself),WIZARD_GREATER_MALISON)
+  RESPONSE #100
+    ApplySpell(LastSeenBy(Myself),WIZARD_CHAIN_LIGHTNING)
+  RESPONSE #100
+    ApplySpell(LastSeenBy(Myself),CLERIC_FIRE_STORM)
+END
+

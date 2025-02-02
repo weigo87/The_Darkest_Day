@@ -1,0 +1,20 @@
+IF
+  Entered([ANYONE])
+THEN
+  RESPONSE #100
+    ScreenShake([3510.3040],4)
+    CreateVisualEffect("spanisum",[3510.3040])
+    CreateVisualEffect("spanisum",[3341.2975])
+    CreateVisualEffect("spanisum",[4494.2787])
+    CreateVisualEffect("spanisum",[3833.3016])
+    CreateVisualEffect("spanisum",[3338.2860])
+    CreateVisualEffect("spanisum",[3932.2997])
+    Wait(2)
+    CreateCreature("sahoty01",[3510.3040],4)
+    CreateCreature("sahoty01",[3341.2975],4)
+    CreateCreature("sahoty01",[4494.2787],4)
+    CreateCreature("sahoty01",[3833.3016],4)
+    CreateCreature("wyvgre01",[3338.2860],4)
+    CreateCreature("wyvgre01",[3932.2997],4)
+END
+

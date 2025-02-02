@@ -1,0 +1,22 @@
+IF
+  !Range(LastSummonerOf(Myself),20)
+THEN
+  RESPONSE #100
+    MoveToObject(LastSummonerOf(Myself))
+END
+
+IF
+  See(NearestEnemyOf(Myself))
+  Range(NearestEnemyOf(Myself),20)
+THEN
+  RESPONSE #100
+    Attack(NearestEnemyOf(Myself))
+END
+
+IF
+  AttackedBy([ANYONE],DEFAULT)
+THEN
+  RESPONSE #100
+    MoveToObject(NearestEnemyOf(Myself))
+END
+

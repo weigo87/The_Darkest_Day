@@ -1,0 +1,10 @@
+IF
+	Global("HeardOfSlaveLords","GLOBAL",0)
+	PartyHasItem("MISC8P") // Isaea's Slavery Document
+THEN
+	RESPONSE #100
+		SetGlobal("HeardOfSlaveLords","GLOBAL",1)
+		Continue()
+END
+
+

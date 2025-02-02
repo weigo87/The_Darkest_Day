@@ -1,0 +1,7 @@
+IF
+  Global("tz_pkdead1help","GLOBAL",10)
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

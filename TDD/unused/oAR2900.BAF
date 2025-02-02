@@ -1,0 +1,12 @@
+IF
+	Global("PlayerIntro","AR2900",0)
+THEN
+	RESPONSE #100
+		StartCutSceneMode()
+		SetGlobal("PlayerIntro","AR2900",1)
+		TriggerActivation("Tran2906",FALSE)
+		Wait(2)
+		ActionOverride(Player1,StartDialog("Player1",Player1))
+END
+
+

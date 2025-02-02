@@ -65,11 +65,12 @@ UMSTR5A		+		21426	+					21427	+			.			Morning Star of Action +4
 USHLD3B		+		21428	+					21429	+			.			Storming Shield +3
 WATBLOOD	21435	21435	21436				21436	+			++++++++	Blood of a Wererat
 WYVCROWN	+		21441	+					21442	WYVCROWN	.			Wyvern Crown
-ACIDHAND
-B3-24X
-BANSNECK
-BOOT01X
-RINGTART
+
+ACIDHAND	+		20956	+					+		+			.	
+B3-24X		+		20956	+					+		+			.	
+BANSNECK	+		20966	+					+		+			.
+BOOT01X		+		+		+					+		+			.
+RINGTART	+		+		+					+		+			.
 
 Store
 AMF			+		20956	+					+		+			.			//Store

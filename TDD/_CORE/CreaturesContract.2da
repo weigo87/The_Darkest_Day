@@ -10,13 +10,46 @@ LAVAELE		20336	20336	+				+			+			+			+			WTASIGHT	+			+			20
 MINTTROG	20345	20345	+				GENSHT01	+			+			+			WTASIGHT	+			+			+
 OGREDD1		20260	20260	+				+			+			OGRE		+			WTASIGHT	+			+			+
 ZOMBX1		+		+		+				GENSHT01	+			+			+			WTASIGHT	+			+			+
+CORPMINI	20221	20221	+				+			+			+			+			+			+			+			20
 HOBARC03	20104	20104	+				GENSHT01	+			+			+			WDASIGHT	+			+			20
 HOBWIZ02	20105	20105	HOBWIZ01		GENSHT01	+			+			MAGE6		WDASIGHT	+			+			20
 KOBCAP02	20106	20106	+				GENSHT01	+			+			BPLEADER	WDASIGHT	+			+			20
-KOBCOM02	20107	20107	+				GENSHT01	SWKOBOLD	+			+			WDASIGHT	SWSFOLL6	+			20
+KOBCOM02	20107	20107	+				GENSHT01	SWKOBOLD	+			+			WTASIGHT	SWSFOLL6	+			20
 KOBSHA02	20108	20108	+				GENSHT01	+			+			KBSHAM01	WDASIGHT	+			+			20
 KOBWIT02	20109	20109	+				GENSHT01	MAGE6A		KOBOLDF		+			WDASIGHT	+			+			20
 MINTELEC	20341	20341	+				+			MINTGOLC	+			+			+			+			+			20
 MINTGOLC	20342	20342	+				+			MINTGOLC	+			+			+			+			+			20		Golem
 MINTRANC	20343	20343	+				+			MINTGOLC	+			+			+			+			+			20
-
+HAMMER		20323	20323	+				+			+			+			+			WTASIGHT	+			+			20			//SPPR529 TZPR529
+PHANTOMA	20357	20357	+				+			+			+			+			0			+			+			20			//SPMI113
+RADIENT1	20419	20419	+				+			+			+			+			0			+			+			20			//SPMI133 Otilukes Leuchtkugel
+RADIENT2	20419	20419	+				+			+			+			+			0			+			+			20			//SPMI133 Otilukes Leuchtkugel
+RADIENT3	20419	20419	+				+			+			+			+			0			+			+			20			//SPMI133 Otilukes Leuchtkugel
+RADIENT4	20419	20419	+				+			+			+			+			0			+			+			20			//SPMI133 Otilukes Leuchtkugel
+DREADX		20295	20295	+				+			+			+			+			DREADW		ZOMBIE		+			20			//SPMI123		
+ARMY1		20133	20133	+				+			+			+			+			WTARSGT		+			+			20			//SPMI110
+ARMY2		20133	20133	+				+			WTASIGHT	+			+			+			+			+			20			//SPMI110
+ARMY3		20133	20133	+				+			+			+			+			DUEWAR01	+			+			20			//SPMI110
+ARMY4		20133	20133	+				+			+			+			WTASIGHT	+			+			+			20			//SPMI110
+CHETAH1		+		+		+				GENSHT01	+			+			+			+			+			+			20			//SPPR521 TZPR521 //Summon Natures Ally V
+CHETAH2		+		+		+				GENSHT01	+			+			+			+			+			+			20			//SPPR521 TZPR521 //Summon Natures Ally V
+GRIZZ1		+		+		+				SUMSHT02	+			BEAR		HUNTER		WTASIGHT	+			+			20			//SPPR521 TZPR521 //Summon Natures Ally V
+GRIZZ2		+		+		+				SUMSHT02	+			BEAR		HUNTER		WTASIGHT	+			+			20			//SPPR521 TZPR521 //Summon Natures Ally V
+JAG1		+		+		+				GENSHT01	+			HUNTER		+			WTASIGHT	+			+			20			//SPPR521 TZPR521 //Summon Natures Ally V
+JAG2		+		+		+				GENSHT01	+			HUNTER		+			WTASIGHT	+			+			20			//SPPR521 TZPR521 //Summon Natures Ally V
+LEOPARD1	+		+		+				GENSHT01	+			HUNTER		+			WTASIGHT	+			+			20			//SPPR521 TZPR521 //Summon Natures Ally V
+LEOPARD2	+		+		+				GENSHT01	+			HUNTER		+			WTASIGHT	+			+			20			//SPPR521 TZPR521 //Summon Natures Ally V
+LION1		+		+		+				+			+			HUNTER		+			WTASIGHT	+			+			20			//SPPR521 TZPR521 //Summon Natures Ally V
+LION2		+		+		+				+			+			HUNTER		+			WTASIGHT	+			+			20			//SPPR521 TZPR521 //Summon Natures Ally V
+TIGER1		+		+		+				GENSHT01	+			+			+			WTASIGHT	+			+			20			//SPPR521 TZPR521 //Summon Natures Ally V
+TIGER2		+		+		+				GENSHT01	+			+			+			WTASIGHT	+			+			20			//SPPR521 TZPR521 //Summon Natures Ally V
+GENOGENI	20320	20320	0				+			+			+			0			0			+			+			20			//SPMI115
+MINAT		20340	20340	ogre			+			+			OGRE		+			WTASIGHT	+			+			20			//SPWI726 TZWI726
+MUMX1		+		+		Mummy			MUMMY		+			+			+			WTASIGHT	MUMMY		+			20
+ORCSUM		+		+		+				GENSHT01	+			ORCWAR		+			WTARSGT		+			+			20			//orcsum.eff
+ORCSUM2		+		+		firarc01		+			+			+			+			WTASIGHT	+			+			20			//orcsum2.eff
+SCRY		20439	20439	wizeye			wizeye		+			+			+			+			+			+			20			//SPPR523 TZPR523
+SPECX1		+		+		shadow01		GENSHT01	+			+			+			WTASIGHT	+			+			20			//SPPR748 SPSHAR2
+STONESER	20452	20452	+				GENSHT01	+			+			+			WDASIGHT	+			+			20			//SPPR615
+TORMENT		20458	20458	+				SHDWKILL	GENSHT01	+			+			WTASIGHT	+			+			20			//SPWI225
+VAMQ1		+		+		+				+			+			+			VAMPIR01	+			+			+			20			//SPPR748 

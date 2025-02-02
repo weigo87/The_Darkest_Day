@@ -1,0 +1,14 @@
+EXTEND_BOTTOM ~BERNARD~ 22
+  IF ~~ THEN REPLY @0 GOTO s1
+END
+
+
+APPEND ~BERNARD~
+
+IF ~~ THEN BEGIN s1 
+  SAY @1
+  IF ~~ THEN DO ~StartStore("DDbernar",LastTalkedToBy())~ EXIT
+END
+
+END
+

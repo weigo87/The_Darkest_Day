@@ -1,0 +1,16 @@
+IF
+	Global("tz_ContainerSpawn","AR0402",0)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_ContainerSpawn","AR0402",1)
+		ActionOverride("Barrel1",CreateItem("DDSCR229",1,0,0)) // Thunderclap
+	RESPONSE #100
+		SetGlobal("tz_ContainerSpawn","AR0402",1)
+		ActionOverride("Barrel1",CreateItem("DDPOTNP1",1,0,0)) // Bottle of Magical Salve
+	RESPONSE #100
+		SetGlobal("tz_ContainerSpawn","AR0402",1)
+		ActionOverride("Table1",CreateItem("DDPOTNP1",1,0,0)) // Bottle of Magical Salve
+		ActionOverride("Shelf2",CreateItem("DDSCR229",1,0,0)) // Thunderclap
+END
+
+

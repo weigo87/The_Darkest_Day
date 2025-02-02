@@ -1,0 +1,9 @@
+IF
+  OR(2)
+    AreaCheck("ARPO05")
+    AreaCheck("ARPO10")
+THEN
+  RESPONSE #100
+    DestroySelf()
+END
+

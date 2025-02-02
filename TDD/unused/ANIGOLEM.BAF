@@ -1,0 +1,43 @@
+IF
+  Global("anigol","LOCALS",0)
+  CheckStatGT(Myself,1,MAXHITPOINTS)
+  CheckStatLT(Myself,13,MAXHITPOINTS)
+THEN
+  RESPONSE #100
+    CreateVisualEffectObject("spplanar",Myself)
+    CreateCreatureObject("angol01",Myself,0,0,0)
+    SetGlobal("anigol","LOCALS",1)
+END
+
+IF
+  Global("anigol","LOCALS",0)
+  CheckStatGT(Myself,12,MAXHITPOINTS)
+  CheckStatLT(Myself,16,MAXHITPOINTS)
+THEN
+  RESPONSE #100
+    CreateVisualEffectObject("spplanar",Myself)
+    CreateCreatureObject("angol02",Myself,0,0,0)
+    SetGlobal("anigol","LOCALS",1)
+END
+
+IF
+  Global("anigol","LOCALS",0)
+  CheckStatGT(Myself,15,MAXHITPOINTS)
+  CheckStatLT(Myself,20,MAXHITPOINTS)
+THEN
+  RESPONSE #100
+    CreateVisualEffectObject("spplanar",Myself)
+    CreateCreatureObject("angol03",Myself,0,0,0)
+    SetGlobal("anigol","LOCALS",1)
+END
+
+IF
+  Global("anigol","LOCALS",0)
+  CheckStatGT(Myself,19,MAXHITPOINTS)
+THEN
+  RESPONSE #100
+    CreateVisualEffectObject("spplanar",Myself)
+    CreateCreatureObject("angol04",Myself,0,0,0)
+    SetGlobal("anigol","LOCALS",1)
+END
+

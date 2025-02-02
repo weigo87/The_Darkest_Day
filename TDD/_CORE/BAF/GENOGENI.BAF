@@ -1,11 +1,11 @@
 IF
-  Global("genogeni","GLOBAL",0)
+  Global("tz_genogeni","GLOBAL",0)
   See([PC])
   Range([PC],15)
 THEN
   RESPONSE #100
     StartDialogNoSet([PC])
-    SetGlobal("genogeni","GLOBAL",1)
+    SetGlobal("tz_genogeni","GLOBAL",1)
 END
 
 IF

@@ -1,0 +1,42 @@
+// Now AR0300.baf
+//IF
+//	GlobalGT("gandarsouth","GLOBAL",0)
+//	Global("SpawnDDtrav03","AR2800",0)
+//THEN
+//	RESPONSE #100
+//		SetGlobal("SpawnDDtrav03","AR2800",1)
+//		CreateCreature("DDtrav03",[4512.3059],0)
+//END
+
+//Old transition to OnsetoftheDD
+
+IF
+	!IsGabber(Player1)
+	!IsGabber(Player2)
+	!IsGabber(Player3)
+	!IsGabber(Player4)
+	!IsGabber(Player5)
+	!IsGabber(Player6)
+	GlobalGT("TalkEllesime","GLOBAL",2)
+	Global("DarkestDayCuts","GLOBAL",0)
+THEN
+	RESPONSE #100
+		DisplayStringHead(Player1,@10203)
+		Wait(3)
+		ClearAllActions()
+		SetGlobal("DarkestDayCuts","GLOBAL",1)
+		SetGlobal("DarkestDayStart","GLOBAL",2)
+		StartCutSceneMode()
+		StartCutScene("DDCUT01")
+END
+
+IF
+	Global("SpawmEllesimeOutside","AR2800",0)
+	GlobalGT("TalkEllesime","GLOBAL",0)
+	AreaCheckObject("AR2800",Player1)
+THEN
+	RESPONSE #100
+		CreateCreature("SUELLE2",[3151.2418],0)
+		SetGlobal("SpawmEllesimeOutside","AR2800",1)
+END
+

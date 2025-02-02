@@ -1,0 +1,36 @@
+/*
+IF
+  Global("player1_is_antipaladin","GLOBAL",1)
+  !Reputation(Player1,10)
+THEN
+  RESPONSE #100
+    ReputationSet(10)
+END
+*/
+
+
+IF
+  CombatCounter(0)
+  Global("DD_KEEP_PLOT","GLOBAL",1)
+  GlobalTimerExpired("DDPLOTA1_entry","GLOBAL")
+  OR(2)
+    AreaType(CITY)
+    AreaType(FOREST)
+THEN
+  RESPONSE #100
+    SetGlobal("DD_KEEP_PLOT","GLOBAL",2)
+    SetGlobalTimer("DDPLOTA2_entry","GLOBAL",TWO_DAYS)
+    CreateCreatureObjectOffset("DDPLOTA1",Player1,[1000.1000])
+  RESPONSE #100
+    SetGlobal("DD_KEEP_PLOT","GLOBAL",2)
+    SetGlobalTimer("DDPLOTA2_entry","GLOBAL",TWO_DAYS)
+    CreateCreatureObjectOffset("DDPLOTA1",Player1,[-1000.-1000])
+  RESPONSE #100
+    SetGlobal("DD_KEEP_PLOT","GLOBAL",2)
+    SetGlobalTimer("DDPLOTA2_entry","GLOBAL",TWO_DAYS)
+    CreateCreatureObjectOffset("DDPLOTA1",Player1,[-1000.1000])
+  RESPONSE #100
+    SetGlobal("DD_KEEP_PLOT","GLOBAL",2)
+    SetGlobalTimer("DDPLOTA2_entry","GLOBAL",TWO_DAYS)
+    CreateCreatureObjectOffset("DDPLOTA1",Player1,[1000.-1000])
+END

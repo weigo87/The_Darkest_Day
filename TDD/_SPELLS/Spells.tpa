@@ -165,7 +165,7 @@ BUT_ONLY
 		RET spell file_name
 	END
 	ACTION_FOR_EACH file IN ~KIVAN10.CRE~ ~KIVAN12.CRE~ ~KIVAN13.CRE~ ~VESINE8.CRE~ ~VESINE11.CRE~ ~VESINE13.CRE~ 
-							~CORPMINI:CRE~ BEGIN
+							~CORPMINI.CRE~ BEGIN
 		LAM ChangeSpellNamesInFiles END	
 //=============================================================================
 	LAF AddSpells

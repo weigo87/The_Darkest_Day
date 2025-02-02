@@ -1,0 +1,10 @@
+IF
+	Global("ItemSpawn","AR1402",0)
+THEN
+	RESPONSE #100
+		SetGlobal("ItemSpawn","AR1402",1)
+		ActionOverride("SHADRA01",CreateItem("DDSTAFFL",0,0,0)) // Staff shadrag01.cre or dragshad.cre have same deathvar ????
+		Continue()
+END
+
+

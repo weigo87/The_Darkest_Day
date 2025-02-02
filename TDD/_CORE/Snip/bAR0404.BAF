@@ -1,0 +1,26 @@
+IF
+	Global("BP_Gunner","ar0404",0)
+THEN
+	RESPONSE #100
+		CreateCreature("ddogre01",[875.589],4) // Ogre
+		CreateCreature("ddogre01",[935.639],4) // Ogre
+		CreateCreature("ddogre01",[2736.2466],4) // Ogre
+		CreateCreature("ddogre01",[2752.2426],4) // Ogre
+		CreateCreature("minttrog",[2014.2327],4) // Troglodyte
+		CreateCreature("minttrog",[1974.2387],4) // Troglodyte
+		CreateCreature("minttrog",[2043.2369],4) // Troglodyte
+		CreateCreature("minttrog",[2279.2149],4) // Troglodyte
+		CreateCreature("minttrog",[2361.2146],4) // Troglodyte
+		CreateCreature("bugbear",[1329.1636],4) // Bugbear
+		CreateCreature("bugarch",[1288.1579],4) // Bugbear
+		CreateCreature("bugarch",[1222.1579],4) // Bugbear
+		CreateCreature("bugarch",[1420.1160],8) // Bugbear
+		CreateCreature("bugarch",[1575.1200],7) // Bugbear
+		CreateCreature("hobwiz02",[1500.1120],8)
+		CreateCreature("hobcap01",[1640.1120],7) // Hobgoblin Captain  - Hobgoblin Captain
+		CreateCreature("hobsha01",[1700.1000],4) // Hobgoblin Shaman
+		CreateCreature("hobarc03",[1615.975],5)
+		CreateCreature("hobarc03",[1515.975],5)
+		CreateCreature("hobeli01",[1540.915],5) // Hobgoblin Elite
+		SetGlobal("BP_Gunner","ar0404",1)
+END

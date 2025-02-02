@@ -14,3 +14,133 @@ THEN
     TakeItemReplace("mintgolF","mintgolS",Player1)
     DisplayStringHead(Player1,@10204)
 END
+//TUKI KIBA Katana
+IF
+  HasItem("kibaday",Player1)
+  OR(2)
+    TimeOfDay(DUSK)
+    TimeOfDay(NIGHT)
+THEN
+  RESPONSE #100
+    TakeItemReplace("kibaxx","kibaday",Player1)
+END
+
+IF
+  HasItem("kibaday",Player2)
+  OR(2)
+    TimeOfDay(DUSK)
+    TimeOfDay(NIGHT)
+THEN
+  RESPONSE #100
+    TakeItemReplace("kibaxx","kibaday",Player2)
+END
+
+IF
+  HasItem("kibaday",Player3)
+  OR(2)
+    TimeOfDay(DUSK)
+    TimeOfDay(NIGHT)
+THEN
+  RESPONSE #100
+    TakeItemReplace("kibaxx","kibaday",Player3)
+END
+
+IF
+  HasItem("kibaday",Player4)
+  OR(2)
+    TimeOfDay(DUSK)
+    TimeOfDay(NIGHT)
+THEN
+  RESPONSE #100
+    TakeItemReplace("kibaxx","kibaday",Player4)
+END
+
+IF
+  HasItem("kibaday",Player5)
+  OR(2)
+    TimeOfDay(DUSK)
+    TimeOfDay(NIGHT)
+THEN
+  RESPONSE #100
+    TakeItemReplace("kibaxx","kibaday",Player5)
+END
+
+IF
+  HasItem("kibaday",Player6)
+  OR(2)
+    TimeOfDay(DUSK)
+    TimeOfDay(NIGHT)
+THEN
+  RESPONSE #100
+    TakeItemReplace("kibaxx","kibaday",Player6)
+END
+
+IF
+  HasItem("kibaxx",Player1)
+  OR(2)
+    TimeOfDay(DAY)
+    TimeOfDay(MORNING)
+THEN
+  RESPONSE #100
+    TakeItemReplace("kibaday","kibaxx",Player1)
+END
+
+IF
+  HasItem("kibaxx",Player2)
+  OR(2)
+    TimeOfDay(DAY)
+    TimeOfDay(MORNING)
+THEN
+  RESPONSE #100
+    TakeItemReplace("kibaday","kibaxx",Player2)
+END
+
+IF
+  HasItem("kibaxx",Player3)
+  OR(2)
+    TimeOfDay(DAY)
+    TimeOfDay(MORNING)
+THEN
+  RESPONSE #100
+    TakeItemReplace("kibaday","kibaxx",Player3)
+END
+
+IF
+  HasItem("kibaxx",Player4)
+  OR(2)
+    TimeOfDay(DAY)
+    TimeOfDay(MORNING)
+THEN
+  RESPONSE #100
+    TakeItemReplace("kibaday","kibaxx",Player4)
+END
+
+IF
+  HasItem("kibaxx",Player5)
+  OR(2)
+    TimeOfDay(DAY)
+    TimeOfDay(MORNING)
+THEN
+  RESPONSE #100
+    TakeItemReplace("kibaday","kibaxx",Player5)
+END
+
+IF
+  HasItem("kibaxx",Player6)
+  OR(2)
+    TimeOfDay(DAY)
+    TimeOfDay(MORNING)
+THEN
+  RESPONSE #100
+    TakeItemReplace("kibaday","kibaxx",Player6)
+END
+
+IF
+  Global("m2spawnhelpneeded","GLOBAL",1)
+  CombatCounter(0)
+  PartyRested()
+THEN
+  RESPONSE #100
+    CreateCreatureOffScreen("m2guard2",0)
+    SetGlobal("m2spawnhelpneeded","GLOBAL",2)
+END

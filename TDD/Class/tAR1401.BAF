@@ -1,0 +1,13 @@
+IF
+	!Class(Protagonist,RANGER_ALL)
+	OR(2)
+		!Class(Protagonist,CLERIC)
+		!Race(Protagonist,HUMAN)
+	Contains("MISC7Q","Container12") // Tombelthen's Journal (2nd half)
+THEN
+	RESPONSE #100
+		ActionOverride("Container12",DestroyItem("MISC7Q")) // Tombelthen's Journal (2nd half)
+		Continue()
+END
+
+

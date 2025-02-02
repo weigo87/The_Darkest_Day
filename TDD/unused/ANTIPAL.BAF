@@ -1,0 +1,19 @@
+IF
+	FallenPaladin(Myself)
+	ReputationLT(Myself,14)
+	Global("GOODIE_TWO_SHOES","LOCALS",0)
+THEN
+	RESPONSE #100
+		RegainPaladinHood()
+END
+
+IF
+	!FallenPaladin(Myself)
+	ReputationGT(Myself,13)
+THEN
+	RESPONSE #100
+		SetGlobal("GOODIE_TWO_SHOES","LOCALS",1)
+		RemovePaladinHood()
+END
+
+

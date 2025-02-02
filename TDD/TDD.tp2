@@ -143,6 +143,11 @@ LANGUAGE 	~Spanish(Clan REO)~
 // DD3300C1 DD3300CT DD9X00	DD9X00C1 DD1X12 nightmaps? wrong flags set
 // portrait L for EE
 // drunken person DD0118/DD0119 DDKUIRIE.cre is missing and not yet implemented
+// TDD start Suelle2
+// XP reduction
+// EE Item discription
+// deathvar TDD creature check
+//  oDDWELL.baf nDDWELL.baf different for non-EE and EE
 
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\

@@ -23,7 +23,17 @@ BEGIN
 //*****************************************************************************
 	PRINT @20080
 	LAM InstallScripts
+	
+	//KIBA TUI Katana
+//	EXTEND_BOTTOM ~BALDUR.BCS~ ~%RES_FOLDER%/SNIP/bDPLAYER.BAF~
 
+//*****************************************************************************
+// Scripts 
+//*****************************************************************************
+	PRINT @20079
+	COPY + ~%RES_FOLDER%/D_TOB/mPIRCOR5.D~ ~override~
+	COPY + ~%RES_FOLDER%/D_TOB/mBERNARD.D~ ~override~
+	
 //*****************************************************************************
 // spell 
 //*****************************************************************************
@@ -91,7 +101,7 @@ BEGIN
 	LAM PatchAR0309 //Table 2 => ZZN6GC
 	LAM PatchAR0802	// Crate 1 => U1HAX3A
 	LAM PatchAR1202 // Container 1 => ZZE6PE	Container 9 => CELEBROS
-	LAM PatchAR1202 // Container 2 => U2HAX4B	Container 7 => SCRX2
+	LAM PatchAR1301 // Container 2 => U2HAX4B	Container 7 => SCRX2
 	LAM PatchAR1401 // Container 10 => SASH	Container 11 => SCRX5 SCRX71 Container 12 => DROWBMSC
 	LAM PatchAR1513 // Table 1 => HELMDED
 	LAM PatchAR1601 // Drawer 1 => DARKLITE
@@ -110,6 +120,50 @@ BEGIN
 	
 	// Scrolls DDPOTNP1.itm DDSCR229.itm
 	EXTEND_BOTTOM ~AR0402.bcs~ ~%RES_FOLDER%/Snip/bAR0402.baf~
+	
+	// Ranger Cleric not human quest
+	EXTEND_TOP ~AR1401.BCS~ ~%RES_FOLDER%/SNIP/tAR1401.BAF~
+	// Shadrag01 has new stuff
+	EXTEND_TOP ~AR1402.BCS~ ~%RES_FOLDER%/SNIP/tAR1402.BAF~
+	// thief guild rest
+	EXTEND_BOTTOM ~AR0321.BCS~ ~%RES_FOLDER%/SNIP/bAR0321.BAF~
+	EXTEND_BOTTOM ~AR0322.BCS~ ~%RES_FOLDER%/SNIP/bAR0322.BAF~
+	EXTEND_BOTTOM ~AR0323.BCS~ ~%RES_FOLDER%/SNIP/bAR0323.BAF~
+	EXTEND_BOTTOM ~AR0324.BCS~ ~%RES_FOLDER%/SNIP/bAR0324.BAF~
+	// more encounters
+	EXTEND_BOTTOM ~AR0404.BCS~ ~%RES_FOLDER%/SNIP/bAR0404.BAF~
+	EXTEND_BOTTOM ~AR0405.BCS~ ~%RES_FOLDER%/SNIP/bAR0405.BAF~
+	// Joluv Store wmart1.sto
+	EXTEND_BOTTOM ~AR0406.BCS~ ~%RES_FOLDER%/SNIP/bAR0406.BAF~
+	// Vilhelm starts dialog
+	EXTEND_BOTTOM ~AR0411.BCS~ ~%RES_FOLDER%/SNIP/bAR0411.BAF~
+	// more encounters
+	EXTEND_BOTTOM ~AR0602.BCS~ ~%RES_FOLDER%/SNIP/bAR0602.BAF~
+	// Door12 patch
+//	COPY_EXISTING ~AR0800.BCS~ ~override~
+//		REPLACE_BCS_BLOCK ~TDD/SNIP/oAR0800.BAF~ ~TDD/SNIP/nAR0800.BAF~
+	// Bhodis hidout
+	EXTEND_BOTTOM ~AR0801.BCS~ ~%RES_FOLDER%/SNIP/bAR0801.BAF~
+	// Baurian Arathor spawn
+	EXTEND_BOTTOM ~AR0904.BCS~ ~%RES_FOLDER%/SNIP/bAR0904.BAF~
+	
+	// Shangalar - does it make sense???
+	//EXTEND_BOTTOM ~AR1008.BCS~ ~%RES_FOLDER%/SNIP/bAR1008.BAF~
+	
+	// more enemies cyclops; Arrow of Fire
+	EXTEND_BOTTOM ~AR1300.BCS~ ~%RES_FOLDER%/SNIP/bAR1300.BAF~
+	// more enemies
+	EXTEND_BOTTOM ~AR1301.BCS~ ~%RES_FOLDER%/SNIP/bAR1301.BAF~
+	// Alignment change
+//	COPY_EXISTING ~AR2900.BCS~ ~override~
+//		REPLACE_BCS_BLOCK ~TDD/SNIP/oAR2900.BAF~ ~TDD/SNIP/nAR2900.BAF~
+//	//Alignment change ranger paladin
+//	EXTEND_BOTTOM ~AR2901.BCS~ ~TDD/SNIP/bAR2901.BAF~
+//	EXTEND_BOTTOM ~AR2902.BCS~ ~TDD/SNIP/bAR2902.BAF~
+//	EXTEND_BOTTOM ~AR2903.BCS~ ~TDD/SNIP/bAR2903.BAF~
+//	EXTEND_BOTTOM ~AR2905.BCS~ ~TDD/SNIP/bAR2905.BAF~
+	//paladinorder rest
+	EXTEND_TOP ~AR0903.BCS~ ~%RES_FOLDER%/SNIP/tAR0903.BAF~
 
 //*****************************************************
 // Patching BG2 creatures

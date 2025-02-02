@@ -1,0 +1,20 @@
+IF
+	Global("#HTDD0602","GLOBAL",0)
+THEN
+	RESPONSE #100
+		CreateCreature("bugbear",[617.2022],4) // Bugbear
+		CreateCreature("bugbear",[670.2067],4) // Bugbear
+		CreateCreature("bugarch",[717.1957],4) // Bugbear
+		CreateCreature("bugarch",[763.1991],4) // Bugbear
+		CreateCreature("bugarch",[823.1450],4) // Bugbear
+		CreateCreature("bugarch",[796.1589],4) // Bugbear
+		CreateCreature("bugarch",[904.1522],4) // Bugbear
+		CreateCreature("ddogre01",[977.262],4) // Ogre
+		CreateCreature("ddogre01",[1030.303],4) // Ogre
+		CreateCreature("ddogre01",[3204.814],4) // Ogre
+		CreateCreature("ddogre01",[3281.765],4) // Ogre
+		CreateCreature("otyugh",[2496.2056],4) // Otyugh
+		CreateCreature("otyugh",[2761.1962],4) // Otyugh
+		SetGlobal("#HTDD0602","GLOBAL",1)
+                Continue()
+END

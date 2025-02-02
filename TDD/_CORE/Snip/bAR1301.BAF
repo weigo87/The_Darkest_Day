@@ -1,0 +1,12 @@
+IF
+	Global("tz_ar1301","GLOBAL",0)
+THEN
+	RESPONSE #100
+		CreateCreature("trolgi01",[1424.693],4) // Giant Troll
+		CreateCreature("trolgi01",[1499.640],4) // Giant Troll
+		CreateCreature("trolgi01",[2161.355],4) // Giant Troll
+		CreateCreature("trolgi01",[2532.640],4) // Giant Troll
+		SetGlobal("tz_ar1301","GLOBAL",1)
+END
+
+

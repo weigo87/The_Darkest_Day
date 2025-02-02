@@ -59,6 +59,7 @@ UNLESS ~ARPO05~
 	EXTEND_BOTTOM ~AR0300.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/bAR0300.baf~
 	EXTEND_BOTTOM ~AR0902.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/bAR0902.baf~
 	EXTEND_BOTTOM ~AR0020.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/bAR0020.baf~
+	EXTEND_BOTTOM ~BALDUR.bcs~ ~%workspace%/%COMP_FOLDER%/Snip/bBALDUR.baf~
 	
 	COPY_EXISTING ~DDTXT01.2DA~ ~override~
 		REPLACE ~85747~ @20026

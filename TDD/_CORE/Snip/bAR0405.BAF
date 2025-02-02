@@ -1,0 +1,13 @@
+IF
+	Global("tz_ar0405","GLOBAL",0)
+THEN
+	RESPONSE #100
+		CreateCreature("trolgi01",[2228.1036],4) // Giant Troll
+		CreateCreature("icyuan03",[1505.339],4) // Yuan-Ti  mage - Yuan-Ti mage
+		CreateCreature("icyuan03",[1682.385],4) // Yuan-Ti  mage - Yuan-Ti mage
+		CreateCreature("slapri",[795.797],4) // Priest of Cyric
+		CreateCreature("slapri",[1059.861],4) // Priest of Cyric
+		SetGlobal("tz_ar0405","GLOBAL",1)
+END
+
+

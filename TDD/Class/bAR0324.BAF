@@ -1,0 +1,19 @@
+IF
+	Global("tz_SetRest","AR0324",0)
+	Global("PlayerThiefGuild","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_SetRest","AR0324",1)
+		SetAreaRestFlag(1)
+END
+
+IF
+	Global("tz_SetRest","AR0324",1)
+	!Global("PlayerThiefGuild","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("tz_SetRest","AR0324",0)
+		SetAreaRestFlag(0)
+END
+
+

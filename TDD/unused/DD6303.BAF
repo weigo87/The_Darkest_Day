@@ -1,0 +1,25 @@
+IF
+  Global("showdown","DD3603",0)
+THEN
+  RESPONSE #100
+    CreateCreature("psidark1",[624.363],4)
+    CreateCreature("psidark2",[864.435],4)
+    CreateCreature("psidark2",[980.653],4)
+    CreateCreature("psidark3",[327.463],4)
+    CreateCreature("psidark3",[332.701],4)
+    StartCutSceneMode()
+    StartCutScene("PSIcut02")
+    SetGlobal("showdown","DD3603",1)
+END
+
+IF
+  PartyHasItem("deadbkx")
+  Dead("psidark1")
+  NumDead("psidark2",2)
+  NumDead("psidark3",2)
+THEN
+  RESPONSE #100
+    StartCutSceneMode()
+    StartCutScene("PSIcut03")
+END
+

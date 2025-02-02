@@ -1,0 +1,18 @@
+IF
+	Entered([PC.0.0])
+THEN
+	RESPONSE #100
+		DisplayString(Myself,14381)
+		ReallyForceSpell(LastTrigger,TRAP_MINOR_LIGHTNING_BOLT)
+		Wait(2)
+END
+
+IF
+	Opened([PC.0.0])
+THEN
+	RESPONSE #100
+		DisplayString(Myself,14381)
+		ReallyForceSpell(LastTrigger,TRAP_MINOR_LIGHTNING_BOLT)
+		Wait(2)
+END
+

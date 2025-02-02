@@ -1,0 +1,10 @@
+IF
+	Global("HeardOfTwistedRuneHQ","GLOBAL",0)
+	PartyHasItem("SCRL3I") // Scroll
+THEN
+	RESPONSE #100
+		SetGlobal("HeardOfTwistedRuneHQ","GLOBAL",1)
+		Continue()
+END
+
+

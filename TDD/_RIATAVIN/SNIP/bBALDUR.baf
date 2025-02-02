@@ -33,3 +33,11 @@ THEN
 	ActionOverride("rabbit01",ChangeAIScript("DWITEMS",OVERRIDE))	
 	SetGlobalTimer("tz_DrowItemsTimer","GLOBAL",ONE_DAY)  
 END
+
+IF
+  GlobalTimerExpired("tz_riatwardback","GLOBAL")
+  GlobalGT("tz_mageriatward","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_mageriatward","GLOBAL",0)
+END

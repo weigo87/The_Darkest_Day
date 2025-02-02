@@ -1,0 +1,9 @@
+IF
+  Global("tz_kivogresee","LOCALS",0)
+  Range([PC],30)
+THEN
+  RESPONSE #100
+    SetGlobal("tz_kivogresee","LOCALS",1)
+    StartDialogNoSet([PC])
+END
+

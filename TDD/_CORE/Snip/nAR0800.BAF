@@ -1,9 +1,3 @@
-IF
-	OnCreation()
-	GlobalGT("Chapter","GLOBAL",5)
-	Global("Deactivate0801","AR0800",1)
-	InMyArea(Player1)
-THEN
 	RESPONSE #100
 		FadeToColor([1.0],0)
 		SetGlobal("Deactivate0801","AR0800",2)

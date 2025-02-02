@@ -1,0 +1,20 @@
+IF
+	Global("tz_ar1300x","GLOBAL",0)
+THEN
+	RESPONSE #100
+		CreateCreature("cyc01",[4159.2883],4) // Cyclops
+		CreateCreature("cyc01",[4124.2533],4) // Cyclops
+		CreateCreature("cyc01",[3452.3003],4) // Cyclops
+		CreateCreature("cyc01",[3594.3270],4) // Cyclops
+		SetGlobal("tz_ar1300x","GLOBAL",1)
+END
+
+IF
+	Global("tz_GaveFlameArr","AR1300",0)
+THEN
+	RESPONSE #100
+		ActionOverride("KPCAPT01",GiveItemCreate("arow08",[PC],20,0,0)) // Arrow of Fire
+		SetGlobal("tz_GaveFlameArr","AR1300",1)
+END
+
+

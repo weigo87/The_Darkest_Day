@@ -1,0 +1,39 @@
+IF
+  Global("tz_DarkestDayStart","GLOBAL",2)
+  AreaType(OUTDOOR)
+  Global("tz_DarkestDay_DarkTimer","GLOBAL",0)
+THEN
+  RESPONSE #100
+    Weather(RAIN)
+    SetGlobalTimer("tz_CauseDarkness","GLOBAL",600)
+    SetGlobal("tz_DarkestDay_DarkTimer","GLOBAL",1)
+  RESPONSE #100
+    Weather(SNOW)
+    SetGlobalTimer("tz_CauseDarkness","GLOBAL",600)
+    SetGlobal("tz_DarkestDay_DarkTimer","GLOBAL",1)
+END
+
+IF
+  GlobalTimerExpired("tz_CauseDarkness","GLOBAL")
+  Global("tz_DarkestDay_DarkTimer","GLOBAL",1)
+THEN
+  RESPONSE #100
+    Weather(RAIN)
+    SetGlobalTimer("tz_CauseDarkness","GLOBAL",600)
+    SetGlobal("tz_DarkestDay_DarkTimer","GLOBAL",0)
+  RESPONSE #100
+    Weather(SNOW)
+    SetGlobalTimer("tz_CauseDarkness","GLOBAL",600)
+    SetGlobal("tz_DarkestDay_DarkTimer","GLOBAL",0)
+END
+
+/*IF
+  Global("DarkestDaySickness","GLOBAL",1)
+  !GlobalTimerNotExpired("DarkestDaySickness","GLOBAL")
+THEN
+  RESPONSE #100
+    SetGlobal("DarkestDaySickness","GLOBAL",2)
+    DisplayString(Protagonist,@10205)
+    ActionOverride(Protagonist,ApplySpellRES("SPPR746",Myself))
+END*/
+

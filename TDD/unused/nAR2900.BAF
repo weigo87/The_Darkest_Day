@@ -1,0 +1,24 @@
+IF
+	Global("PlayerIntro","AR2900",0)
+THEN
+	RESPONSE #100
+		StartCutSceneMode()
+		SetGlobal("PlayerIntro","AR2900",1)
+		TriggerActivation("Tran2906",FALSE)
+		Wait(2)
+		ActionOverride(Player1,StartDialog("Player1",Player1))
+END
+
+IF
+	Global("DisplayAlignmentChange","AR2900",1)
+THEN
+	RESPONSE #100
+		SetGlobal("DisplayAlignmentChange","AR2900",0)
+		ChangeAlignment(Player1,NEUTRAL_EVIL)
+		Wait(1)
+		DisplayStringHead(Player1,14055) // Alignment Change
+		Wait(1)
+		DisplayStringHead(Player1,1107) // Neutral Evil
+END
+
+

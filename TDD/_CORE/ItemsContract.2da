@@ -60,6 +60,7 @@ SUCX1       +		21376	+					21377	+			+
 SUCX2       +		21376	+					21378	+			+
 SUCX3       +		21376	+					21379	+			+
 U1HAX3A     +		21414	+					21415	+			+
+U2HAX4B		21416	21417	21418				21419	+			+
 UDAGG5A     +		21420	+					21421	+			+
 VITALD      21434	21434	+					+		+			+
 ZZN6GC      +		21451	+					21452	+			+
@@ -137,3 +138,18 @@ SYLVCLUB	+		21390	+					21391	+			+
 THUGBJAK	+		21394	+					21395	+			+
 TROUBRAP	+		21409	+					21410	+			+
 TYBBMACE	+		21411	+					21412	+			+
+
+//Rest
+DDSTAFFL	+		21092	+					21093	+			+
+HAMMSWOR	+		+		+					+		+			+
+HELMPHAN	+		+		+					+		+			+
+HELMRAD1	+		+		+					+		+			+
+HELMRAD2	+		+		+					+		+			+
+HELMRAD3	+		+		+					+		+			+
+HELMRAD4	+		+		+					+		+			+
+RING99X		20295	20295	+					+		+			+
+SLINGB1		+		21355	+					21356	IGBLT01		+
+SLINGB2		+		21357	+					21358	IGBLT02		.
+SLINGB3		+		21359	+					21360	IGBLT00		+
+SWORDHAM	+		+		+					+		+			+
+THUGJACK	+		+		+					+		+			+

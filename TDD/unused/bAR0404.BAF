@@ -1,0 +1,17 @@
+IF
+	Global("BP_KoboldCrusaders","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("BP_KoboldCrusaders","GLOBAL",2)
+		CreateCreature("KOBCOM02",[2590.1310],2)
+		CreateCreature("KOBCOM02",[2555.1290],2)
+		CreateCreature("KOBCOM02",[2335.1200],2)
+		CreateCreature("KOBCOM02",[2380.1220],2)
+		CreateCreature("KOBCOM02",[1900.1575],10)
+		CreateCreature("KOBCOM02",[1930.1605],10)
+		CreateCreature("KOBCOM02",[2005.1675],10)
+		CreateCreature("KOBCOM02",[2045.1715],10)
+		CreateCreature("KOBWIT02",[1910.1775],10)
+		CreateCreature("KOBSHA02",[1820.1675],10)
+		CreateCreature("KOBCAP02",[1770.1700],10)
+END

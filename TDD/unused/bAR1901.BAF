@@ -1,0 +1,48 @@
+IF
+	!Global("DruidLevel14","AR1901",1)
+	Class(Player1,DRUID)
+	LevelGT(Player1,13)
+	CheckStat(Player1,0,LEVEL2)
+THEN
+	RESPONSE #100
+		SetGlobal("DruidLevel14","AR1901",1)
+END
+
+IF
+	!Global("DruidLevel14","AR1901",1)
+	Class(Player1,DRUID_ALL)
+	CheckStatGT(Player1,13,LEVEL2)
+THEN
+	RESPONSE #100
+		SetGlobal("DruidLevel14","AR1901",1)
+END
+
+IF
+	!Global("DruidLevel14","AR1901",2)
+	Class(Player1,DRUID)
+	OR(2)
+		LevelLT(Player1,14)
+		CheckStatGT(Player1,0,LEVEL2)
+THEN
+	RESPONSE #100
+		SetGlobal("DruidLevel14","AR1901",2)
+END
+
+IF
+	!Global("DruidLevel14","AR1901",2)
+	Class(Player1,FIGHTER_DRUID)
+	CheckStatLT(Player1,14,LEVEL2)
+THEN
+	RESPONSE #100
+		SetGlobal("DruidLevel14","AR1901",2)
+END
+
+IF
+	!Global("DruidLevel14","AR1901",0)
+	!Class(Player1,DRUID_ALL)
+THEN
+	RESPONSE #100
+		SetGlobal("DruidLevel14","AR1901",0)
+END
+
+

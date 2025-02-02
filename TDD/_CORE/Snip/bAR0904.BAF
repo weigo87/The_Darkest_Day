@@ -1,0 +1,9 @@
+
+IF
+	Global("demninvidlgb","GLOBAL",2)
+	!Exists("baurian2")
+THEN
+	RESPONSE #100
+		SetGlobal("demninvidlgb","GLOBAL",3)
+		CreateCreature("baurian2",[864.897],0) // Baurian Arathor
+END
