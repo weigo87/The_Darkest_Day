@@ -1,0 +1,14 @@
+// Départ mécontent (bonne réputation)
+@0     = ~Vos manières sont pathétiques <GABBER>. Si je ne vous connaissais pas, je vous arracherai la chair des os pour être à ce point paladin ! Je prends congé de ce groupe sur le champ.~
+// Exclure du groupe
+@1     = ~Quoi, vous êtes suffisamment insensé pour m'abandonner ?~
+@2     = ~Il n'y a plus de place pour vous, Xzar.~
+@3     = ~Non, vos capacités de lanceur de sorts me sont trop précieuses pour vous perdre. Continuons ensemble.~
+@4     = ~Alors je vais retourner sur les docks pour le moment.~
+@5     = ~D'accord, je sais où je peux vous trouver.~
+@6     = ~En fait, je préfèrerais que vous restiez ici. Nous reviendrons te chercher.~
+@7     = ~Très bien, <CHARNAME>, mais sachez que je ne peux pas y rester indéfiniment ! Ces fichus Ménestrels se cachent probablement dans l'ombre en ce moment-même... GAH ! Oh... euh... c'est un chat...~
+// Ré-embauche
+@8     = ~Vous désirez ma merveilleuse présence une fois de plus à vos côtés, <CHARNAME> ?~
+@9     = ~Attrapez vos livres, Xzar. On a besoin de vous en effet.~
+@10    = ~Pas encore, Xzar. Restez ici.~

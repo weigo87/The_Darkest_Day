@@ -148,6 +148,7 @@ LANGUAGE 	~Spanish(Clan REO)~
 // EE Item discription
 // deathvar TDD creature check
 //  oDDWELL.baf nDDWELL.baf different for non-EE and EE
+// setup-ee without "usable by"
 
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\

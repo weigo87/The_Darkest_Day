@@ -1,0 +1,25 @@
+@0    = ~Was wollt Ihr abheben?~
+@1    = ~Eine Stahlmünze.~
+@2    = ~Eine Eisenmünze.~
+
+@3    = ~Eine Bronzemünze.~
+@4    = ~Eine Münze.~
+
+@5    = ~Eine Silbermünze.~
+@6    = ~Eine Kupfermünze.~
+
+@7    = ~Eine Platinmünze.~
+
+@8    = ~Keine Abhebungen heute, mein Freund. Ich habe nur vorbeigeschaut.~
+@9    = ~Ich wollte etwas abheben.~
+@10   = ~Ein Stahlstück. Hier, Bitte schön.~
+@11   = ~Hier ist Eure Eisenmünze.~
+@12   = ~Bitte schön. Ein schönes Bronzestück für Euch.~
+@13   = ~Ah, hier ist es... ein Goldstück.~
+@14   = ~Ich habe hier ein sehr glänzendes für Euch... Bitte sehr.~
+
+@15   = ~Heh... Ich werde Euch alles geben, wenn Ihr möchtet... aber, äh... hier ist es ja. Ein Kupferstück.~
+@16   = ~Ihr wollt eine grosse Auszahlung, nehme ich an? Sehr schön, hier ist Euer Platin.~
+@17   = ~Natürlich, natürlich. Könntet Ihr wohl zur Seite treten? Es sind auch noch andere Kunden da.~
+
+@18   = ~Redet mit meinem Kollegen da drüben. Er kümmert sich um alle Einzahlungen.~
