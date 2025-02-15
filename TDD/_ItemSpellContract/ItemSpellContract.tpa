@@ -1,0 +1,650 @@
+//=============================================================================
+DEFINE_ACTION_MACRO InstallSpecificContents
+BEGIN
+	ACTION_DEFINE_ARRAY comps_array BEGIN ~Core~ ~Trollford~ ~Espurta~ ~Purskal~ ~Riatavin~ ~ONSETOfTheDARKESTDAY~ ~Robilard~
+	~Adario~ ~Avaunis~ ~SmallTeethPass~ ~SharTeel~ ~Kivan~ ~Xzar_Montaron~ ~Kagain_Yeslick~ ~Kits~ ~Spells~ END
+	
+	ACTION_FOR_EACH comps IN ~Core~ ~Espurta~ ~Purskal~ ~Trollford~ ~Riatavin~ ~Robilard~ ~ONSETOfTheDARKESTDAY~
+	~Adario~ ~Avaunis~ ~SmallTeethPass~ ~SharTeel~ ~Kivan~ ~Xzar_Montaron~ ~Kagain_Yeslick~ ~Kits~ ~Spells~ BEGIN
+		
+		LAM HandleItemsUndroppable	// policy undroppable 
+
+	END
+	
+	LAM HandleItemsContractTrollford
+	LAM HandleSpellScrollsContractTrollford
+	
+	LAM HandleItemsContractEspurta
+	LAM HandleSpellScrollsContractEspurta
+	
+	LAM HandleItemsContractPurskal
+	LAM HandleCoreItemsContractPurskal
+	LAM HandleSpellScrollsContractPurskal
+	
+	LAM HandleCoreItemsContractRiatavin
+	LAM HandleItemsContractRiatavin
+	LAM HandleSpellScrollsContractRiatavin
+	
+	LAM HandleCoreItemsContractONSETOfTheDARKESTDAY
+	LAM HandleItemsContractONSETOfTheDARKESTDAY
+	LAM HandleSpellScrollsContractONSETOfTheDARKESTDAY
+		
+END
+//=============================================================================
+// All Items
+//=============================================================================
+DEFINE_ACTION_MACRO HandleItemsUndroppable
+BEGIN
+	ACTION_IF FILE_EXISTS ~%MOD_FOLDER%/_%comps%/ItemsContract.2da~ BEGIN
+		COPY ~%MOD_FOLDER%/_%comps%/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/ItemsContract.2da~
+			COUNT_2DA_ROWS 7 count
+			WHILE (count > 1) BEGIN
+				READ_2DA_ENTRY (count -1) 0 7 resname				
+				READ_2DA_ENTRY (count -1) 6 7 policy //undroppable column
+				SET count = count -1
+				
+				TO_UPPER resname
+				TO_UPPER policy
+				SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)
+				SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+	//			SPRINT newItem ~%policy%~
+	//			PATCH_IF (~%undroppable%~)
+	//				BEGIN SPRINT newItem ~SCRL75~ END
+				
+				PATCH_IF (~%customize%~) BEGIN			
+					INNER_ACTION BEGIN
+						//ACTION_MATCH ~%resname%~					
+						//WITH							
+						//	DEFAULT
+						//END
+					END
+				END
+				
+				PATCH_IF (~%undroppable%~) BEGIN
+					INNER_ACTION BEGIN
+						COPY_EXISTING ~%resname%.itm~ ~override~
+							WRITE_BYTE 0x18 (THIS & ` BIT2) // set undroppable flag
+					END
+				END
+			END
+		BUT_ONLY
+	END
+END
+
+//=============================================================================
+// Trollford
+//=============================================================================
+DEFINE_ACTION_MACRO HandleItemsContractTrollford
+BEGIN
+	COPY ~%MOD_FOLDER%/_Trollford/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/ItemsContract.2da~
+		COUNT_2DA_ROWS 7 count
+		WHILE (count > 1) BEGIN
+			READ_2DA_ENTRY (count -1) 0 7 resname				
+			READ_2DA_ENTRY (count -1) 6 7 policy //undroppable column
+			SET count = count -1
+			
+			TO_UPPER resname
+			TO_UPPER policy
+			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)
+			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+			SPRINT newItem ~%policy%~
+			PATCH_IF (~%undroppable%~)
+				BEGIN SPRINT newItem ~SCRL75~ END
+			
+			PATCH_IF (~%customize%~) BEGIN			
+				INNER_ACTION BEGIN
+					//ACTION_MATCH ~%resname%~					
+					//WITH							
+					//	DEFAULT
+					//END
+				END
+			END
+		END
+	BUT_ONLY	
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO HandleSpellScrollsContractTrollford
+BEGIN
+	COPY ~%MOD_FOLDER%/_CORE/SpellScrollsContract.2da~ ~%workspace%/%COMP_FOLDER%/SpellScrollsContract.2da~
+		COUNT_2DA_ROWS 8 count
+		WHILE (count > 1) BEGIN
+			READ_2DA_ENTRY (count -1) 0 8 resname				
+			READ_2DA_ENTRY (count -1) 6 8 policy
+			SET count = count -1
+				
+			TO_UPPER resname	
+			TO_UPPER policy	
+			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)	
+			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+			SET replace = (~%customize%~ && NOT ~%undroppable%~)
+			SPRINT newItem ~%policy%~
+			PATCH_IF (~%undroppable%~)
+				BEGIN SPRINT newItem ~SCRL75~ END
+			
+			PATCH_IF ~%customize%~ BEGIN
+				INNER_ACTION BEGIN
+					ACTION_MATCH ~%resname%~
+					WITH
+						~SCRX4~ 	BEGIN COPY_EXISTING ~DD9005.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX4  new_item = EVAL "%newItem%" END END
+						~SCRX12~ 	BEGIN COPY_EXISTING ~DD9008.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX12 new_item = EVAL "%newItem%" END END
+						~SCRX15~	BEGIN COPY_EXISTING ~DD9005.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX15 new_item = EVAL "%newItem%" END END
+						~SCRX60~	BEGIN COPY_EXISTING ~QLOOT4.cre~ ~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = SCRX60 new_item = EVAL "%newItem%" END END
+						~SCRX64~	BEGIN COPY_EXISTING ~DD9009.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX64 new_item = EVAL "%newItem%" END END
+						~SCRX68~	BEGIN COPY_EXISTING ~DD9009.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX68 new_item = EVAL "%newItem%" END END						
+						~SCRX73~	BEGIN COPY_EXISTING ~DD9005.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX73 new_item = EVAL "%newItem%" END END												
+						DEFAULT
+					END
+				END
+			END
+		END
+	BUT_ONLY	
+END
+
+//=============================================================================
+// Espurta
+//=============================================================================
+DEFINE_ACTION_MACRO HandleItemsContractEspurta
+BEGIN
+	COPY ~%MOD_FOLDER%/_Espurta/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/ItemsContract.2da~
+		COUNT_2DA_ROWS 7 count
+		WHILE (count > 1) BEGIN
+			READ_2DA_ENTRY (count -1) 0 7 resname				
+			READ_2DA_ENTRY (count -1) 6 7 policy //undroppable column
+			SET count = count -1
+			
+			TO_UPPER resname
+			TO_UPPER policy
+			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)
+			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+			SPRINT newItem ~%policy%~
+			PATCH_IF (~%undroppable%~)
+				BEGIN SPRINT newItem ~SCRL75~ END
+			
+			PATCH_IF (~%customize%~) BEGIN			
+				INNER_ACTION BEGIN
+					ACTION_MATCH ~%resname%~ 
+					WITH
+						~ARDEADX~ 	BEGIN COPY_EXISTING ~DD4003.ARE~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = ARDEADX  new_item = EVAL "%newItem%" END END
+						~DDPOTNP1~ 	BEGIN COPY_EXISTING ~DDTEMPL1.STO~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = DDPOTNP1 new_item = EVAL "%newItem%" END END
+						~DDPOTNP2~ 	BEGIN COPY_EXISTING ~DDTEMPL1.STO~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = DDPOTNP2 new_item = EVAL "%newItem%" END END
+						~DORATH~ 	BEGIN COPY_EXISTING ~BARGOOD.STO~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = DORATH   new_item = EVAL "%newItem%" END END
+						~EREBOS~ 	BEGIN COPY_EXISTING ~BARGOOD.STO~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = EREBOS   new_item = EVAL "%newItem%" END END						
+						~ICEPLAT~ 	BEGIN COPY ~%workspace%/_Espurta/DD2500.BAF~ ~%workspace%/_Espurta/DD2500.BAF~ REPLACE_TEXTUALLY ~%resname%~ ~%newItem%~ END
+						DEFAULT
+					END
+				END
+			END
+		END
+	BUT_ONLY	
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO HandleSpellScrollsContractEspurta
+BEGIN
+	COPY ~%MOD_FOLDER%/_CORE/SpellScrollsContract.2da~ ~%workspace%/%COMP_FOLDER%/SpellScrollsContract.2da~
+		COUNT_2DA_ROWS 8 count
+		WHILE (count > 1) BEGIN
+			READ_2DA_ENTRY (count -1) 0 8 resname				
+			READ_2DA_ENTRY (count -1) 6 8 policy
+			SET count = count -1
+				
+			TO_UPPER resname	
+			TO_UPPER policy	
+			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)	
+			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+			SET replace = (~%customize%~ && NOT ~%undroppable%~)
+			SPRINT newItem ~%policy%~
+			PATCH_IF (~%undroppable%~)
+				BEGIN SPRINT newItem ~SCRL75~ END
+			
+			PATCH_IF ~%customize%~ BEGIN								
+				INNER_ACTION BEGIN
+					ACTION_MATCH ~%resname%~ 					
+					WITH
+						~SCRX10~ BEGIN COPY_EXISTING ~BARHEAL.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX10 new_item = EVAL "%newItem%" END END
+						~SCRX25~ BEGIN COPY_EXISTING ~BARHEAL.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX25 new_item = EVAL "%newItem%" END END
+						~SCRX29~ BEGIN COPY_EXISTING ~DD1800.are~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX29 new_item = EVAL "%newItem%" END END	
+						~SCRX51~ BEGIN COPY_EXISTING ~BARHEAL.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX51 new_item = EVAL "%newItem%" END END
+						DEFAULT
+					END
+				END
+			END
+		END
+	BUT_ONLY	
+END
+
+//=============================================================================
+// Purskal
+//=============================================================================
+DEFINE_ACTION_MACRO HandleItemsContractPurskal
+BEGIN
+	COPY ~%MOD_FOLDER%/_Purskal/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/ItemsContract.2da~
+		COUNT_2DA_ROWS 7 count
+		WHILE (count > 1) BEGIN
+			READ_2DA_ENTRY (count -1) 0 7 resname				
+			READ_2DA_ENTRY (count -1) 6 7 policy //undroppable column
+			SET count = count -1
+			
+			TO_UPPER resname
+			TO_UPPER policy
+			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)
+			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+			SPRINT newItem ~%policy%~
+			PATCH_IF (~%undroppable%~)
+				BEGIN SPRINT newItem ~SCRL75~ END
+			
+			PATCH_IF (~%customize%~) BEGIN			
+				INNER_ACTION BEGIN
+					ACTION_MATCH ~%resname%~
+					WITH
+						~CRYPTXX~ 	BEGIN COPY_EXISTING ~DD3501.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = CRYPTXX  new_item = EVAL "%newItem%" END END
+						~MISERY~ 	BEGIN COPY_EXISTING ~DD3501.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = MISERY   new_item = EVAL "%newItem%" END END						
+						~TYRANT~ 	BEGIN COPY_EXISTING ~DD3501.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = TYRANT   new_item = EVAL "%newItem%" END END						
+						DEFAULT
+					END
+				END
+			END
+		END
+	BUT_ONLY
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO HandleCoreItemsContractPurskal
+BEGIN
+	COPY ~%MOD_FOLDER%/_CORE/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/CoreItemsContract.2da~
+		COUNT_2DA_ROWS 7 count
+		WHILE (count > 1) BEGIN
+			READ_2DA_ENTRY (count -1) 0 7 resname				
+			READ_2DA_ENTRY (count -1) 6 7 policy //undroppable column
+			SET count = count -1
+			
+			TO_UPPER resname
+			TO_UPPER policy
+			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)
+			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+			SET replace = (~%customize%~ && NOT ~%undroppable%~)
+			SPRINT newItem ~%policy%~
+			PATCH_IF (~%undroppable%~)
+				BEGIN SPRINT newItem ~SCRL75~ END
+			
+			PATCH_IF (~%customize%~) BEGIN
+				INNER_ACTION BEGIN
+					ACTION_MATCH ~%resname%~
+					WITH
+						~BLOOD~ 	
+							BEGIN
+								ACTION_IF (~%replace%~) THEN BEGIN
+									ACTION_FOR_EACH cre IN ~THORK1~ ~THORK2~ ~THORK3~ ~THORK4~ ~WTTHORK5~ ~WTTHORK6~ 
+										BEGIN COPY_EXISTING ~%cre%.cre~ ~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = BLOOD new_item = EVAL "%newItem%" END END
+								END								
+							END						
+						DEFAULT
+					END
+				END
+			END
+		END
+	BUT_ONLY	
+END
+
+
+//=============================================================================
+DEFINE_ACTION_MACRO HandleSpellScrollsContractPurskal
+BEGIN
+	COPY ~%MOD_FOLDER%/_CORE/SpellScrollsContract.2da~ ~%workspace%/%COMP_FOLDER%/SpellScrollsContract.2da~
+		COUNT_2DA_ROWS 8 count
+		WHILE (count > 1) BEGIN
+			READ_2DA_ENTRY (count -1) 0 8 resname				
+			READ_2DA_ENTRY (count -1) 6 8 policy
+			SET count = count -1
+				
+			TO_UPPER resname	
+			TO_UPPER policy	
+			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)	
+			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+			SET replace = (~%customize%~ && NOT ~%undroppable%~)
+			SPRINT newItem ~%policy%~
+			PATCH_IF (~%undroppable%~)
+				BEGIN SPRINT newItem ~SCRL75~ END
+			
+			PATCH_IF ~%customize%~ BEGIN
+				INNER_ACTION BEGIN
+					ACTION_MATCH ~%resname%~
+					WITH
+						~SCRX3~ 	BEGIN COPY_EXISTING ~DD3501.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX3  new_item = EVAL "%newItem%" END END
+						~SCRX7~ 	BEGIN COPY_EXISTING ~DD3503.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX7  new_item = EVAL "%newItem%" END END
+						~SCRX8~ 	BEGIN COPY_EXISTING ~DD3501.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX8  new_item = EVAL "%newItem%" END END
+						~SCRX13~ 	BEGIN COPY_EXISTING ~DD3501.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX13 new_item = EVAL "%newItem%" END END
+						~SCRX22~ 	BEGIN COPY_EXISTING ~DD3501.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX22 new_item = EVAL "%newItem%" END END
+						~SCRX32~ 	BEGIN COPY_EXISTING ~DD3503.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX32 new_item = EVAL "%newItem%" END END
+						DEFAULT
+					END
+				END
+			END
+		END
+	BUT_ONLY	
+END
+
+//=============================================================================
+// Riatavin
+//=============================================================================
+DEFINE_ACTION_MACRO HandleCoreItemsContractRiatavin
+BEGIN
+	COPY ~%MOD_FOLDER%/_CORE/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/CoreItemsContract.2da~
+		COUNT_2DA_ROWS 7 count
+		WHILE (count > 1) BEGIN
+			READ_2DA_ENTRY (count -1) 0 7 resname				
+			READ_2DA_ENTRY (count -1) 6 7 policy //undroppable column
+			SET count = count -1
+			
+			TO_UPPER resname
+			TO_UPPER policy
+			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)
+			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+			SET replace = (~%customize%~ && NOT ~%undroppable%~)
+			SPRINT newItem ~%policy%~
+			PATCH_IF (~%undroppable%~)
+				BEGIN SPRINT newItem ~SCRL75~ END
+			
+			PATCH_IF (~%customize%~) BEGIN
+				INNER_ACTION BEGIN
+					ACTION_MATCH ~%resname%~
+					WITH
+						~BLOOD~ 	
+							BEGIN 
+								ACTION_IF (~%replace%~) BEGIN COPY_EXISTING ~BGCTBOSS.cre~ ~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = BLOOD new_item = EVAL "%newItem%" END END
+								COPY_EXISTING ~DD8001D.are~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = BLOOD new_item = EVAL "%newItem%" END
+							END
+						~DEATHREB~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ ~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = DEATHREB new_item = EVAL "%newItem%" END END
+						~LOHVAR~ 	BEGIN COPY_EXISTING ~DD8001D.are~  ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = LOHVAR   new_item = EVAL "%newItem%" END END
+						~MAGBOTXX~ 	BEGIN ACTION_IF (~%replace%~)BEGIN COPY_EXISTING ~WARDWIZS.sto~ ~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = MAGBOTXX new_item = EVAL "%newItem%" END END END
+						~TROLSIND~ 	BEGIN ACTION_IF (~%replace%~)BEGIN COPY_EXISTING ~SANDRAIN.sto~ ~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = TROLSIND new_item = EVAL "%newItem%" END END END
+						DEFAULT
+					END
+				END
+			END
+		END
+	BUT_ONLY
+END
+
+//=============================================================================
+DEFINE_ACTION_MACRO HandleItemsContractRiatavin
+BEGIN
+	COPY ~%MOD_FOLDER%/_Riatavin/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/ItemsContract.2da~
+		COUNT_2DA_ROWS 7 count
+		WHILE (count > 1) BEGIN
+			READ_2DA_ENTRY (count -1) 0 7 resname
+			READ_2DA_ENTRY (count -1) 6 7 policy //undroppable column
+			SET count = count -1
+			
+			TO_UPPER resname
+			TO_UPPER policy
+			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)
+			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+			SPRINT newItem ~%policy%~
+			PATCH_IF (~%undroppable%~)
+				BEGIN SPRINT newItem ~SCRL75~ END
+						
+			PATCH_IF (~%customize%~) BEGIN
+				INNER_ACTION BEGIN					
+					ACTION_MATCH ~%resname%~
+					WITH			
+						~AEGISRNG~ 	BEGIN COPY_EXISTING ~CALITEMP.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = AEGISRNG new_item = EVAL "%newItem%" END END
+						~AMAUNMAC~ 	BEGIN COPY_EXISTING ~CALITEMP.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = AMAUNMAC new_item = EVAL "%newItem%" END END
+						~AMAROS~ 	BEGIN COPY_EXISTING ~DD7002.are~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = AMAROS   new_item = EVAL "%newItem%" END END
+						~ARAMIS~ 	BEGIN COPY_EXISTING ~3307WIZ.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = ARAMIS   new_item = EVAL "%newItem%" END END
+						~ARQUINXX~ 	BEGIN COPY_EXISTING ~3314FRGE.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = ARQUINXX new_item = EVAL "%newItem%" END END
+						~BLADETRM~ 	BEGIN ACTION_IF NOT ~%undroppable%~ BEGIN COPY_EXISTING ~R800001.cre~ ~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = BLADETRM new_item = EVAL "%newItem%" END END END
+						~BONEMASK~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = BONEMASK new_item = EVAL "%newItem%" END END										
+						~BOTABODE~  BEGIN COPY ~%workspace%/_Riatavin/DD1002X1.baf~ ~%workspace%/_Riatavin~ REPLACE_TEXTUALLY ~BOTABODE~ ~%newItem%~ END
+						~CELEBRA~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = CELEBRA  new_item = EVAL "%newItem%" END END
+						~CERBSW2H~ 	BEGIN COPY_EXISTING ~DD7004.are~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = CERBSW2H new_item = EVAL "%newItem%" END END
+						~CREATE~ 	BEGIN COPY_EXISTING ~SANDRAIN.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = "CREATE" new_item = EVAL "%newItem%" END END
+						~DAGGASP~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = DAGGASP  new_item = EVAL "%newItem%" END END
+						~DHORNX~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = DHORNX   new_item = EVAL "%newItem%" END END
+						~DIVER~ 	BEGIN COPY_EXISTING ~AR1106.are~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = DIVER 	  new_item = EVAL "%newItem%" END END						
+						~ELVHUNTB~ 	BEGIN COPY_EXISTING ~DD7002.are~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = ELVHUNTB new_item = EVAL "%newItem%" END END
+						~ELSHUKAR~  BEGIN COPY ~%workspace%/_Riatavin/DD1002X1.baf~ ~%workspace%/_Riatavin~ REPLACE_TEXTUALLY ~ELSHUKAR~ ~%newItem%~ END
+						~ENTROBE~ 	BEGIN COPY_EXISTING ~3307WIZ.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = ENTROBE  new_item = EVAL "%newItem%" END END
+						~FLAMPLAT~ 	BEGIN COPY_EXISTING ~3314FRGE.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = FLAMPLAT new_item = EVAL "%newItem%" END END
+						~GHARBOOT~ 	BEGIN COPY_EXISTING ~SANDRAIN.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = GHARBOOT new_item = EVAL "%newItem%" END END
+						~GHARSW~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = GHARSW   new_item = EVAL "%newItem%" END END
+						~GLORY~ 	BEGIN ACTION_IF NOT ~%undroppable%~ BEGIN COPY_EXISTING ~R800001.cre~ ~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = GLORY new_item = EVAL "%newItem%" END END END
+						~HAMFORCE~ 	BEGIN COPY_EXISTING ~3314FRGE.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = HAMFORCE new_item = EVAL "%newItem%" END END
+						~IOUNX3~ 	BEGIN COPY_EXISTING ~DD7001.are~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = IOUNX3   new_item = EVAL "%newItem%" END END
+						~IOUNX7~ 	BEGIN COPY_EXISTING ~CALITEMP.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = IOUNX7   new_item = EVAL "%newItem%" END END
+						~IOUNX8~ 	BEGIN COPY_EXISTING ~CALITEMP.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = IOUNX8   new_item = EVAL "%newItem%" END END
+						~MALICE~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = MALICE   new_item = EVAL "%newItem%" END END
+						~MARKBOWX~ 	BEGIN COPY_EXISTING ~CALIMART.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = MARKBOWX new_item = EVAL "%newItem%" END END
+						~MIELIKKI~ 	BEGIN COPY_EXISTING ~3314FRGE.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = MIELIKKI new_item = EVAL "%newItem%" END END
+						~MONGOVE~ 	BEGIN COPY_EXISTING ~3314FRGE.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = MONGOVE  new_item = EVAL "%newItem%" END END
+						~MOORSX~ 	BEGIN COPY_EXISTING ~SANDRAIN.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = MOORSX   new_item = EVAL "%newItem%" END END
+						~ORRSHLD~ 	BEGIN COPY_EXISTING ~CALITEMP.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = ORRSHLD  new_item = EVAL "%newItem%" END END
+						~ROBE2~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = ROBE2 	  new_item = EVAL "%newItem%" END END
+						~SHLDGRAZ~ 	BEGIN ACTION_IF NOT ~%undroppable%~ 
+										BEGIN 
+											COPY_EXISTING ~GRAZZT01.cre~ 	~override~ 
+														  ~GRAZZT02.cre~ 	~override~ 
+												LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = GLORY new_item = EVAL "%newItem%" END
+										END	
+									END
+						~SILBLADE~  BEGIN COPY ~%workspace%/_Riatavin/DD1002X1.baf~ ~%workspace%/_Riatavin~ REPLACE_TEXTUALLY ~SILBLADE~ ~%newItem%~ END
+						~SHOON~ 	BEGIN COPY_EXISTING ~DD7001.are~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SHOON  new_item = EVAL "%newItem%" END END
+						~STARYM~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = STARYM new_item = EVAL "%newItem%" END END
+						~SW1HGRAZ~ 	BEGIN ACTION_IF NOT ~%undroppable%~ 
+										BEGIN 
+											COPY_EXISTING ~GRAZZT01.cre~ 	~override~ 
+														  ~GRAZZT02.cre~ 	~override~ 
+												LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = SW1HGRAZ new_item = EVAL "%newItem%" END
+										END	
+									END
+						~SWZZZ1~ 	BEGIN COPY_EXISTING ~CALIMART.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SWZZZ1   new_item = EVAL "%newItem%" END END
+						~SWZZZ2~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SWZZZ2   new_item = EVAL "%newItem%" END END
+						~USHLD3B~ 	BEGIN COPY_EXISTING ~DD7004.are~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = USHLD3B  new_item = EVAL "%newItem%" END END
+						~UMSTR5A~ 	BEGIN COPY_EXISTING ~CALIMART.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = UMSTR5A  new_item = EVAL "%newItem%" END END					
+						~WYVCROWN~ 	BEGIN COPY_EXISTING ~DRAGGREN.cre~ 	~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = WYVCROWN new_item = EVAL "%newItem%" END END					
+						DEFAULT
+					END
+				END
+			END
+		END
+	BUT_ONLY	
+END
+
+
+//=============================================================================
+DEFINE_ACTION_MACRO HandleSpellScrollsContractRiatavin
+BEGIN
+	COPY ~%MOD_FOLDER%/_CORE/SpellScrollsContract.2da~ ~%workspace%/%COMP_FOLDER%/SpellScrollsContract.2da~
+		COUNT_2DA_ROWS 8 count
+		WHILE (count > 1) BEGIN
+			READ_2DA_ENTRY (count -1) 0 8 resname				
+			READ_2DA_ENTRY (count -1) 6 8 policy
+			SET count = count -1
+				
+			TO_UPPER resname	
+			TO_UPPER policy	
+			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)	
+			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+			SET replace = (~%customize%~ && NOT ~%undroppable%~)
+			SPRINT newItem ~%policy%~
+			PATCH_IF (~%undroppable%~)
+				BEGIN SPRINT newItem ~SCRL75~ END
+			
+			PATCH_IF ~%customize%~ BEGIN
+				INNER_ACTION BEGIN
+					ACTION_MATCH ~%resname%~
+					WITH
+						~SCRM104~	BEGIN 
+										COPY_EXISTING ~RAZAK01.sto~ 	~override~ 
+													  ~3307WIZ.sto~ 	~override~
+													  ~WARDWIZS.sto~ 	~override~
+											LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRM104 new_item = EVAL "%newItem%" END
+									END
+						~SCRX9~		BEGIN COPY_EXISTING ~AR1106.are~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX9  new_item = EVAL "%newItem%" END END
+						~SCRX15~	BEGIN COPY_EXISTING ~3307WIZ.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX15 new_item = EVAL "%newItem%" END END
+						~SCRX17~ 	BEGIN COPY_EXISTING ~3307WIZ.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX17 new_item = EVAL "%newItem%" END END
+						~SCRX19~ 	BEGIN COPY_EXISTING ~WARDWIZS.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX19 new_item = EVAL "%newItem%" END END
+						~SCRX20~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX20 new_item = EVAL "%newItem%" END END
+						~SCRX21~ 	BEGIN COPY_EXISTING ~DD8001D.are~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX21 new_item = EVAL "%newItem%" END END			
+						~SCRX24~ 	BEGIN COPY_EXISTING ~DD8001D.are~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX24 new_item = EVAL "%newItem%" END END
+						~SCRX26~ 	BEGIN COPY_EXISTING ~3307WIZ.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX26 new_item = EVAL "%newItem%" END END
+						~SCRX27~ 	BEGIN COPY_EXISTING ~WARDWIZS.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX27 new_item = EVAL "%newItem%" END END
+						~SCRX28~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX28 new_item = EVAL "%newItem%" END END
+						~SCRX33~ 	BEGIN COPY_EXISTING ~WARDWIZS.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX33 new_item = EVAL "%newItem%" END END
+						~SCRX34~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX34 new_item = EVAL "%newItem%" END END
+						~SCRX35~ 	BEGIN COPY_EXISTING ~DD7001.are~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX35 new_item = EVAL "%newItem%" END END
+						~SCRX36~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX36 new_item = EVAL "%newItem%" END END
+						~SCRX37~ 	BEGIN COPY_EXISTING ~DDRAGBRW.cre~ 	~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = SCRX37 new_item = EVAL "%newItem%" END END	
+						~SCRX39~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX39 new_item = EVAL "%newItem%" END END
+						~SCRX42~ 	BEGIN COPY_EXISTING ~DRAGGOLD.cre~ 	~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = SCRX42 new_item = EVAL "%newItem%" END END	
+						~SCRX43~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX43 new_item = EVAL "%newItem%" END END
+						~SCRX46~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX46 new_item = EVAL "%newItem%" END END
+						~SCRX48~ 	BEGIN COPY_EXISTING ~DD8001D.are~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX48 new_item = EVAL "%newItem%" END END
+						~SCRX49~ 	BEGIN COPY_EXISTING ~DDRAGBRW.cre~ 	~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = SCRX49 new_item = EVAL "%newItem%" END END	
+						~SCRX53~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX53 new_item = EVAL "%newItem%" END END
+						~SCRX55~ 	BEGIN COPY_EXISTING ~DRAGGREN.cre~ 	~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = SCRX55 new_item = EVAL "%newItem%" END END	
+						~SCRX56~ 	BEGIN COPY_EXISTING ~DUEGSAL3.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX56 new_item = EVAL "%newItem%" END END
+						~SCRX57~ 	BEGIN COPY_EXISTING ~RAZAK01.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX57 new_item = EVAL "%newItem%" END END
+						~SCRX58~ 	BEGIN COPY_EXISTING ~DRAGGOLD.cre~ 	~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = SCRX58 new_item = EVAL "%newItem%" END END	
+						~SCRX65~ 	BEGIN COPY_EXISTING ~DD7002.are~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX65 new_item = EVAL "%newItem%" END END
+						~SCRX67~ 	BEGIN COPY_EXISTING ~DRAGGREN.cre~ 	~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = SCRX67 new_item = EVAL "%newItem%" END END	
+						~SCRX72~ 	BEGIN COPY_EXISTING ~WARDWIZS.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX72 new_item = EVAL "%newItem%" END END
+						~SCRX74~ 	BEGIN COPY_EXISTING ~WARDWIZS.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX74 new_item = EVAL "%newItem%" END END
+						~SCRX76~ 	BEGIN COPY_EXISTING ~CALIMART.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX76 new_item = EVAL "%newItem%" END END
+						~SCRX77~ 	BEGIN COPY_EXISTING ~CALIMART.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX77 new_item = EVAL "%newItem%" END END
+						~SCRX81~ 	BEGIN COPY_EXISTING ~CALIMART.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SCRX81 new_item = EVAL "%newItem%" END END
+						DEFAULT			
+					END
+				END
+			END
+		END
+	BUT_ONLY	
+END
+
+//=============================================================================
+// ONSETOfTheDARKESTDAY
+//=============================================================================
+DEFINE_ACTION_MACRO HandleCoreItemsContractONSETOfTheDARKESTDAY
+BEGIN
+	COPY ~%MOD_FOLDER%/_CORE/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/CoreItemsContract.2da~
+		COUNT_2DA_ROWS 7 count
+		WHILE (count > 1) BEGIN
+			READ_2DA_ENTRY (count -1) 0 7 resname				
+			READ_2DA_ENTRY (count -1) 6 7 policy //undroppable column
+			SET count = count -1
+			
+			TO_UPPER resname
+			TO_UPPER policy
+			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)
+			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+			SET replace = (~%customize%~ && NOT ~%undroppable%~)
+			SPRINT newItem ~%policy%~
+			PATCH_IF (~%undroppable%~)
+				BEGIN SPRINT newItem ~SCRL75~ END
+			
+			PATCH_IF (~%customize%~) BEGIN
+				INNER_ACTION BEGIN
+					ACTION_MATCH ~%resname%~
+					WITH
+						~DEATHREB~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ ~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = DEATHREB  new_item = EVAL "%newItem%" END END
+						~MAGBOTXX~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ ~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = MAGBOTXX  new_item = EVAL "%newItem%" END END
+						DEFAULT
+					END
+				END
+			END
+		END
+	BUT_ONLY	
+END
+
+//=============================================================================
+// ONSETOfTheDARKESTDAY
+//=============================================================================
+DEFINE_ACTION_MACRO HandleItemsContractONSETOfTheDARKESTDAY
+BEGIN
+	COPY ~%MOD_FOLDER%/_ONSETOfTheDARKESTDAY/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/ItemsContract.2da~
+		COUNT_2DA_ROWS 7 count
+		WHILE (count > 1) BEGIN
+			READ_2DA_ENTRY (count -1) 0 7 resname
+			READ_2DA_ENTRY (count -1) 6 7 policy //undroppable column
+			SET count = count -1
+			
+			TO_UPPER resname
+			TO_UPPER policy
+			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)
+			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+			SPRINT newItem ~%policy%~
+			PATCH_IF (~%undroppable%~)
+				BEGIN SPRINT newItem ~SCRL75~ END
+						
+			PATCH_IF (~%customize%~) BEGIN
+				INNER_ACTION BEGIN					
+					ACTION_MATCH ~%resname%~
+					WITH
+						~CLCKBS~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = CLCKBS   new_item = EVAL "%newItem%" END END
+						~FIGSILV~ 	BEGIN COPY_EXISTING ~%workspace%/_ONSETOfTheDARKESTDAY/DDPOTEN1.d~ ~%workspace%/_ONSETOfTheDARKESTDAY/DDPOTEN1.d~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~MALICE~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = MALICE   new_item = EVAL "%newItem%" END END
+						~MOONLITE~ 	BEGIN COPY_EXISTING ~DD9400.are~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = MOONLITE new_item = EVAL "%newItem%" END END
+						~POLAW4A~ 	BEGIN COPY_EXISTING ~%workspace%/_ONSETOfTheDARKESTDAY/DDPOTEN1.d~ ~%workspace%/_ONSETOfTheDARKESTDAY/DDPOTEN1.d~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SLINGB2~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = SLINGB2  new_item = EVAL "%newItem%" END END
+						~SVIAN~ 	BEGIN COPY_EXISTING ~DD9400.are~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SVIAN    new_item = EVAL "%newItem%" END END
+						~TROLLARM~ 	BEGIN COPY_EXISTING ~DD9400.are~ 	~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = TROLLARM new_item = EVAL "%newItem%" END END
+						~VIOLAX~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ 	~override~ LPF REPLACE_STORE_ITEM STR_VAR old_item = VIOLAX   new_item = EVAL "%newItem%" END END
+						DEFAULT
+					END
+				END
+			END
+		END
+	BUT_ONLY	
+END
+
+
+//=============================================================================
+DEFINE_ACTION_MACRO HandleSpellScrollsContractONSETOfTheDARKESTDAY
+BEGIN
+	COPY ~%MOD_FOLDER%/_CORE/SpellScrollsContract.2da~ ~%workspace%/%COMP_FOLDER%/SpellScrollsContract.2da~
+		COUNT_2DA_ROWS 8 count
+		WHILE (count > 1) BEGIN
+			READ_2DA_ENTRY (count -1) 0 8 resname				
+			READ_2DA_ENTRY (count -1) 6 8 policy
+			SET count = count -1
+				
+			TO_UPPER resname	
+			TO_UPPER policy	
+			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)	
+			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
+			SET replace = (~%customize%~ && NOT ~%undroppable%~)
+			SPRINT newItem ~%policy%~
+			PATCH_IF (~%undroppable%~)
+				BEGIN SPRINT newItem ~SCRL75~ END
+			
+			PATCH_IF ~%customize%~ BEGIN
+				INNER_ACTION BEGIN
+					ACTION_MATCH ~%resname%~
+					WITH	
+						~SCRX1~ 	BEGIN COPY_EXISTING ~DDPOTEN1.sto~ ~override~ WRITE_ASCIIE 0x67C ~%newItem%~ #8 END
+						~SCRX3~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO06.baf~ ~%workspace%/%COMP_FOLDER%/ARPO06.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX4~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO29.baf~ ~%workspace%/%COMP_FOLDER%/ARPO29.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX6~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO05.baf~ ~%workspace%/%COMP_FOLDER%/ARPO05.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX12~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO05.baf~ ~%workspace%/%COMP_FOLDER%/ARPO05.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX14~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX18~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO29.baf~ ~%workspace%/%COMP_FOLDER%/ARPO29.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX23~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX31~ 	BEGIN COPY_EXISTING ~DD9400.are~ 	~override~ WRITE_ASCIIE 0xF48 	~%newItem%~ #8 END
+						~SCRX32~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX39~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX40~ 	BEGIN COPY_EXISTING ~DD9400.are~ 	~override~ WRITE_ASCIIE 0xF5C 	~%newItem%~ #8 END
+						~SCRX54~ 	BEGIN COPY_EXISTING ~DD9400.are~ 	~override~ WRITE_ASCIIE 0xD04 	~%newItem%~ #8 END
+						~SCRX60~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						~SCRX65~ 	BEGIN 
+										COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO05.baf~ ~%workspace%/%COMP_FOLDER%/ARPO05.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~
+										COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ 
+									END
+						~SCRX72~ 	BEGIN COPY_EXISTING ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ ~%workspace%/%COMP_FOLDER%/ARPO28.baf~ REPLACE_TEXTUALLY ~"%resname%"~ ~"%newItem%"~ END
+						DEFAULT			
+					END
+				END
+			END
+		END
+	BUT_ONLY	
+END

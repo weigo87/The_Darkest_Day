@@ -294,11 +294,20 @@ BEGIN @901020 // Main component
 	PRINT ~Priest Spells~ //@901018
 	LAF ImportComponent STR_VAR aComp = ~Spells~ END
 
-//**********************************************************
-// Wizard Spells SPWIXXXX
-//**********************************************************
-//	PRINT ~Wizard Spells~ // @901018
-//	LAF ImportComponent STR_VAR aComp = ~Spells~ END	
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// The Darkest Day : Item & Spell Balancing		   \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+	
+	BEGIN ~Item & Spell Balancing~ //@901022 
+	DESIGNATED 6
+	REQUIRE_PREDICATE MOD_IS_INSTALLED "TDD.tp2" (ID_OF_LABEL "TDD.tp2" "the_darkest_day" ) @901011
+
+	PRINT ~Item & Spell Balancing~ //@901022
+	LAF ImportComponent STR_VAR aComp = ~ItemSpellContract~ END
 	
 //=============================================================================
 /* USED DURING INITIAL DEVELOPMENT - NOT USED NOW*/

@@ -26,74 +26,10 @@ BEGIN
 	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~ LAF Accept STR_VAR sender target = ~_TROLLFORD~ END
 END
 	
-//=============================================================================
-DEFINE_ACTION_MACRO HandleItemsContract
-BEGIN
-	COPY ~%RES_FOLDER%/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/ItemsContract.2da~
-		COUNT_2DA_ROWS 7 count
-		WHILE (count > 1) BEGIN
-			READ_2DA_ENTRY (count -1) 0 7 resname				
-			READ_2DA_ENTRY (count -1) 6 7 policy //undroppable column
-			SET count = count -1
-			
-			TO_UPPER resname
-			TO_UPPER policy
-			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)
-			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
-			SPRINT newItem ~%policy%~
-			PATCH_IF (~%undroppable%~)
-				BEGIN SPRINT newItem ~SCRL75~ END
-			
-			PATCH_IF (~%customize%~) BEGIN			
-				INNER_ACTION BEGIN
-					//ACTION_MATCH ~%resname%~					
-					//WITH							
-					//	DEFAULT
-					//END
-				END
-			END
-		END
-	BUT_ONLY	
-END
 
 
-//=============================================================================
-DEFINE_ACTION_MACRO HandleSpellScrollsContract
-BEGIN
-	COPY ~%MOD_FOLDER%/_CORE/SpellScrollsContract.2da~ ~%workspace%/%COMP_FOLDER%/SpellScrollsContract.2da~
-		COUNT_2DA_ROWS 8 count
-		WHILE (count > 1) BEGIN
-			READ_2DA_ENTRY (count -1) 0 8 resname				
-			READ_2DA_ENTRY (count -1) 6 8 policy
-			SET count = count -1
-				
-			TO_UPPER resname	
-			TO_UPPER policy	
-			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)	
-			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
-			SET replace = (~%customize%~ && NOT ~%undroppable%~)
-			SPRINT newItem ~%policy%~
-			PATCH_IF (~%undroppable%~)
-				BEGIN SPRINT newItem ~SCRL75~ END
-			
-			PATCH_IF ~%customize%~ BEGIN
-				INNER_ACTION BEGIN
-					ACTION_MATCH ~%resname%~
-					WITH
-						~SCRX4~ 	BEGIN COPY_EXISTING ~DD9005.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX4  new_item = EVAL "%newItem%" END END
-						~SCRX12~ 	BEGIN COPY_EXISTING ~DD9008.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX12 new_item = EVAL "%newItem%" END END
-						~SCRX15~	BEGIN COPY_EXISTING ~DD9005.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX15 new_item = EVAL "%newItem%" END END
-						~SCRX60~	BEGIN COPY_EXISTING ~QLOOT4.cre~ ~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = SCRX60 new_item = EVAL "%newItem%" END END
-						~SCRX64~	BEGIN COPY_EXISTING ~DD9009.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX64 new_item = EVAL "%newItem%" END END
-						~SCRX68~	BEGIN COPY_EXISTING ~DD9009.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX68 new_item = EVAL "%newItem%" END END						
-						~SCRX73~	BEGIN COPY_EXISTING ~DD9005.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX73 new_item = EVAL "%newItem%" END END												
-						DEFAULT
-					END
-				END
-			END
-		END
-	BUT_ONLY	
-END
+
+
 
 
 

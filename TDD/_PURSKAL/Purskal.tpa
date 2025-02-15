@@ -34,38 +34,6 @@ BEGIN
 	INCLUDE ~%MOD_FOLDER%/Lib/Helpers.tpa~ LAF Accept STR_VAR sender target = ~_PURSKAL~ END
 END
 
-//=============================================================================
-DEFINE_ACTION_MACRO HandleItemsContract
-BEGIN
-	COPY ~%RES_FOLDER%/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/ItemsContract.2da~
-		COUNT_2DA_ROWS 7 count
-		WHILE (count > 1) BEGIN
-			READ_2DA_ENTRY (count -1) 0 7 resname				
-			READ_2DA_ENTRY (count -1) 6 7 policy //undroppable column
-			SET count = count -1
-			
-			TO_UPPER resname
-			TO_UPPER policy
-			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)
-			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
-			SPRINT newItem ~%policy%~
-			PATCH_IF (~%undroppable%~)
-				BEGIN SPRINT newItem ~SCRL75~ END
-			
-			PATCH_IF (~%customize%~) BEGIN			
-				INNER_ACTION BEGIN
-					ACTION_MATCH ~%resname%~
-					WITH
-						~CRYPTXX~ 	BEGIN COPY_EXISTING ~DD3501.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = CRYPTXX  new_item = EVAL "%newItem%" END END
-						~MISERY~ 	BEGIN COPY_EXISTING ~DD3501.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = MISERY   new_item = EVAL "%newItem%" END END						
-						~TYRANT~ 	BEGIN COPY_EXISTING ~DD3501.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = TYRANT   new_item = EVAL "%newItem%" END END						
-						DEFAULT
-					END
-				END
-			END
-		END
-	BUT_ONLY
-END
 
 //=============================================================================
 //DEFINE_ACTION_MACRO HandleBathedInBlood
@@ -87,81 +55,5 @@ END
 //		END
 //	BUT_ONLY
 //END
-
-//=============================================================================
-DEFINE_ACTION_MACRO HandleCoreItemsContract
-BEGIN
-	COPY ~%MOD_FOLDER%/_CORE/ItemsContract.2da~ ~%workspace%/%COMP_FOLDER%/CoreItemsContract.2da~
-		COUNT_2DA_ROWS 7 count
-		WHILE (count > 1) BEGIN
-			READ_2DA_ENTRY (count -1) 0 7 resname				
-			READ_2DA_ENTRY (count -1) 6 7 policy //undroppable column
-			SET count = count -1
-			
-			TO_UPPER resname
-			TO_UPPER policy
-			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)
-			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
-			SET replace = (~%customize%~ && NOT ~%undroppable%~)
-			SPRINT newItem ~%policy%~
-			PATCH_IF (~%undroppable%~)
-				BEGIN SPRINT newItem ~SCRL75~ END
-			
-			PATCH_IF (~%customize%~) BEGIN
-				INNER_ACTION BEGIN
-					ACTION_MATCH ~%resname%~
-					WITH
-						~BLOOD~ 	
-							BEGIN
-								ACTION_IF (~%replace%~) THEN BEGIN
-									ACTION_FOR_EACH cre IN ~THORK1~ ~THORK2~ ~THORK3~ ~THORK4~ ~WTTHORK5~ ~WTTHORK6~ 
-										BEGIN COPY_EXISTING ~%cre%.cre~ ~override~ LPF ~REPLACE_CRE_ITEM~ STR_VAR old_item = BLOOD new_item = EVAL "%newItem%" END END
-								END								
-							END						
-						DEFAULT
-					END
-				END
-			END
-		END
-	BUT_ONLY	
-END
-
-
-//=============================================================================
-DEFINE_ACTION_MACRO HandleSpellScrollsContract
-BEGIN
-	COPY ~%MOD_FOLDER%/_CORE/SpellScrollsContract.2da~ ~%workspace%/%COMP_FOLDER%/SpellScrollsContract.2da~
-		COUNT_2DA_ROWS 8 count
-		WHILE (count > 1) BEGIN
-			READ_2DA_ENTRY (count -1) 0 8 resname				
-			READ_2DA_ENTRY (count -1) 6 8 policy
-			SET count = count -1
-				
-			TO_UPPER resname	
-			TO_UPPER policy	
-			SET customize = NOT (~%policy%~ STRING_EQUAL ~+~ || ~%policy%~ STRING_EQUAL ~++++++++~)	
-			SET undroppable = (~%policy%~ STRING_EQUAL ~.~)
-			SET replace = (~%customize%~ && NOT ~%undroppable%~)
-			SPRINT newItem ~%policy%~
-			PATCH_IF (~%undroppable%~)
-				BEGIN SPRINT newItem ~SCRL75~ END
-			
-			PATCH_IF ~%customize%~ BEGIN
-				INNER_ACTION BEGIN
-					ACTION_MATCH ~%resname%~
-					WITH
-						~SCRX3~ 	BEGIN COPY_EXISTING ~DD3501.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX3  new_item = EVAL "%newItem%" END END
-						~SCRX7~ 	BEGIN COPY_EXISTING ~DD3503.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX7  new_item = EVAL "%newItem%" END END
-						~SCRX8~ 	BEGIN COPY_EXISTING ~DD3501.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX8  new_item = EVAL "%newItem%" END END
-						~SCRX13~ 	BEGIN COPY_EXISTING ~DD3501.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX13 new_item = EVAL "%newItem%" END END
-						~SCRX22~ 	BEGIN COPY_EXISTING ~DD3501.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX22 new_item = EVAL "%newItem%" END END
-						~SCRX32~ 	BEGIN COPY_EXISTING ~DD3503.ARE~ ~override~ LPF REPLACE_AREA_ITEM  STR_VAR old_item = SCRX32 new_item = EVAL "%newItem%" END END
-						DEFAULT
-					END
-				END
-			END
-		END
-	BUT_ONLY	
-END
 
 
