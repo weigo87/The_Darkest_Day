@@ -387,7 +387,9 @@ BEGIN
 		END
 	END
 	ACTION_IF GAME_IS ~bg2 tob bgt~ BEGIN
-		COPY ~%RES_FOLDER%/tbc/%filename%.tbc~ ~%workspace%/%COMP_FOLDER%~
+		ACTION_IF FILE_EXISTS ~%RES_FOLDER%/tbc/%filename%.tbc~ BEGIN
+			COPY ~%RES_FOLDER%/tbc/%filename%.tbc~ ~%workspace%/%COMP_FOLDER%~
+		END
 		ACTION_IF FILE_EXISTS ~%RES_FOLDER%/tbc/%filename%N.tbc~ BEGIN
 			COPY ~%RES_FOLDER%/tbc/%filename%N.tbc~ ~%workspace%/%COMP_FOLDER%~
 		END
