@@ -117,6 +117,11 @@ LANGUAGE 	~Spanish(Clan REO)~
 			~TDD/Language/Spanish/setup.tra~
 			~TDD/Language/Spanish/tp2.tra~
 
+LANGUAGE 	~Simplified Chinese~
+			~Schinese~
+			~TDD/Language/Schinese/setup.tra~
+			~TDD/Language/Schinese/tp2.tra~
+
 // TODO: TTPOT.itm has weird name in vanilla BG2EE...is it normal???
 
 
