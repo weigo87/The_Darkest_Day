@@ -1,0 +1,30 @@
+IF
+	Clicked([ANYONE])
+	Range(LastTrigger,10)
+	Global("DragonWell","AR1202",0)
+THEN
+	RESPONSE #100
+		DisplayString(Myself,40849)
+		SetGlobal("DragonWell","AR1202",1)
+END
+
+IF
+	Clicked([ANYONE])
+	Range(LastTrigger,10)
+	Global("DragonWell","AR1202",1)
+THEN
+	RESPONSE #100
+		SetGlobal("DragonWell","AR1202",2)
+		SetGlobalTimer("DragonWellElemental","AR1202",ONE_MINUTE)
+		DisplayString(Myself,40850)
+		GiveItemCreate("helm21",Player1,0,0,0)
+		TriggerActivation("Elementaltrigger",FALSE)
+END
+
+IF
+	Clicked([ANYONE])
+	!Range(LastTrigger,10)
+THEN
+	RESPONSE #100
+		DisplayString(Myself,14702)
+END

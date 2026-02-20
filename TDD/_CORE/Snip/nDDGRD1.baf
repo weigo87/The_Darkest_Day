@@ -19,10 +19,10 @@ END
 
 IF
 	HaveSpell(2326)//WIZARD_DISPEL_MAGIC)
-	OR(12)
+	OR(%12%)
 		StateCheck(ThirdNearestEnemyOf(Myself),STATE_HASTED)
 		StateCheck(ThirdNearestEnemyOf(Myself),STATE_NONDETECTION)
-		StateCheck(ThirdNearestEnemyOf(Myself),STATE_NOT_VISIBLE)
+		%STATE_NOT_VISIBLE%
 		StateCheck(ThirdNearestEnemyOf(Myself),STATE_CHANT)
 		StateCheck(ThirdNearestEnemyOf(Myself),STATE_LUCK)
 		StateCheck(ThirdNearestEnemyOf(Myself),STATE_DRAWUPONHOLYMIGHT)

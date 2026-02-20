@@ -410,17 +410,33 @@ END
 DEFINE_ACTION_MACRO InstallScripts
 BEGIN
 	// KD - 4 ToB scripts moved from /BAF/ to /SNIP/ *****
+
+	ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+				OUTER_SPRINT "STATE_NOT_VISIBLE"								"
+			StateCheck(ThirdNearestEnemyOf(Myself),STATE_INVISIBLE)
+			StateCheck(ThirdNearestEnemyOf(Myself),STATE_IMPROVEDINVISIBILITY)"
+				OUTER_SPRINT "12"								"13"
+	END ELSE BEGIN
+				OUTER_SPRINT "STATE_NOT_VISIBLE"							"StateCheck(ThirdNearestEnemyOf(Myself),STATE_NOT_VISIBLE)"
+				OUTER_SPRINT "12"							"12"
+	END
+
 	COPY_EXISTING ~DDGUARD.BCS~ ~override~
-		REPLACE_BCS_BLOCK ~%RES_FOLDER%/SNIP/oDDGRD1.BAF~ ~%RES_FOLDER%/SNIP/nDDGRD1.BAF~
+		REPLACE_BCS_BLOCK EVALUATE_BUFFER ~%RES_FOLDER%/SNIP/oDDGRD1.BAF~ ~%RES_FOLDER%/SNIP/nDDGRD1.BAF~
 		REPLACE_BCS_BLOCK ~%RES_FOLDER%/SNIP/oDDGRD2.BAF~ ~%RES_FOLDER%/SNIP/nDDGRD2.BAF~
-	
-	COPY_EXISTING ~DDWELL.BCS~ ~override~
-		REPLACE_BCS_BLOCK ~%RES_FOLDER%/SNIP/oDDWELL.BAF~ ~%RES_FOLDER%/SNIP/nDDWELL.BAF~
-	
+
+	ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
+			COPY_EXISTING ~DDWELL.BCS~ ~override~
+				REPLACE_BCS_BLOCK ~%RES_FOLDER%/SNIP/eeDDWELL.BAF~ ~%RES_FOLDER%/SNIP/neeDDWELL.BAF~
+	END ELSE BEGIN
+			COPY_EXISTING ~DDWELL.BCS~ ~override~
+				REPLACE_BCS_BLOCK ~%RES_FOLDER%/SNIP/oDDWELL.BAF~ ~%RES_FOLDER%/SNIP/nDDWELL.BAF~
+	END
+
 	//it's a general fix - G3FixPack has it
 	//COPY_EXISTING ~ANOM25.BCS~ ~override~
 	// REPLACE_BCS_BLOCK ~TDD/SNIP/oANOM25.BAF~ ~TDD/SNIP/nANOM25.BAF~
-	
+
 	// Talos temple fix for Baurian not appearing (initial submission by Isaya)
 	// Improved and weiduized by Nythrun (http://forums.gibberlings3.net/index.php?showtopic=14146)
 	COPY_EXISTING ~AR0904.BCS~ ~override~

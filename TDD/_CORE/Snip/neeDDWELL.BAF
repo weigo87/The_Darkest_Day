@@ -1,0 +1,51 @@
+IF
+	Clicked([ANYONE])
+	Range(LastTrigger,10)
+	Global("DragonWellAR1202","GLOBAL",0)
+THEN
+	RESPONSE #100
+		DisplayString(Myself,40849)
+		SetGlobal("DragonWellAR1202","GLOBAL",1)
+END
+
+IF
+	Clicked([ANYONE])
+	Range(LastTrigger,10)
+	Global("DragonWellAR1202","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("DragonWellAR1202","GLOBAL",2)
+		SetGlobalTimer("DragonWellElemental","AR1202",ONE_MINUTE)
+		DisplayString(Myself,40850)
+		GiveItemCreate("helm21",Player1,0,0,0)
+		TriggerActivation("Elementaltrigger",FALSE)
+		SetGlobal("BP_HotAir","GLOBAL",1)
+END
+
+IF
+	Global("BP_HotAir","GLOBAL",1)
+	!Difficulty(EASIEST)
+THEN
+	RESPONSE #100
+		SetGlobal("BP_HotAir","GLOBAL",2)
+		CreateCreatureObject("ELAIR01",Player1,0,0,0)
+END
+
+IF
+	Global("BP_HotAir","GLOBAL",2)
+	!Difficulty(EASY)
+	!Difficulty(EASIEST)
+	NumInPartyGT(1)
+THEN
+	RESPONSE #100
+		SetGlobal("BP_HotAir","GLOBAL",3)
+		CreateCreatureObject("ELAIRG01",Player2,0,0,0)
+END
+
+IF
+	Clicked([ANYONE])
+	!Range(LastTrigger,10)
+THEN
+	RESPONSE #100
+		DisplayString(Myself,14702)
+END
